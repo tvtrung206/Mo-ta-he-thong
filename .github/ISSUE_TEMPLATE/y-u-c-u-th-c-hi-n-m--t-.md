@@ -3,7 +3,8 @@ name: Yêu cầu thực hiện mô tả
 about: Suggest an idea for this project
 title: Yêu cầu -
 labels: ''
-assignees: ''
+assignees: vuongdh, ongtrieuhau, nghivanbi, le-an-87, chauthanhtra, hvtuan1987, minhduc2it,
+  lqbinh1987, lequocthong29, vinh-dh
 
 ---
 
