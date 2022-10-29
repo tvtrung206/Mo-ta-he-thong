@@ -9,7 +9,7 @@
   <h1>PHIẾU MÔ TẢ THAY ĐỔI HỆ THỐNG</h1>  
 </div>
 
-#### CHỦ ĐỀ: MÃ HÓA HÌNH THỨC KHÁM BỆNH, CHỮA BỆNH ĐỐI VỚI BỆNH NHÂN ĐIỀU TRỊ NỘI TRÚ 4h TRỞ XUỐNG
+### CHỦ ĐỀ: MÃ HÓA HÌNH THỨC KHÁM BỆNH, CHỮA BỆNH ĐỐI VỚI BỆNH NHÂN ĐIỀU TRỊ NỘI TRÚ 4h TRỞ XUỐNG
 
 ###### :eight_spoked_asterisk: Người lập: [**ÔNG TRIỆU HẬU**](https://github.com/ongtrieuhau)
 
