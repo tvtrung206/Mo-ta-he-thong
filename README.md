@@ -1,4 +1,3 @@
 # Mo-ta-he-thong
-test fork tại user forded
-Edit tại main owner
-==
+
+https://gist.github.com/rxaviers/7360908
