@@ -9,9 +9,9 @@
   <h1>PHIẾU MÔ TẢ THAY ĐỔI HỆ THỐNG</h1>  
 </div>
 
-#### CHỦ ĐỀ: MÃ HÓA HÌNH THỨC KHÁM BỆNH, CHỮA BỆNH ĐỐI VỚI BỆNH NHÂN ĐIỀU TRỊ NỘI TRÚ DƯỚI 4H
+#### CHỦ ĐỀ: MÃ HÓA HÌNH THỨC KHÁM BỆNH, CHỮA BỆNH ĐỐI VỚI BỆNH NHÂN ĐIỀU TRỊ NỘI TRÚ 4h TRỞ XUỐNG
 
-###### :eight_spoked_asterisk: Người lập: **ÔNG TRIỆU HẬU**
+###### :eight_spoked_asterisk: Người lập: [**ÔNG TRIỆU HẬU**](https://github.com/ongtrieuhau)
 
 ###### :eight_spoked_asterisk: Ngày lập: **29/10/2022**
 
@@ -26,11 +26,7 @@
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu:
 
-<div align="left">
-
 :white_check_mark: **Module Treatment - Kiểm soát chi phí tiền giường**
-
-</div>
 
 -  Thực hiện cảnh báo người dùng biết khi chỉ định chi phí giường bệnh nếu **[Giờ chỉ định] - [Vào viện] <= 4h**.
 -  Khi xuất viện thực hiện cảnh báo chi phí bệnh nhân có tiền giường để người dùng xử lý lại phần chi phí này trường hợp **[Ra viện] - [Vào viện] <= 4h**.
