@@ -40,4 +40,4 @@
    `MA_LOAI_KCB = 9`
    `NGAY_VAO_NOI_TRU = Ngày giờ vào viện xử lý với định dạng ngày giờ qui định theo 4210`
    
-- Test
+
