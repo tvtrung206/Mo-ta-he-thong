@@ -38,3 +38,5 @@
 
 -  Dữ liệu MA_LOAI_KCB: `MA_LOAI_KCB = 9`
 -  Dữ liệu NGAY_VAO_NOI_TRU: thêm trường NGAY_VAO_NOI_TRU vào XML1 theo điều kiện tham số hệ thống xml4210.NGAY_VAO_NOI_TRU = 1, ngược lại (không tồn tại tham số này hoặc giá trị khác 1) thì không thêm. Và giá trị của trường này ghi nhận như sau `NGAY_VAO_NOI_TRU = Ngày giờ vào viện xử lý với định dạng ngày giờ qui định theo 4210`.
+
+:white_check_mark: Duyệt: Ok thực hiện theo mô tả trên nha (ngày 07/11/2022 hoàn thành)
