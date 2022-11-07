@@ -34,8 +34,7 @@
 -  Thực hiện cảnh báo người dùng biết khi chỉ định chi phí giường bệnh nếu **[Giờ chỉ định] - [Vào viện] <= 4h**.
 -  Khi xuất viện thực hiện cảnh báo chi phí bệnh nhân có tiền giường để người dùng xử lý lại phần chi phí này trường hợp **[Ra viện] - [Vào viện] <= 4h**.
 
-:white_check_mark: **Module Chức năng xuất XML theo 4210**
+:white_check_mark: **Module Chức năng xuất XML theo 4210**: Xử lý XML1 khi hồ sơ có **[Ra viện] - [Vào viện] <= 4h**
 
--  Xử lý XML1 khi hồ sơ có **[Ra viện] - [Vào viện] <= 4h**, ghi nhận như sau:
-   `MA_LOAI_KCB = 9`
-   `NGAY_VAO_NOI_TRU = Ngày giờ vào viện xử lý với định dạng ngày giờ qui định theo 4210`
+-  Dữ liệu MA_LOAI_KCB: `MA_LOAI_KCB = 9`
+-  Dữ liệu NGAY_VAO_NOI_TRU: thêm trường NGAY_VAO_NOI_TRU vào XML1 theo điều kiện tham số hệ thống xml4210.NGAY_VAO_NOI_TRU = 1, ngược lại (không tồn tại tham số này hoặc giá trị khác 1) thì không thêm. Và giá trị của trường này ghi nhận như sau `NGAY_VAO_NOI_TRU = Ngày giờ vào viện xử lý với định dạng ngày giờ qui định theo 4210`.
