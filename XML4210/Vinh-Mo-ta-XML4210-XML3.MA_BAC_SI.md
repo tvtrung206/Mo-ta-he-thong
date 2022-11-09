@@ -24,7 +24,7 @@
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh:
 
-- Thực hiện theo yêu cầu chi tiết tại: [Yêu cầu - Mô tả chi tiết cột 25 [MA_BAC_SI] khi xuất XML 4201](https://github.com/dh-hos/Mo-ta-he-thong/issues/19)
+- Thực hiện theo yêu cầu chi tiết tại: [Yêu cầu - Mô tả chi tiết cột 25 [MA_BAC_SI] khi xuất XML 4210](https://github.com/dh-hos/Mo-ta-he-thong/issues/19)
 - Thực hiện theo Quyết định: [4210/QĐ-BYT - ngày 20/09/2017 của Bộ Y tế](https://github.com/dh-hos/Mo-ta-he-thong/files/9967120/QD-2017-4210_20170920.pdf)
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu: Các phân hệ xuất dữ liệu theo 4210
