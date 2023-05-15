@@ -33,7 +33,17 @@
 1. Thêm cột `dmcls.vocamgayte` `NUMERIC (1,0)` `(0: Bình thường, 1: Thuộc phẫu thuật vô cảm gây tê)`
 2. Thêm tham số sử dụng chung `XML.vocamgayte` `Thanh toán phẫu thuật sử dụng phương pháp vô cảm gây tê theo Công văn 1731-BHXH-GĐĐT (0: Không áp dụng, 1: Áp dụng)`
 
+- `ALTER TABLE current.dmcls ADD COLUMN vocamgayte NUMERIC(1,0) DEFAULT 0;
+COMMENT ON COLUMN current.dmcls.vocamgayte IS '(0: Bình thường, 1: Thuộc phẫu thuật vô cảm gây tê)';`
+- `INSERT INTO current.system (id,tents,diengiai,giatri,loai,module)
+SELECT (SELECT max(id)+1 FROM current.system),
+ 'XML.vocamgayte',
+ 'Thanh toán phẫu thuật sử dụng phương pháp vô cảm gây tê theo Công văn 1731-BHXH-GĐĐT (0: Không áp dụng, 1: Áp dụng)',
+    0,0,1
+WHERE NOT EXISTS (SELECT tents FROM current.system WHERE tents = 'XML.vocamgayte');`
+
 :white_check_mark: **Module Admin - Thêm chức năng cấu hình những cận lâm sàng thuộc Phẫu thuật sử dụng phương pháp vô cảm gây tê**
+
 1. Thêm checkbox để xác định những cận lâm sàng thuộc loại vô cảm gây tê dựa vào giá trị của `dmcls.vocamgayte`
 
 :white_check_mark: **Module + Chức năng xuất XML4210**
@@ -43,4 +53,4 @@
 
 - `XML3.MA_DICH_VU` sẽ nối thêm chuỗi `_GT` khi thực hiện xuất XML
 - `XML3.TEN_DICH_VU` sẽ nối thêm chuỗi `[gây tê]` khi thực hiện xuất XML
-- Áp dụng đối với những hàng hóa thuộc [Toa Vật tư kèm theo] những cận lâm sàng có cấu hình `dmcls.vocamgayte = 1`, `XML2.MA_THUOC` sẽ nối thêm chuỗi `_GT` khi thực hiện xuất XML
+- Áp dụng đối với những hàng hóa thuộc [Toa Vật tư kèm theo] những cận lâm sàng có cấu hình `dmcls.vocamgayte = 1`, `XML2.MA_THUOC` sẽ nối thêm chuỗi XML3.MA_DICH_VU và `_GT` theo cú pháp `MATHUOC_MADVKT_GT` [Theo yêu cầu](https://github.com/dh-hos/dhg.hospitaladmin/issues/36) khi thực hiện xuất XML
