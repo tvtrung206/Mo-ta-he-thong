@@ -22,7 +22,7 @@
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
-- Kiểm tra thông tin sinh hiệu bệnh nhân trước khi khám.
+- Kiểm tra thông tin sinh hiệu bệnh nhân trước khi khám, thay đổi diễn biến
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
@@ -32,6 +32,6 @@ Thêm tham số sử dụng chung `ktsinhhieu` `Kiểm tra thông tin sinh hiệ
 
 :white_check_mark: **Xử lý**
 + Khi ktsinhhieu = 0: không kiểm tra nhập thông tin sinh hiệu
-+ Khi ktsinhhieu = 1: 
++ Khi ktsinhhieu = 1:
             - Ngoại trú, bệnh án ngoại trú thanh toán ngày: không cho khám khi chưa nhập đủ thông tin sinh hiệu.
             - Nội trú, bệnh án ngoại trú thanh toán đợt: khi thêm và chỉnh diễn biến không cho lưu khi chưa nhập đủ thông tin sinh hiệu.
