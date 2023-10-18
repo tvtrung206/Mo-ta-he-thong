@@ -28,7 +28,7 @@
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 
-Thêm tham số sử dụng chung `ktsinhhieu` `Kiểm tra thông tin sinh hiệu trước khi khám (0: không; 1: bắt buộc;)`
+Bi: Thêm tham số sử dụng chung `ktsinhhieu` `Kiểm tra thông tin sinh hiệu trước khi khám (0: không; 1: bắt buộc;)`
 
 :white_check_mark: **Xử lý**
 + Khi ktsinhhieu = 0: không kiểm tra nhập thông tin sinh hiệu
