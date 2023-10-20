@@ -28,15 +28,26 @@
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
+Bi cập nhật cấu trúc:
+- Thêm tham số phieuyc.cauhinh (Thực hiện cấu hình phiếu yêu cầu nhóm theo loại cận lâm sàng (0: không sử dụng; 1: sử dụng)
+- Thêm table dmphieuyc:
+CREATE TABLE current.dmphieuyc (
+  phieuyc NUMERIC(1,0),
+  tenphieuyc VARCHAR(1000),
+  PRIMARY KEY(phieuyc)
+) 
+WITH (oids = false);
 
+ALTER TABLE current.dmphieuyc
+  ALTER COLUMN phieuyc SET STATISTICS 0;
 :white_check_mark: **Xử lý**
 + Module Admin:
-  Hiển thị và cho phép người dùng cập nhật giá trị dmloaicls.phieuyc (numeric (1,0)) hỗ trợ cấu hình nhóm loại cận lâm sàng cần in cùng phiếu chỉ định;
-+ Module Prescription:
-  Khi tham số phieuycchuan = 2 thực hiện.
-  Trong từng kho tiến hành gom các loại cận lâm sàng có cấu hình dmloaicls.phieuyc giống nhau in cùng phiếu.
-  Thiết kế phiếu chỉ định bằng Xtrareport.
-+ Module Treatment:
-  Khi tham số nt.phieuycchuan = 2 thực hiện.
-  Trong từng kho tiến hành gom các loại cận lâm sàng có cấu hình dmloaicls.phieuyc giống nhau in cùng phiếu.
-  Thiết kế phiếu chỉ định bằng Xtrareport.
+  Khi tham số phieuyc.cauhinh = 1
+  Hỗ trợ người dùng cập nhật danh mục phiếu yêu cầu: current.dmphieuyc.
+  Hiển thị và cho phép người dùng chọn Phiếu yêu cầu (giá từ table current.dmphieuyc) tại danh mục Loại cận lâm sàng (giá trị cột dmloaicls.phieuyc) 
++ Module Prescription, Module Treatment:
+  Khi tham số phieuyc.cauhinh = 1 thực hiện.
+  In phiếu chỉ định theo cấu hình phiếu cận lâm sàng: các cận lâm sàng có cùng gía trị dmloaicls.phieuyc lên cùng phiếu chỉ định.
+  Thiết kế phiếu chỉ định bằng Xtrareport, bổ sung parameter "tenphieuyc": lấy từ current.dmphieuyc.tenphieuyc tương ứng từng phiếu chỉ định.
+  
+
