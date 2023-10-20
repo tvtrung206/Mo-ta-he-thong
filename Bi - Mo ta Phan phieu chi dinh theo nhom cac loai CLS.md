@@ -17,22 +17,26 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**NGHỊ VĂN BI**](https://github.com/ongtrieuhau)
 
-###### :eight_spoked_asterisk: Ngày lập: **18/10/2023**
+###### :eight_spoked_asterisk: Ngày lập: **20/10/2023**
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
-- Kiểm tra thông tin sinh hiệu bệnh nhân trước khi khám, thay đổi diễn biến
+- Phân nhóm phiếu chỉ định cận lâm sàng theo nhóm loại cận lâm sàng trong cùng kho
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 
-Bi: Thêm tham số sử dụng chung `ktsinhhieu` `Kiểm tra thông tin sinh hiệu trước khi khám (0: không; 1: bắt buộc;)`
-
 :white_check_mark: **Xử lý**
-+ Khi ktsinhhieu = 0: không kiểm tra nhập thông tin sinh hiệu
-+ Khi ktsinhhieu = 1:
-            - Ngoại trú, bệnh án ngoại trú thanh toán ngày: không cho khám khi chưa nhập đủ thông tin sinh hiệu.
-            - Nội trú, bệnh án ngoại trú thanh toán đợt: khi thêm và chỉnh diễn biến không cho lưu khi chưa nhập đủ thông tin sinh hiệu.
++ Module Admin:
+- Hiển thị và cho phép người dùng cập nhật giá trị dmloaicls.phieuyc (numeric (1,0)) hỗ trợ cấu hình nhóm loại cận lâm sàng cần in cùng phiếu chỉ định;
++ Module Prescription:
+  Khi tham số phieuycchuan = 2 thực hiện
+- Trong từng kho tiến hành gom các loại cận lâm sàng có cấu hình dmloaicls.phieuyc giống nhau in cùng phiếu.
+- Thiết kế phiếu chỉ định bằng Xtrareport.
++ Module Treatment:
+  Khi tham số nt.phieuycchuan = 2 thực hiện
+- Trong từng kho tiến hành gom các loại cận lâm sàng có cấu hình dmloaicls.phieuyc giống nhau in cùng phiếu.
+- Thiết kế phiếu chỉ định bằng Xtrareport.
