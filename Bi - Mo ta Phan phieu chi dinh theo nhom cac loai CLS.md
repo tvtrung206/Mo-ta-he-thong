@@ -47,6 +47,7 @@ ALTER TABLE current.dmphieuyc
   Hỗ trợ người dùng cập nhật danh mục phiếu yêu cầu: current.dmphieuyc.
   Hiển thị và cho phép người dùng chọn Phiếu yêu cầu (giá từ table current.dmphieuyc) tại danh mục Loại cận lâm sàng (giá trị cột dmloaicls.phieuyc) 
 + Module Prescription, Module Treatment:
+  Khi tham số phieuyc.cauhinh = 0 thực hiện như hiện tại.
   Khi tham số phieuyc.cauhinh = 1 thực hiện.
   In phiếu chỉ định theo cấu hình phiếu cận lâm sàng: các cận lâm sàng có cùng gía trị dmloaicls.phieuyc lên cùng phiếu chỉ định.
   Thiết kế phiếu chỉ định bằng Xtrareport, bổ sung parameter "tenphieuyc": lấy từ current.dmphieuyc.tenphieuyc tương ứng từng phiếu chỉ định.
