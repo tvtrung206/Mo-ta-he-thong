@@ -40,6 +40,7 @@ WITH (oids = false);
 
 ALTER TABLE current.dmphieuyc
   ALTER COLUMN phieuyc SET STATISTICS 0;
+  
 :white_check_mark: **Xử lý**
 + Module Admin:
   Khi tham số phieuyc.cauhinh = 1
