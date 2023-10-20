@@ -33,10 +33,10 @@
 + Module Admin:
   Hiển thị và cho phép người dùng cập nhật giá trị dmloaicls.phieuyc (numeric (1,0)) hỗ trợ cấu hình nhóm loại cận lâm sàng cần in cùng phiếu chỉ định;
 + Module Prescription:
-  Khi tham số phieuycchuan = 2 thực hiện
+  Khi tham số phieuycchuan = 2 thực hiện.
   Trong từng kho tiến hành gom các loại cận lâm sàng có cấu hình dmloaicls.phieuyc giống nhau in cùng phiếu.
   Thiết kế phiếu chỉ định bằng Xtrareport.
 + Module Treatment:
-  Khi tham số nt.phieuycchuan = 2 thực hiện
+  Khi tham số nt.phieuycchuan = 2 thực hiện.
   Trong từng kho tiến hành gom các loại cận lâm sàng có cấu hình dmloaicls.phieuyc giống nhau in cùng phiếu.
   Thiết kế phiếu chỉ định bằng Xtrareport.
