@@ -28,6 +28,7 @@
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
+
 Bi cập nhật cấu trúc:
 - Thêm cột ngaygiodk vào bảng current.pstiepnhan (Ghi nhận thời gian bệnh nhân đến lấy số tiếp nhận)
 
