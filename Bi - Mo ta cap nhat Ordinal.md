@@ -17,40 +17,27 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**NGHỊ VĂN BI**](https://github.com/ongtrieuhau)
 
-###### :eight_spoked_asterisk: Ngày lập: **20/10/2023**
+###### :eight_spoked_asterisk: Ngày lập: **01/11/2023**
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
-- Phân nhóm phiếu chỉ định cận lâm sàng theo nhóm loại cận lâm sàng trong cùng kho
+- Ghi nhận thời gian cụ thể (giờ, phút, giây) thời gian đăng ký tại Kios của bệnh nhân.
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 Bi cập nhật cấu trúc:
-- Thêm tham số phieuyc.cauhinh (Thực hiện cấu hình phiếu yêu cầu nhóm theo loại cận lâm sàng (0: không sử dụng; 1: sử dụng)
-- Thêm table dmphieuyc:
-CREATE TABLE current.dmphieuyc (
-  phieuyc NUMERIC(1,0),
-  tenphieuyc VARCHAR(1000),
-  PRIMARY KEY(phieuyc)
-) 
-WITH (oids = false);
+- Thêm cột ngaygiodk vào bảng current.pstiepnhan (Ghi nhận thời gian bệnh nhân đến lấy số tiếp nhận)
 
-ALTER TABLE current.dmphieuyc
-  ALTER COLUMN phieuyc SET STATISTICS 0;
+ALTER TABLE current.pstiepnhan
+  ADD COLUMN ngaygiodk TIMESTAMP(0) WITHOUT TIME ZONE;
   
 :white_check_mark: **Xử lý**
-+ Module Admin:
-  Khi tham số phieuyc.cauhinh = 1
-  Hỗ trợ người dùng cập nhật danh mục phiếu yêu cầu: current.dmphieuyc.
-  Hiển thị và cho phép người dùng chọn Phiếu yêu cầu (giá từ table current.dmphieuyc) tại danh mục Loại cận lâm sàng (giá trị cột dmloaicls.phieuyc) 
-+ Module Prescription, Module Treatment:
-  Khi tham số phieuyc.cauhinh = 0 thực hiện như hiện tại.
-  Khi tham số phieuyc.cauhinh = 1 thực hiện.
-  In phiếu chỉ định theo cấu hình phiếu cận lâm sàng: các cận lâm sàng có cùng gía trị dmloaicls.phieuyc lên cùng phiếu chỉ định.
-  Thiết kế phiếu chỉ định bằng Xtrareport, bổ sung parameter "tenphieuyc": lấy từ current.dmphieuyc.tenphieuyc tương ứng từng phiếu chỉ định.
++ Module Ordinal:
+ - Cập nhật thêm giá trị vào cột ngaygiodk.
+ - Thêm một parameter ngaygiodk trên report in phiếu thứ tự hỗ trợ người dùng sử dụng khi có nhu cầu.
   
 
 
