@@ -39,7 +39,7 @@ SELECT
     'iphotstandby', E'Cấu hình địa chỉ IP đóng vai trò máy phụ trong cơ chế đồng bộ dữ liệu Postgres (Module Reports xác định đây là máy phụ sẽ không thực hiện thêm dữ liệu)'
     ,
     0,
-    1,
+    0,
     0
 WHERE NOT EXISTS (SELECT tents FROM current.system WHERE tents = 'iphotstandby');`
 
