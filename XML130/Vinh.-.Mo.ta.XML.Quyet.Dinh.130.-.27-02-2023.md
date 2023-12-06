@@ -119,15 +119,20 @@ Giá trị kết quả điều trị này được lấy từ current.dmketqua v
 
 :white_check_mark: **CẤU TRÚC DỮ LIỆU LƯU TRỮ 13 TABLE THEO QĐ130**
 
-1. Table **xml130.checkin**: Bảng chỉ tiêu dữ liệu về trạng thái khám bệnh, chữa bệnh (Bảng check-in). Đây là bảng phục vụ thông tuyến thẻ BHYT khi người bệnh đến khám nhiều nơi KCB (nếu có).
+1. Table **xml130.checkin: Bảng chỉ tiêu dữ liệu về trạng thái khám bệnh, chữa bệnh (Bảng check-in). Đây là bảng phục vụ thông tuyến thẻ BHYT khi người bệnh đến khám nhiều nơi KCB (nếu có).**
+
 ![Alt text](File-ho-tro/xml130.checkin.jpg)
+
 **Giá trị ma_doituong_kcb**
+
 ![Alt text](File-ho-tro/ma_doituong_kcb.jpg)
 
 2. Table **xml130.bang1: Chỉ tiêu tổng hợp khám bệnh, chữa bệnh**
 
 ![Alt text](File-ho-tro/xml130.bang1-0.jpg)![Alt text](File-ho-tro/xml130.bang1-1.jpg)![Alt text](File-ho-tro/xml130.bang1-2.jpg)![Alt text](File-ho-tro/xml130.bang1-3.jpg)![Alt text](File-ho-tro/xml130.bang1-4.jpg)![Alt text](File-ho-tro/xml130.bang1-5.jpg)![Alt text](File-ho-tro/xml130.bang1-6.jpg)
+
 **Giá trị ma_doituong_kcb**
+
 ![Alt text](File-ho-tro/ma_doituong_kcb.jpg)
 3. Table **xml130.bang2: Chỉ tiêu chi tiết thuốc**
 
