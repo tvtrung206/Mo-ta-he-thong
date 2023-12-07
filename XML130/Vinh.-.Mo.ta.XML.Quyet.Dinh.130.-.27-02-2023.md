@@ -26,13 +26,19 @@
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
+:white_check_mark: **Cấu trúc bảng XML**
+
+- [Excel hỗ trợ](/XML130/File-ho-tro/postgres-table.xlsx)
+
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 
 :blue_book: Cập nhật cấu trúc, bổ sung cột lưu trữ mã ICD-9 CM Danh mục chuyển đổi giữa danh mục kỹ thuật tương đương và phân loại phẫu thuật, thủ thuật quốc tế ICD-9 CM.
 
 `current.dmcls.maicd9 VARCHAR(20): Mã ICD-9 CM`
 
-Đính kèm: [QD4440-Quyet đinh ban hanh ICD-9 CM thí điểm DRG.signed.pdf](/XML130/File-ho-tro/QD4440-Quyet%20đinh%20ban%20hanh%20ICD-9%20CM%20thí%20điểm%20DRG.signed.pdf) [Phu luc 3 - Danh muc ICD-9 CM Vol3.xlsx](/XML130/File-ho-tro/Phu%20luc%203%20-%20Danh%20muc%20ICD-9%20CM%20Vol3.xlsx)
+Đính kèm: 
+- [QD4440-Quyet đinh ban hanh ICD-9 CM thí điểm DRG.signed.pdf](/XML130/File-ho-tro/QD4440-Quyet%20đinh%20ban%20hanh%20ICD-9%20CM%20thí%20điểm%20DRG.signed.pdf) 
+- [Phu luc 3 - Danh muc ICD-9 CM Vol3.xlsx](/XML130/File-ho-tro/Phu%20luc%203%20-%20Danh%20muc%20ICD-9%20CM%20Vol3.xlsx)
 
 :blue_book: Cập nhật cấu trúc table psdangky [^2023-12-07]
 
