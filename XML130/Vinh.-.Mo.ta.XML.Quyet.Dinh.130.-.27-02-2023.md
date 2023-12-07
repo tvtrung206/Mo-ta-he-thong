@@ -16,7 +16,6 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/ongtrieuhau)
 
-
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
@@ -35,7 +34,7 @@
 
 Đính kèm: [QD4440-Quyet đinh ban hanh ICD-9 CM thí điểm DRG.signed.pdf](/XML130/File-ho-tro/QD4440-Quyet%20đinh%20ban%20hanh%20ICD-9%20CM%20thí%20điểm%20DRG.signed.pdf) [Phu luc 3 - Danh muc ICD-9 CM Vol3.xlsx](/XML130/File-ho-tro/Phu%20luc%203%20-%20Danh%20muc%20ICD-9%20CM%20Vol3.xlsx)
 
-:blue_book: Cập nhật cấu trúc table psdangky
+:blue_book: Cập nhật cấu trúc table psdangky [^2023-12-07]
 
 `current.psdangky.trangthaichuyentuyen NUMERIC(1,0): Ghi nhận trạng thái chuyển tuyến từ tuyến dưới chuyển lên. Giá trị: (null): không có thông tin chuyển tuyến. 1: Chuyển tuyến theo yêu cầu. 2: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB). 3: Hẹn tái khám. 4: Chuyển tuyến người bệnh khám và điều trị bệnh lao. 5: Giấy hẹn lãnh thuốc.`
 
@@ -43,15 +42,9 @@
 
 `current.psdangky.giayluu BYTEA: Lưu trữ Giấy chuyển tuyến/Giấy hẹn tái khám/Giấy xác nhận cư trú (do người dùng scan hoặc chụp).`
 
-`current.psdangky.ngay55lientuc DATE: Ngày người bệnh tham gia BHYT đủ 05 năm liên tục.`
+:blue_book: Cập nhật cấu trúc table ttcon [^2023-12-07]
 
-:blue_book: Cập nhật cấu trúc table bnnoitru
-
-`current.bnnoitru.ngay55lientuc DATE: Ngày người bệnh tham gia BHYT đủ 05 năm liên tục.`
-
-:blue_book: Cập nhật cấu trúc table ttcon
-
-`current.ttcon.ngay55lientuc DATE: Ngày người bệnh tham gia BHYT đủ 05 năm liên tục (thẻ thứ 2).`
+`current.ttcon.ngay5nam DATE: Ngày người bệnh tham gia BHYT đủ 05 năm liên tục (thẻ thứ 2).`
 
 :blue_book: Cập nhật cấu trúc table dmthuoc
 
@@ -86,7 +79,7 @@
 
 - Bổ sung Control cho phép người dùng chọn và lưu tập tin (của giấy chuyển tuyến/giấy hẹn tái khám) khi psdangky.manoigt khác rỗng.
 
-- Bổ sung Control lấy và cập nhật thông tin ngày người bệnh tham gia BHYT đủ 05 năm liên tục tương ứng với cột psdangky.ngay55lientuc.
+- Bổ sung Control lấy và cập nhật thông tin ngày người bệnh tham gia BHYT đủ 05 năm liên tục tương ứng với cột psdangky.ngay5nam.
 
 :blue_book: Module Prescription:
 
@@ -109,7 +102,7 @@ Giá trị kết quả điều trị này được lấy từ current.dmketqua v
 
 :blue_book: Module Treatment:
 
-- Bổ sung Control lấy và cập nhật thông tin ngày người bệnh tham gia BHYT đủ 05 năm liên tục tương ứng với cột bnnoitru.ngay55lientuc đối với thẻ 1 và ttcon.ngay55lientuc đối với thẻ 2.
+- Bổ sung Control lấy và cập nhật thông tin ngày người bệnh tham gia BHYT đủ 05 năm liên tục tương ứng với cột bnnoitru.ngay5nam đối với thẻ 1 và ttcon.ngay5nam đối với thẻ 2.
 
 - Tại form xuất viện, khi thao tác lưu thông tin người bệnh được xuất viện -> Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang12).
 
@@ -129,7 +122,9 @@ Giá trị kết quả điều trị này được lấy từ current.dmketqua v
 
 2. Table **xml130.bang1: Chỉ tiêu tổng hợp khám bệnh, chữa bệnh**
 
-![Alt text](File-ho-tro/xml130.bang1-0.jpg)![Alt text](File-ho-tro/xml130.bang1-1.jpg)![Alt text](File-ho-tro/xml130.bang1-2.jpg)![Alt text](File-ho-tro/xml130.bang1-3.jpg)![Alt text](File-ho-tro/xml130.bang1-4.jpg)![Alt text](File-ho-tro/xml130.bang1-5.jpg)![Alt text](File-ho-tro/xml130.bang1-6.jpg)
+![Alt text](File-ho-tro/xml130.bang1-0.jpg)![Alt text](File-ho-tro/xml130.bang1-1.jpg)![Alt text](File-ho-tro/xml130.bang1-2.jpg)![Alt text](File-ho-tro/xml130.bang1-3.jpg)![Alt text](File-ho-tro/xml130.bang1-4.jpg)![Alt text](File-ho-tro/xml130.bang1-5.jpg)
+[^2023-12-07]
+![Alt text](File-ho-tro/xml130.bang1-6.jpg)
 
 **Giá trị ma_doituong_kcb**
 
@@ -155,3 +150,6 @@ Giá trị kết quả điều trị này được lấy từ current.dmketqua v
 11. Table **xml130.bang11: Chỉ tiêu dữ liệu giấy chứng nhận nghỉ hưởng bảo hiểm xã hội**![Alt text](File-ho-tro/xml130.bang11-0.jpg)![Alt text](File-ho-tro/xml130.bang11-1.jpg)![Alt text](File-ho-tro/xml130.bang11-2.jpg)
 12. Table **xml130.bang12: Chỉ tiêu dữ liệu giám định y khoa.**
 ![Alt text](File-ho-tro/xml130.bang12-0.jpg)![Alt text](File-ho-tro/xml130.bang12-1.jpg)![Alt text](File-ho-tro/xml130.bang12-2.jpg)![Alt text](File-ho-tro/xml130.bang12-3.jpg)![Alt text](File-ho-tro/xml130.bang12-4.jpg)
+
+
+[^2023-12-07]: Thay đổi ngày 2023-12-07 (sử dụng lại cột `ngay5nam` trong `psdangky` và `bnnoitru`, thay đổi tên cột `ngay55lientuc` bằng `ngay5nam` trong bảng `ttcon`, `xml130.bang1.nam_nam_lien_tuc` lấy dữ liệu từ cột `ngay5nam`).
