@@ -35,67 +35,61 @@
 - SQLScript: 
 
 ```
-  CREATE TABLE current.tinhtrangdinhduong (
-    stt NUMERIC NOT NULL,
-    tuoi NUMERIC(3,0),
-    cannangrv NUMERIC(5,0),
-    cannang_dg NUMERIC(1,0),
-    sutcan1thang_dg NUMERIC(1,0),
-    luongan1tuan_dg NUMERIC(1,0),
-    duongnuoian_khct NUMERIC(1,0),
-    hoichuandd_khct NUMERIC(1,0),
-    taidanhgia_khct NUMERIC(1,0),
-    ketluan NUMERIC(1,0),
-    ngaylap TIMESTAMP(0) WITHOUT TIME ZONE,
-    donvituoi NUMERIC(1,0),
-    mabn VARCHAR(20),
-    maba VARCHAR(20),
-    makb VARCHAR(20),
-    dalap NUMERIC(1,0),
-    CONSTRAINT tinhtrangdinhduong_pkey PRIMARY KEY(stt)
-  ) 
-  WITH (oids = false);
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.cannang_dg
-  IS '1: > -1SD
-  2: -1 SD đến > -2SD
-  3: ≤ -2 SD';
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.sutcan1thang_dg
-  IS '1: Không sụt cân
-  2: Tăng cân < 50% so với chuẩn ở trẻ < 2 tuổi
-  3: Tăng cân < 25% so với chuẩn ở trẻ < 2 tuổi
-  4: Sụt cân 7.5% trọng lượng ở trẻ ≥ 2 tuổi
-  5: Sụt cân 10% trọng lượng ở trẻ ≥ 2 tuổi';
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.luongan1tuan_dg
-  IS '1: Không giảm hoặc giảm nhẹ
-  2: Giảm ≥ 50% trong tuần qua
-  3: Giảm ≥ 75% trong tuần qua';
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.duongnuoian_khct
-  IS '1: Đường miệng
-  2: Ống thông
-  3: Tĩnh mạch';
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.hoichuandd_khct
-  IS '1: có
-  2: không';
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.taidanhgia_khct
-  IS '1: Sau 7 ngày (ở bệnh nhi không suy dinh dưỡng)
-  2: Sau 3 ngày (ở bệnh nhi suy dinh dưỡng)';
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.ketluan
-  IS '1: Không SDD
-  2: Suy dinh dưỡng';
-  
-  COMMENT ON COLUMN current.tinhtrangdinhduong.donvituoi
-  IS '1: tuổi
-  2: tuần tuổi';
-  
-  ALTER TABLE current.tinhtrangdinhduong
-    OWNER TO postgres;
+      CREATE TABLE current.tinhtrangdinhduong (
+      stt NUMERIC NOT NULL,
+      cannangrv NUMERIC(5,0),
+      cannang_dg NUMERIC(1,0),
+      sutcan1thang_dg NUMERIC(1,0),
+      luongan1tuan_dg NUMERIC(1,0),
+      duongnuoian_khct NUMERIC(1,0),
+      hoichuandd_khct NUMERIC(1,0),
+      taidanhgia_khct NUMERIC(1,0),
+      ketluan NUMERIC(1,0),
+      ngaylap TIMESTAMP(0) WITHOUT TIME ZONE,
+      mabn VARCHAR(20),
+      maba VARCHAR(20),
+      makb VARCHAR(20),
+      dalap NUMERIC(1,0),
+      CONSTRAINT tinhtrangdinhduong_pkey PRIMARY KEY(stt)
+    ) 
+    WITH (oids = false);
+    
+    COMMENT ON COLUMN current.tinhtrangdinhduong.cannang_dg
+    IS '1: > -1SD
+    2: -1 SD đến > -2SD
+    3: ≤ -2 SD';
+    
+    COMMENT ON COLUMN current.tinhtrangdinhduong.sutcan1thang_dg
+    IS '1: Không sụt cân
+    2: Tăng cân < 50% so với chuẩn ở trẻ < 2 tuổi
+    3: Tăng cân < 25% so với chuẩn ở trẻ < 2 tuổi
+    4: Sụt cân 7.5% trọng lượng ở trẻ ≥ 2 tuổi
+    5: Sụt cân 10% trọng lượng ở trẻ ≥ 2 tuổi';
+    
+    COMMENT ON COLUMN current.tinhtrangdinhduong.luongan1tuan_dg
+    IS '1: Không giảm hoặc giảm nhẹ
+    2: Giảm ≥ 50% trong tuần qua
+    3: Giảm ≥ 75% trong tuần qua';
+    
+    COMMENT ON COLUMN current.tinhtrangdinhduong.duongnuoian_khct
+    IS '1: Đường miệng
+    2: Ống thông
+    3: Tĩnh mạch';
+    
+    COMMENT ON COLUMN current.tinhtrangdinhduong.hoichuandd_khct
+    IS '1: có
+    2: không';
+    
+    COMMENT ON COLUMN current.tinhtrangdinhduong.taidanhgia_khct
+    IS '1: Sau 7 ngày (ở bệnh nhi không suy dinh dưỡng)
+    2: Sau 3 ngày (ở bệnh nhi suy dinh dưỡng)';
+    
+    COMMENT ON COLUMN current.tinhtrangdinhduong.ketluan
+    IS '1: Không SDD
+    2: Suy dinh dưỡng';
+    
+    ALTER TABLE current.tinhtrangdinhduong
+      OWNER TO postgres;
 ```
 
 
