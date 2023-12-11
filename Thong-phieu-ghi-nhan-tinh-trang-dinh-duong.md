@@ -21,7 +21,7 @@
 
 ###### :eight_spoked_asterisk: Ngày hoàn thành dự kiến: **8/12/2023**
 
-###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
+###### :eight_spoked_asterisk: Khách hàng: **Bệnh Viện Nhi Đồng**
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
