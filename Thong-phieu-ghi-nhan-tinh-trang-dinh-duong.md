@@ -100,7 +100,7 @@
   
   Boolean CHECK = TTDD.CHECKPHIEU();
   
-  - Nếu CHECK = **true** => phiếu đã lập.
+  - Nếu CHECK = **true** => phiếu đã lập (dữ liệu bảng current.tinhtrangdinhduong đã có).
   - Nếu CHECK = **false** => phiếu chưa được lập(dữ liệu bảng current.tinhtrangdinhduong chưa phát sinh) - mở form cho người dùng nhập phiếu.
     + conn : connections.
     + mabn \<string\> : mã bệnh nhân.   
