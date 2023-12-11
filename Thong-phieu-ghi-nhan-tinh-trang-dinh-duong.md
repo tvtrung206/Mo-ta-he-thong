@@ -95,13 +95,13 @@
 
 :white_check_mark: **Hướng dẫn sử dụng dll [**DH.TinhTrangDinhDuong.dll**](https://github.com/dh-hos/oLibraries/blob/main/DH.TinhTrangDinhDuong.dll)**
 - **Check phiếu tính trạng dinh dưỡng**
-  
+  * Kiểm tra trước khi khám phiếu dinh dưỡng đã lậy chưa.
   TinhTrangDinhDuong TTDD = new TinhTrangDinhDuong(conn, mabn, maba, makb);
   
   Boolean CHECK = TTDD.CHECKPHIEU();
   
   - Nếu CHECK = **true** => phiếu đã lập.
-  - Nếu CHECK = **false** => phiếu chưa được lập.
+  - Nếu CHECK = **false** => phiếu chưa được lập(dữ liệu bảng current.tinhtrangdinhduong chưa phát sinh) - mở form cho người dùng nhập phiếu.
     + conn : connections.
     + mabn \<string\> : mã bệnh nhân.   
     + maba \<string\> : mã bệnh án. 
