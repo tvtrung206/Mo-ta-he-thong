@@ -11,7 +11,7 @@
 <div align="center">
 
 #### CHỦ ĐỀ: MÔ TẢ CẤP PHÁT THUỐC NGƯỜI BỆNH LAO THEO TT36 VÀ CV3153
-                       CẬP NHẬT CÔNG VĂN 7382
+                       --> CẬP NHẬT CÔNG VĂN 7382
 
 </div>
 
@@ -19,7 +19,7 @@
 ###### :eight_spoked_asterisk: Ngày lập: **17/08/2022**
 ###### :eight_spoked_asterisk: Người cập nhật: [**NGHỊ VĂN BI**](https://github.com/nghivanbi)
 ###### :eight_spoked_asterisk: Ngày lập: **20/12/2023**
-###### :eight_spoked_asterisk: Ngày hoàn thành dự kiến: **22/12/2023**
+###### :eight_spoked_asterisk: Ngày hoàn thành: **22/12/2023**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
@@ -70,7 +70,9 @@ ALTER TABLE current.psdangky ADD COLUMN ngaychungnhan_lao DATE;
     
 Cập nhật mới:
 - Bảng 1: xét khi psdangky.benhnhan_lao = 1 thì:
+- 
   + Trường 16 (MA_LYDO_VVIEN) = 7.1 (Lĩnh thuốc ngoài viện do trường hợp bất khả kháng).
+    
     Điều trị [current.psdangky.mabv_dieutri_lao = current.psdangky.mabvkb]
     
     + Trường 35 (MA_LOAI_KCB) = 1 (Khám bệnh).
