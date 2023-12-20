@@ -11,18 +11,16 @@
 <div align="center">
 
 #### CHỦ ĐỀ: MÔ TẢ CẤP PHÁT THUỐC NGƯỜI BỆNH LAO THEO TT36 VÀ CV3153
+                       CẬP NHẬT CÔNG VĂN 7382
 
 </div>
 
 ###### :eight_spoked_asterisk: Người lập: [**NGUYỄN VIẾT VINH**](https://github.com/vinh-dh)
-
-
 ###### :eight_spoked_asterisk: Ngày lập: **17/08/2022**
-
-###### :eight_spoked_asterisk: Ngày hoàn thành dự kiến: **15/09/2022**
-
+###### :eight_spoked_asterisk: Người cập nhật: [**NGHỊ VĂN BI**](https://github.com/nghivanbi)
+###### :eight_spoked_asterisk: Ngày lập: **20/12/2023**
+###### :eight_spoked_asterisk: Ngày hoàn thành dự kiến: **22/12/2023**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
-
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
 - Qui trình thực hiện trên phần mềm – triển khai: Chỉ áp dụng cho bệnh nhân khám ngoại trú và bệnh án ngoại trú thanh toán ngày.
