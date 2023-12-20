@@ -67,8 +67,9 @@ ALTER TABLE current.psdangky ADD COLUMN ngaychungnhan_lao DATE;
 - Bảng 1: xét khi psdangky.benhnhan_lao = 1 thì:
   + Trường 16 (MA_LYDO_VVIEN) = 7 (Lĩnh thuốc ngoài viện do trường hợp bất khả kháng).
   + Trường 35 (MA_LOAI_KCB) = 7 (Nhận thuốc theo hẹn, không khám bệnh).
-:white_check_mark: **Cập nhật mới:**
-Bảng 1: xét khi psdangky.benhnhan_lao = 1 thì:
+    
+Cập nhật mới:
+- Bảng 1: xét khi psdangky.benhnhan_lao = 1 thì:
   + Trường 16 (MA_LYDO_VVIEN) = 7.1 (Lĩnh thuốc ngoài viện do trường hợp bất khả kháng).
     Điều trị [current.psdangky.mabv_dieutri_lao = current.psdangky.mabvkb]
     
