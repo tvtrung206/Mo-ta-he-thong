@@ -20,7 +20,7 @@
 
 :white_check_mark: **Ngày dự hoàn thành: 22/12/2023**
 
-:white_check_mark: **Khách hàng: BV YHCT CẦN THƠ (Cập nhật không ảnh hưởng khách hàng khác)**
+:white_check_mark: **Khách hàng: Tất cả**
 
 :white_check_mark: **Xử lý yêu cầu**
 
