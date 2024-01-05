@@ -75,8 +75,9 @@ WITH (oids = false);
   
 :white_check_mark: **Xử lý**
 + Module Prescription, Treatment:
- - Bổ sung chức năng lập phiếu chuyển viện lao ghi nhận vào bảng chuyenvienlao (chuyenvienlao.socv lấy max tăng dần khi lập mới)
- - Các trường và thông tin đầu vào tương tư như phiếu chuyển viện thông thường
+ - Bổ sung chức năng lập phiếu chuyển viện lao ghi nhận vào bảng chuyenvienlao (chuyenvienlao.socv lấy max tăng dần khi lập mới).
+ - Các trường và thông tin đầu vào tương tư như phiếu chuyển viện thông thường.
+ - Việc lập phiếu chuyển viện lao không phụ thuộc vào trạng thái xử trí của bệnh án.
   
 
 
