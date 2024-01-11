@@ -53,6 +53,88 @@
             - pshdxn.toatutruc = 1
             - pshdxn.loaitoatt = 0: Toa bình thường, 1: Toa tủ trực dược, 2: Toa tủ trực nhà thuốc, 3: Toa tủ trực vật tư'
             
+:white_check_mark: **Script hỗ trợ (nếu cần)**
+- Dành cho BV THỐT NỐT:
+
+        ABORT;
+        BEGIN;
+        --chứng từ
+        UPDATE current.chungtu set toatutruc = 1, loaitoatt = 3
+        FROM (
+                SELECT distinct a.kyhieu, a.sohd, a.toatutruc, mabn, makh, a.khochan
+                 FROM current.chungtu a 
+                WHERE coalesce(a.xoa,0) = 0
+                   AND coalesce(a.toacon,0) = 0
+                   AND lower(a.loaixn) = 'xbb'
+                   AND coalesce(a.noitru,0) = 1
+                   AND coalesce(a.toatutruc,0) = 2
+              ) as tam
+        WHERE current.chungtu.kyhieu = tam.kyhieu
+              AND current.chungtu.sohd= tam.sohd
+              AND current.chungtu.toatutruc= tam.toatutruc
+              AND current.chungtu.khochan= tam.khochan
+              AND current.chungtu.mabn= tam.mabn
+              AND current.chungtu.makh= tam.makh;
+              
+        --chứng từ
+        UPDATE current.pshdxn set toatutruc = 1, loaitoatt = 3
+        FROM (
+                SELECT distinct a.kyhieu, a.sohd, a.toatutruc, mabn, makh, a.khochan
+                 FROM current.chungtu a 
+                WHERE coalesce(a.xoa,0) = 0
+                   AND coalesce(a.toacon,0) = 0
+                   AND lower(a.loaixn) = 'xbb'
+                   AND coalesce(a.noitru,0) = 1
+                   AND coalesce(a.toatutruc,0) = 2
+              ) as tam
+        WHERE current.pshdxn.kyhieu = tam.kyhieu
+              AND current.pshdxn.sohd= tam.sohd
+              AND current.pshdxn.toatutruc= tam.toatutruc
+              AND current.pshdxn.khochan= tam.khochan
+              AND current.pshdxn.mabn= tam.mabn
+              AND current.pshdxn.makh= tam.makh;
+        COMMIT;
+  
+- Dành cho BV PSCT:
+
+        ABORT;
+        BEGIN;
+        --chứng từ
+        UPDATE current.chungtu set toatutruc = 1, loaitoatt = 2
+        FROM (
+                SELECT distinct a.kyhieu, a.sohd, a.toatutruc, mabn, makh, a.khochan
+                 FROM current.chungtu a 
+                WHERE coalesce(a.xoa,0) = 0
+                   AND coalesce(a.toacon,0) = 0
+                   AND lower(a.loaixn) = 'xbb'
+                   AND coalesce(a.noitru,0) = 1
+                   AND coalesce(a.toatutruc,0) = 2
+              ) as tam
+        WHERE current.chungtu.kyhieu = tam.kyhieu
+              AND current.chungtu.sohd= tam.sohd
+              AND current.chungtu.toatutruc= tam.toatutruc
+              AND current.chungtu.khochan= tam.khochan
+              AND current.chungtu.mabn= tam.mabn
+              AND current.chungtu.makh= tam.makh;
+              
+        --chứng từ
+        UPDATE current.pshdxn set toatutruc = 1, loaitoatt = 2
+        FROM (
+                SELECT distinct a.kyhieu, a.sohd, a.toatutruc, mabn, makh, a.khochan
+                 FROM current.chungtu a 
+                WHERE coalesce(a.xoa,0) = 0
+                   AND coalesce(a.toacon,0) = 0
+                   AND lower(a.loaixn) = 'xbb'
+                   AND coalesce(a.noitru,0) = 1
+                   AND coalesce(a.toatutruc,0) = 2
+              ) as tam
+        WHERE current.pshdxn.kyhieu = tam.kyhieu
+              AND current.pshdxn.sohd= tam.sohd
+              AND current.pshdxn.toatutruc= tam.toatutruc
+              AND current.pshdxn.khochan= tam.khochan
+              AND current.pshdxn.mabn= tam.mabn
+              AND current.pshdxn.makh= tam.makh;
+        COMMIT;
 
 :white_check_mark: **Cấu hình**
   
@@ -60,7 +142,8 @@
 
 :white_check_mark: **Form ra toa**
   
-  ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/32563776/39d4e36d-82ed-4bf7-b4dd-880428b8e2a8)
+![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/32563776/f9047644-94ad-4ce8-9976-18d3f21a1bfc)
+
 
   
 
