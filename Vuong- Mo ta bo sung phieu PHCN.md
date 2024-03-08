@@ -26,10 +26,28 @@
 
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/32563776/8170dbf0-eb81-4d8f-8c45-a47f1c2a0d21)
 
-    - Thực hiện bổ sung phiếu phục hồi chứng năng
+    - Thực hiện phiếu phục hồi chức năng: 
+        - Phải đáp ứng các tính năng như lập phiếu phẫu thuật: thể hiện lên số phẫu thuật thủ thuật, ...
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
-- Đang thực hiện mô tả lại: lập phiếu phẫu thuật --> bổ sung thông tin cho PHCN 
+- Dữ liệu tạo thêm cột: phut và mota và bảng phauthuat
+- Script:
+  '''
+  ALTER TABLE current.phauthuat
+    ADD COLUMN phut NUMERIC(4,0) DEFAULT 0;
+  ALTER TABLE current.phauthuat
+    ADD COLUMN mota VARCHAR;
+  '''
+
+:white_check_mark: **Thực hiện**
+- Bước 1: lập phiếu thủ thuật
+- Bước 2: Nhập êkip
+- Bước 3 (lập phiếu phục hồi chức năng, bổ sung các trường còn thiếu cho phiếu PHCN):
+   - Ngày thực hiện = ngày bắt đầu phẫu thuật/thủ thuật
+   - Bác sĩ thực hiện: ekip phẫu thuật
+   - Số phút: cập nhật thêm
+   - Mô tả: cập nhật thêm
+- Bước 4: In phiếu (chỉ in các thủ thuật cận lâm sàng có cập nhật số phút thực hiện (Chưa phân biệt CLS PHCN và CLS khác))
 
   
 
