@@ -62,5 +62,11 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ![alt text](File-ho-tro/QRCode/webservices/b0-cau-hinh-firewall.png)
 ![alt text](File-ho-tro/QRCode/webservices/b1-cai-webservice.png)
 ![alt text](File-ho-tro/QRCode/webservices/b2-start.png)
+![alt text](File-ho-tro/QRCode/webservices/b3-cau-hinh-csdl.png)
+
+###### :eight_spoked_asterisk: Lưu ý: Cài đặt webservices
+
+- Khi thay đổi các tập tin trên github.com, muốn thay đổi tới bệnh viện thì phải thực hiện chạy lại các workflow
+![alt text](File-ho-tro/QRCode/action-runner/b13-run-action.png)
 
 #### KẾT THÚC CHÚC THÀNH CÔNG
