@@ -32,7 +32,7 @@
       macls VARCHAR(20) NOT NULL,
       madv VARCHAR(20),
       manv VARCHAR(20),
-      stt NUMERIC(6,0) DEFAULT 0,
+      stt SERIAL,
       CONSTRAINT clskhoa_fk FOREIGN KEY (macls)
         REFERENCES current.dmcls(macls)
         ON DELETE NO ACTION
@@ -50,6 +50,8 @@
         NOT DEFERRABLE
     ) 
     WITH (oids = false);
+    ALTER TABLE current.clskhoa
+      OWNER TO postgres;
     ''''
 :white_check_mark: **Treatment**
   - Thêm form cấu hình CLS thường dùng theo khoa
