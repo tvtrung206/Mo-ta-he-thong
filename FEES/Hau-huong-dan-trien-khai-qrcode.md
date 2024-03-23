@@ -64,9 +64,14 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ![alt text](File-ho-tro/QRCode/webservices/b2-start.png)
 ![alt text](File-ho-tro/QRCode/webservices/b3-cau-hinh-csdl.png)
 
-###### :eight_spoked_asterisk: Lưu ý:
+###### :eight_spoked_asterisk: Lưu ý
 
 - Khi thay đổi các tập tin trên github.com, muốn thay đổi tới bệnh viện thì phải thực hiện chạy lại các workflow
 ![alt text](File-ho-tro/QRCode/action-runner/b13-run-action.png)
+
+###### :eight_spoked_asterisk: Danh sách Repository hỗ trợ các bệnh viện
+
+- [BV Nội Tiết - Quảng Ngãi 51214](https://github.com/dh-hos/51214-qrcode-vietin)
+- [BV Quận 12 - Hồ Chí Minh 79029](https://github.com/dh-hos/79029-qrcode-bidv)
 
 #### KẾT THÚC CHÚC THÀNH CÔNG
