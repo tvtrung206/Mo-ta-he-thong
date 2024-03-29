@@ -74,5 +74,6 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 - [BV Nội Tiết - Quảng Ngãi 51214](https://github.com/dh-hos/51214-qrcode-vietin)
 - [BV Quận 12 - Hồ Chí Minh 79029](https://github.com/dh-hos/79029-qrcode-bidv)
 - [BV Tim Mạch - Cần Thơ 92001](https://github.com/dh-hos/92001-qrcode-vietin)
+- [BV Bình Long - Bình Phước 70071](https://github.com/dh-hos/70071-qrcode-agribank)
 
 #### KẾT THÚC CHÚC THÀNH CÔNG
