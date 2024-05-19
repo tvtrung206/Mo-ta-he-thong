@@ -64,6 +64,10 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ![alt text](File-ho-tro/QRCode/webservices/b2-start.png)
 ![alt text](File-ho-tro/QRCode/webservices/b3-cau-hinh-csdl.png)
 
+###### :eight_spoked_asterisk: Cập nhật option, các thông số kết nối, genQR
+
+![image](https://i.imgur.com/C7VD9jG.png)
+
 ###### :eight_spoked_asterisk: Lưu ý
 
 - Khi thay đổi các tập tin trên github.com, muốn thay đổi tới bệnh viện thì phải thực hiện chạy lại các workflow
