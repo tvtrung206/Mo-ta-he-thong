@@ -56,6 +56,14 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ![alt text](File-ho-tro/QRCode/action-runner/b13-run-action.png)
 ![alt text](File-ho-tro/QRCode/action-runner/b14-chay-thanh-cong.png)
 
+###### :eight_spoked_asterisk: Cấu hình GithubRunner có quyền admin
+
+![alt text](https://i.imgur.com/75zRpOE.png)
+![alt text](https://i.imgur.com/YtlrddT.png)
+![alt text](https://i.imgur.com/XHIkIRW.png)
+![alt text](https://i.imgur.com/Yl3akQJ.png)
+![alt text](https://i.imgur.com/ulNtHUU.png)
+
 ###### :eight_spoked_asterisk: Bước 2: Cài đặt webservices
 
 - Khởi chạy dịch vụ webservice để nhận dữ liệu phía ngân hàng báo có về HIS
