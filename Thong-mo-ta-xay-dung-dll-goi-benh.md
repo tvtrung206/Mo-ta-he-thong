@@ -32,5 +32,39 @@
              ADD COLUMN hauto VARCHAR(10); `
 
 :white_check_mark: **Hướng dẫn sử dụng dll [**DH.GoiBenh.dll**]()**
-- Gọi hàm DHGoiBenh.GoiBenh(enum, LibraryApp.ClsConnection.conn);
-- Hàm nhận vào một emum có cấu trúc như sau:
+- Hàm gọi bệnh nhận vào một giá trị enum có cấu trúc như sau:
+```csharp
+enum GoiBenhEnum 
+{ 
+    sott, // số thứ tự
+    sophong, // số phòng
+    loaphat, // loa phát
+    module, //tên module 
+    tuso, // số dùng để gọi nhìu bệnh nhân tusu -> sott, 
+    tiento, // tên file âm thanh đầu. Ví du tiento = “MBNCSTT” -> Loa sẽ đọc : Mời bệnh nhân có số thứ tự + sott + hauto + sophong
+    hauto // tên file âm thanh cuối. Ví dụ hauto = “VQS” -> Loa sẽ đọc : tiento + sott + “Vào quầy số” + sophong
+}
+// *nếu
+// tuso = null -> xử lý gọi bệnh theo sott.
+// tuso < sott -> xử lý gọi bệnh từ tuso đến sott.
+```
+
+- Gán giá trị cho enum
+```csharp
+EnumGoiBenh _enum = new EnumGoiBenh
+            {
+                Sott = 1,
+                Sophong = 1,
+                Loaphat = 91,
+                Module = "register",
+                Tuso = 1,
+                Tiento = "MBNCSTT",
+                Hauto = "VQ"
+            };
+```
+
+- Gọi hàm gọi bệnh và truyền giá trị để sử dụng
+```csharp
+DHGoiBenh.GoiBenh(_enum, LibraryApp.ClsConnection.conn);
+
+
