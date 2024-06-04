@@ -48,7 +48,7 @@
         public HOSO(string mabn, string makb, string maba, string mabattconbh2, OTH.Entity.Enum.BHXH.v_LoaiHoSoKCB loaiHoSoKCB) 
 ```
 
-- Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên:
+- Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên (Thực hiện tại Prescription, Treatment):
 
 ```     /// <summary>
         /// Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên,
@@ -59,7 +59,7 @@
         public bool MarkCheckInCanlamsang(string macls)
 ```
 
-- Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có thuốc, vtyt đầu tiên:
+- Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có thuốc, vtyt đầu tiên (Thực hiện tại Prescription, Treatment):
 
 ```     /// <summary>
         /// Thực hiện đánh dấu Thực hiện checkIn khi có thuốc, vtyt đầu tiên
@@ -71,7 +71,7 @@
         public bool MarkCheckInThuocVTYT(string mahhThuoc, string mahhVTYT)
 ```
 
-- Chức năng: Thực hiện đánh dấu khi bệnh nhân ra viện đối với bệnh án, bệnh nhân ngoại trú in phiếu:
+- Chức năng: Thực hiện đánh dấu khi bệnh nhân ra viện đối với bệnh án, bệnh nhân ngoại trú in phiếu (Thực hiện tại Prescription, Treatment, Printer):
 
 ```     /// <summary>
         /// Thực hiện đánh dấu khi bệnh nhân ra viện đối với bệnh án, bệnh nhân ngoại trú in phiếu
