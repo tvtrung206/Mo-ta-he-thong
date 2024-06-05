@@ -68,9 +68,4 @@ EnumGoiBenh _enum = new EnumGoiBenh
 DHGoiBenh.GoiBenh(_enum, LibraryApp.ClsConnection.conn);
 ```
 
-:white_check_mark: **Hướng dẫn xóa Monitor**
-```csharp
-DHGoiBenh.DelMonitor(mabn, makb, phankhu, DHGoiBenh.Module.Register, LibraryApp.ClsConnection.conn);
-```
-
 
