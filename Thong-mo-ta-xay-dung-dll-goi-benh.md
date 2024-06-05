@@ -72,6 +72,5 @@ DHGoiBenh.GoiBenh(_enum, LibraryApp.ClsConnection.conn);
 ```csharp
 DHGoiBenh.DelMonitor(mabn, makb, phankhu, DHGoiBenh.Module.Register, LibraryApp.ClsConnection.conn);
 ```
-//phankhu: mặc định = 96 đối với quầy phát thuốc
 
 
