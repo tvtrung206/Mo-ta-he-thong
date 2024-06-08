@@ -26,7 +26,7 @@
 
 
 |TT QĐ 4750|Tên cột|Kiểu dữ liệu|Bắt buộc|Diễn giải|Index|Ghi chú|
-|-------|-------|-------|-------|-------|-------|-------|
+|:-------:|-------|:-------:|:-------:|-------|:-------:|-------|
 |1|ma_lk|VARCHAR(100)|X|Là mã đợt điều trị duy nhất (dùng để liên kết giữa Bảng chỉ tiêu tổng hợp khám bệnh, chữa bệnh (bảng XML 1) và các bảng còn lại ban hành kèm theo Quyết định này trong một lần khám bệnh, chữa bệnh (PRIMARY KEY)).|X|Như 4210|
 |2|stt|NUMERIC(10,0)|X|Là số thứ tự tăng từ 1 đến hết trong một lần gửi dữ liệu.||Như 4210|
 |3|ma_bn|VARCHAR(100)|X|Là mã người bệnh theo quy định của cơ sở KBCB|X|Như 4210|
