@@ -17,7 +17,7 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **06/06/2023**
+###### :eight_spoked_asterisk: Ngày cập nhật: **08/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
@@ -25,7 +25,7 @@
 :white_check_mark: **Mô tả tổng thể từ: [Mô tả XML130 - Bổ sung QĐ 4750]()**
 
 |TT|Tên cột|Kiểu dữ liệu|Bắt buộc|Diễn giải|Index|Ghi chú|
-|-------|-------|-------|-------|-------|-------|-------|
+|:-------:|-------|:-------:|:-------:|-------|:-------:|-------|
 |1|ma_lk|VARCHAR(100)|X|Là mã đợt điều trị duy nhất (dùng để liên kết giữa Bảng chỉ tiêu tổng hợp khám bệnh, chữa bệnh (bảng XML 1) và các bảng còn lại ban hành kèm theo Quyết định này trong một lần khám bệnh, chữa bệnh (PRIMARY KEY)).|X|Như 4210|
 |2|loaihosokcb|VARCHAR(50)|X|Loại hồ sơ KCB. Giá trị:<br/>- NGOAI_TRU: khám bệnh ngoại trú.<br/>- BA_NGOAITRU: bệnh án ngoại trú<br/>- BA_NOI_TRU: bệnh án nội trú|X||
 |3|mabn|VARCHAR(20)|X|Mã bệnh nhân|X||
