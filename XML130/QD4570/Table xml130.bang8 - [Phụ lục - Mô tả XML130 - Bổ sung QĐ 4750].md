@@ -1,0 +1,52 @@
+<div align="center">
+
+`Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
+
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/dh-hos/dhg.hospitalprinter/main/Deploy_Tools/Logo.ico" alt="Simple Icons" width=70>
+  <h1>PHIẾU MÔ TẢ THAY ĐỔI HỆ THỐNG</h1>  
+</div>
+<div align="center">
+
+#### Phụ lục: CẤU TRÚC DỮ LIỆU LƯU TRỮ 16 TABLE – CẬP NHẬT THEO QĐ4750
+**Table xml130.bang8: Chỉ tiêu dữ liệu tóm tắt hồ sơ bệnh án.**
+
+</div>
+
+###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
+###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
+###### :eight_spoked_asterisk: Ngày cập nhật: **09/06/2024**
+###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
+###### :eight_spoked_asterisk: Yêu cầu phát sinh
+###### :eight_spoked_asterisk: Xử lý yêu cầu
+
+:white_check_mark: **Mô tả tổng thể từ: [Mô tả XML130 - Bổ sung QĐ 4750]()**
+
+|TT QĐ 4750|Tên cột|Kiểu dữ liệu|Bắt buộc|Diễn giải|Index|Ghi chú|
+|:-------:|-------|:-------:|:-------:|-------|:-------:|-------|
+|1|ma_lk|VARCHAR(100)|X|Là mã đợt điều trị duy nhất (dùng để liên kết giữa Bảng chỉ tiêu tổng hợp khám bệnh, chữa bệnh (bảng XML 1) và các bảng còn lại ban hành kèm theo Quyết định này trong một lần khám bệnh, chữa bệnh (PRIMARY KEY)).|X|Theo 4210<br/><br/>Bảng 8 chỉ có khi MA_LOAI_KCB ở XML1 in ('03','04','06');|
+|2|ma_loai_kcb|VARCHAR(2)|X|Ghi mã hình thức KBCB, trong đó:<br/>- Mã "02": Điều trị ngoại trú; <br/>- Mã "03": Điều trị nội trú; <br/>- Mã "04": Điều trị nội trú ban ngày; ||Đổi kiểu dữ liệu từ số thành chuỗi|
+|3|ho_ten_cha|VARCHAR(255)||Ghi họ và tên cha (bố) theo hồ sơ bệnh án của người bệnh (nếu có).||Xét psdangky.loaiqh có chứa các từ “cha”, “ba” thì ho_ten_cha = psdangky.hotenqh|
+|4|ho_ten_me|VARCHAR(255)||Ghi họ và tên mẹ theo hồ sơ bệnh án của người bệnh (nếu có).||Xét psdangky.loaiqh có chứa các từ “mẹ”, “má” thì ho_ten_me = psdangky.hotenqh|
+|5|nguoi_giam_ho|VARCHAR(255)||Ghi họ và tên người giám hộ theo hồ sơ bệnh án của người bệnh (nếu có).||Xét psdangky.loaiqh có chứa các từ “mẹ”, “má” thì ho_ten_me = psdangky.hotenqh|
+|6|don_vi|VARCHAR(1024)||Ghi tên đơn vị của người hưởng.<br/>**Lưu ý**:<br/>- Ghi rõ đơn vị nơi người bệnh làm việc và đóng bảo hiểm xã hội theo thông tin do người đến khám bệnh cung cấp;<br/>- Trường hợp con ốm thì ghi tên đơn vị mà người cha (bố) hoặc mẹ đang làm việc và đóng bảo hiểm xã hội theo thông tin do người đến khám bệnh cung cấp. Thực hiện việc ghi giấy chứng nhận nghỉ việc hưởng BHXH theo hướng dẫn tại [Thông tư số 18/2022/TT-BYT](https://vanban.chinhphu.vn/?pageid=27160&docid=207234) của Bộ trưởng Bộ Y tế.||don_vi = dmbenhnhan.noict|
+|7|ngay_vao|VARCHAR(12)|X|Ghi thời điểm người bệnh đến KBCB, gồm 12 ký tự, theo định dạng yyyymmddHHMM.<br/>Ví dụ: người bệnh đến KBCB lúc 15 giờ 20 phút ngày 31/03/2017 được hiển thị là: 201703311520.|||
+|8|ngay_ra|VARCHAR(12)|X|Ghi thời điểm người bệnh kết thúc điều trị nội trú, kết thúc điều trị nội trú ban ngày, kết thúc điều trị ngoại trú hoặc kết thúc khám bệnh, gồm 12 ký tự theo định dạng yyyymmddHHMM.<br/>Ví dụ: Thời điểm người bệnh kết thúc điều trị lúc 09 giờ 20 phút ngày 05/04/2022, khi đó được hiển thị là: 202204050920. <br/>**Lưu ý**:<br/>- Trường hợp khám bệnh (MA_LOAI_KCB = 01) thì ghi thời điểm kết thúc lần khám bệnh;<br/>- Trường hợp điều trị ngoại trú (MA_LOAI_KCB = 02), điều trị ngoại trú các bệnh mạn tính dài ngày liên tục trong năm (MA_LOAI_KCB = 05), nhận thuốc theo hẹn (không khám bệnh) (MA_LOAI_KCB = 07): Ghi ngày kết thúc của đợt KBCB (là ngày cuối cùng sử dụng thuốc hoặc dịch vụ theo chỉ định của bác sỹ), gồm 02 ký tự giờ + 02 ký tự phút và mặc định là 2359 (Thời điểm cuối cùng của ngày kết thúc đợt KBCB); <br/>- Trường hợp điều trị ngoại trú các bệnh mạn tính dài ngày liên tục trong năm (MA_LOAI_KCB = 08): Ghi thời điểm kết thúc của đợt KBCB (Ví dụ: Trường hợp chạy thận nhân tạo thì ghi ngày cuối cùng của đợt chạy thận nhân tạo);<br/>- Trường hợp người bệnh được chuyển tuyến đến cơ sở KBCB khác thì thời điểm người bệnh ra viện bằng thời điểm người bệnh được chuyển tuyến.|||
+|9|chan_doan_vao|VARCHAR| X|Ghi chẩn đoán của cơ sở KBCB ở thời điểm tiếp nhận người bệnh (Chẩn đoán sơ bộ).||chan_doan_vao = psdangky.cdoantd|
+|10|chan_doan_rv|VARCHAR|  X|Ghi đầy đủ chẩn đoán xác định bệnh chính, bệnh kèm theo và/hoặc các triệu chứng hoặc hội chứng, được bác sỹ ghi trong hồ sơ KBCB tại thời điểm kết thúc KBCB đối với người bệnh.<br/>**Lưu ý**: Đối với việc ghi chẩn đoán ra viện để phục vụ việc tạo lập giấy chứng nhận nghỉ việc hưởng bảo hiểm xã hội thì thực hiện theo hướng dẫn tại [Thông tư số 18/2022/TT-BYT](https://vanban.chinhphu.vn/?pageid=27160&docid=207234) của Bộ trưởng Bộ Y tế, trong đó:<br/>- Nội dung chẩn đoán phải mô tả cụ thể về tình trạng sức khỏe hoặc ghi tên bệnh hoặc mã bệnh.<br/>- Trường hợp mắc bệnh cần chữa trị dài ngày thì ghi mã bệnh; trường hợp chưa có mã bệnh thì ghi đầy đủ tên bệnh. Việc ghi mã bệnh và tên bệnh thực hiện theo quy định tại [Thông tư số 46/2016/TT-BYT](https://chinhphu.vn/default.aspx?pageid=27160&docid=189279) ngày 30 tháng 12 năm 2016 của Bộ trưởng Bộ Y tế ban hành danh mục bệnh dài ngày;<br/>- Trường hợp điều trị dưỡng thai: Ghi rõ cụm từ “dưỡng thai”||- Khám ngoại trú: chan_doan_rv = psdangky.kqcdoan<br/>- Nội trú/BA ngoại trú thanh toán cuối đợt: chan_doan_rv = bnnoitru.kqcdoan + ‘;’ + bnnoitru.kqcdoanp|
+|11|qt_benhly|VARCHAR|  X|Ghi quá trình bệnh lý và diễn biến lâm sàng.||Điều trị nội trú/BA ngoại trú cuối đợt: qt_benhly = bnnoitru.dienbien|
+|12|tomtat_kq|VARCHAR|  X|Ghi tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán.|||
+|13|pp_dieutri|VARCHAR|  X|Ghi phương pháp điều trị theo đúng hướng dẫn tại [Thông tư số 18/2022/TT-BYT](https://vanban.chinhphu.vn/?pageid=27160&docid=207234) của Bộ trưởng Bộ Y tế.||Đối với người bệnh nội trú: pp_dieu_tri = dmppdt.diengiai (tham chiếu thông qua bnnoitru.mappdt)|
+|14|ngay_sinhcon|VARCHAR(8)||Trường hợp con chết sau khi sinh thì nhập ngày, tháng, năm sinh của con, theo định dạng yyyymmdd|||
+|15|ngay_conchet|VARCHAR(8)||Trường hợp con chết sau khi sinh thì nhập ngày, tháng, năm con chết, theo định dạng yyyymmdd|||
+|16|so_conchet|NUMERIC(2,0)||Trường hợp con chết sau khi sinh thì nhập số con bị chết.|||
+|17|ket_qua_dtri|NUMERIC(1,0)|X |Ghi mã kết quả điều trị, trong đó:<br/>- Mã "1": Khỏi; <br/>- Mã "2": Đỡ; <br/>- Mã "3": Không thay đổi; <br/>- Mã "4": Nặng hơn; <br/>- Mã "5": Tử vong; <br/>- Mã "6": Tiên lượng nặng xin về; <br/>- Mã "7": Chưa xác định (không thuộc một trong các mã kết quả điều trị nêu trên).<br/>- Mã "8": Tử vong ngoại viện.|||
+|18|ghi_chu|VARCHAR(n)||Trường thông tin này chỉ áp dụng đối với trường hợp người mất hoặc bị hạn chế năng lực hành vi dân sự hoặc trẻ em dưới 16 tuổi phải ghi đầy đủ họ, tên của cha (bố) hoặc của mẹ hoặc người giám hộ của người bệnh theo quy định tại Phụ lục 4 ban hành kèm theo [Thông tư số 18/2022/TT-BYT](https://vanban.chinhphu.vn/?pageid=27160&docid=207234) của Bộ trưởng Bộ Y tế.|||
+|19|ma_ttdv|VARCHAR(10)|X  |Ghi mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB đó.||Được lấy từ tham số ma_ttdv<br/><br/>Đổi kiểu dữ liệu từ số thành chuỗi|
+|20|ngay_ct|VARCHAR(8)| X  |Ghi ngày chứng từ (Tóm tắt hồ sơ bệnh án), theo định dạng yyyymmdd, là ngày Trưởng khoa hoặc Trưởng phòng hoặc Phó trưởng khoa hoặc Phó trưởng phòng cấp tóm tắt hồ sơ bệnh án.||ngay_ct = ngay_ra|
+|21|ma_the_tam|VARCHAR(15)||Ghi mã thẻ BHYT tạm thời của trẻ em sinh ra hoặc của người hiến tạng nhưng chưa được cơ quan BHXH cấp thẻ BHYT. Cơ sở KBCB sử dụng chức năng “Thông tuyến khám chữa bệnh\Tra cứu thẻ tạm của trẻ em hoặc của người hiến tạng” trên Cổng tiếp nhận dữ liệu Hệ thống thông tin giám định BHYT của BHXH Việt Nam để tra cứu mã thẻ BHYT tạm thời.||- Khám ngoại trú xét, nếu psdangky.thetam = 1 thì: ma_the_tam =  psdangky.mathe<br/>- Nội trú/BA ngoại trú thanh toán cuối đợt: bnnoitru.thetam = 1 thì: ma_the_tam = bnnoitru.mathe (đối với thẻ 1) hoặc ttcon.thetam = 1 thì: ma_the_tam = ttcon.mathe (đối với thẻ 2)|
+|22|du_phong|VARCHAR||Trường dữ liệu dự phòng khi cần thiết.|||
+||mabn|VARCHAR(20)|X|psdangky.mabn|X||
+||makb|VARCHAR(20)|X|psdangky.makb|X||
