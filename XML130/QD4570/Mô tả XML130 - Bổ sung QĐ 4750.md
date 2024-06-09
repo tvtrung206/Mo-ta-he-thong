@@ -1,0 +1,224 @@
+<div align="center">
+
+`Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
+
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/dh-hos/dhg.hospitalprinter/main/Deploy_Tools/Logo.ico" alt="Simple Icons" width=70>
+  <h1>PHIẾU MÔ TẢ THAY ĐỔI HỆ THỐNG</h1>  
+</div>
+<div align="center">
+
+#### Chủ đề: Quy định chuẩn và định dạng dữ liệu đầu ra phục vụ việc quản lý, giám định, thanh toán chi phí khám bệnh, chữa bệnh và giải quyết các chế độ liên quan theo [Quyết định 130/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/130Q%20.signed.pdf) ngày 18/01/2023 của Bộ Y tế
+#### Bổ sung theo [Quyết định 4750/QD-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/4750.pdf) của Bộ Y tế ngày 29/12/2023
+</div>
+
+###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
+###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
+###### :eight_spoked_asterisk: Ngày cập nhật: **09/06/2024**
+###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
+###### :eight_spoked_asterisk: Yêu cầu phát sinh
+###### :eight_spoked_asterisk: Xử lý yêu cầu
+
+:white_check_mark: **Cấu trúc các bảng theo quy định của QĐ 4750 và theo dõi cập nhật thông tin chi tiết tại:** [Excel 4750](https://docs.google.com/spreadsheets/d/1H8Y8rsTMqs0QIflxjpDAHQ882tNGMTHl/edit#gid=255000288)
+
+:white_check_mark: **Thay đổi cấu trúc dữ liệu**
+
+:blue_book: Cập nhật cấu trúc, bổ sung cột lưu trữ mã [ICD-9 CM](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/CONGVAN-YEUCAU/QD4440-Quyet%20%C4%91inh%20ban%20hanh%20ICD-9%20CM%20th%C3%AD%20%C4%91i%E1%BB%83m%20DRG.signed.pdf). Danh mục chuyển đổi giữa danh mục kỹ thuật tương đương và phân loại phẫu thuật, thủ thuật quốc tế ICD-9 CM. Bổ sung các cột vào table dmcls:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+| 1 | maicd9 | VARCHAR(20) | Mã ICD-9 CM |
+| 2 | don_vi_do | VARCHAR(50) | Ghi đơn vị đo của chỉ số xét nghiệm, chẩn đoán hình ảnh, thăm dò chức năng theo Phụ lục 11 ban hành kèm theo [Quyết định số 7603/QĐ-BYT](https://syt.binhdinh.gov.vn/index.php/vi/van-ban-chi-dao-dieu-hanh/detail/Quyet-dinh-ve-viec-ban-hanh-bo-ma-danh-muc-dung-chung-ap-dung-trong-quan-ly-kham-benh-chua-benh-va-thanh-toan-bao-hiem-y-te-Phien-ban-so-6-261/) ngày 25 tháng 12 năm 2018 của Bộ trưởng Bộ Y tế. Đối với các chỉ số không có đơn vị đo thì để trống trường thông tin này. |
+
+:blue_book: Cập nhật cấu trúc table psdangky:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+| 1 | trangthaichuyentuyen | NUMERIC(1,0) | Ghi nhận trạng thái chuyển tuyến từ tuyến dưới chuyển lên. Giá trị:<br/>- (null): không có thông tin chuyển tuyến.<br/>- 1: Chuyển tuyến theo yêu cầu.<br/>- 2: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>- 3: Hẹn tái khám.<br/>- 4: Chuyển tuyến người bệnh khám và điều trị bệnh lao.<br/>- 5: Giấy hẹn lãnh thuốc.|
+|2|giayxacnhancutru|NUMERIC(1,0)|Ghi nhận trạng thái người bệnh ngoài tỉnh đến khám chữa bệnh có giấy xác nhận (giấy tờ chứng minh đang ở tại địa phương khác trong thời gian đi công tác, làm việc lưu động, học tập trung theo các hình thức đào tạo, chương trình đào tạo, tạm trú, …). Giá trị:<br/>- (null) hoặc 0: Không có giấy xác nhận.<br/>- 1: Có giấy xác nhận.|
+|3|giayluu|BYTEA|Lưu trữ: Giấy xác nhận cư trú (do người dùng scan hoặc chụp).|
+|4|giayluuchuyentuyen|BYTEA|Lưu trữ: Giấy chuyển tuyến/Giấy hẹn tái khám|
+
+:blue_book: Cập nhật cấu trúc table dmbenhnhan:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|nhom_mau|VARCHAR(5)|Ghi nhóm máu của người bệnh trong trường hợp có thông tin. Giá trị gồm: A; A+; A-; B; B+; B-; AB; AB+; AB-; O; O+; O-; Rh; Rh+; Rh-|
+
+:blue_book: Cập nhật cấu trúc table dmthuoc:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|ma_pp_chebien|VARCHAR(255)|Ghi mã phương pháp chế biến vị thuốc cổ truyền theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành (Phương pháp chế biến vị thuốc cổ truyền theo quy định tại [Thông tư số 30/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=135619) của Bộ trưởng Bộ Y tế).|
+|2|ma_cskcb_thuoc|VARCHAR(10)|- Trường hợp do thiên tai, dịch bệnh phải chuyển thuốc đến cơ sở KBCB khác để điều trị cho người bệnh thì ghi C.XXXXX (XXXXX là mã cơ sở KBCB nơi chuyển thuốc đi).<br/>- Trường hợp thuốc thanh toán ngoài giá dịch vụ cận lâm sàng chuyển thực hiện tại cơ sở KBCB khác thì ghi K.XXXXX (XXXXX là mã cơ sở KBCB nơi thực hiện dịch vụ cận lâm sàng).<br/>- Trường hợp chế phẩm máu có sử dụng bộ dụng cụ gạn tách (kít tách tiểu cầu, bạch cầu…) hoặc xét nghiệm được thanh toán ngoài giá đơn vị máu, chế phẩm máu quy định tại tiết d khoản 10 Điều 3 [Thông tư số 17/2020/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=147191) ngày 12/11/2020 của Bộ Y tế thì ghi M.XXXXX (trong đó XXXXX là mã cơ sở KBCB của đơn vị cung cấp máu).<br/>- Trường hợp cơ sở KCB sử dụng thuốc của hạng bệnh hạng cao hơn được kê đơn, chỉ định bằng hình thức hội chẩn từ xa theo quy định tại [Thông tư số 20/2022/TT-BYT](https://danang.baohiemxahoi.gov.vn/vanban/Pages/default.aspx?ItemID=8665) thì ghi HC.XXXXX (trong đó XXXXX là mã cơ sở KCB nơi thực hiện kê đơn, chỉ định thuốc)|
+
+:blue_book: Cập nhật cấu trúc table pshdxn:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|lieu_dung|VARCHAR(1024)|Ghi liều dùng thuốc cho người bệnh, cụ thể:<br/>- Đối với ngoại trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày * số ngày sử dụng [tổng số thuốc/ngày].<br/>Ví dụ: liều dùng của thuốc A: 2 viên/lần, 2 lần/ngày, sử dụng trong 5 ngày thì được ghi như sau: 2 viên/lần * 2 lần/ngày * 5 ngày [4 viên/ngày].<br/>- Đối với nội trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày * 01 ngày [tổng số thuốc/ngày].<br/>**Lưu ý**:<br/>- Trường hợp liều thuốc thay đổi trong ngày theo từng lần sử dụng thì ghi chi tiết.<br/>Ví dụ: liều dùng của thuốc A, sáng: 3 viên, chiều: 2 viên, tối: 1 viên. Như vậy, sẽ ghi như sau: Sáng: 3 viên, Chiều: 2 viên, Tối: 1 viên [6 viên/ngày].|
+
+:blue_book: Cập nhật cấu trúc table qtdieutri:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|giai_doan_benh|VARCHAR|Ghi giai đoạn bệnh trong trường hợp người bệnh đã được cơ sở KBCB xác định giai đoạn bệnh.|
+
+:blue_book: Cập nhật cấu trúc: bổ sung tham số
+| STT | TÊN THAM SỐ | KIỂU | DIỄN GIẢI |
+|:-------:|-------|:-------:|-------|
+|1|ma_ttdv|Chuỗi (tham số chung)|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
+
+:blue_book: Cập nhật cấu trúc: bổ sung table current.psgiamdinhykhoa
+| STT | TÊN CỘT | KIỂU | DIỄN GIẢI | INDEX |
+|:-------:|-------|:-------:|-------|:-------:|
+|1|mabn|VARCHAR(20)|Mã bệnh nhân|X|
+|2|makb|VARCHAR(20)|Mã khám bệnh|X|
+|3|maba|VARCHAR(20)|Mã bệnh án||
+|4|noitru|NUMERIC(1,0)|0: ngoại trú; 1: nội trú||
+|5|nguoi_chu_tri|VARCHAR(255)|Họ và tên người chủ trì trong danh mục người chủ trì hội đồng giám định y khoa đã nhập trên Cổng tiếp nhận của cơ quan BHXH||
+|6|chuc_vu|NUMERIC(1,0)|Chức vụ của người chủ trì, trong đó: mã “1”: Chủ tịch; mã “2”: Người ký thay chủ tịch.||
+|7|ngay_hop|TIMESTAMP|Ngày họp hội đồng giám định y khoa||
+|8|ma_doi_tuong|VARCHAR(20)|Mã đối tượng giám định (BB: Bệnh binh; BHXH1L: Hưởng BHXH 1 lần; BNN: Bệnh nghề nghiệp; CĐHH: Chất độc hóa học; KNLĐH: Nghỉ hưu trước tuổi; KNLĐT: Tuất; NKT: Người khuyết tật; NVQS: Khám tuyển nghĩa vụ quân sự; TB: Thương binh; TH: Giám định tổng hợp; TNLĐ: Tai nạn lao động).<br/>Ghi chú: Trường hợp một đối tượng mà có từ hai mã đối tượng trở lên thì liệt kê các mã đối tượng, giữa các mã đối tượng cách nhau bằng dấu chấm phẩy “;”.||
+|9|kham_giam_dinh|NUMERIC(1,0)|Mã khám giám định, trong đó:<br/>- Mã “1”: Khám giám định lần đầu;<br/>- Mã “2”: Khám giám định lại;<br/>- Mã “3”: Khám giám định tái phát;<br/>- Mã “4”: Khám phúc quyết (vượt khả năng chuyên môn, hoặc đối tượng không đồng ý, hoặc theo đề nghị của Cục Quản lý KCB/Cục Người có công/BHXH);<br/>- Mã “5”: Khám phúc quyết lần cuối;<br/>- Mã “6”: Khám bổ sung;<br/>- Mã “7”: Khám vết thương còn sót;<br/>- Mã “8”: Giám định tổng hợp.||
+|10|so_bien_ban|VARCHAR(200)|Số thứ tự trong biên bản họp hội đồng giám định y khoa.||
+|11|tyle_ttct_cu|NUMERIC(3,0)|Tỷ lệ (%) tổn thương cơ thể do thương tật, bệnh tật, bệnh nghề nghiệp của lần giám định trước (lần gần nhất) theo kết luận của Hội đồng giám định y khoa.<br/>Ghi chú: Trường thông tin này để trống nếu không có tỷ lệ tổn thương cơ thể của lần giám định trước (lần gần nhất).||
+|12|dang_huong_che_do|NUMERIC(3,0)|Mã chế độ đang hưởng, trong đó:<br/>- Mã “1”: Thương binh;<br/>- Mã “2”: Bệnh, tật;<br/>- Mã “3”: Bệnh nghề nghiệp;<br/>- Mã “4”: Tai nạn lao động;<br/>- Mã “5”: Chất độc hoá học;<br/>- Mã “6”: Bệnh binh;<br/>- Mã “7”: Khác (không thuộc một trong các đối tượng quy định từ mã “1” đến mã “6” của trường thông tin này).<br/>Ghi chú: <br/>- Trường hợp đang được hưởng cùng lúc nhiều chế độ khác nhau thì ghi mã các chế độ đang được hưởng, phân cách bằng dấu chấm phẩy “;”;<br/>- Trường thông tin này để trống nếu không thuộc một trong các chế độ nêu trên.||
+|13|ngay_chung_tu|TIMESTAMP|Ngày chứng từ (ngày họp Hội đồng giám định y khoa)||
+|14|so_giay_gioi_thieu|VARCHAR(200)|Số giấy giới thiệu||
+|15|ngay_de_nghi|TIMESTAMP|Ngày đề nghị||
+|16|ma_donvi|VARCHAR(200)|Mã cơ quan, đơn vị quản lý hoặc cơ quan, đơn vị giới thiệu đối tượng khám giám định y khoa.||
+|17|gioi_thieu_cua|VARCHAR(1024)|Tên đầy đủ của cơ quan, đơn vị quản lý hoặc cơ quan, đơn vị giới thiệu đối tượng khám giám định y khoa.||
+|18|ket_qua_kham|VARCHAR|Kết quả khám của Hội đồng Giám định y khoa (được thể hiện trong Biên bản giám định y khoa).||
+|19|so_van_ban_can_cu|VARCHAR(200)|Số văn bản (Ghi đầy đủ số và ký tự của văn bản) làm căn cứ khám giám định y khoa phù hợp với đối tượng giám định (Ví dụ: Thông tư 34/2012/TTLT-BYT-BLĐTBXH; Thông tư 28/2013/TTLT-BYT-BLDTBXH; Thông tư 20/2016/TTLT-BYT-BLĐTBXH; Thông tư 52/2017/TT-BYT; [Thông tư số 56/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=129005); [Thông tư số 01/2019/TT-BLĐTBXH](https://vanban.chinhphu.vn/?pageid=27160&docid=196549); Thông tư 45/2014/TTLT-BYT-BLĐTBXH; Nghị định 28/2012/NĐ-CP;…).<br/>Nếu có nhiều văn bản làm căn cứ giám định, kết luận thì ghi đầy đủ các số hiệu văn bản, giữa các số hiệu văn bản phân cách bằng dấu chấm phẩy “;”.||
+|20|tyle_ttct_moi|NUMERIC(3,0)|Tỷ lệ (%) tổn thương cơ thể do thương tật, bệnh tật, bệnh nghề nghiệp của lần giám định này theo kết luận của Hội đồng giám định y khoa.||
+|21|tong_tyle_ttct|NUMERIC(3,0)|Tổng tỷ lệ tổn thương cơ thể, do thương tật, bệnh tật, bệnh nghề nghiệp (nếu có) theo kết luận của Hội đồng giám định y khoa.<br/>Lưu ý: chỉ ghi trường thông tin này trong trường hợp khám giám định tổng hợp, khám bổ sung, khám vết thương còn sót.||
+|22|dang_khuyettat|NUMERIC(1,0)|Mã dạng khuyết tật theo quy định về dạng khuyết tật tại Mẫu số 01 ban hành kèm theo [Thông tư số 01/2019/TT-BLĐTBXH](https://vanban.chinhphu.vn/?pageid=27160&docid=196549) ngày 02/01/2019 của Bộ Lao động – Thương binh – Xã hội, trong đó:<br/>- Mã “1”: Khuyết tật vận động;<br/>- Mã “2”: Khuyết tật nghe, nói;<br/>- Mã “3”: Khuyết tật nhìn;<br/>- Mã “4”: Khuyết tật thần kinh, tâm thần;<br/>- Mã “5”: Khuyết tật trí tuệ;<br/>- Mã “6”: Khuyết tật khác.<br/>Trường thông tin này chỉ ghi trong trường hợp khám giám định người khuyết tật.||
+|23|muc_do_khuyettat|NUMERIC(1,0)|Mã mức độ khuyết tật theo quy định về mức độ khuyết tật tại Mẫu số 01 ban hành kèm theo [Thông tư số 01/2019/TT-BLĐTBXH](https://vanban.chinhphu.vn/?pageid=27160&docid=196549) ngày 02/01/2019 của Bộ Lao động – Thương Binh – Xã hội, trong đó:<br/>- Mã “1”: Thực hiện được;<br/>- Mã “2”: Thực hiện được nhưng cần trợ giúp;<br/>- Mã “3”: Không thực hiện được;<br/>- Mã “4: Không xác định được.<br/>Trường thông tin này chỉ ghi trong trường hợp khám giám định người khuyết tật.||
+|24|de_nghi|VARCHAR|Nội dung đề nghị.||
+|25|duoc_xacdinh|VARCHAR|Ghi chú được xác định, ghi đầy đủ nội dung theo quy định tại khoản 2 Điều 4 [Thông tư số 56/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=129005): Đối với các trường hợp không tự kiểm soát hoặc không tự thực hiện được các hoạt động đi lại, mặc quần áo, vệ sinh cá nhân và những việc khác phục vụ nhu cầu sinh hoạt cá nhân hằng ngày mà cần có người theo dõi, trợ giúp, chăm sóc hoàn toàn.||
+
+:blue_book: Cập nhật cấu trúc, bổ sung hỗ trợ lưu trữ dữ liệu XML theo [Quyết định 130/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/130Q%20.signed.pdf) (Cập nhật theo [Quyết định 4750/QD-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/4750.pdf)).
+-	Script tạo schema: `CREATE SCHEMA xml130`
+-	Tạo 17 table tương ứng với: 1 bảng lưu trữ thông tin chung, 1 bảng check-in và 15 bảng theo các chỉ tiêu. <= Chi tiết tại Phụ lục: CẤU TRÚC DỮ LIỆU LƯU TRỮ 16 TABLE – CẬP NHẬT THEO QĐ4750 (Click vào từng table để xem chi tiết phụ lục)
+1. [Table psxml](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.psxml%20-%20[Ph%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750].md): Bảng lưu thông tin chung, ghi nhận thông tin sau khi dữ liệu XML đã được xuất (đã được lưu trữ từ bảng 1 đến bảng 15) hoặc cập nhật các trạng thái có liên quan đến hồ sơ.
+2. [Table checkin](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.checkin%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Bảng chỉ tiêu dữ liệu về trạng thái khám bệnh, chữa bệnh (Bảng check-in);
+3. [Table bang1](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang1%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu tổng hợp khám bệnh, chữa bệnh;
+4. [Table bang2](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang2%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết thuốc;
+5. [Table bang3](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang3%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết dịch vụ kỹ thuật và vật tư y tế;
+6. [Table bang4](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang4%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết dịch vụ cận lâm sàng;
+7. [Table bang5](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang5%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết diễn biến lâm sàng;
+8. [Table bang6](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang6%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu hồ sơ bệnh án chăm sóc và điều trị HIV/AIDS;
+9. [Table bang7](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang7%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy ra viện;
+10. [Table bang8](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang8%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu tóm tắt hồ sơ bệnh án;
+11. [Table bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang9%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng sinh;
+12. [Table bang10](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang10%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng nhận nghỉ dưỡng thai;
+13. [Table bang11](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang11%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng nhận nghỉ hưởng bảo hiểm xã hội;
+14. [Table bang12](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang12%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giám định y khoa;
+15. [Table bang13](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang13%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chuyển tuyến khám bệnh, chữa bệnh bảo hiểm y tế;
+16. [Table bang14](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang14%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy hẹn khám lại;
+17. [Table bang15](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang15%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu thông tin quản lý điều trị bệnh lao;
+
+:white_check_mark: **Quy trình áp dụng:**
+
+:blue_book: Thiết kế DLL: Form Giám định y khoa *(tương ứng cập nhật dữ liệu cho current.psgiamdinhykhoa)*. Tích hợp lên: Prescription và Treatment.
+
+:blue_book: Module Admin
+- Tại form hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô [CMND] phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
+- Tại tab [Cấu hình tên chỉ số, mã chỉ số theo Xml (4210)] của form [Danh mục cận lâm sàng], bổ sung thêm ô text cho phép người dùng nhập/cập nhật [Đơn vị đo], cập nhật tương ứng với cột `dmcls.don_vi_do`. Mở rộng chức năng cấu hình mã chỉ số, tên chỉ số cho kho: HA (chẩn đoán hình ảnh) và CN (Thăm dò chức năng).
+
+![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin-donvido.jpg)
+- Bổ sung Control trên Form danh mục CLS cập nhật giá trị cột dmcls.maicd9 (tương ứng cột [Mã ICD-9] [phụ lục 3 QĐ 4440](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/CONGVAN-YEUCAU/Phu%20luc%203%20-%20Danh%20muc%20ICD-9%20CM%20Vol3%2019-10-2020.xlsx)). Hỗ trợ script update tự động giá trị cho cột [maicd9] dựa vào cột [Mã tương đương] phụ lục 3 (tương ứng với `dmcls.macls_byt`).
+- Mở rộng chức năng của form [Danh mục kết quả điều trị] cho phép người dùng thêm mới. Sửa nhãn “Mã Medisoft” thành “Mã BYT”.
+
+![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin-00.png)
+
+:blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
+- Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). Lưu ý: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng (bắt buộc phải chọn mới cho đăng ký).
+- Bổ sung Control cho phép người dùng xác nhận người bệnh có giấy cư trú (áp dụng cho người bệnh ngoài tỉnh), nếu có xác nhận thì cập nhật tương ứng vào cột `psdangky.giayxacnhancutru = 1` và `psdangky.tuyen = 0`.
+- Bổ sung Control cho phép người dùng chọn và lưu tập tin (của giấy chuyển tuyến/giấy hẹn tái khám) khi `psdangky.manoigt` khác rỗng. Dữ liệu lưu trữ tập tin vào cột `psdangky.giayluuchuyentuyen`.
+- Bổ sung Control cho phép người dùng chọn và lưu tập tin của giấy lưu trú khi `psdangky.giayxacnhancutru = 1`. Dữ liệu lưu trữ tập tin vào cột `psdangky.giayluu`.
+- Tại form nhập và hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô [CMND] phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
+- Đối với Register: Tại form nhập và hiệu chỉnh thông tin bệnh nhân, bổ sung ComboBox cho phép chọn/cập nhật thông tin [Nhóm máu], dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. Lưu ý: thiết kế ô nhập [Nhóm máu] chung với các thông tin chỉ số sinh hiệu.
+- Đối với Prescription: Tại form nhập và hiệu chỉnh thông tin bệnh nhân, bổ sung ô text cho phép nhập/cập nhật thông tin [Nhóm máu], dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. Lưu ý: thiết kế ô nhập [Nhóm máu] chung với các thông tin chỉ số sinh hiệu.
+
+![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg)
+
+:blue_book: Module Prescription:
+1. Đối với khám ngoại trú:
+- Khi phát sinh chẩn đoán bệnh đầu tiên (có phát sinh 1 công khám đầu tiên trong table `current.chidinhcls`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND  xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(1)`
+- Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(2)`
+- Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(3)`
+
+2. Đối với bệnh án ngoại trú:
+- Khi phát sinh chỉ định cận lâm sàng đầu tiên (có phát sinh cận lâm sàng đầu tiên trong table `current.chidinhcls`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(4)`
+- Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(5)`
+- Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(6)`
+
+***. Lưu ý:** các trường hợp `(1), (2), (3), (4), (5) và (6)`: trước khi thực hiện, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu trước khi thực hiện.
+
+- Tại form ra toa thuốc: bổ sung chức năng cập nhật giá trị cho cột `pshdxn.lieu_dung` theo quy tắc như sau:
+> Ghi liều dùng thuốc cho người bệnh, cụ thể: 
+> - Đối với ngoại trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày * số ngày sử dụng [tổng số thuốc/ngày].
+Ví dụ: liều dùng của thuốc A: 2 viên/lần, 2 lần/ngày, sử dụng trong 5 ngày thì được ghi như sau: 2 viên/lần * 2 lần/ngày * 5 ngày [4 viên/ngày].
+> - Đối với bệnh án ngoại trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày * 01 ngày [tổng số thuốc/ngày].
+> Lưu ý:
+> - Trường hợp liều thuốc thay đổi trong ngày theo từng lần sử dụng thì ghi chi tiết.
+Ví dụ: liều dùng của thuốc A, sáng: 3 viên, chiều: 2 viên, tối: 1 viên. Như vậy, sẽ ghi như sau: Sáng: 3 viên, Chiều: 2 viên, Tối: 1 viên [6 viên/ngày].
+
+- Bổ sung Control cho phép người dùng xác nhận kết quả điều trị:
+![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/prescription-00.png)
+Giá trị kết quả điều trị này được lấy từ `current.dmketqua` và được lưu vào `psdangky.ket_qua_dtri` (tương ứng với `dmketqua.makq`) khi được chọn.
+- Tại form xuất viện đối với BA ngoại trú thanh toán cuối đợt, khi thao tác lưu thông tin người bệnh được xuất viện hoặc tại form in phiếu 01BV theo [QĐ 6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) đối với người bệnh khám ngoại trú => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
+
+:blue_book: Module Medicine:
+- Bổ sung Control cập nhật “Mã phương pháp chế biến” tương ứng cột `dmthuoc.ma_pp_chebien` trên danh mục chế phẩm YHCT.
+- Bổ sung Control cập nhật “Mã CSKCB thuốc” tương ứng cột `dmthuoc.ma_cskcb_thuoc` trên danh mục thuốc.
+
+:blue_book: Module Treatment:
+- Khi phát sinh chỉ định cận lâm sàng đầu tiên (có phát sinh cận lâm sàng đầu tiên trong table `current.chidinhcls`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(7)`
+- Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(8)`
+- Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(9)`
+
+***. Lưu ý**: các trường hợp `(7), (8) và (9)`: trước khi thực hiện, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu trước khi thực hiện.
+
+- Tại form ra toa thuốc: bổ sung chức năng cập nhật giá trị cho cột `pshdxn.lieu_dung` theo quy tắc như sau:
+> Ghi liều dùng thuốc cho người bệnh, cụ thể: 
+> - Được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày * 01 ngày [tổng số thuốc/ngày]. Lưu ý:
+> - Trường hợp liều thuốc thay đổi trong ngày theo từng lần sử dụng thì ghi chi tiết. Ví dụ: liều dùng của thuốc A, sáng: 3 viên, chiều: 2
+> viên, tối: 1 viên. Như vậy, sẽ ghi như sau: Sáng: 3 viên, Chiều: 2
+> viên, Tối: 1 viên [6 viên/ngày].
+
+- Tại form nhập/hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô [CMND] phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
+- Tại form theo dõi diễn biến quá trình điều trị (thông tin thêm và thay đổi diễn biến bệnh): bổ sung thêm ô text cho phép nhập/cập nhật [Giai đoạn bệnh], tương ứng với cột dữ liệu `qtdieutri.giai_doan_benh`. Thêm ComboBox cho phép chọn/cập nhật thông tin [Nhóm máu], dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. Lưu ý: thiết kế ô nhập [Nhóm máu] chung với các thông tin chỉ số sinh hiệu.
+
+![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg)
+
+- Tại form xuất viện, khi thao tác lưu thông tin người bệnh được xuất viện => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
+
+:blue_book: Module Printer:
+- Tại form in phiếu 01BV theo [QĐ6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
+
+:blue_book: Module Reports:
+- Thiết kế form cho phép người dùng tra cứu và xuất dữ liệu QĐ130 (bổ sung QĐ 4750) ra định dạng XML ra tập tin XML (Chuẩn dữ liệu XML tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024).
+- Tại form xuất dữ liệu XML4210.XML1, bổ sung các cột số liệu so sánh với dữ liệu XML130. Cụ thể:
+<table border="1" cellspacing="0" cellpadding="0" width=100%>
+  <tr>
+    <td width=12%><p align="center">1</p></td>
+    <td width=12%><p align="center">27</p></td>
+    <td width=12%><p align="center">28</p></td>
+    <td width=12%><p align="center">29</p></td>
+    <td width=12%><p align="center">30</p></td>
+    <td width=40% colspan="4"><p align="center">XML130</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">MA_LK</p></td>
+    <td><p align="center">TONG_CHI</p></td>
+    <td><p align="center">T_BNTT</p></td>
+    <td><p align="center">T_BNCCT</p></td>
+    <td><p align="center">T_BHTT</p></td>
+    <td><p align="center">T_TONGCHI_BH</p></td>
+    <td><p align="center">T_BNTT</p></td>
+    <td><p align="center">T_BNCCT</p></td>
+    <td><p align="center">T_BHTT</p></td>
+  </tr>
+</table>
+
+:blue_book: Module Services:
+- Thiết kế form/Cập nhật form đẩy dữ liệu theo QĐ130 lên cổng giám định BHYT thông qua API (Chuẩn dữ liệu tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024).
