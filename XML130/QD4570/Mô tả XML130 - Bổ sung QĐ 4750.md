@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -128,6 +129,10 @@
 - Mở rộng chức năng của form [Danh mục kết quả điều trị] cho phép người dùng thêm mới. Sửa nhãn “Mã Medisoft” thành “Mã BYT”.
 
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin-00.png)
+
+- Form [Danh sách nhân viên], bổ sung Textbox [Số BHXH] cho phép người dùng cập nhật thông tin số BHXH cho nhân viên, dữ liệu tương ứng cột `dmnhanvien.sobhxh`.
+
+![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_sobhxh.jpg)
 
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 - Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). Lưu ý: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng (bắt buộc phải chọn mới cho đăng ký).
