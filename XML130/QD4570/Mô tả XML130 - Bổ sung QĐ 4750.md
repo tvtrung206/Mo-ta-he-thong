@@ -16,7 +16,7 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **09/06/2024**
+###### :eight_spoked_asterisk: Ngày cập nhật: **11/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
@@ -151,7 +151,7 @@
 - Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(5)`
 - Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(6)`
 
-***. Lưu ý:** các trường hợp `(1), (2), (3), (4), (5) và (6)`: trước khi thực hiện, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu trước khi thực hiện.
+***. Lưu ý:** các trường hợp `(1), (2), (3), (4), (5) và (6)`: sau khi thực hiện xong, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu vào table này.
 
 - Tại form ra toa thuốc: bổ sung chức năng cập nhật giá trị cho cột `pshdxn.lieu_dung` theo quy tắc như sau:
 > Ghi liều dùng thuốc cho người bệnh, cụ thể: 
@@ -176,7 +176,7 @@ Giá trị kết quả điều trị này được lấy từ `current.dmketqua`
 - Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(8)`
 - Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(9)`
 
-***. Lưu ý**: các trường hợp `(7), (8) và (9)`: trước khi thực hiện, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu trước khi thực hiện.
+***. Lưu ý**: các trường hợp `(7), (8) và (9)`: sau khi thực hiện xong, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu vào table này.
 
 - Tại form ra toa thuốc: bổ sung chức năng cập nhật giá trị cho cột `pshdxn.lieu_dung` theo quy tắc như sau:
 > Ghi liều dùng thuốc cho người bệnh, cụ thể: 
