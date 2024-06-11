@@ -14,8 +14,7 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**vinh-dh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **24/05/2024**
-###### :eight_spoked_asterisk: Ngày cập nhật: **10/06/2024**
-###### :eight_spoked_asterisk: Ngày hoàn thành dự kiến
+###### :eight_spoked_asterisk: Ngày cập nhật: **11/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
@@ -37,7 +36,7 @@ Thực hiện xét điều kiện theo trình tự ưu tiên từ trên xuống:
 |4|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [giá trị tham số `tuyenbv = 3` (bệnh viện tuyến tỉnh)].|
 |5|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk = psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk = bnnoitru.mabvkb` (toa nội trú xuất viện)].|
 |6|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`dmbvcunghuyen.cunghuyen = 1`, tham chiếu `psdangky.mabvdk = dmbvcunghuyen.mabv` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk = dmbvcunghuyen.mabv` (toa nội trú xuất viện)].|
-|7|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk != psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk != bnnoitru.mabvkb` (toa nội trú xuất viện)] và [`psdangky.manoigt` tồn tại trong tham số `hosadmin.mabv_giayhentaikham` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.manoigt` tồn tại trong tham số `hosadmin.mabv_giayhentaikham` (toa nội trú xuất viện)].|
+|7|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk != psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk != bnnoitru.mabvkb` (toa nội trú xuất viện)] và `psdangky.trangthaichuyentuyen IN (2,3,4,5)`.|
 |8|4|Thông tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk != psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk != bnnoitru.mabvkb` (toa nội trú xuất viện)].|
 |9|3|Trái tuyến|Ngoài các trường hợp trên.|
 
@@ -51,6 +50,6 @@ Thực hiện xét điều kiện theo trình tự ưu tiên từ trên xuống:
 |4|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [giá trị tham số `tuyenbv = 3`].|
 |5|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk = bnnoitru.mabvkb`].|
 |6|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`dmbvcunghuyen.cunghuyen = 1`, tham chiếu `bnnoitru.mabvdk = dmbvcunghuyen.mabv`].|
-|7|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk != bnnoitru.mabvkb`] và [`bnnoitru.manoigt` tồn tại trong tham số `hosadmin.mabv_giayhentaikham`].|
+|7|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk != bnnoitru.mabvkb`] và `psdangky.trangthaichuyentuyen IN (2,3,4,5)`.|
 |8|4|Thông tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk != bnnoitru.mabvkb`].|
 |9|3|Trái tuyến|Ngoài các trường hợp trên.|
