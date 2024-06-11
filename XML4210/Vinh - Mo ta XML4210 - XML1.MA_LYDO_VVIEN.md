@@ -31,12 +31,12 @@ Thực hiện xét điều kiện theo trình tự ưu tiên từ trên xuống:
 |TT| GIÁ TRỊ | DIỄN GIẢI | ĐIỀU KIỆN XÉT |
 |:-------:|:-------:|-------|-------|
 |1|2|Cấp cứu|`khambenh.tinhtrang = 0` (dựa vào dòng dữ liệu khám cuối của: khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tinhtrangvv = '1'` (toa nội trú xuất viện).|
-|2|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.giayxacnhancutru = 1`].|
+|2|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.giayxacnhancutru = 1`] (tham khảo cột `giayxacnhancutru` tại [Mô tả XML130 - Bổ sung QĐ 4750](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750.md)).|
 |3|3|Trái tuyến (được hưởng như đúng tuyến)|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.tuyenxml = 1`].|
 |4|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [giá trị tham số `tuyenbv = 3` (bệnh viện tuyến tỉnh)].|
 |5|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk = psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk = bnnoitru.mabvkb` (toa nội trú xuất viện)].|
 |6|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`dmbvcunghuyen.cunghuyen = 1`, tham chiếu `psdangky.mabvdk = dmbvcunghuyen.mabv` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk = dmbvcunghuyen.mabv` (toa nội trú xuất viện)].|
-|7|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk != psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk != bnnoitru.mabvkb` (toa nội trú xuất viện)] và `psdangky.trangthaichuyentuyen IN (2,3,4,5)`.|
+|7|1|Đúng tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk != psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk != bnnoitru.mabvkb` (toa nội trú xuất viện)] và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` (tham khảo cột `trangthaichuyentuyen` tại [Mô tả XML130 - Bổ sung QĐ 4750](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750.md)).|
 |8|4|Thông tuyến|[`psdangky.tuyen = 0` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.tuyen = 0` (toa nội trú xuất viện)] và [`psdangky.mabvdk != psdangky.mabvkb` (khám bệnh ngoại trú/bệnh án ngoại trú quyết toán ngày) hoặc `bnnoitru.mabvdk != bnnoitru.mabvkb` (toa nội trú xuất viện)].|
 |9|3|Trái tuyến|Ngoài các trường hợp trên.|
 
@@ -45,11 +45,11 @@ Thực hiện xét điều kiện theo trình tự ưu tiên từ trên xuống:
 |TT| GIÁ TRỊ | DIỄN GIẢI | ĐIỀU KIỆN XÉT |
 |:-------:|:-------:|-------|-------|
 |1|2|Cấp cứu|`bnnoitru.tinhtrangvv = '1'`.|
-|2|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`psdangky.giayxacnhancutru = 1`].|
+|2|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`psdangky.giayxacnhancutru = 1`] (tham khảo cột `giayxacnhancutru` tại [Mô tả XML130 - Bổ sung QĐ 4750](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750.md)).|
 |3|3|Trái tuyến (được hưởng như đúng tuyến)|[`bnnoitru.tuyen = 0`] và [`bnnoitru.tuyenxml = 1`].|
 |4|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [giá trị tham số `tuyenbv = 3`].|
 |5|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk = bnnoitru.mabvkb`].|
 |6|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`dmbvcunghuyen.cunghuyen = 1`, tham chiếu `bnnoitru.mabvdk = dmbvcunghuyen.mabv`].|
-|7|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk != bnnoitru.mabvkb`] và `psdangky.trangthaichuyentuyen IN (2,3,4,5)`.|
+|7|1|Đúng tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk != bnnoitru.mabvkb`] và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` (tham khảo cột `trangthaichuyentuyen` tại [Mô tả XML130 - Bổ sung QĐ 4750](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750.md)).|
 |8|4|Thông tuyến|[`bnnoitru.tuyen = 0`] và [`bnnoitru.mabvdk != bnnoitru.mabvkb`].|
 |9|3|Trái tuyến|Ngoài các trường hợp trên.|
