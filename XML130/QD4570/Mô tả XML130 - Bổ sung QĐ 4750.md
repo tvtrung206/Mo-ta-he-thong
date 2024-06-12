@@ -1,6 +1,3 @@
-
-
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -118,7 +115,7 @@
 |24|de_nghi|VARCHAR|Nội dung đề nghị.||
 |25|duoc_xacdinh|VARCHAR|Ghi chú được xác định, ghi đầy đủ nội dung theo quy định tại khoản 2 Điều 4 [Thông tư số 56/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=129005): Đối với các trường hợp không tự kiểm soát hoặc không tự thực hiện được các hoạt động đi lại, mặc quần áo, vệ sinh cá nhân và những việc khác phục vụ nhu cầu sinh hoạt cá nhân hằng ngày mà cần có người theo dõi, trợ giúp, chăm sóc hoàn toàn.||
 
-:blue_book: Cập nhật cấu trúc: bổ sung table `current.dmxa4750`, hỗ trợ script tự động sinh dữ liệu (được lấy dữ liệu từ [danh mục đơn vị hành chính](https://danhmuchanhchinh.gso.gov.vn/Default.aspx) của Tổng Cục Thống Kê)
+:blue_book: Cập nhật cấu trúc: bổ sung table `current.dmxa4750`, dữ liệu được lấy dữ liệu từ [danh mục đơn vị hành chính](https://danhmuchanhchinh.gso.gov.vn/Default.aspx) của Tổng Cục Thống Kê
 | STT | TÊN CỘT | KIỂU |BẮT BUỘC| DIỄN GIẢI | INDEX |
 |:-------:|-------|:-------:|:-------:|-------|:-------:|
 |1|id|VARCHAR(20)|X|Giá trị: `matinh + mahuyen + maxa`|X|
@@ -150,7 +147,7 @@
 
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_sobhxh.jpg)
 
-- Bổ sung thêm menu [Địa phương (theo QĐ 4750], thiết kế form thể hiện dữ liệu danh mục tương ứng với table `current.dmxa4750`. **Lưu ý**: danh mục này chỉ cho phép người dùng cập nhật giá trị cột **[Viết tắt]** (`current.dmxa4750.viettat`), **KHÔNG** được phép thao tác **[Thêm/Xóa]**.
+- Bổ sung thêm menu [Địa phương (theo QĐ 4750], thiết kế form thể hiện dữ liệu danh mục tương ứng với table `current.dmxa4750`. Thiết kế chức năng cho phép import dữ liệu từ tập tin Excel, cấu trúc và dữ liệu mẫu từ [Danh sách cấp tỉnh kèm theo quận/huyện phường/xã - 11/06/2024.xlsx](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/Danh_sach_cap_tinh_kem_theo_quan_huyen_phuong_xa_11_06_2024.xlsx) (Nguồn: [Tổng Cục Thống Kê](https://danhmuchanhchinh.gso.gov.vn/Default.aspx)). **Lưu ý**: danh mục này chỉ cho phép người dùng cập nhật giá trị cột **[Viết tắt]** (`current.dmxa4750.viettat`), **KHÔNG** được phép thao tác **[Thêm/Xóa]**. 
 
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_dmxa_viettat.jpg)
 
