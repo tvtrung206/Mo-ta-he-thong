@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -32,7 +33,7 @@
 |4|ngay_sinh|VARCHAR(12)||Sử dụng thông tin tại trường NGAY_SINH trong Bảng 1 ban hành kèm theo Quyết định này|||
 |5|gioi_tinh|NUMERIC(1,0)||Sử dụng thông tin tại trường GIOI_TINH trong Bảng 1 ban hành kèm theo Quyết định này|||
 |6|dia_chi|VARCHAR(1024)||Sử dụng thông tin tại trường DIA_CHI trong Bảng 1 ban hành kèm theo Quyết định này|||
-|7|matinh_cu_tru|VARCHAR(3)||Sử dụng thông tin tại trường MATINH_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=current.dmxa4750.matinh`|
+|7|matinh_cu_tru|VARCHAR(3)||Sử dụng thông tin tại trường MATINH_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=current.dmxa4750.matinh` [^2024-06-12]|
 |8|mahuyen_cu_tru|VARCHAR(3)||Sử dụng thông tin tại trường MAHUYEN_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=current.dmxa4750.mahuyen`|
 |9|maxa_cu_tru|VARCHAR(5)||Sử dụng thông tin tại trường MAXA_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=current.dmxa4750.maxa`|
 |10|ngaykd_hiv|VARCHAR(8)||Ghi thời điểm khẳng định HIV của người nhiễm HIV, định dạng yyyymmdd.<br/>Trường hợp điều trị phơi nhiễm thì để trống trường thông tin này.|||
@@ -75,3 +76,5 @@
 |47|du_phong|VARCHAR||Trường dữ liệu dự phòng khi cần|||
 ||mabn|VARCHAR(20)|X|psdangky.mabn|X||
 ||makb|VARCHAR(20)|X|psdangky.makb|X||
+
+[^2024-06-12]: Thay đổi ngày 12/06/2024: bổ sung cách ghi nhận giá trị cho `matinh_cu_tru`, `mahuyen_cu_tru`, `maxa_cu_tru` theo yêu cầu [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
