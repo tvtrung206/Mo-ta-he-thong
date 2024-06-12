@@ -120,9 +120,9 @@
 |:-------:|-------|:-------:|:-------:|-------|:-------:|
 |1|id|VARCHAR(20)|X|Giá trị: `matinh + mahuyen + maxa`|X|
 |2|maxa|VARCHAR(20)|X|Mã xã (5 ký tự)||
-|3|tenxa|VARCHAR(255)|X|Tên xã||
-|4|tentienganh|VARCHAR(255)|X|Tên xã (tiếng Anh)||
-|5|cap|VARCHAR(50)|X|Cấp: Huyện/Phường/Thị trấn/Xã||
+|3|tenxa|VARCHAR(255)||Tên xã||
+|4|tentienganh|VARCHAR(255)||Tên xã (tiếng Anh)||
+|5|cap|VARCHAR(50)||Cấp: Huyện/Phường/Thị trấn/Xã||
 |6|mahuyen|VARCHAR(20)|X|Mã huyện (3 ký tự)||
 |7|tenhuyen|VARCHAR(255)|X|Tên huyện||
 |8|matinh|VARCHAR(20)|X|Mã tỉnh (2 ký tự)||
