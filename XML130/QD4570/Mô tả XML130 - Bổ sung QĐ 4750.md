@@ -1,4 +1,5 @@
 
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -17,7 +18,7 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **11/06/2024**
+###### :eight_spoked_asterisk: Ngày cập nhật: **12/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
@@ -95,6 +96,20 @@
 |24|de_nghi|VARCHAR|Nội dung đề nghị.||
 |25|duoc_xacdinh|VARCHAR|Ghi chú được xác định, ghi đầy đủ nội dung theo quy định tại khoản 2 Điều 4 [Thông tư số 56/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=129005): Đối với các trường hợp không tự kiểm soát hoặc không tự thực hiện được các hoạt động đi lại, mặc quần áo, vệ sinh cá nhân và những việc khác phục vụ nhu cầu sinh hoạt cá nhân hằng ngày mà cần có người theo dõi, trợ giúp, chăm sóc hoàn toàn.||
 
+:blue_book: Cập nhật cấu trúc: bổ sung table `current.dmxa4750`, hỗ trợ script tự động sinh dữ liệu (được lấy dữ liệu từ [danh mục đơn vị hành chính](https://danhmuchanhchinh.gso.gov.vn/Default.aspx) của Tổng Cục Thống Kê)
+| STT | TÊN CỘT | KIỂU |BẮT BUỘC| DIỄN GIẢI | INDEX |
+|:-------:|-------|:-------:|:-------:|-------|:-------:|
+|1|id|VARCHAR(20)|X|Giá trị: `matinh + mahuyen + maxa`|X|
+|2|maxa|VARCHAR(20)|X|Mã xã (5 ký tự)||
+|3|tenxa|VARCHAR(255)|X|Tên xã||
+|4|tentienganh|VARCHAR(255)|X|Tên xã (tiếng Anh)||
+|5|cap|VARCHAR(50)|X|Cấp: Huyện/Phường/Thị trấn/Xã||
+|6|mahuyen|VARCHAR(20)|X|Mã huyện (3 ký tự)||
+|7|tenhuyen|VARCHAR(255)|X|Tên huyện||
+|8|matinh|VARCHAR(20)|X|Mã tỉnh (2 ký tự)||
+|9|tentinh|VARCHAR(255)|X|Tên tỉnh||
+|10|viettat|VARCHAR(50)||Mã viết tắt||
+
 :blue_book: Cập nhật cấu trúc, bổ sung hỗ trợ lưu trữ dữ liệu XML theo [Quyết định 130/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/130Q%20.signed.pdf) (Cập nhật theo [Quyết định 4750/QD-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/4750.pdf)).
 -	Script tạo schema: `CREATE SCHEMA xml130`
 -	Tạo 17 table tương ứng với: 1 bảng lưu trữ thông tin chung, 1 bảng check-in và 15 bảng theo các chỉ tiêu. <= Chi tiết tại Phụ lục: CẤU TRÚC DỮ LIỆU LƯU TRỮ 16 TABLE – CẬP NHẬT THEO QĐ4750 (Click vào từng table để xem chi tiết phụ lục)
@@ -134,6 +149,12 @@
 
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_sobhxh.jpg)
 
+- Bổ sung thêm menu [Địa phương (theo QĐ 4750], thiết kế form thể hiện dữ liệu danh mục tương ứng với table `current.dmxa4750`. **Lưu ý**: danh mục này chỉ cho phép người dùng cập nhật giá trị cột **[Viết tắt]** (`current.dmxa4750.viettat`), **KHÔNG** được phép thao tác **[Thêm/Xóa]**.
+
+![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_dmxa_viettat.jpg)
+
+- Tại form [Hiệu chỉnh thông tin bệnh nhân]: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
+
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 - Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). Lưu ý: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng (bắt buộc phải chọn mới cho đăng ký).
 - Bổ sung Control cho phép người dùng xác nhận người bệnh có giấy cư trú (áp dụng cho người bệnh ngoài tỉnh), nếu có xác nhận thì cập nhật tương ứng vào cột `psdangky.giayxacnhancutru = 1` và `psdangky.tuyen = 0`.
@@ -144,6 +165,8 @@
 - Đối với Prescription: Tại form nhập và hiệu chỉnh thông tin bệnh nhân, bổ sung ô text cho phép nhập/cập nhật thông tin [Nhóm máu], dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. Lưu ý: thiết kế ô nhập [Nhóm máu] chung với các thông tin chỉ số sinh hiệu.
 
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg)
+
+- Tại form nhập/cập nhật thông tin bệnh nhân: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
 
 :blue_book: Module Prescription:
 1. Đối với khám ngoại trú:
@@ -224,6 +247,8 @@ Giá trị kết quả điều trị này được lấy từ `current.dmketqua`
     <td><p align="center">T_BHTT</p></td>
   </tr>
 </table>
+
+- Các báo cáo liên quan danh mục địa phương: Kết hợp dữ liệu giữa `current.dmxa` và `current.dmxa4750`.
 
 :blue_book: Module Services:
 - Thiết kế form/Cập nhật form đẩy dữ liệu theo QĐ130 lên cổng giám định BHYT thông qua API (Chuẩn dữ liệu tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024).
