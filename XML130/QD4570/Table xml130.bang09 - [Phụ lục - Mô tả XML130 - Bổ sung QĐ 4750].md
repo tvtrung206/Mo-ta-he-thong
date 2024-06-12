@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -37,7 +38,7 @@
 |9|noicap_cccd_nnd|VARCHAR(1024)|X |Ghi nơi cấp chứng minh nhân dân hoặc căn cước công dân hoặc hộ chiếu của mẹ hoặc người nuôi dưỡng.|||
 |10|noi_cu_tru_nnd|VARCHAR(1024)|X |Ghi địa chỉ nơi cư trú hiện tại của mẹ hoặc người nuôi dưỡng. <br/>**Lưu ý**: <br/>- Nếu là người Việt Nam: Ghi địa chỉ nơi cư trú theo địa danh 4 cấp: Thôn/bản, xã/phường/thị trấn, quận/huyện/ thành phố thuộc tỉnh, tỉnh/thành phố trực thuộc trung ương;<br/>- Trường hợp người nước ngoài có địa chỉ nơi cư trú tại Việt Nam thì ghi giống như người Việt Nam;<br/>- Trường hợp người nước ngoài không có địa chỉ nơi cư trú tại Việt Nam nhưng sinh đẻ tại cơ sở y tế của Việt Nam thì ghi tên tỉnh/thành phố/bang và quốc gia nơi họ đang sinh sống.|||
 |11|ma_quoctich|VARCHAR(3)| X|Ghi mã quốc tịch của mẹ hoặc người nuôi dưỡng theo quy định tại Phụ lục 2 [Thông tư số 07/2016/TT-BCA](https://congan.quangngai.gov.vn/documents/8878324/9231653/0_20200704221919.pdf/fcd11c17-3599-43f0-ae40-0d5e467bb10d) ngày 01 tháng 2 năm 2016 của Bộ trưởng Bộ Công an.||Đổi kiểu dữ liệu từ số thành chuỗi|
-|12|matinh_cu_tru|VARCHAR(3)| X|Mã đơn vị hành chính cấp tỉnh nơi cư trú hiện tại của mẹ hoặc người nuôi dưỡng. Ghi theo 02 ký tự cuối của mã đơn vị hành chính của tỉnh, thành phố trực thuộc Trung ương nơi người bệnh cư trú (Quy định tại Phụ lục 1 [Thông tư số 07/2016/TT-BCA](https://congan.quangngai.gov.vn/documents/8878324/9231653/0_20200704221919.pdf/fcd11c17-3599-43f0-ae40-0d5e467bb10d) ngày 01 tháng 2 năm 2016 của Bộ trưởng Bộ Công an).||`=current.dmxa4750.matinh`|
+|12|matinh_cu_tru|VARCHAR(3)| X|Mã đơn vị hành chính cấp tỉnh nơi cư trú hiện tại của mẹ hoặc người nuôi dưỡng. Ghi theo 02 ký tự cuối của mã đơn vị hành chính của tỉnh, thành phố trực thuộc Trung ương nơi người bệnh cư trú (Quy định tại Phụ lục 1 [Thông tư số 07/2016/TT-BCA](https://congan.quangngai.gov.vn/documents/8878324/9231653/0_20200704221919.pdf/fcd11c17-3599-43f0-ae40-0d5e467bb10d) ngày 01 tháng 2 năm 2016 của Bộ trưởng Bộ Công an).||`=current.dmxa4750.matinh` [^2024-06-12]|
 |13|mahuyen_cu_tru|NUMERIC(3,0)| X|Mã đơn vị hành chính cấp huyện nơi cư trú hiện tại của mẹ hoặc người nuôi dưỡng. Ghi mã đơn vị hành chính cấp huyện theo [Quyết định số 124/2004/QĐ-TTg](https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=14081) ngày 08/7/2004 của Thủ tướng Chính phủ ban hành danh mục mã đơn vị hành chính.||`=current.dmxa4750.mahuyen`|
 |14|maxa_cu_tru|VARCHAR(5)|X |Mã đơn vị hành chính cấp xã nơi cư trú hiện tại của mẹ hoặc người nuôi dưỡng. Ghi mã đơn vị hành chính cấp xã theo [Quyết định số 124/2004/QĐ-TTg](https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=14081) ngày 08/7/2004 của Thủ tướng Chính phủ ban hành danh mục mã đơn vị hành chính.||`=current.dmxa4750.maxa`|
 |15|ho_ten_cha|VARCHAR(255)||Ghi họ và tên cha (bố) của trẻ được cấp giấy chứng sinh.||ho_ten_cha = ttcon.hotencha|
@@ -63,3 +64,5 @@
 |35|du_phong|VARCHAR||Bổ sung trường mới: Trường dữ liệu dự phòng khi cần thiết.|||
 ||makb|VARCHAR(20)|X|bnnoitru.makb|X||
 ||mabn|VARCHAR(20)|X|bnnoitru.mabn|X||
+
+[^2024-06-12]: Thay đổi ngày 12/06/2024: bổ sung cách ghi nhận giá trị cho `matinh_cu_tru`, `mahuyen_cu_tru`, `maxa_cu_tru` theo yêu cầu [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
