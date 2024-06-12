@@ -115,7 +115,7 @@
 |24|de_nghi|VARCHAR|Nội dung đề nghị.||
 |25|duoc_xacdinh|VARCHAR|Ghi chú được xác định, ghi đầy đủ nội dung theo quy định tại khoản 2 Điều 4 [Thông tư số 56/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=129005): Đối với các trường hợp không tự kiểm soát hoặc không tự thực hiện được các hoạt động đi lại, mặc quần áo, vệ sinh cá nhân và những việc khác phục vụ nhu cầu sinh hoạt cá nhân hằng ngày mà cần có người theo dõi, trợ giúp, chăm sóc hoàn toàn.||
 
-:blue_book: Cập nhật cấu trúc: bổ sung table `current.dmxa4750`, dữ liệu được lấy dữ liệu từ [danh mục đơn vị hành chính](https://danhmuchanhchinh.gso.gov.vn/Default.aspx) của Tổng Cục Thống Kê
+:blue_book: Cập nhật cấu trúc: bổ sung table `current.dmxa4750`, dữ liệu được lấy dữ liệu từ [danh mục đơn vị hành chính](https://danhmuchanhchinh.gso.gov.vn/Default.aspx) của Tổng Cục Thống Kê [^2024-06-12-01]
 | STT | TÊN CỘT | KIỂU |BẮT BUỘC| DIỄN GIẢI | INDEX |
 |:-------:|-------|:-------:|:-------:|-------|:-------:|
 |1|id|VARCHAR(20)|X|Giá trị: `matinh + mahuyen + maxa`|X|
@@ -147,11 +147,11 @@
 
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_sobhxh.jpg)
 
-- Bổ sung thêm menu [Địa phương (theo QĐ 4750], thiết kế form thể hiện dữ liệu danh mục tương ứng với table `current.dmxa4750`. Thiết kế chức năng cho phép import dữ liệu từ tập tin Excel, cấu trúc và dữ liệu mẫu từ [Danh sách cấp tỉnh kèm theo quận/huyện phường/xã - 11/06/2024.xlsx](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/Danh_sach_cap_tinh_kem_theo_quan_huyen_phuong_xa_11_06_2024.xlsx) (Nguồn: [Tổng Cục Thống Kê](https://danhmuchanhchinh.gso.gov.vn/Default.aspx)). **Lưu ý**: danh mục này chỉ cho phép người dùng cập nhật giá trị cột **[Viết tắt]** (`current.dmxa4750.viettat`), **KHÔNG** được phép thao tác **[Thêm/Xóa]**. 
+- Bổ sung thêm menu [Địa phương (theo QĐ 4750], thiết kế form thể hiện dữ liệu danh mục tương ứng với table `current.dmxa4750`. Thiết kế chức năng cho phép import dữ liệu từ tập tin Excel, cấu trúc và dữ liệu mẫu từ [Danh sách cấp tỉnh kèm theo quận/huyện phường/xã - 11/06/2024.xlsx](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/Danh_sach_cap_tinh_kem_theo_quan_huyen_phuong_xa_11_06_2024.xlsx) (Nguồn: [Tổng Cục Thống Kê](https://danhmuchanhchinh.gso.gov.vn/Default.aspx)). **Lưu ý**: danh mục này chỉ cho phép người dùng cập nhật giá trị cột **[Viết tắt]** (`current.dmxa4750.viettat`), **KHÔNG** được phép thao tác **[Thêm/Xóa]**. [^2024-06-12-02]
 
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_dmxa_viettat.jpg)
 
-- Tại form [Hiệu chỉnh thông tin bệnh nhân]: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
+- Tại form [Hiệu chỉnh thông tin bệnh nhân]: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.  
 
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 - Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). Lưu ý: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng (bắt buộc phải chọn mới cho đăng ký).
@@ -250,3 +250,6 @@ Giá trị kết quả điều trị này được lấy từ `current.dmketqua`
 
 :blue_book: Module Services:
 - Thiết kế form/Cập nhật form đẩy dữ liệu theo QĐ130 lên cổng giám định BHYT thông qua API (Chuẩn dữ liệu tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024).
+
+[^2024-06-12-01]: Thay đổi ngày 12/06/2024: Bổ sung cấu trúc bảng theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
+[^2024-06-12-02]: Thay đổi ngày 12/06/2024: Bổ sung mô tả quy trình thực hiện theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
