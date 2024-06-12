@@ -1,5 +1,6 @@
 
 
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -26,6 +27,27 @@
 :white_check_mark: **Cấu trúc các bảng theo quy định của QĐ 4750 và theo dõi cập nhật thông tin chi tiết tại:** [Excel 4750](https://docs.google.com/spreadsheets/d/1H8Y8rsTMqs0QIflxjpDAHQ882tNGMTHl/edit#gid=255000288)
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
+
+:blue_book: Cập nhật cấu trúc, bổ sung hỗ trợ lưu trữ dữ liệu XML theo [Quyết định 130/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/130Q%20.signed.pdf) (Cập nhật theo [Quyết định 4750/QD-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/4750.pdf)).
+-	Script tạo schema: `CREATE SCHEMA xml130`
+-	Tạo 17 table tương ứng với: 1 bảng lưu trữ thông tin chung, 1 bảng check-in và 15 bảng theo các chỉ tiêu. <= Chi tiết tại Phụ lục: CẤU TRÚC DỮ LIỆU LƯU TRỮ 16 TABLE – CẬP NHẬT THEO QĐ4750 (Click vào từng table để xem chi tiết phụ lục)
+1. [Table psxml](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.psxml%20-%20[Ph%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750].md): Bảng lưu thông tin chung, ghi nhận thông tin sau khi dữ liệu XML đã được xuất (đã được lưu trữ từ bảng 1 đến bảng 15) hoặc cập nhật các trạng thái có liên quan đến hồ sơ.
+2. [Table checkin](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.checkin%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Bảng chỉ tiêu dữ liệu về trạng thái khám bệnh, chữa bệnh (Bảng check-in);
+3. [Table bang1](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang1%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu tổng hợp khám bệnh, chữa bệnh;
+4. [Table bang2](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang2%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết thuốc;
+5. [Table bang3](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang3%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết dịch vụ kỹ thuật và vật tư y tế;
+6. [Table bang4](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang4%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết dịch vụ cận lâm sàng;
+7. [Table bang5](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang5%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết diễn biến lâm sàng;
+8. [Table bang6](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang6%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu hồ sơ bệnh án chăm sóc và điều trị HIV/AIDS;
+9. [Table bang7](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang7%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy ra viện;
+10. [Table bang8](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang8%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu tóm tắt hồ sơ bệnh án;
+11. [Table bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang9%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng sinh;
+12. [Table bang10](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang10%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng nhận nghỉ dưỡng thai;
+13. [Table bang11](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang11%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng nhận nghỉ hưởng bảo hiểm xã hội;
+14. [Table bang12](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang12%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giám định y khoa;
+15. [Table bang13](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang13%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chuyển tuyến khám bệnh, chữa bệnh bảo hiểm y tế;
+16. [Table bang14](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang14%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy hẹn khám lại;
+17. [Table bang15](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang15%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu thông tin quản lý điều trị bệnh lao;
 
 :blue_book: Cập nhật cấu trúc, bổ sung cột lưu trữ mã [ICD-9 CM](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/CONGVAN-YEUCAU/QD4440-Quyet%20%C4%91inh%20ban%20hanh%20ICD-9%20CM%20th%C3%AD%20%C4%91i%E1%BB%83m%20DRG.signed.pdf). Danh mục chuyển đổi giữa danh mục kỹ thuật tương đương và phân loại phẫu thuật, thủ thuật quốc tế ICD-9 CM. Bổ sung các cột vào table dmcls:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
@@ -109,27 +131,6 @@
 |8|matinh|VARCHAR(20)|X|Mã tỉnh (2 ký tự)||
 |9|tentinh|VARCHAR(255)|X|Tên tỉnh||
 |10|viettat|VARCHAR(50)||Mã viết tắt||
-
-:blue_book: Cập nhật cấu trúc, bổ sung hỗ trợ lưu trữ dữ liệu XML theo [Quyết định 130/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/130Q%20.signed.pdf) (Cập nhật theo [Quyết định 4750/QD-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/4750.pdf)).
--	Script tạo schema: `CREATE SCHEMA xml130`
--	Tạo 17 table tương ứng với: 1 bảng lưu trữ thông tin chung, 1 bảng check-in và 15 bảng theo các chỉ tiêu. <= Chi tiết tại Phụ lục: CẤU TRÚC DỮ LIỆU LƯU TRỮ 16 TABLE – CẬP NHẬT THEO QĐ4750 (Click vào từng table để xem chi tiết phụ lục)
-1. [Table psxml](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.psxml%20-%20[Ph%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750].md): Bảng lưu thông tin chung, ghi nhận thông tin sau khi dữ liệu XML đã được xuất (đã được lưu trữ từ bảng 1 đến bảng 15) hoặc cập nhật các trạng thái có liên quan đến hồ sơ.
-2. [Table checkin](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.checkin%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Bảng chỉ tiêu dữ liệu về trạng thái khám bệnh, chữa bệnh (Bảng check-in);
-3. [Table bang1](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang1%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu tổng hợp khám bệnh, chữa bệnh;
-4. [Table bang2](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang2%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết thuốc;
-5. [Table bang3](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang3%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết dịch vụ kỹ thuật và vật tư y tế;
-6. [Table bang4](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang4%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết dịch vụ cận lâm sàng;
-7. [Table bang5](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang5%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu chi tiết diễn biến lâm sàng;
-8. [Table bang6](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang6%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu hồ sơ bệnh án chăm sóc và điều trị HIV/AIDS;
-9. [Table bang7](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang7%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy ra viện;
-10. [Table bang8](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang8%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu tóm tắt hồ sơ bệnh án;
-11. [Table bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang9%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng sinh;
-12. [Table bang10](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang10%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng nhận nghỉ dưỡng thai;
-13. [Table bang11](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang11%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chứng nhận nghỉ hưởng bảo hiểm xã hội;
-14. [Table bang12](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang12%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giám định y khoa;
-15. [Table bang13](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang13%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy chuyển tuyến khám bệnh, chữa bệnh bảo hiểm y tế;
-16. [Table bang14](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang14%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy hẹn khám lại;
-17. [Table bang15](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang15%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu thông tin quản lý điều trị bệnh lao;
 
 :white_check_mark: **Quy trình áp dụng:**
 
