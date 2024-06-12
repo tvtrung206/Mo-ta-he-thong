@@ -17,7 +17,7 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **09/06/2024**
+###### :eight_spoked_asterisk: Ngày cập nhật: **12/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
@@ -32,9 +32,9 @@
 |4|ngay_sinh|VARCHAR(12)||Sử dụng thông tin tại trường NGAY_SINH trong Bảng 1 ban hành kèm theo Quyết định này|||
 |5|gioi_tinh|NUMERIC(1,0)||Sử dụng thông tin tại trường GIOI_TINH trong Bảng 1 ban hành kèm theo Quyết định này|||
 |6|dia_chi|VARCHAR(1024)||Sử dụng thông tin tại trường DIA_CHI trong Bảng 1 ban hành kèm theo Quyết định này|||
-|7|matinh_cu_tru|VARCHAR(3)||Sử dụng thông tin tại trường MATINH_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này|||
-|8|mahuyen_cu_tru|VARCHAR(3)||Sử dụng thông tin tại trường MAHUYEN_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này|||
-|9|maxa_cu_tru|VARCHAR(5)||Sử dụng thông tin tại trường MAXA_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này|||
+|7|matinh_cu_tru|VARCHAR(3)||Sử dụng thông tin tại trường MATINH_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=current.dmxa4750.matinh`|
+|8|mahuyen_cu_tru|VARCHAR(3)||Sử dụng thông tin tại trường MAHUYEN_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=current.dmxa4750.mahuyen`|
+|9|maxa_cu_tru|VARCHAR(5)||Sử dụng thông tin tại trường MAXA_CU_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=current.dmxa4750.maxa`|
 |10|ngaykd_hiv|VARCHAR(8)||Ghi thời điểm khẳng định HIV của người nhiễm HIV, định dạng yyyymmdd.<br/>Trường hợp điều trị phơi nhiễm thì để trống trường thông tin này.|||
 |11|noi_lay_mau_xn|VARCHAR(5)|X|Ghi mã cơ sở KBCB nơi lấy mẫu máu xét nghiệm HIV do cơ quan có thẩm quyền cấp.|||
 |12|noi_xn_kd|VARCHAR(5)|X|Ghi mã cơ sở KBCB nơi người bệnh làm xét nghiệm khẳng định HIV do cơ quan có thẩm quyền cấp.|||
