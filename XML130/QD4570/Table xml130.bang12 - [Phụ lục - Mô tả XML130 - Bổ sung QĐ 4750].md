@@ -17,7 +17,7 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **09/06/2024**
+###### :eight_spoked_asterisk: Ngày cập nhật: **12/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
@@ -35,9 +35,9 @@
 |7|ngay_cap_cccd|VARCHAR(8)| X |Ghi ngày cấp chứng minh nhân dân hoặc thẻ căn cước công dân hoặc hộ chiếu của người được giám định y khoa, theo định dạng yyyymmdd||= to_char(dmbenhnhan.ngaycap,’yyyyMMdd’)|
 |8|noi_cap_cccd|VARCHAR(1024)| X |Ghi nơi cấp chứng minh nhân dân hoặc thẻ căn cước công dân hoặc hộ chiếu của người được giám định y khoa.||dmbenhnhan.noicap|
 |9|dia_chi|VARCHAR(1024)| X |Ghi địa chỉ nơi cư trú hiện tại của người được giám định y khoa.<br/>**Lưu ý**: Ghi cụ thể số nhà hoặc Thôn/Xóm; phường/xã; quận, huyện/thị xã/TP thuộc tỉnh; tinh, thành phố trực thuộc trung ương.||dmbenhnhan.diachi|
-|10|matinh_cu_tru|VARCHAR(3)|X  |Mã đơn vị hành chính cấp tỉnh nơi cư trú hiện tại của người bệnh. Ghi theo 02 ký tự cuối của mã đơn vị hành chính của tỉnh, thành phố trực thuộc Trung ương nơi người bệnh cư trú (Quy định tại Phụ lục 1 [Thông tư số 07/2016/TT-BCA](https://congan.quangngai.gov.vn/documents/8878324/9231653/0_20200704221919.pdf/fcd11c17-3599-43f0-ae40-0d5e467bb10d) của Bộ trưởng Bộ Công an).|||
-|11|mahuyen_cu_tru|NUMERIC(3,0)|X  |Mã đơn vị hành chính cấp huyện nơi cư trú hiện tại của người bệnh. Ghi mã đơn vị hành chính cấp huyện theo [Quyết định số 124/2004/QĐ-TTg](https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=14081) ngày 08/7/2004 của Thủ tướng Chính phủ ban hành danh mục mã đơn vị hành chính.|||
-|12|maxa_cu_tru|VARCHAR(5)| X |Mã đơn vị hành chính cấp xã nơi cư trú hiện tại của người bệnh. Ghi mã đơn vị hành chính cấp xã theo [Quyết định số 124/2004/QĐ-TTg](https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=14081) ngày 08/7/2004 của Thủ tướng Chính phủ ban hành danh mục mã đơn vị hành chính.|||
+|10|matinh_cu_tru|VARCHAR(3)|X  |Mã đơn vị hành chính cấp tỉnh nơi cư trú hiện tại của người bệnh. Ghi theo 02 ký tự cuối của mã đơn vị hành chính của tỉnh, thành phố trực thuộc Trung ương nơi người bệnh cư trú (Quy định tại Phụ lục 1 [Thông tư số 07/2016/TT-BCA](https://congan.quangngai.gov.vn/documents/8878324/9231653/0_20200704221919.pdf/fcd11c17-3599-43f0-ae40-0d5e467bb10d) của Bộ trưởng Bộ Công an).||`=current.dmxa4750.matinh`|
+|11|mahuyen_cu_tru|NUMERIC(3,0)|X  |Mã đơn vị hành chính cấp huyện nơi cư trú hiện tại của người bệnh. Ghi mã đơn vị hành chính cấp huyện theo [Quyết định số 124/2004/QĐ-TTg](https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=14081) ngày 08/7/2004 của Thủ tướng Chính phủ ban hành danh mục mã đơn vị hành chính.||`=current.dmxa4750.mahuyen`|
+|12|maxa_cu_tru|VARCHAR(5)| X |Mã đơn vị hành chính cấp xã nơi cư trú hiện tại của người bệnh. Ghi mã đơn vị hành chính cấp xã theo [Quyết định số 124/2004/QĐ-TTg](https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=14081) ngày 08/7/2004 của Thủ tướng Chính phủ ban hành danh mục mã đơn vị hành chính.||`=current.dmxa4750.maxa`|
 |13|ma_bhxh|VARCHAR(10)|X  |Ghi mã số bảo hiểm xã hội của người được giám định y khoa, tìm kiếm tại địa chỉ: https://baohiemxahoi.gov.vn/Pages/default.aspx||Đổi kiểu dữ liệu thành chuỗi<br/><br/>- Khám ngoại trú: ma_bhxh = substr(psdangky.mathe,6,10) tham chiếu psgiamdinhykhoa.mabn = psdangky.mabn và psgiamdinhykhoa.makb = psdangky.makb<br/>- Nội trú: ma_bhxh = substr(bnnoitru.mathe,6,10) tham chiếu psgiamdinhykhoa.mabn = bnnoitru.mabn và psgiamdinhykhoa.makb = bnnoitru.makb|
 |14|ma_the_bhyt|VARCHAR(15)||Ghi mã thẻ BHYT của người được giám định y khoa (nếu có).||- Khám ngoại trú: ma_the_bhyt = psdangky.mathe tham chiếu psgiamdinhykhoa.mabn = psdangky.mabn và psgiamdinhykhoa.makb = psdangky.makb<br/>- Nội trú: ma_the_bhyt = bnnoitru.mathe tham chiếu psgiamdinhykhoa.mabn = bnnoitru.mabn và psgiamdinhykhoa.makb = bnnoitru.makb|
 |15|nghe_nghiep|VARCHAR(100)||Ghi nghề nghiệp của người đề nghị khám giám định y khoa (nếu có).||nghe_nghiep = dmnghe.tennghe<br/>Tham chiếu psgiamdinhykhoa.mabn = dmbenhnhan.mabn và dmbenhnhan.manghe = dmnghe.manghe|
