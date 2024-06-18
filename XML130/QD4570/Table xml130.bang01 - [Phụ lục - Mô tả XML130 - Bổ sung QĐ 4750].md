@@ -1,5 +1,3 @@
-
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -19,7 +17,6 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **12/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
@@ -83,7 +80,7 @@
 |52|t_bhtt_gdv|NUMERIC(15,2)|X |Ghi số tiền quỹ BHYT thanh toán đối với các khoản chi ngoài định suất hoặc ngoài DRG theo quy định của Bộ Y tế (Là số tiền T_BHTT tại bảng XML2 và XML3 đối với các chi phí có MA_PTTT là “1” (Phí dịch vụ)).||Cột này thay cho cột t_ngoaids của xml4210.|
 |53|nam_qt|NUMERIC(4,0)|X|Ghi năm mà cơ sở KBCB đề nghị cơ quan BHXH thanh toán.||Như 4210|
 |54|thang_qt|NUMERIC(2,0)|X|Ghi tháng mà cơ sở KBCB đề nghị cơ quan BHXH thanh toán||Như 4210|
-|55|ma_loai_kcb|VARCHAR(2)|X|Ghi mã hình thức KBCB theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành. Chi tiết xem tại Phụ lục 1 – [Quyết định 824/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/80dfedaffd557024c054fd720545a11becd0b537/XML130/Q%C4%90%20824-B%E1%BB%95%20sung%20m%C3%A3%20d%C3%B9ng%20chung.pdf) ngày 15/02/2023.<br/>Ghi nhận giá trị ưu tiên từ trên xuống:<br/><table border="1" cellspacing="0" cellpadding="0" width = 100%>  <tr>    <td width=10% valign="top"><p><strong>Giá trị</strong></p></td>    <td width=90% valign="top"><p align="center"><strong>Diễn giải</strong></p></td>  </tr>  <tr>    <td width=10% valign="top"><p>1</p></td>    <td width=90% valign="top"><p>Khám bệnh ngoại trú</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>2</p></td>    <td width=90% valign="top"><p>Bệnh án ngoại trú thanh toán cuối đợt</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>3</p></td>    <td width=90% valign="top"><p>Bệnh án nội trú</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>7</p></td>    <td width=90% valign="top"><p>psdangky.trangthaichuyentuyen    = 5 <= Khám ngoại trú nhận thuốc theo hẹn.</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>9</p></td>    <td width=90% valign="top"><p>Bệnh án nội trú (dưới 4 giờ)</p></td>  </tr></table>||Đổi kiểu dữ liệu từ số thành chuỗi|
+|55|ma_loai_kcb|VARCHAR(2)|X|Ghi mã hình thức KBCB theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành. Chi tiết xem tại Phụ lục 1 – [Quyết định 824/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/80dfedaffd557024c054fd720545a11becd0b537/XML130/Q%C4%90%20824-B%E1%BB%95%20sung%20m%C3%A3%20d%C3%B9ng%20chung.pdf) ngày 15/02/2023.<br/>Ghi nhận giá trị ưu tiên từ trên xuống:<br/><table border="1" cellspacing="0" cellpadding="0" width = 100%>  <tr>    <td width=10% valign="top"><p><strong>Giá trị [^2024-06-18]</strong></p></td>    <td width=90% valign="top"><p align="center"><strong>Diễn giải</strong></p></td>  </tr>  <tr>    <td width=10% valign="top"><p>01</p></td>    <td width=90% valign="top"><p>Khám bệnh ngoại trú</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>02</p></td>    <td width=90% valign="top"><p>Bệnh án ngoại trú thanh toán cuối đợt</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>03</p></td>    <td width=90% valign="top"><p>Bệnh án nội trú</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>07</p></td>    <td width=90% valign="top"><p>psdangky.trangthaichuyentuyen    = 5 <= Khám ngoại trú nhận thuốc theo hẹn.</p></td>  </tr>  <tr>    <td width=10% valign="top"><p>09</p></td>    <td width=90% valign="top"><p>Bệnh án nội trú (dưới 4 giờ)</p></td>  </tr></table>||Đổi kiểu dữ liệu từ số thành chuỗi|
 |56|ma_khoa|VARCHAR(50)|X|Ghi mã khoa nơi người bệnh điều trị.<br/>**Lưu ý**:<br/>+ Mã khoa ghi theo Phụ lục số 5 ban hành kèm theo [Quyết định số 5937/QĐ-BYT](https://ttytphumy.com/laws/detail/v-v-bo-sung-danh-muc-ma-dung-chung-lien-quan-bhyt-28/) ngày 30 tháng 12 năm 2021 của Bộ trưởng Bộ Y tế.<br/>+ Trường hợp người bệnh điều trị ở nhiều khoa thì thì ghi lần lượt mã khoa nơi người bệnh đã điều trị, các mã khoa được phân cách bằng dấu chấm phẩy “;”|||
 |57|ma_cskcb|VARCHAR(5)|X|Ghi mã cơ sở KBCB nơi người bệnh đến khám bệnh, điều trị do cơ quan có thẩm quyền cấp.||Như 4210|
 |58|ma_khuvuc|VARCHAR(2)||Ghi mã nơi sinh sống của người bệnh ghi trên thẻ BHYT (K1 hoặc K2 hoặc K3)||Như 4210|
@@ -97,3 +94,4 @@
 ||makb|VARCHAR(20)|X|psdangky.makb|X||
 
 [^2024-06-12]: Thay đổi ngày 12/06/2024: bổ sung cách ghi nhận giá trị cho `matinh_cu_tru`, `mahuyen_cu_tru`, `maxa_cu_tru` theo yêu cầu [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
+[^2024-06-18]: Thay đổi ngày 18/06/2024: Thay đổi cách ghi giá trị cột ma_loai_kcb theo kiểu chuỗi.
