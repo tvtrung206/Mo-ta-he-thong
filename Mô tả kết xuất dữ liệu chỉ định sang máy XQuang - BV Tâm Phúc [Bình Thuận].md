@@ -39,8 +39,11 @@ Trong đó:<br/>
 ⇒ `idpacs`: ID PACS được sinh ra từ bước 2.<br/>
 ⇒ `hotenbenhnhan`: Họ và tên bệnh nhân.<br/>
 ⇒ `ngaysinh`: Ngày sinh bệnh nhân. Kiểu chuỗi theo cú pháp: `YYYYMMDD`.<br/>
+⇒ `gioitinh`: Giới tính. Giá trị: M (nam), ngược lại F. [^2024-06-23]<br/>
 ⇒ `khoachidinh`: Tên khoa chỉ định Xquang.<br/>
 ⇒ `tencanlamsang`: Tên cận lâm sàng Xquang.<br/>
 5. Sau khi gửi thành công: cập nhật `chidinhcls.idpacs = idpacs` và tham số `ha.idpacs = idpacs`.
 6. Trường hợp gửi lại PACS (đã gửi và phát sinh idpacs trước đó): `idpasc = chidinhcls.idpacs` và thực hiện tiếp tục bắt đầu từ bước 3.
 7. Máy Xquang sau khi nhận và đọc thành công thì xóa tập tin đã đọc.
+
+[^2024-06-23]: Thay đổi ngày 23/06/2024: Bổ sung mô tả `gioitinh`.
