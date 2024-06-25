@@ -65,18 +65,19 @@
 |:-------:|-------|:-------:|-------|
 |1|nhom_mau|VARCHAR(5)|Ghi nhóm máu của người bệnh trong trường hợp có thông tin. Giá trị gồm: A; A+; A-; B; B+; B-; AB; AB+; AB-; O; O+; O-; Rh; Rh+; Rh-|
 
-:blue_book: Cập nhật cấu trúc table dmthuoc:
+:blue_book: Cập nhật cấu trúc table **dmthuoc**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 |1|ma_pp_chebien|VARCHAR(255)|Ghi mã phương pháp chế biến vị thuốc cổ truyền theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành (Phương pháp chế biến vị thuốc cổ truyền theo quy định tại [Thông tư số 30/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=135619) của Bộ trưởng Bộ Y tế).|
 |2|ma_cskcb_thuoc|VARCHAR(10)|- Trường hợp do thiên tai, dịch bệnh phải chuyển thuốc đến cơ sở KBCB khác để điều trị cho người bệnh thì ghi C.XXXXX (XXXXX là mã cơ sở KBCB nơi chuyển thuốc đi).<br/>- Trường hợp thuốc thanh toán ngoài giá dịch vụ cận lâm sàng chuyển thực hiện tại cơ sở KBCB khác thì ghi K.XXXXX (XXXXX là mã cơ sở KBCB nơi thực hiện dịch vụ cận lâm sàng).<br/>- Trường hợp chế phẩm máu có sử dụng bộ dụng cụ gạn tách (kít tách tiểu cầu, bạch cầu…) hoặc xét nghiệm được thanh toán ngoài giá đơn vị máu, chế phẩm máu quy định tại tiết d khoản 10 Điều 3 [Thông tư số 17/2020/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=147191) ngày 12/11/2020 của Bộ Y tế thì ghi M.XXXXX (trong đó XXXXX là mã cơ sở KBCB của đơn vị cung cấp máu).<br/>- Trường hợp cơ sở KCB sử dụng thuốc của hạng bệnh hạng cao hơn được kê đơn, chỉ định bằng hình thức hội chẩn từ xa theo quy định tại [Thông tư số 20/2022/TT-BYT](https://danang.baohiemxahoi.gov.vn/vanban/Pages/default.aspx?ItemID=8665) thì ghi HC.XXXXX (trong đó XXXXX là mã cơ sở KCB nơi thực hiện kê đơn, chỉ định thuốc)|
+|3|tt_thau4750[^2024-06-25-91]|VARCHAR|Ghi nhận thông tin thầu theo 4750.|
 
-:blue_book: Cập nhật cấu trúc table pshdxn:
+:blue_book: Cập nhật cấu trúc table **pshdxn**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 |1|lieu_dung|VARCHAR(1024)|Ghi liều dùng thuốc cho người bệnh, cụ thể:<br/>- Đối với ngoại trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày * số ngày sử dụng [tổng số thuốc/ngày].<br/>Ví dụ: liều dùng của thuốc A: 2 viên/lần, 2 lần/ngày, sử dụng trong 5 ngày thì được ghi như sau: 2 viên/lần * 2 lần/ngày * 5 ngày [4 viên/ngày].<br/>- Đối với nội trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày * 01 ngày [tổng số thuốc/ngày].<br/>**Lưu ý**:<br/>- Trường hợp liều thuốc thay đổi trong ngày theo từng lần sử dụng thì ghi chi tiết.<br/>Ví dụ: liều dùng của thuốc A, sáng: 3 viên, chiều: 2 viên, tối: 1 viên. Như vậy, sẽ ghi như sau: Sáng: 3 viên, Chiều: 2 viên, Tối: 1 viên [6 viên/ngày].|
 
-:blue_book: Cập nhật cấu trúc table qtdieutri:
+:blue_book: Cập nhật cấu trúc table **qtdieutri**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 |1|giai_doan_benh|VARCHAR|Ghi giai đoạn bệnh trong trường hợp người bệnh đã được cơ sở KBCB xác định giai đoạn bệnh.|
@@ -86,7 +87,7 @@
 |:-------:|-------|:-------:|-------|
 |1|ma_ttdv|Chuỗi (tham số chung)|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
 
-:blue_book: Cập nhật cấu trúc: bổ sung table current.psgiamdinhykhoa
+:blue_book: Cập nhật cấu trúc: bổ sung table **current.psgiamdinhykhoa**
 | STT | TÊN CỘT | KIỂU | DIỄN GIẢI | INDEX |
 |:-------:|-------|:-------:|-------|:-------:|
 |1|mabn|VARCHAR(20)|Mã bệnh nhân|X|
@@ -253,3 +254,4 @@ Giá trị kết quả điều trị này được lấy từ `current.dmketqua`
 
 [^2024-06-12-01]: Thay đổi ngày 12/06/2024: Bổ sung cấu trúc bảng theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
 [^2024-06-12-02]: Thay đổi ngày 12/06/2024: Bổ sung mô tả quy trình thực hiện theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
+[^2024-06-25-91]: Thay đổi ngày 25/06/2024: Bổ sung TT_THAU theo QĐ 130, 4750: [#415](https://github.com/dh-hos/To_Lap_Trinh/issues/415)
