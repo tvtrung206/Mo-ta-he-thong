@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -33,7 +34,7 @@
 - Quá trình gửi PACS cho mỗi XQuang được thực hiện:
 1. Hệ thống sẽ sử dụng tham số `ha.idpacs` để lưu giá trị `ID PACS` mới nhất của mỗi lần gửi PACS. Độ dài giá trị tham số này là 8 ký tự.
 2. Tạo ID PACS cho mỗi lần gửi: `idpacs = ha.idpacs + 1`.
-3. Tạo tập tin chỉ định theo quy tắc: `"idpacs.txt"`. Ví dụ: `00012345.txt`, trong đó `idpacs = 00012345`. Tập tin được lưu vào `\\192.168.1.5\xquang\00012345.txt` sau mỗi lần gửi.
+3. Tạo tập tin chỉ định theo quy tắc: `"xquang.txt"`. Tập tin được lưu vào `\\192.168.1.5\xquang\xquang.txt` sau mỗi lần gửi. **Lưu ý**: theo thỏa thuận với bên công ty Xquang, lần gửi chỉ định sau cùng sẽ ghi đè thông tin gửi chỉ định của lần trước. [^2024-06-26]
 4. Nội dung tập tin theo quy tắc: `idpacs|hotenbenhnhan|ngaysinh|gioitinh|khoachidinh|tencanlamsang`<br/>
 Trong đó:<br/>
 ⇒ `idpacs`: ID PACS được sinh ra từ bước 2.<br/>
@@ -47,3 +48,4 @@ Trong đó:<br/>
 7. Máy Xquang sau khi nhận và đọc thành công thì xóa tập tin đã đọc.
 
 [^2024-06-23]: Thay đổi ngày 23/06/2024: Bổ sung mô tả `gioitinh`.
+[^2024-06-26]: Thay đổi ngày 26/06/2024: Điều chỉnh mô tả quy tắc tạo tập tin gửi chỉ định tại bước 3.
