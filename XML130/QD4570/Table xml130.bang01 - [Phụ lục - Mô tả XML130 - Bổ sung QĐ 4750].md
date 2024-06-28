@@ -1,4 +1,5 @@
 
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -93,7 +94,9 @@
 |64|ma_ttdv|VARCHAR(10)|X |Ghi mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB đó.||Được lấy từ tham số ma_ttdv|
 |65|du_phong|VARCHAR||Trường dữ liệu dự phòng khi cần thiết.|||
 ||makb|VARCHAR(20)|X|psdangky.makb|X||
+||version [^2026-06-28-06]|VARCHAR(50)||Ghi nhận phiên bản phân hệ xuất dữ liệu XML130.|||
 
+[^2026-06-28-06]: Thay đổi ngày 28/06/2024: Bổ sung cột dữ liệu `version` ghi nhận phiên bản phân hệ xuất dữ liệu XML130.
 [^2026-06-28-05]: Thay đổi ngày 28/06/2024: Cập nhật hướng dẫn cách ghi nhận giá trị cột `so_ngay_dtri` khi `ma_loai_kcb = 08`.
 [^2024-06-28-04]: Thay đổi ngày 28/06/2024: Thay đổi thứ tự ưu tiên khi `ma_loai_kcb = 05`.
 [^2024-06-28-03]: Thay đổi ngày 28/06/2024: Thay đổi thứ tự ưu tiên và điều kiện khi `ma_loai_kcb = 08`.
