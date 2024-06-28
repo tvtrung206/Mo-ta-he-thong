@@ -16,7 +16,6 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **12/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
@@ -130,6 +129,11 @@
 |9|tentinh|VARCHAR(255)|X|Tên tỉnh||
 |10|viettat|VARCHAR(50)||Mã viết tắt||
 
+:blue_book: Cập nhật cấu trúc table **bnnoitru**: [^2024-06-28-01]
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|tomtat_kq|VARCHAR|Ghi tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán.|
+
 :white_check_mark: **Quy trình áp dụng:**
 
 :blue_book: Thiết kế DLL: Form Giám định y khoa *(tương ứng cập nhật dữ liệu cho current.psgiamdinhykhoa)*. Tích hợp lên: Prescription và Treatment.
@@ -218,6 +222,7 @@ Giá trị kết quả điều trị này được lấy từ `current.dmketqua`
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg)
 
 - Tại form xuất viện, khi thao tác lưu thông tin người bệnh được xuất viện => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
+- Tại form xuất viện: bổ sung Control cho phép người dùng nhập nội dung `[Tóm tắt kết quả xét nghiệm cận lâm sàng]`, tương ứng với dữ liệu cột `bnnoitru.tomtat_kq`. **Lưu ý: Bắt buộc phải có dữ liệu `tomtat_kq` mới cho xuất viện**.  [^2024-06-28-02]
 
 :blue_book: Module Printer:
 - Tại form in phiếu 01BV theo [QĐ6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
@@ -255,3 +260,5 @@ Giá trị kết quả điều trị này được lấy từ `current.dmketqua`
 [^2024-06-12-01]: Thay đổi ngày 12/06/2024: Bổ sung cấu trúc bảng theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
 [^2024-06-12-02]: Thay đổi ngày 12/06/2024: Bổ sung mô tả quy trình thực hiện theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
 [^2024-06-25-91]: Thay đổi ngày 25/06/2024: Bổ sung TT_THAU theo QĐ 130, 4750: [#415](https://github.com/dh-hos/To_Lap_Trinh/issues/415)
+[^2024-06-28-01]: Thay đổi ngày 28/06/2024: Bổ sung cột `tomtat_kq` phục vụ dữ liệu [xml130.bang8](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang08%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md)
+[^2024-06-28-02]: Thay đổi ngày 28/06/2024: Bổ sung quy trình áp dụng ghi nhận `tomtat_kq` cho phân hệ `Treatment`.
