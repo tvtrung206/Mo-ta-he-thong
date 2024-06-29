@@ -257,6 +257,12 @@ Giá trị kết quả điều trị này được lấy từ `current.dmketqua`
 :blue_book: Module Services:
 - Thiết kế form/Cập nhật form đẩy dữ liệu theo QĐ130 lên cổng giám định BHYT thông qua API (Chuẩn dữ liệu tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024).
 
+:blue_book: Module Diagnose: [^2024-06-29]
+- Tại các form trả kết quả của `Chẩn đoán hình ảnh (HA)/Thăm dò chức năng (CN)`, bổ sung control ghi nhận `[Ngày thực hiện y lệnh]`. Thời gian này được lấy mặc định từ khi mở form thực hiện (cho phép người dùng tùy chỉnh, điều kiện phải nhỏ hơn hoặc bằng thời gian Ngày thực hiện). Dữ liệu được cập nhật tương ứng cột: `chidinhcls.giolaymau`.
+
+![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/9cf79ca2-d2bd-4fb3-9011-094dbe77e0bf)
+
+[^2024-06-29]: Thay đổi ngày 29/06/2024: Bổ sung control ghi nhận Ngày thực hiện y lệnh đối với `Chẩn đoán hình ảnh/Thăm dò chức năng` khi thực hiện trả kết quả.
 [^2024-06-12-01]: Thay đổi ngày 12/06/2024: Bổ sung cấu trúc bảng theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
 [^2024-06-12-02]: Thay đổi ngày 12/06/2024: Bổ sung mô tả quy trình thực hiện theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
 [^2024-06-25-91]: Thay đổi ngày 25/06/2024: Bổ sung TT_THAU theo QĐ 130, 4750: [#415](https://github.com/dh-hos/To_Lap_Trinh/issues/415)
