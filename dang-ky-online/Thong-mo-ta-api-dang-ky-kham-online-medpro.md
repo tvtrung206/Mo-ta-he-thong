@@ -135,7 +135,6 @@
 -  RESPONSE:
 ```cshap
 {
-{
     "code": "2022032198",  // mã bệnh nhân sau khi tạo hồ sơ thành công
     "message": "tạo hồ sơ thành công"
 }
