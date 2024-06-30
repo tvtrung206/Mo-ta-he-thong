@@ -17,10 +17,11 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
 ###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
-###### :eight_spoked_asterisk: Ngày cập nhật: **09/06/2024**
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
+
+:white_check_mark: **Điều kiện xuất dữ liệu XML130:** Tạm thời dữ liệu bảng này chưa phát sinh (do phần mềm chưa có chức năng quản lý). [^2024-06-30]
 
 :white_check_mark: **Mô tả tổng thể từ: [Mô tả XML130 - Bổ sung QĐ 4750](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750.md)**
 
@@ -48,3 +49,5 @@
 |20|du_phong|VARCHAR||Trường dữ liệu dự phòng khi cần thiết.|||
 ||makb|VARCHAR(20)|X||X||
 ||mabn|VARCHAR(20)|X||X||
+
+[^2024-06-30]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
