@@ -39,3 +39,8 @@
 |11|checkin_cls|NUMERIC(1,0)||Ghi nhận trạng thái đã gửi thông tin xml check-in có công khám lên cổng giám định BHYT. Giá trị:<br/>- 0 (hoặc null): chưa gửi xml check-in công khám phát sinh đầu tiên của người bệnh lên cổng giám định BHYT.<br/>- 1: đã gửi xml check-in công khám phát sinh đầu tiên của người bệnh lên cổng giám định BHYT.|||
 |12|checkin_thuoc|NUMERIC(1,0)||Ghi nhận trạng thái đã gửi thông tin xml check-in có thuốc lên cổng giám định BHYT. Giá trị:<br/>- 0 (hoặc null): chưa gửi xml check-in thuốc phát sinh đầu tiên của người bệnh lên cổng giám định BHYT.<br/>- 1: đã gửi xml check-in thuốc phát sinh đầu tiên của người bệnh lên cổng giám định BHYT.|||
 |13|checkin_vtyt|NUMERIC(1,0)||Ghi nhận trạng thái đã gửi thông tin xml check-in có VTYT lên cổng giám định BHYT. Giá trị:<br/>- 0 (hoặc null): chưa gửi xml check-in VTYT phát sinh đầu tiên của người bệnh lên cổng giám định BHYT.<br/>- 1: đã gửi xml check-in VTYT phát sinh đầu tiên của người bệnh lên cổng giám định BHYT.|||
+|14[^2024-07-01]|macls|varchar(20)||Ghi nhận thông tin mã cận lâm sàng check in|||
+|15|mahh_thuoc|varchar(20)||Ghi nhận thông tin mã hàng hóa check in thuốc |||
+|16|mahh_vtyt|varchar(20)||Ghi nhận thông tin mã hàng hóa check vtyt|||
+
+[^2024-07-01]: Thay đổi ngày 01/07/2024: Thêm cấu trúc ghi nhận macls,mahh khi thực hiện checkin.
