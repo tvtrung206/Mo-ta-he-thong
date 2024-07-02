@@ -18,10 +18,6 @@
 
 ###### :eight_spoked_asterisk: Ngày lập: **30/06/2024**
 
-###### :eight_spoked_asterisk: HIS_URL
-
-- his_url: được cấp tùy theo IP bệnh viện
-
 ###### :eight_spoked_asterisk: HƯỚNG DẪN CÀI ĐẶT SERVICE
 1. Đảm bảo server cài đặt service có cài đặt NODE.JS.
 2. Tải file cài đặt: [Tại đây](https://gofile.me/78TQg/1Xxrhd9oa)
