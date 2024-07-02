@@ -220,7 +220,7 @@
   ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/prescription-00.png)
   Giá trị kết quả điều trị này được lấy từ `current.dmketqua` và được lưu vào `psdangky.ket_qua_dtri` (tương ứng với `dmketqua.makq`) khi được chọn.
 - Tại form xuất viện đối với BA ngoại trú thanh toán cuối đợt, khi thao tác lưu thông tin người bệnh được xuất viện hoặc tại form in phiếu 01BV theo [QĐ 6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) đối với người bệnh khám ngoại trú => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
-- Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng vào cột `phauthuat.mamay`. [^2024-07-02-03]
+- Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng vào cột `phauthuat.mamay`. **Lưu ý:** *Không bắt buộc phải có giá trị cột này.* [^2024-07-02-03]
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
 
 :blue_book: Module Medicine:
@@ -252,7 +252,7 @@
 
 - Tại form xuất viện, khi thao tác lưu thông tin người bệnh được xuất viện => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
 - Tại form xuất viện: bổ sung Control cho phép người dùng nhập nội dung `[Tóm tắt kết quả xét nghiệm cận lâm sàng]`, tương ứng với dữ liệu cột `bnnoitru.tomtat_kq`. **Lưu ý: Bắt buộc phải có dữ liệu `tomtat_kq` mới cho xuất viện**. [^2024-06-28-02]
-- Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng vào cột `phauthuat.mamay`. [^2024-07-02-04]
+- Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng vào cột `phauthuat.mamay`.  **Lưu ý:** *Không bắt buộc phải có giá trị cột này.* [^2024-07-02-04]
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
 
 :blue_book: Module Printer:
