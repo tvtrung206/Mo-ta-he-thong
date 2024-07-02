@@ -142,6 +142,11 @@
 |:-------:|-------|:-------:|-------|
 |1|tomtat_kq|VARCHAR|Ghi tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán.|
 
+:blue_book: Cập nhật cấu trúc table **current.phauthuat**: [^2024-07-02-01]
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|mamay|VARCHAR(20)|Mã máy (tham chiếu từ cột `dmmamay.mamay`.|
+
 :white_check_mark: **Quy trình áp dụng:**
 
 :blue*book: Thiết kế DLL: Form Giám định y khoa *(tương ứng cập nhật dữ liệu cho current.psgiamdinhykhoa)\_. Tích hợp lên: Prescription và Treatment.
@@ -167,6 +172,8 @@
 ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_dmxa_viettat.jpg)
 
 - Tại form [Hiệu chỉnh thông tin bệnh nhân]: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
+- Tại form quản lý `[Danh mục mã máy thực hiện CLS]`, bổ sung thêm giá trị cho `[Kho CLS]` là `TT (thủ thuật)` và `PT (phẫu thuật)`. [^2024-07-02-02]
+![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b5e3fcc8-935c-42be-9a04-5f69f60f6a83)
 
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 
@@ -213,6 +220,8 @@
   ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/prescription-00.png)
   Giá trị kết quả điều trị này được lấy từ `current.dmketqua` và được lưu vào `psdangky.ket_qua_dtri` (tương ứng với `dmketqua.makq`) khi được chọn.
 - Tại form xuất viện đối với BA ngoại trú thanh toán cuối đợt, khi thao tác lưu thông tin người bệnh được xuất viện hoặc tại form in phiếu 01BV theo [QĐ 6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) đối với người bệnh khám ngoại trú => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
+- Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng vào cột `phauthuat.mamay`. [^2024-07-02-03]
+![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
 
 :blue_book: Module Medicine:
 
@@ -243,6 +252,8 @@
 
 - Tại form xuất viện, khi thao tác lưu thông tin người bệnh được xuất viện => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
 - Tại form xuất viện: bổ sung Control cho phép người dùng nhập nội dung `[Tóm tắt kết quả xét nghiệm cận lâm sàng]`, tương ứng với dữ liệu cột `bnnoitru.tomtat_kq`. **Lưu ý: Bắt buộc phải có dữ liệu `tomtat_kq` mới cho xuất viện**. [^2024-06-28-02]
+- Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng vào cột `phauthuat.mamay`. [^2024-07-02-04]
+![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
 
 :blue_book: Module Printer:
 
@@ -292,6 +303,10 @@
 - Ưu tiên lấy họ lót không chức danh => họ lót hiện tại. (current.dmnhanvien: holot_thuan => holot) khi lấy họ tên bác sĩ hoặc nhân viên khi xuất XML hoặc tra cứu thông tuyến.
   ![alt text](image.png)
 
+[^2024-07-02-04]: Thay đổi ngày 02/07/2024: Hướng dẫn bổ sung quy trình thực hiện cho `Module Treatment` ⇒ Form thực hiện `Thủ thuật/Phẫu thuật`.
+[^2024-07-02-03]: Thay đổi ngày 02/07/2024: Hướng dẫn bổ sung quy trình thực hiện cho `Module Prescription` ⇒ Form thực hiện `Thủ thuật/Phẫu thuật`.
+[^2024-07-02-02]: Thay đổi ngày 02/07/2024: Hướng dẫn bổ sung quy trình thực hiện cho `Module Admin` ⇒ Form `[Danh mục mã máy thực hiện CLS]`.
+[^2024-07-02-01]: Thay đổi ngày 02/07/2024: Bổ sung cấu trúc, cột `phauthuat.mamay`.
 [^2024-07-01]: Thay đổi ngày 01/07/2024: Họ lót không chức danh.
 [^2024-06-29]: Thay đổi ngày 29/06/2024: Bổ sung control ghi nhận Ngày thực hiện y lệnh đối với `Chẩn đoán hình ảnh/Thăm dò chức năng` khi thực hiện trả kết quả.
 [^2024-06-12-01]: Thay đổi ngày 12/06/2024: Bổ sung cấu trúc bảng theo yêu cầu tại: [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
