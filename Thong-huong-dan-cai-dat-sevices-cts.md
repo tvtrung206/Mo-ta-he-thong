@@ -32,3 +32,24 @@
    ![](https://i.imgur.com/gAzhm4e.png)
    ![](https://i.imgur.com/Cj2EI3W.png)
 
+###### :eight_spoked_asterisk: MAP CTS VÀO TÀI KHOẢN TRÊN HIS
+- sử dụng postman thực hiện request sau :
+  + URL: http://IP:PORT/create_user_softdream (IP: địa chỉ IP của bệnh viện, PORT: mã port đã thiết lập ở phần cài đặt service)
+  + METHOD: POST
+  + BODY:
+    ```cshap
+    {
+    "username":"api-dh",
+    "password":"pjjb2r0d19rfd5r2",
+    "serial":"5401100065302B84D97D23C04E8746EF",
+    "pin":"018852",
+    "manv":"001"
+    }
+    ```
+
+ ###### :eight_spoked_asterisk: CẤU HÌNH SỬ DỤNG TRÊN HIS
+
+ 
+
+
+
