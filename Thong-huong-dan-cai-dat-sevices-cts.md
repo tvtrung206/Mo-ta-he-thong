@@ -19,7 +19,7 @@
 ###### :eight_spoked_asterisk: Ngày lập: **30/06/2024**
 
 ###### :eight_spoked_asterisk: HƯỚNG DẪN CÀI ĐẶT SERVICE
-1. Đảm bảo server cài đặt service có cài đặt NODE.JS.
+1. Đảm bảo server cài đặt service có cài đặt NODE.JS (version: v18.20.2).
 2. Tải file cài đặt: [Tại đây](https://gofile.me/78TQg/1Xxrhd9oa)
 3. Giải nén file vừa tải về, mở file app.js và cấu hình port.
    ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/110148171/2e7c41e1-0fca-4f12-9c53-e7144ab37e23)
