@@ -34,7 +34,7 @@
 |7|goi_vtyt|VARCHAR(3)||Ghi mã gói VTYT trong một lần sử dụng dịch vụ kỹ thuật (lần thứ nhất ghi G1, lần thứ hai ghi G2,…).<br/><br/>Bổ sung diễn giải: Trường hợp DVKT thực hiện có phát sinh gói VTYT đi kèm thì ghi thông tin gói tương ứng tại dòng DVKT phát sinh.|||
 |8|ten_vat_tu|VARCHAR(1024)||Ghi tên thương mại của VTYT.<br/>**Lưu ý**: Đối với sinh phẩm xét nghiệm COVID-19: Ghi tên sinh phẩm thương mại vào trường thông tin “TEN_VAT_TU” theo hướng dẫn tại Phụ lục 9 ban hành kèm theo [Quyết định số 5937/QĐ-BYT](https://ttytphumy.com/laws/detail/v-v-bo-sung-danh-muc-ma-dung-chung-lien-quan-bhyt-28/) ngày 30/12/2021 của Bộ trưởng Bộ Y tế.<br/><br/>Bổ sung diễn giải: Ghi tên thương mại của VTYT theo quyết định trúng thầu, đồng thời cũng là tên VTYT được cơ quan BHXH cấp mã theo quy định tại [Quyết định số 5086/QĐ-BYT](https://binhphuoc.gov.vn/vi/syt/duoc-pham-my-pham/trien-khai-quyet-dinh-so-5086-qd-byt-ve-viec-ban-hanh-danh-muc-dung-chung-ma-hang-san-xuat-vat-tu-y-te-1527.html) ngày 04/11/2021 của Bộ Y tế.||Như 4210|
 |9|ten_dich_vu|VARCHAR(1024)||Ghi tên dịch vụ kỹ thuật hoặc tên dịch vụ khám bệnh hoặc tên giường bệnh đề nghị quỹ BHYT thanh toán.<br/>**Lưu ý**:<br/>- Đối với dịch vụ kỹ thuật, trường hợp cần ghi rõ vị trí, phương pháp thực hiện hoặc phân biệt các mức giá khác nhau thì sau tên dịch vụ kỹ thuật ghi phần mô tả chi tiết trong ngoặc vuông [ ];<br/>- Đối với DVKT sử dụng phương pháp vô cảm gây tê, bổ sung cụm từ “[gây tê]” sau tên dịch vụ;<br/>- Đối với trường hợp xét nghiệm COVID-19 thì ghi tên dịch vụ theo quy định tại Phụ lục 9 ban hành kèm theo [Quyết định số 5937/QĐ-BYT](https://ttytphumy.com/laws/detail/v-v-bo-sung-danh-muc-ma-dung-chung-lien-quan-bhyt-28/) ngày 30/12/2021 của Bộ trưởng Bộ Y tế.||Như 4210|
-|10|ma_xang_dau|VARCHAR(20)||Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.|||
+|10|ma_xang_dau|VARCHAR(20)|Bắt buộc khi MA_NHOM = 12 [^2024-07-04-01]|Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.||Xét [^2024-07-04-02], nếu `dmcls.ma_xang_dau rỗng`:<br/>`= tham số ma_xang_dau`<br/>ngược lại: `= dmcls.ma_xang_dau`|
 |11|don_vi_tinh|VARCHAR(50)| X|Ghi đơn vị tính của VTYT hoặc DVKT đề nghị thanh toán.|||
 |12|pham_vi|NUMERIC(1,0)|X|Ghi mã để xác định phạm vi của VTYT, dịch vụ kỹ thuật, trong đó:<br/>- Mã “1”: Trong phạm vi hưởng BHYT (trong danh mục do quỹ BHYT chi trả);<br/>- Mã “2”: Ngoài phạm vi hưởng BHYT (ngoài danh mục do quỹ BHYT chi trả);<br/>- Mã “3”: Ngoài danh mục do quỹ BHYT chi trả nhưng được quỹ BHYT chi trả cho các đối tượng thuộc quân đội, công an, cơ yếu theo quy định của [Nghị định 70/2015/NĐ-CP](https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=181238) của Chính phủ.|||
 |13|so_luong|NUMERIC(10,3)|X|Ghi số lượng dịch vụ kỹ thuật hoặc VTYT thực tế sử dụng cho người bệnh, làm tròn số đến 3 chữ số thập phân. Sử dụng dấu chấm “.” Để phân cách giữa số Nguyên (hàng đơn vị) với số thập phân đầu tiên.|||
@@ -78,6 +78,8 @@
 ||ngaykcb|TIMESTAMP||chidinhcls.ngaykcb|X||
 ||mahh|VARCHAR(20)||pshdxn.mahh|X||
 
+[^2024-07-04-02]: Thay đổi ngày 04/07/2024: Hướng dẫn điều kiện  cho cột `ma_xang_dau`.
+[^2024-07-04-01]: Thay đổi ngày 04/07/2024: Bổ sung điều kiện ràng buộc cho cột `ma_xang_dau`
 [^2024-07-02]: Thay đổi ngày 02/07/2024: Hướng dẫn điều kiện  cho cột `ma_may`
 [^2024-06-29-03]: Thay đổi ngày 29/06/2024: Hướng dẫn điều kiện  cho cột `ngay_th_yl`
 [^2024-06-29-02]: Thay đổi ngày 29/06/2024: Hướng dẫn điều kiện  cho cột `nguoi_thuc_hien`
