@@ -1,4 +1,3 @@
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -59,6 +58,7 @@
 |:-------:|-------|:-------:|-------|
 | 1 | maicd9 | VARCHAR(20) | Mã ICD-9 CM |
 | 2 | don_vi_do | VARCHAR(50) | Ghi đơn vị đo của chỉ số xét nghiệm, chẩn đoán hình ảnh, thăm dò chức năng theo Phụ lục 11 ban hành kèm theo [Quyết định số 7603/QĐ-BYT](https://syt.binhdinh.gov.vn/index.php/vi/van-ban-chi-dao-dieu-hanh/detail/Quyet-dinh-ve-viec-ban-hanh-bo-ma-danh-muc-dung-chung-ap-dung-trong-quan-ly-kham-benh-chua-benh-va-thanh-toan-bao-hiem-y-te-Phien-ban-so-6-261/) ngày 25 tháng 12 năm 2018 của Bộ trưởng Bộ Y tế. Đối với các chỉ số không có đơn vị đo thì để trống trường thông tin này. |
+|3|ma_xang_dau [^2024-07-04-02]| VARCHAR(20) |Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành. *Áp dụng cho các cận lâm sàng chuyển viện.*|
 
 :blue_book: Cập nhật cấu trúc table psdangky:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
@@ -91,9 +91,10 @@
 |1|giai_doan_benh|VARCHAR|Ghi giai đoạn bệnh trong trường hợp người bệnh đã được cơ sở KBCB xác định giai đoạn bệnh.|
 
 :blue_book: Cập nhật cấu trúc: bổ sung tham số
-| STT | TÊN THAM SỐ | KIỂU | DIỄN GIẢI |
-|:-------:|-------|:-------:|-------|
-|1|ma_ttdv|Chuỗi (tham số chung)|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
+| STT | TÊN THAM SỐ | KIỂU |PHÂN HỆ| DIỄN GIẢI |
+|:-------:|-------|:-------:|-------|-------|
+|1|ma_ttdv|Chuỗi| Tham số chung|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
+|2|ma_xang_dau [^2024-07-04-01]|Chuỗi| Tham số chung|Mã xăng dầu mặc định (sử dụng cho trường hợp mã xăng dầu của cận lâm sàng chuyển viện trong danh mục chưa cấu hình). Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.|
 
 :blue_book: Cập nhật cấu trúc: bổ sung table **current.psgiamdinhykhoa**
 | STT | TÊN CỘT | KIỂU | DIỄN GIẢI | INDEX |
@@ -153,7 +154,6 @@
 :blue*book: Thiết kế DLL: Form Giám định y khoa *(tương ứng cập nhật dữ liệu cho current.psgiamdinhykhoa)\_. Tích hợp lên: Prescription và Treatment.
 
 :blue_book: Module Admin
-
 - Tại form hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô [CMND] phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
 - Tại tab [Cấu hình tên chỉ số, mã chỉ số theo Xml (4210)] của form [Danh mục cận lâm sàng], bổ sung thêm ô text cho phép người dùng nhập/cập nhật [Đơn vị đo], cập nhật tương ứng với cột `dmcls.don_vi_do`. Mở rộng chức năng cấu hình mã chỉ số, tên chỉ số cho kho: HA (chẩn đoán hình ảnh) và CN (Thăm dò chức năng).
 
@@ -175,6 +175,7 @@
 - Tại form [Hiệu chỉnh thông tin bệnh nhân]: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
 - Tại form quản lý `[Danh mục mã máy thực hiện CLS]`, bổ sung thêm giá trị cho `[Kho CLS]` là `TT (thủ thuật)` và `PT (phẫu thuật)`. [^2024-07-02-02]
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b5e3fcc8-935c-42be-9a04-5f69f60f6a83)
+- Tại form quản lý `[Danh mục Cận lâm sàng]`, bổ sung `Texbox` cho phép người dùng nhập/điều chỉnh `[Mã xăng dầu]`, dữ liệu được lưu trữ tương ứng vào cột `dmcls.ma_xang_dau`. [^2024-07-04-03]
 
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 
@@ -304,6 +305,9 @@
 - Ưu tiên lấy họ lót không chức danh => họ lót hiện tại. (current.dmnhanvien: holot_thuan => holot) khi lấy họ tên bác sĩ hoặc nhân viên khi xuất XML hoặc tra cứu thông tuyến.
   ![alt text](image.png)
 
+[^2024-07-04-03]: Thay đổi ngày 04/07/2024: Bổ sung quy trình áp dụng cho `Module Admin` ⇒ `Danh mục cận lâm sàng` ==> Bổ sung Control áp dữ liệu cho cột `dmcls.ma_xang_dau`.
+[^2024-07-04-02]: Thay đổi ngày 04/07/2024: Bổ sung cột `dmcls.ma_xang_dau`.
+[^2024-07-04-01]: Thay đổi ngày 04/07/2024: Bổ sung tham số `ma_xang_dau`.
 [^2024-07-02-04]: Thay đổi ngày 02/07/2024: Hướng dẫn bổ sung quy trình thực hiện cho `Module Treatment` ⇒ Form thực hiện `Thủ thuật/Phẫu thuật`.
 [^2024-07-02-03]: Thay đổi ngày 02/07/2024: Hướng dẫn bổ sung quy trình thực hiện cho `Module Prescription` ⇒ Form thực hiện `Thủ thuật/Phẫu thuật`.
 [^2024-07-02-02]: Thay đổi ngày 02/07/2024: Hướng dẫn bổ sung quy trình thực hiện cho `Module Admin` ⇒ Form `[Danh mục mã máy thực hiện CLS]`.
