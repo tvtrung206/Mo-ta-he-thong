@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -41,7 +42,7 @@
 |10|ngay_vao|VARCHAR(12)||Sử dụng thông tin tại trường NGAY_VAO trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ngay_vao`|
 |11|ngay_vao_noi_tru|VARCHAR(12)||Sử dụng thông tin tại trường NGAY_VAO_NOI_TRU trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ngay_vao_noi_tru`|
 |12|ngay_ra|VARCHAR(12)||Sử dụng thông tin tại trường NGAY_RA trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ngay_ra`|
-|13|ngay_hen_kl|VARCHAR(12)|X|Ghi thời điểm người bệnh được hẹn khám lại, gồm 12 ký tự theo định dạng yyyymmddHHMM.<br/>Ví dụ: Thời điểm người bệnh được chuyển tuyến lúc 09 giờ 20 phút ngày 05/04/2022, khi đó được hiển thị là: 202204050920. ||- Khám ngoại trú: `ngay_hen_kl = to_char(psdangky.ngaytaikham, ‘yyyyMMdd’)`<br/>- Bệnh án nội trú: `ngay_hen_kl = to_char(bnnoitru.ngaytaikham, ‘yyyyMMdd’)`|
+|13|ngay_hen_kl|VARCHAR(12)|X|Ghi thời điểm người bệnh được hẹn khám lại, gồm 12 ký tự theo định dạng yyyymmddHHMM.<br/>Ví dụ: Thời điểm người bệnh được chuyển tuyến lúc 09 giờ 20 phút ngày 05/04/2022, khi đó được hiển thị là: 202204050920. ||- Khám ngoại trú: `ngay_hen_kl = to_char(psdangky.ngaytaikham, ‘yyyyMMdd’)` + `'0800'`<br/>- Bệnh án nội trú: `ngay_hen_kl = to_char(bnnoitru.ngaytaikham, ‘yyyyMMdd’)` + `'0800'` [^2024-07-08]|
 |15|chan_doan_rv|VARCHAR||Sử dụng thông tin tại trường CHAN_DOAN_RV trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.chan_doan_rv`|
 |16|ma_benh_chinh|VARCHAR(7)||Sử dụng thông tin tại trường MA_BENH_CHINH trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_benh_chinh`|
 |17|ma_benh_kt|VARCHAR(100)||Sử dụng thông tin tại trường MA_BENH_KT trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_benh_kt`|
@@ -54,5 +55,6 @@
 ||makb|VARCHAR(20)|X||X||
 ||mabn|VARCHAR(20)|X||X||
 
+[^2024-07-08]: Thay đổi ngày 08/07/2024: Bổ sung điều kiện xuất dữ liệu cho cột `ngay_hen_kl`: cộng thêm chuỗi `'0800'`.
 [^2024-06-30-01]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
 [^2024-06-30-02]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu chi tiết cho các cột.
