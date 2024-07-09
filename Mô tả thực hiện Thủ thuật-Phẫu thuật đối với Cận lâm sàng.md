@@ -18,14 +18,28 @@
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
 - Thực hiện theo yêu cầu chi tiết tại: [Yêu cầu - PK Medic Miền Đông: Không cấu hình loại PT trên danh mục CLS vẫn lập được phiếu PT-TT  #435](https://github.com/dh-hos/To_Lap_Trinh/issues/435)
+- **Lưu ý: Chỉ áp dụng đối với cận lâm sàng có kho thuộc TT hoặc PT.**
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu:
 
 :white_check_mark: **Quy trình áp dụng:** 
 
-:blue_book: DHG.Hospital Admin: 
-- Tại form `[Danh mục Cận lâm sàng]`: Cho phép cập nhật `[Loại PT]` *(như hình)*, tại control này dữ liệu được load từ `current.dmloaipt`. Dữ liệu được lấy từ cột `dmloaipt.maloai` và lưu trữ tương ứng vào cột `dmcls.maloaipt`. **Lưu ý:** áp dụng cho tất cả cận lâm sàng. 
-![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/1f34e8a6-bcbf-4c79-9015-80a3ad7d4a37)
+:blue_book: Cập nhật cấu trúc, bổ sung các tham số. [^2024-07-09-01]
+| STT | TÊN THAM SỐ | KIỂU |PHÂN HỆ| DIỄN GIẢI |
+|:-------:|-------|:-------:|-------|-------|
+|1|phanloaipt.thuchien|Số|Tham số chung|Cho phép thực hiện Phẫu thuật/Thủ thuật (áp dụng đối với kho TT hoặc PT) mà không cần phân loại PT.<br/>Giá trị:<br/>- `0 (hoặc null)`: Chỉ thực hiện TT/PT đối với các cận lâm sàng có cấu hình `[Phân loại PT]`.<br/>- `1`: Cho phép thực hiện TT/PT bao gồm các TT/PT có hoặc không có cấu hình `[Phân loại PT]`.|
+|2|phanloaipt.baocao|Số|Tham số chung|Thể hiện Phẫu thuật/Thủ thuật lên `Sổ Thủ thuật/Phẫu thuật`.<br/>Giá trị:<br/>- `0 (hoặc null)`: Chỉ thể hiện TT/PT đối với các cận lâm sàng có cấu hình `[Phân loại PT]`.<br/>- `1`: Thể hiện TT/PT lên sổ TT/PT, bao gồm các TT/PT có hoặc không có cấu hình `[Phân loại PT]`.|
+ 
+:blue_book: Các phân hệ có thực hiện Thủ thuật/Phẫu thuật: `Prescription, Treatment`.  [^2024-07-09-02]
+- Tại form thực hiện Phẫu thuật/Thủ thuật: xét giá trị tham số `phanloaipt.thuchien`:<br/>
+⇒ 0: Chỉ load và thực hiện các cận lâm sàng TT/PT có cấu hình `[Phân loại PT]`. <br/>
+⇒ 1: Load và thực hiện các cận lâm sàng TT/PT có hoặc không có cấu hình `[Phân loại PT]`. 
 
-:blue_book: Các phân hệ có thực hiện Thủ thuật/Phẫu thuật: `Prescription, Treatment`. 
-- Tại form thực hiện Phẫu thuật/Thủ thuật: cho phép thực hiện cận lâm sàng có cấu hình cột `dmcls.maloaipt` khác rỗng. 
+:blue_book: Các phân hệ có báo cáo Sổ Thủ thuật/Phẫu thuật: `Register/Prescription, Treatment, Reports`.  [^2024-07-09-03]
+- Tại Sổ Phẫu thuật/Thủ thuật: xét giá trị tham số `phanloaipt.baocao`:<br/>
+⇒ 0: Chỉ thể hiện TT/PT đối với các cận lâm sàng có cấu hình `[Phân loại PT]`. <br/>
+⇒ 1: Thể hiện TT/PT lên sổ TT/PT, bao gồm các TT/PT có hoặc không có cấu hình `[Phân loại PT]`. 
+
+[^2024-07-09-01]: Thay đổi ngày 09/07/2024: Giữ nguyên phương thức cập nhật `[Loại PT]` trên `[Danh mục Cận lâm sàng]`. Bổ sung tham số điều phối thực hiện TT/PT cho các trường hợp không phân loại PT.
+[^2024-07-09-02]: Thay đổi ngày 09/07/2024: Thay đổi cách thực hiện TT/PT theo tham số `phanloaipt.thuchien`.
+[^2024-07-09-03]: Thay đổi ngày 09/07/2024: Bổ sung tham số `phanloaipt.baocao`, điều khiển hiển thị các cận lâm sàng TT/PT lên sổ TT/PT.
