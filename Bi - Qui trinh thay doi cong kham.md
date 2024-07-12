@@ -1,5 +1,6 @@
 1.	Register:
 -	Khi đăng ký khám chữa bệnh, nếu là đối tượng BHYT:
+  
 o	Có cấu hình công khám theo phòng:
  
  
