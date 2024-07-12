@@ -76,6 +76,13 @@
 |47|du_phong|VARCHAR||Trường dữ liệu dự phòng khi cần|||
 ||mabn|VARCHAR(20)|X|psdangky.mabn|X||
 ||makb|VARCHAR(20)|X|psdangky.makb|X||
+||[^2024-07-12]ngay_tai_kham|VARCHAR(20)|X| Bổ sung theo dự án HIV |X||
+||ma_benh_kt|VARCHAR(200)|X| Bổ sung theo dự án HIV |X||
+||ly_do_ket_thuc_dieu_tri|VARCHAR(200)|X| Bổ sung theo dự án HIV |X||
+||kq_sang_loc_lao|VARCHAR(200)|X| Bổ sung theo dự án HIV |X||
+||mabenhan|VARCHAR(20)|X| Bổ sung theo dự án HIV |X||
 
+[^2024-07-12]: Thay đổi ngày 07/12/2024: Bổ sung các cột riêng theo yêu cầu của dự án HIV
 [^2024-06-30]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
 [^2024-06-12]: Thay đổi ngày 12/06/2024: bổ sung cách ghi nhận giá trị cho `matinh_cu_tru`, `mahuyen_cu_tru`, `maxa_cu_tru` theo yêu cầu [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
+
