@@ -56,3 +56,4 @@
 
 	Với dem: là số công khám đã có hiện tại.
 
+3.	Hiệu chỉnh thông tin bệnh nhân:
