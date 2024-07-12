@@ -57,3 +57,8 @@
 	Với dem: là số công khám đã có hiện tại.
 
 3.	Hiệu chỉnh thông tin bệnh nhân:
+   	+ Nếu chỉnh đổi tượng bệnh nhận:
+      	Thực hiện chuyển đổi công khám mới cho bệnh nhân, chỉ thành công khám công khám cũ dathu = 0 và dain = 0;
+      	Thực hiện cập nhật cập nhật thông tin theo đối tượng tượng mới cho các cận lâm sàng (điều kiện dain = 0)
+      	+ Nếu không chỉnh đối tượng:
+      	Thực hiện chuyển đổi công khám mới cho bệnh nhân, chỉ thành công khám công khám cũ dathu = 0 và dain = 0;
