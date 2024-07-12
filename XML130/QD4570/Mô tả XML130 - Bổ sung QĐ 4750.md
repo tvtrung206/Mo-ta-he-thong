@@ -226,6 +226,8 @@
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
 - Tại form **[Khám bệnh]**: khi điều chỉnh chẩn đoán bệnh, sử dụng tham số `ma_benh_kt.soluong`. Xét: nếu `ma_benh_kt.soluong` > 0, khi lưu chẩn đoán bệnh kiểm tra **`[Tổng số lượng mã bệnh ICD10 (chính + phụ)]`** *(đếm số lượng các mã ICD từ `khambenh.maicd` và `khambenh.maicdp`)* **`<=`** **`[ma_benh_kt.soluong + 1]`**, ngược lại: **KHÔNG** cho lưu chẩn đoán bệnh. [^2024-07-12-02]
 ![image](https://github.com/user-attachments/assets/a3eb2985-538e-461a-80dc-97ee0bbc74d0)
+<br/>Áp dụng tương tự đối với Bệnh án ngoại trú:
+![image](https://github.com/user-attachments/assets/afbd88df-af98-40b4-a2e0-31c7a8b6a474)
 
 :blue_book: Module Medicine:
 
