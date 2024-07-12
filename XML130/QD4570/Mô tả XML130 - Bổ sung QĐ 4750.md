@@ -93,8 +93,9 @@
 :blue_book: Cập nhật cấu trúc: bổ sung tham số
 | STT | TÊN THAM SỐ | KIỂU |PHÂN HỆ| DIỄN GIẢI |
 |:-------:|-------|:-------:|-------|-------|
-|1|ma_ttdv|Chuỗi| Tham số chung|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
-|2|ma_xang_dau [^2024-07-04-01]|Chuỗi| Tham số chung|Mã xăng dầu mặc định (sử dụng cho trường hợp mã xăng dầu của cận lâm sàng chuyển viện trong danh mục chưa cấu hình). Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.|
+|1|ma_ttdv|Chuỗi|Tham số chung|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
+|2|ma_xang_dau [^2024-07-04-01]|Chuỗi|Tham số chung|Mã xăng dầu mặc định (sử dụng cho trường hợp mã xăng dầu của cận lâm sàng chuyển viện trong danh mục chưa cấu hình). Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.|
+|3|ma_benh_kt.soluong [^2024-07-12-01]|Số|Tham số chung|Số lượng mã bệnh ICD10 phụ tối đa cho 1 lần khám, chữa bệnh.|
 
 :blue_book: Cập nhật cấu trúc: bổ sung table **current.psgiamdinhykhoa**
 | STT | TÊN CỘT | KIỂU | DIỄN GIẢI | INDEX |
@@ -223,6 +224,8 @@
 - Tại form xuất viện đối với BA ngoại trú thanh toán cuối đợt, khi thao tác lưu thông tin người bệnh được xuất viện hoặc tại form in phiếu 01BV theo [QĐ 6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) đối với người bệnh khám ngoại trú => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
 - Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình, tương ứng cột dmmamay.mamay và dmmamay.tenmay)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng từ `dmmamay.mamay` vào cột `phauthuat.mamay`. **Lưu ý:** *Không bắt buộc phải có giá trị cột này.* [^2024-07-02-03]
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
+- Tại form **[Khám bệnh]**: khi điều chỉnh chẩn đoán bệnh, sử dụng tham số `ma_benh_kt.soluong`. Xét: nếu `ma_benh_kt.soluong` > 0, khi lưu chẩn đoán bệnh kiểm tra **`[Tổng số lượng mã bệnh ICD10 (chính + phụ)]`** *(đếm số lượng các mã ICD từ `khambenh.maicd` và `khambenh.maicdp`)* **`<=`** **`[ma_benh_kt.soluong + 1]`**, ngược lại: **KHÔNG** cho lưu chẩn đoán bệnh. [^2024-07-12-02]
+![image](https://github.com/user-attachments/assets/a3eb2985-538e-461a-80dc-97ee0bbc74d0)
 
 :blue_book: Module Medicine:
 
@@ -255,6 +258,8 @@
 - Tại form xuất viện: bổ sung Control cho phép người dùng nhập nội dung `[Tóm tắt kết quả xét nghiệm cận lâm sàng]`, tương ứng với dữ liệu cột `bnnoitru.tomtat_kq`. **Lưu ý: Bắt buộc phải có dữ liệu `tomtat_kq` mới cho xuất viện**. [^2024-06-28-02]
 - Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình, tương ứng cột dmmamay.mamay và dmmamay.tenmay)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng từ `dmmamay.mamay` vào cột `phauthuat.mamay`. **Lưu ý:** *Không bắt buộc phải có giá trị cột này.* [^2024-07-02-03]
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
+- Tại form **[Khám và điều trị bệnh]**: khi thay đổi diễn biến bệnh và điều chỉnh chẩn đoán bệnh, sử dụng tham số `ma_benh_kt.soluong`. Xét: nếu `ma_benh_kt.soluong` > 0, khi lưu chẩn đoán bệnh (diễn biến) kiểm tra **`[Tổng số lượng mã bệnh ICD10 (chính + phụ)]`** *(đếm số lượng các mã ICD từ `qtdieutri.maicd` và `qtdieutri.maicdp`)* **`<=`** **`[ma_benh_kt.soluong + 1]`**, ngược lại: **KHÔNG** cho lưu diễn biến bệnh. [^2024-07-12-03]
+![image](https://github.com/user-attachments/assets/47ea188c-64c4-4639-a739-e02381559c79)
 
 :blue_book: Module Printer:
 
@@ -304,6 +309,9 @@
 - Ưu tiên lấy họ lót không chức danh => họ lót hiện tại. (current.dmnhanvien: holot_thuan => holot) khi lấy họ tên bác sĩ hoặc nhân viên khi xuất XML hoặc tra cứu thông tuyến.
   ![alt text](image.png)
 
+[^2024-07-12-03]: Thay đổi ngày 12/07/2024: Bổ sung quy trình áp dụng đối với module `Treatment` ⇒ Kiểm tra số lượng mã ICD10 khi sử dụng tham số `ma_benh_kt.soluong` để thay đổi diễn biến bệnh.
+[^2024-07-12-02]: Thay đổi ngày 12/07/2024: Bổ sung quy trình áp dụng đối với module `Prescription` ⇒ Kiểm tra số lượng mã ICD10 khi sử dụng tham số `ma_benh_kt.soluong` để khám bệnh.
+[^2024-07-12-01]: Thay đổi ngày 12/07/2024: Bổ sung tham số `ma_benh_kt.soluong`.
 [^2024-07-10-01]: Thay đổi ngày 10/07/2024: Thay đổi cách ghi nhận giá trị cột `psdangky.ket_qua_dtri` từ`dmketqua.ma_medisoft`.
 [^2024-07-04-03]: Thay đổi ngày 04/07/2024: Bổ sung quy trình áp dụng cho `Module Admin` ⇒ `Danh mục cận lâm sàng` ==> Bổ sung Control áp dữ liệu cho cột `dmcls.ma_xang_dau`.
 [^2024-07-04-02]: Thay đổi ngày 04/07/2024: Bổ sung cột `dmcls.ma_xang_dau`.
