@@ -2,8 +2,8 @@
 -	Khi đăng ký khám chữa bệnh, nếu là đối tượng BHYT:
 	+ Có cấu hình công khám theo phòng:
  	
- 	![image](https://github.com/user-attachments/assets/6bcc94b8-79f3-4f6c-8866-27544e7ad773)
-	![image](https://github.com/user-attachments/assets/35e49c42-b5cc-49eb-8810-6d77109ed9f1)
+ 	 ![image](https://github.com/user-attachments/assets/6bcc94b8-79f3-4f6c-8866-27544e7ad773)
+	 ![image](https://github.com/user-attachments/assets/35e49c42-b5cc-49eb-8810-6d77109ed9f1)
 
  	Như hình thì công khám mặc định khi đăng ký phòng khám [13] là [KB16].
  
