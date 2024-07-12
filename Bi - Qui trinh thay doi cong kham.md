@@ -25,11 +25,11 @@
 
  	+ Xét công khám lúc đăng ký tại mục [1]:
 
-	Nếu (Chidinhcls.dathu = 0 và Chidinhcls.giabh >0):
+	- Nếu (Chidinhcls.dathu = 0 và Chidinhcls.giabh >0):
 
 	Thực hiện đánh dấu xóa công khám tại mục [1], thêm lại công khám chuyên khoa theo phân loại bệnh cho bác sĩ tại phòng đang khám.
 
-	Hoặc (Chidinhcls.dathu = 1 và Chidinhcls.giabh = giabh của công khám chuyên khoa):
+	- Hoặc (Chidinhcls.dathu = 1 và Chidinhcls.giabh = giabh của công khám chuyên khoa):
 
 	Thực hiện đánh dấu xóa công khám tại mục [1], thêm lại công khám chuyên khoa theo phân loại bệnh cho bác sĩ tại phòng đang khám.
 
@@ -40,9 +40,10 @@
 	+ Nếu có cấu hình theo phân loại bệnh thì thêm công khám theo cấu hình tại danh mục phân loại bệnh, ngược lại lấy theo đối tượng với giabh tính như sau:
 	
  	Chuyên khoa lần 2, lần 3 theo qui định:
+
 	if (giabh < (dem * giabh * 30 / 100))
     	{
-		giabh = giabh - ((dem - 1) * giabh * 30 / 100)
+  		giabh = giabh - ((dem - 1) * giabh * 30 / 100)
        		tile  = 10
 	}
 	else
