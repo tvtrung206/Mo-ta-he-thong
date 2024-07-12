@@ -51,5 +51,6 @@
        		giabh = giabh * 30 / 100.
        		tile  = 30
 	}
-		Với dem: là số công khám đã có hiện tại.
+
+	Với dem: là số công khám đã có hiện tại.
 
