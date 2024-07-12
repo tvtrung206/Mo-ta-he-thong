@@ -2,15 +2,17 @@
 -	Khi đăng ký khám chữa bệnh, nếu là đối tượng BHYT:
 	+ Có cấu hình công khám theo phòng:
  	
- 	 ![image](https://github.com/user-attachments/assets/6bcc94b8-79f3-4f6c-8866-27544e7ad773)
-	 ![image](https://github.com/user-attachments/assets/35e49c42-b5cc-49eb-8810-6d77109ed9f1)
+ 	![image](https://github.com/user-attachments/assets/6bcc94b8-79f3-4f6c-8866-27544e7ad773)
+	![image](https://github.com/user-attachments/assets/35e49c42-b5cc-49eb-8810-6d77109ed9f1)
 
  	Như hình thì công khám mặc định khi đăng ký phòng khám [13] là [KB16].
  
 	+ Không có cấu hình mặc định công khám cho phòng thì  lấy theo công khám mặc định theo đối tượng, cấu hình tại đây:
-	![image](https://github.com/user-attachments/assets/a473fb69-a900-402e-9a2c-47c0c52e448e)
+
+ 	![image](https://github.com/user-attachments/assets/a473fb69-a900-402e-9a2c-47c0c52e448e)
 
 	+ Trường hợp người dùng chọn lại công khám, thực hiện lưu công khám theo người dùng chọn, phụ thuộc tham số này:
+
 	![image](https://github.com/user-attachments/assets/db55af9c-b909-4cb1-a80d-71982127ccf7)
 
  2.	Presscription:
