@@ -42,7 +42,12 @@ WITH (oids = false);
 :white_check_mark: **Xây dựng form Thông Tin CTS**
 - Tại dll `DH.ChuKySo.dll` xây dựng form Thông Tin CTS để người dùng có thể nhập thông tin của CTS và map chữ ký.
 - Tại dll `DH.ChuKySo.dll` thay đổi hàm CallAPI, lấy các thông tin CTS dựa vào manv được các module khác truyền vào khi gọi đến và truyền đến services CTS.
-- Hướng dẫn sử dụng DLL `DH.ChuKySo.dll` : (bổ sung khi hoàn thành).
+- Hướng dẫn sử dụng DLL `DH.ChuKySo.dll` : 
++ Gọi đến Form Thông Tin CTS
+```csharp
+  FrmThongTinCTS frm = new FrmThongTinCTS(LibraryApp.ClsConnection.conn);
+  frm.ShowDialog();
+```
 
 :white_check_mark: **Cập nhật lại service ký số**
 - Cập nhật lại service ký số : nhận các thông tin CTS được truyền đến để thực hiện ký số và trả kết quả. 
