@@ -1,4 +1,4 @@
-<div align="center">
+![image](https://github.com/user-attachments/assets/bbc6d1d3-d9f2-465b-a76d-cd0a4bb9a36a)<div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
 
@@ -21,8 +21,8 @@
 ###### :eight_spoked_asterisk: HƯỚNG DẪN CÀI ĐẶT SERVICE
 1. Đảm bảo server cài đặt service có cài đặt NODE.JS (version: v18.20.2).
 2. Tải file cài đặt: [Tại đây](https://gofile.me/78TQg/1Xxrhd9oa)
-3. Giải nén file vừa tải về, mở file app.js và cấu hình port.
-   ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/110148171/2e7c41e1-0fca-4f12-9c53-e7144ab37e23)
+3. Giải nén file vừa tải về, mở file app.js và cấu hình port và csdl.
+   ![image](https://github.com/user-attachments/assets/969af120-3131-4463-94da-30bd67d1e01f)
 4. Tại thư mục vừa giải nén file, mở cmd chạy câu lệnh `myapp.exe install` để cài đặt và `myapp.exe start` để chạy service.
    ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/110148171/5759a7ac-10e5-4372-bf22-89825dd2cd28)
 5. Mở port: Truy cập vào Windows Defender Firewall -> Advanced settings. Tại cửa sổ Windows Defender Firewall with Advanced security tiến hành mở port.
