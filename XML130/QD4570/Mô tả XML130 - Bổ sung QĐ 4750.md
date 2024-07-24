@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -53,14 +54,14 @@
 16. [Table bang14](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang14%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu dữ liệu giấy hẹn khám lại;
 17. [Table bang15](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang15%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md): Chỉ tiêu thông tin quản lý điều trị bệnh lao;
 
-:blue_book: Cập nhật cấu trúc, bổ sung cột lưu trữ mã [ICD-9 CM](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/CONGVAN-YEUCAU/QD4440-Quyet%20%C4%91inh%20ban%20hanh%20ICD-9%20CM%20th%C3%AD%20%C4%91i%E1%BB%83m%20DRG.signed.pdf). Danh mục chuyển đổi giữa danh mục kỹ thuật tương đương và phân loại phẫu thuật, thủ thuật quốc tế ICD-9 CM. Bổ sung các cột vào table dmcls:
+:blue_book: Cập nhật cấu trúc, bổ sung cột lưu trữ mã [ICD-9 CM](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/CONGVAN-YEUCAU/QD4440-Quyet%20%C4%91inh%20ban%20hanh%20ICD-9%20CM%20th%C3%AD%20%C4%91i%E1%BB%83m%20DRG.signed.pdf). Danh mục chuyển đổi giữa danh mục kỹ thuật tương đương và phân loại phẫu thuật, thủ thuật quốc tế ICD-9 CM. Bổ sung các cột vào table **dmcls**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 | 1 | maicd9 | VARCHAR(20) | Mã ICD-9 CM |
 | 2 | don_vi_do | VARCHAR(50) | Ghi đơn vị đo của chỉ số xét nghiệm, chẩn đoán hình ảnh, thăm dò chức năng theo Phụ lục 11 ban hành kèm theo [Quyết định số 7603/QĐ-BYT](https://syt.binhdinh.gov.vn/index.php/vi/van-ban-chi-dao-dieu-hanh/detail/Quyet-dinh-ve-viec-ban-hanh-bo-ma-danh-muc-dung-chung-ap-dung-trong-quan-ly-kham-benh-chua-benh-va-thanh-toan-bao-hiem-y-te-Phien-ban-so-6-261/) ngày 25 tháng 12 năm 2018 của Bộ trưởng Bộ Y tế. Đối với các chỉ số không có đơn vị đo thì để trống trường thông tin này. |
 |3|ma_xang_dau [^2024-07-04-02]| VARCHAR(20) |Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành. *Áp dụng cho các cận lâm sàng chuyển viện.*|
 
-:blue_book: Cập nhật cấu trúc table psdangky:
+:blue_book: Cập nhật cấu trúc table **psdangky**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 | 1 | trangthaichuyentuyen | NUMERIC(1,0) | Ghi nhận trạng thái chuyển tuyến từ tuyến dưới chuyển lên. Giá trị:<br/>- (null): không có thông tin chuyển tuyến.<br/>- 1: Chuyển tuyến theo yêu cầu.<br/>- 2: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>- 3: Hẹn tái khám.<br/>- 4: Chuyển tuyến người bệnh khám và điều trị bệnh lao.<br/>- 5: Giấy hẹn lãnh thuốc.|
@@ -68,7 +69,7 @@
 |3|giayluu|BYTEA|Lưu trữ: Giấy xác nhận cư trú (do người dùng scan hoặc chụp).|
 |4|giayluuchuyentuyen|BYTEA|Lưu trữ: Giấy chuyển tuyến/Giấy hẹn tái khám|
 
-:blue_book: Cập nhật cấu trúc table dmbenhnhan:
+:blue_book: Cập nhật cấu trúc table **dmbenhnhan**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 |1|nhom_mau|VARCHAR(5)|Ghi nhóm máu của người bệnh trong trường hợp có thông tin. Giá trị gồm: A; A+; A-; B; B+; B-; AB; AB+; AB-; O; O+; O-; Rh; Rh+; Rh-|
@@ -90,12 +91,13 @@
 |:-------:|-------|:-------:|-------|
 |1|giai_doan_benh|VARCHAR|Ghi giai đoạn bệnh trong trường hợp người bệnh đã được cơ sở KBCB xác định giai đoạn bệnh.|
 
-:blue_book: Cập nhật cấu trúc: bổ sung tham số
+:blue_book: Cập nhật cấu trúc: **bổ sung tham số**
 | STT | TÊN THAM SỐ | KIỂU |PHÂN HỆ| DIỄN GIẢI |
 |:-------:|-------|:-------:|-------|-------|
 |1|ma_ttdv|Chuỗi|Tham số chung|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
 |2|ma_xang_dau [^2024-07-04-01]|Chuỗi|Tham số chung|Mã xăng dầu mặc định (sử dụng cho trường hợp mã xăng dầu của cận lâm sàng chuyển viện trong danh mục chưa cấu hình). Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.|
 |3|ma_benh_kt.soluong [^2024-07-12-01]|Số|Tham số chung|Số lượng mã bệnh ICD10 phụ tối đa cho 1 lần khám, chữa bệnh.|
+|4|ma_loai_kcb.ba_ngoai_ngay [^2024-07-24]|Số|Tham số chung|Hỗ trợ xuất XML130 (QĐ4750) cho cột `ma_loai_kcb` bảng `checkin` và bảng `XML1` đối với người bệnh bệnh án ngoại trú quyết toán ngày. Giá trị:<br/>- `1`: `ma_loai_kcb = 01` (khám ngoại trú).<br/>- `2`: `ma_loai_kcb = 02` (bệnh án ngoại trú).|
 
 :blue_book: Cập nhật cấu trúc: bổ sung table **current.psgiamdinhykhoa**
 | STT | TÊN CỘT | KIỂU | DIỄN GIẢI | INDEX |
@@ -311,6 +313,7 @@
 - Ưu tiên lấy họ lót không chức danh => họ lót hiện tại. (current.dmnhanvien: holot_thuan => holot) khi lấy họ tên bác sĩ hoặc nhân viên khi xuất XML hoặc tra cứu thông tuyến.
   ![alt text](image.png)
 
+[^2024-07-24]: Thay đổi ngày 24/07/2024: Bổ sung tham số `ma_loai_kcb.ba_ngoai_ngay` áp dụng cho cột `ma_loai_kcb` bảng [xml130.checkin](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang00checkin%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md) và [xml130.bang1](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang01%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
 [^2024-07-12-03]: Thay đổi ngày 12/07/2024: Bổ sung quy trình áp dụng đối với module `Treatment` ⇒ Kiểm tra số lượng mã ICD10 khi sử dụng tham số `ma_benh_kt.soluong` để thay đổi diễn biến bệnh.
 [^2024-07-12-02]: Thay đổi ngày 12/07/2024: Bổ sung quy trình áp dụng đối với module `Prescription` ⇒ Kiểm tra số lượng mã ICD10 khi sử dụng tham số `ma_benh_kt.soluong` để khám bệnh.
 [^2024-07-12-01]: Thay đổi ngày 12/07/2024: Bổ sung tham số `ma_benh_kt.soluong`.
