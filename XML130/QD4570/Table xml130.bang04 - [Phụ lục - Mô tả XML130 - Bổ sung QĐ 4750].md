@@ -1,4 +1,3 @@
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -29,7 +28,7 @@
 |:-------:|-------|:-------:|:-------:|-------|:-------:|-------|
 |1|ma_lk|VARCHAR(100)|X|Là mã đợt điều trị duy nhất (dùng để liên kết giữa Bảng chỉ tiêu tổng hợp khám bệnh, chữa bệnh (bảng XML 1) và các bảng còn lại ban hành kèm theo Quyết định này trong một lần khám bệnh, chữa bệnh (PRIMARY KEY)).|X|Như 4210|
 |2|stt|NUMERIC(10,0)|X|Là số thứ tự tăng từ 1 đến hết trong một lần gửi dữ liệu.||Như 4210|
-|3|ma_dich_vu|VARCHAR(15)|X|Ghi mã dịch vụ kỹ thuật cận lâm sàng, thực hiện theo Phụ lục số 1 ban hành kèm theo [Quyết định số 7603/QĐ-BYT](https://syt.binhdinh.gov.vn/index.php/vi/van-ban-chi-dao-dieu-hanh/detail/Quyet-dinh-ve-viec-ban-hanh-bo-ma-danh-muc-dung-chung-ap-dung-trong-quan-ly-kham-benh-chua-benh-va-thanh-toan-bao-hiem-y-te-Phien-ban-so-6-261/) ngày 25 tháng 12 năm 2018 của Bộ trưởng Bộ Y tế.|X|=dmcls.macls_byt|
+|3|ma_dich_vu|VARCHAR(15)|X|Ghi mã dịch vụ kỹ thuật cận lâm sàng, thực hiện theo Phụ lục số 1 ban hành kèm theo [Quyết định số 7603/QĐ-BYT](https://syt.binhdinh.gov.vn/index.php/vi/van-ban-chi-dao-dieu-hanh/detail/Quyet-dinh-ve-viec-ban-hanh-bo-ma-danh-muc-dung-chung-ap-dung-trong-quan-ly-kham-benh-chua-benh-va-thanh-toan-bao-hiem-y-te-Phien-ban-so-6-261/) ngày 25 tháng 12 năm 2018 của Bộ trưởng Bộ Y tế.|X|Xét, nếu `chidinhcls.macls_byt` khác rỗng `ma_dich_vu = chidinhcls.macls_byt`, ngược lại `ma_dich_vu =dmcls.macls_byt` [^2024-07-24]|
 |4|ma_chi_so|VARCHAR(50)||Ghi mã chỉ số xét nghiệm, chẩn đoán hình ảnh, thăm dò chức năng theo Phụ lục số 11 ban hành kèm theo [Quyết định số 7603/QĐ-BYT](https://syt.binhdinh.gov.vn/index.php/vi/van-ban-chi-dao-dieu-hanh/detail/Quyet-dinh-ve-viec-ban-hanh-bo-ma-danh-muc-dung-chung-ap-dung-trong-quan-ly-kham-benh-chua-benh-va-thanh-toan-bao-hiem-y-te-Phien-ban-so-6-261/) ngày 25 tháng 12 năm 2018 của Bộ trưởng Bộ Y tế. Trường hợp chưa có mã chỉ số thì để trống trường thông tin này.||= dmcls.ma_chi_so|
 |5|ten_chi_so|VARCHAR(255)||Ghi tên chỉ số xét nghiệm, chẩn đoán hình ảnh, thăm dò chức năng, theo Phụ lục số 11 ban hành kèm theo [Quyết định số 7603/QĐ-BYT](https://syt.binhdinh.gov.vn/index.php/vi/van-ban-chi-dao-dieu-hanh/detail/Quyet-dinh-ve-viec-ban-hanh-bo-ma-danh-muc-dung-chung-ap-dung-trong-quan-ly-kham-benh-chua-benh-va-thanh-toan-bao-hiem-y-te-Phien-ban-so-6-261/) ngày 25 tháng 12 năm 2018 của Bộ trưởng Bộ Y tế. Trường hợp chưa có tên chỉ số thì để trống trường thông tin này.||= dmcls.ten_chi_so|
 |6|gia_tri|VARCHAR(50)||Ghi giá trị chỉ số (kết quả xét nghiệm, chẩn đoán hình ảnh, thăm dò chức năng).<br/>Trường hợp người bệnh ra viện nhưng chưa có kết quả xét nghiệm thì để trống trường thông tin này khi gửi dữ liệu XML thông tuyến và bổ sung đầy đủ thông tin kết quả xét nghiệm trước khi gửi đề nghị giám định theo khoản 1 Điều 7 [Thông tư số 48/2017/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=149470).<br/>Trường hợp sau 7 ngày mới có kết quả thì cơ sở KBCB nhập thông tin kết quả xét nghiệm trực tiếp trên Cổng tiếp nhận dữ liệu Hệ thống thông tin giám định BHYT của BHXH Việt Nam nhưng không quá 30 ngày kể từ ngày kết thúc đợt KBCB.||Chỉ áp dụng đối với xét nghiệm:<br/>= psmotaxn.ketqua|
@@ -44,4 +43,5 @@
 ||macls|VARCHAR(20)|X|chidinhcls.macls|X||
 ||ngaykcb|TIMESTAMP|X|chidinhcls.ngaykcb|X||
 
+[^2024-07-24]: Thay đổi ngày 24/07/2024: Thay đổi điều kiện cột  `ma_dich_vu`.
 [^2024-07-08]: Thay đổi ngày 08/07/2024: Thay đổi liên kết hướng dẫn ghi nhận cột  `ma_bs_doc_kq`.
