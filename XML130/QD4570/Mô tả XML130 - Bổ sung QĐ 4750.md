@@ -1,4 +1,3 @@
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -91,13 +90,20 @@
 |:-------:|-------|:-------:|-------|
 |1|giai_doan_benh|VARCHAR|Ghi giai đoạn bệnh trong trường hợp người bệnh đã được cơ sở KBCB xác định giai đoạn bệnh.|
 
+:blue_book: Cập nhật cấu trúc table **ttcon**:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|lan_sinh [^2024-07-24-02]|NUMERIC(2,0)|Ghi số lần sinh con (tính cả lần sinh này).|
+|2|sinhcon_phauthuat [^2024-07-24-03]|NUMERIC(1,0)|Ghi:<br/>- Mã "1": sinh con phải phẫu thuật;<br/>- Mã "0": sinh con không phải phẫu thuật.|
+|3|sinhcon_duoi32tuan [^2024-07-24-04]|NUMERIC(1,0)|Ghi:<br/>- Mã "1": sinh con dưới 32 tuần tuổi;<br/>- Mã "0" là không sinh con dưới 32 tuần tuổi.|
+
 :blue_book: Cập nhật cấu trúc: **bổ sung tham số**
 | STT | TÊN THAM SỐ | KIỂU |PHÂN HỆ| DIỄN GIẢI |
 |:-------:|-------|:-------:|-------|-------|
 |1|ma_ttdv|Chuỗi|Tham số chung|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
 |2|ma_xang_dau [^2024-07-04-01]|Chuỗi|Tham số chung|Mã xăng dầu mặc định (sử dụng cho trường hợp mã xăng dầu của cận lâm sàng chuyển viện trong danh mục chưa cấu hình). Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.|
 |3|ma_benh_kt.soluong [^2024-07-12-01]|Số|Tham số chung|Số lượng mã bệnh ICD10 phụ tối đa cho 1 lần khám, chữa bệnh.|
-|4|ma_loai_kcb.ba_ngoai_ngay [^2024-07-24]|Số|Tham số chung|Hỗ trợ xuất XML130 (QĐ4750) cho cột `ma_loai_kcb` bảng `checkin` và bảng `XML1` đối với người bệnh bệnh án ngoại trú quyết toán ngày. Giá trị:<br/>- `1`: `ma_loai_kcb = 01` (khám ngoại trú).<br/>- `2`: `ma_loai_kcb = 02` (bệnh án ngoại trú).|
+|4|ma_loai_kcb.ba_ngoai_ngay [^2024-07-24-01]|Số|Tham số chung|Hỗ trợ xuất XML130 (QĐ4750) cho cột `ma_loai_kcb` bảng `checkin` và bảng `XML1` đối với người bệnh bệnh án ngoại trú quyết toán ngày. Giá trị:<br/>- `1`: `ma_loai_kcb = 01` (khám ngoại trú).<br/>- `2`: `ma_loai_kcb = 02` (bệnh án ngoại trú).|
 
 :blue_book: Cập nhật cấu trúc: bổ sung table **current.psgiamdinhykhoa**
 | STT | TÊN CỘT | KIỂU | DIỄN GIẢI | INDEX |
@@ -264,6 +270,12 @@
 ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
 - Tại form **[Khám và điều trị bệnh]**: khi thay đổi diễn biến bệnh và điều chỉnh chẩn đoán bệnh, sử dụng tham số `ma_benh_kt.soluong`. Xét: nếu `ma_benh_kt.soluong` > 0, khi lưu chẩn đoán bệnh (diễn biến) kiểm tra **`[Tổng số lượng mã bệnh ICD10 (chính + phụ)]`** *(đếm số lượng các mã ICD từ `qtdieutri.maicd` và `qtdieutri.maicdp`)* **`<=`** **`[ma_benh_kt.soluong + 1]`**, ngược lại: **KHÔNG** cho lưu diễn biến bệnh. [^2024-07-12-03]
 ![image](https://github.com/user-attachments/assets/47ea188c-64c4-4639-a739-e02381559c79)
+- Tại form **[Thông tin con sản phụ]** [^2024-07-24-05]
+![image](https://github.com/user-attachments/assets/be067256-6525-421d-bdb7-9d08bdc8ba38)
+➡️ Sửa nhãn **[Số con/lần sinh]** thành **[Số con]** và giá trị ô text tương ứng với cột `ttcon.socon`.<br/>
+➡️ Bổ sung Control ứng với nhãn **[Lần sinh]** và giá trị ô text tương ứng với cột `ttcon.lan_sinh`.<br/>
+➡️ Bổ sung CheckBox **[Sinh con phải phẫu thuật]** và giá trị tương ứng khi giá trị checkbox = true thì `ttcon.sinhcon_phauthuat = 1`, ngược lại `ttcon.sinhcon_phauthuat = 0`.<br/>
+➡️ Bổ sung CheckBox **[Sinh con dưới 32 tuần tuổi]** và giá trị tương ứng khi giá trị checkbox = true thì `ttcon.sinhcon_duoi32tuan = 1`, ngược lại `ttcon.sinhcon_duoi32tuan = 0`.
 
 :blue_book: Module Printer:
 
@@ -313,7 +325,11 @@
 - Ưu tiên lấy họ lót không chức danh => họ lót hiện tại. (current.dmnhanvien: holot_thuan => holot) khi lấy họ tên bác sĩ hoặc nhân viên khi xuất XML hoặc tra cứu thông tuyến.
   ![alt text](image.png)
 
-[^2024-07-24]: Thay đổi ngày 24/07/2024: Bổ sung tham số `ma_loai_kcb.ba_ngoai_ngay` áp dụng cho cột `ma_loai_kcb` bảng [xml130.checkin](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang00checkin%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md) và [xml130.bang1](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang01%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
+[^2024-07-24-05]: Thay đổi ngày 24/07/2024: Cập nhật form `[Thông tin con sản phụ]` module `Treatment`, bổ sung các control cập nhật giá trị tương ứng cho các cột `ttcon.lan_sinh`, `ttcon.sinhcon_phauthuat`, `ttcon.sinhcon_duoi32tuan`, hỗ trợ dữ liệu [xml130.bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
+[^2024-07-24-04]: Thay đổi ngày 24/07/2024: Bổ sung cột `sinhcon_duoi32tuan` table `ttcon`, hỗ trợ dữ liệu [xml130.bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
+[^2024-07-24-03]: Thay đổi ngày 24/07/2024: Bổ sung cột `sinhcon_phauthuat` table `ttcon`, hỗ trợ dữ liệu [xml130.bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
+[^2024-07-24-02]: Thay đổi ngày 24/07/2024: Bổ sung cột `lan_sinh` table `ttcon`, hỗ trợ dữ liệu [xml130.bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
+[^2024-07-24-01]: Thay đổi ngày 24/07/2024: Bổ sung tham số `ma_loai_kcb.ba_ngoai_ngay` áp dụng cho cột `ma_loai_kcb` bảng [xml130.checkin](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang00checkin%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md) và [xml130.bang1](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang01%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
 [^2024-07-12-03]: Thay đổi ngày 12/07/2024: Bổ sung quy trình áp dụng đối với module `Treatment` ⇒ Kiểm tra số lượng mã ICD10 khi sử dụng tham số `ma_benh_kt.soluong` để thay đổi diễn biến bệnh.
 [^2024-07-12-02]: Thay đổi ngày 12/07/2024: Bổ sung quy trình áp dụng đối với module `Prescription` ⇒ Kiểm tra số lượng mã ICD10 khi sử dụng tham số `ma_benh_kt.soluong` để khám bệnh.
 [^2024-07-12-01]: Thay đổi ngày 12/07/2024: Bổ sung tham số `ma_benh_kt.soluong`.
