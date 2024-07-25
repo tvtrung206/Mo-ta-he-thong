@@ -168,6 +168,18 @@
 |:-------:|-------|:-------:|-------|
 |1|nguoi_thuc_hien [^2024-07-25-03]|VARCHAR(255)|Ghi mã nhân viên y tế thực hiện dịch vụ kỹ thuật (mã hóa theo số Chứng chỉ hành nghề).|
 
+:blue_book: Cập nhật cấu trúc table **current.lichtruc_diagnose**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|duockham [^2024-07-25-06]|NUMERIC(1,0)|Ghi nhận trạng thái được đọc kết quả chẩn đoán hình ảnh/thăm dò chức năng trong lịch trực.|
+|2|thuchien [^2024-07-25-07]|NUMERIC(1,0)|Ghi nhận trạng thái được thực hiện chẩn đoán hình ảnh/thăm dò chức năng trong lịch trực.|
+
+:blue_book: Cập nhật cấu trúc table **current.lichtruc_laboratory**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|duockham [^2024-07-25-08]|NUMERIC(1,0)|Ghi nhận trạng thái được đọc kết quả xét nghiệm trong lịch trực.|
+|2|thuchien [^2024-07-25-09]|NUMERIC(1,0)|Ghi nhận trạng thái được thực hiện xét nghiệm trong lịch trực.|
+
 :white_check_mark: **Quy trình áp dụng:**
 
 :blue_book: Thiết kế DLL: **Form Giám định y khoa** (tương ứng cập nhật dữ liệu cho `current.psgiamdinhykhoa`). Tích hợp lên: `Prescription` và `Treatment`.
@@ -350,6 +362,10 @@
 ➡️ Tại form **[Danh sách thực hiện]**, **không** cho phép thực hiện nếu chưa cấu hình chọn `[Bác sĩ trực]` và `[Nhân viên thực hiện]`.<br/>
 ➡️ Tại các form **trả kết quả (thực hiện)**: Bổ sung ComboBox load danh sách nhân viên thực hiện (đã chọn), dữ liệu khi lưu tương ứng với cột `chidinhcls.nguoi_thuc_hien = dmnhanvien.macc_hanhnghe_cv2348`, tham chiếu từ `dmnhanvien.manv` của nhân viên thực hiện.
 
+[^2024-07-25-09]: Thay đổi ngày 25/07/2024: Bổ sung cột `lichtruc_laboratory.thuchien`, xác định trạng thái thực hiện xét nghiệm trong lịch trực module `Laboratory`.
+[^2024-07-25-08]: Thay đổi ngày 25/07/2024: Bổ sung cột `lichtruc_laboratory.duockham`, xác định trạng thái đọc kết quả xét nghiệm trong lịch trực module `Laboratory`.
+[^2024-07-25-07]: Thay đổi ngày 25/07/2024: Bổ sung cột `lichtruc_diagnose.thuchien`, xác định trạng thái thực hiện CĐHA/TDCN trong lịch trực module `Diagnose`.
+[^2024-07-25-06]: Thay đổi ngày 25/07/2024: Bổ sung cột `lichtruc_diagnose.duockham`, xác định trạng thái đọc kết quả CĐHA/TDCN trong lịch trực module `Diagnose`.
 [^2024-07-25-05]: Thay đổi ngày 25/07/2024: Module `Laboratory`, cấu hình nhân viên `[Được thực hiện cận lâm sàng]` và ghi nhận giá trị `chidinhcls.nguoi_thuc_hien` khi thực hiện.
 [^2024-07-25-04]: Thay đổi ngày 25/07/2024: Module `Diagnose`, cấu hình nhân viên `[Được thực hiện cận lâm sàng]` và ghi nhận giá trị `chidinhcls.nguoi_thuc_hien` khi thực hiện.
 [^2024-07-25-03]: Thay đổi ngày 25/07/2024: Bổ sung cột `chidinhcls.nguoi_thuc_hien`,  ghi nhận mã Chứng chỉ hành nghề nhân viên thực hiện cận lâm sàng.
