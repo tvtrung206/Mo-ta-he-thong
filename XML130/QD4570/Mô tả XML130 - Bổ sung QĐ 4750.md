@@ -80,7 +80,7 @@
 |2|ma_cskcb_thuoc|VARCHAR(10)|- Trường hợp do thiên tai, dịch bệnh phải chuyển thuốc đến cơ sở KBCB khác để điều trị cho người bệnh thì ghi C.XXXXX (XXXXX là mã cơ sở KBCB nơi chuyển thuốc đi).<br/>- Trường hợp thuốc thanh toán ngoài giá dịch vụ cận lâm sàng chuyển thực hiện tại cơ sở KBCB khác thì ghi K.XXXXX (XXXXX là mã cơ sở KBCB nơi thực hiện dịch vụ cận lâm sàng).<br/>- Trường hợp chế phẩm máu có sử dụng bộ dụng cụ gạn tách (kít tách tiểu cầu, bạch cầu…) hoặc xét nghiệm được thanh toán ngoài giá đơn vị máu, chế phẩm máu quy định tại tiết d khoản 10 Điều 3 [Thông tư số 17/2020/TT-BYT](https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=147191) ngày 12/11/2020 của Bộ Y tế thì ghi M.XXXXX (trong đó XXXXX là mã cơ sở KBCB của đơn vị cung cấp máu).<br/>- Trường hợp cơ sở KCB sử dụng thuốc của hạng bệnh hạng cao hơn được kê đơn, chỉ định bằng hình thức hội chẩn từ xa theo quy định tại [Thông tư số 20/2022/TT-BYT](https://danang.baohiemxahoi.gov.vn/vanban/Pages/default.aspx?ItemID=8665) thì ghi HC.XXXXX (trong đó XXXXX là mã cơ sở KCB nơi thực hiện kê đơn, chỉ định thuốc)|
 |3|tt_thau4750[^2024-06-25-91]|VARCHAR|Ghi nhận thông tin thầu theo 4750.|
 
-:blue*book: Cập nhật cấu trúc table **pshdxn**:
+:blue_book: Cập nhật cấu trúc table **pshdxn**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 |1|lieu_dung|VARCHAR(1024)|Ghi liều dùng thuốc cho người bệnh, cụ thể:<br/>- Đối với ngoại trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng * số lần trong ngày _ số ngày sử dụng [tổng số thuốc/ngày].<br/>Ví dụ: liều dùng của thuốc A: 2 viên/lần, 2 lần/ngày, sử dụng trong 5 ngày thì được ghi như sau: 2 viên/lần _ 2 lần/ngày _ 5 ngày [4 viên/ngày].<br/>- Đối với nội trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng _ số lần trong ngày \_ 01 ngày [tổng số thuốc/ngày].<br/>**Lưu ý**:<br/>- Trường hợp liều thuốc thay đổi trong ngày theo từng lần sử dụng thì ghi chi tiết.<br/>Ví dụ: liều dùng của thuốc A, sáng: 3 viên, chiều: 2 viên, tối: 1 viên. Như vậy, sẽ ghi như sau: Sáng: 3 viên, Chiều: 2 viên, Tối: 1 viên [6 viên/ngày].|
@@ -148,78 +148,89 @@
 |9|tentinh|VARCHAR(255)|X|Tên tỉnh||
 |10|viettat|VARCHAR(50)||Mã viết tắt||
 
-:blue_book: Cập nhật cấu trúc table **bnnoitru**: [^2024-06-28-01]
+:blue_book: Cập nhật cấu trúc table **bnnoitru**: 
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
-|1|tomtat_kq|VARCHAR|Ghi tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán.|
+|1|tomtat_kq [^2024-06-28-01]|VARCHAR|Ghi tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán.|
 
-:blue_book: Cập nhật cấu trúc table **current.phauthuat**: [^2024-07-02-01]
+:blue_book: Cập nhật cấu trúc table **current.phauthuat**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
-|1|mamay|VARCHAR(20)|Mã máy (tham chiếu từ cột `dmmamay.mamay`.|
+|1|mamay  [^2024-07-02-01]|VARCHAR(20)|Mã máy (tham chiếu từ cột `dmmamay.mamay`.|
+
+:blue_book: Cập nhật cấu trúc table **current.dmnhanvien**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|thuchien [^2024-07-25-01]|NUMERIC(1,0)|Trạng thái cho phép nhân viên thực hiện cận lâm sàng có `kho IN ('HA','CN','XN')`. Giá trị:<br/>- 0: Không được phép thực hiện.<br/>- 1: Được phép thực hiện.|
+
+:blue_book: Cập nhật cấu trúc table **current.chidinhcls**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|nguoi_thuc_hien [^2024-07-25-03]|VARCHAR(255)|Ghi mã nhân viên y tế thực hiện dịch vụ kỹ thuật (mã hóa theo số Chứng chỉ hành nghề).|
 
 :white_check_mark: **Quy trình áp dụng:**
 
-:blue*book: Thiết kế DLL: Form Giám định y khoa *(tương ứng cập nhật dữ liệu cho current.psgiamdinhykhoa)\_. Tích hợp lên: Prescription và Treatment.
+:blue_book: Thiết kế DLL: **Form Giám định y khoa** (tương ứng cập nhật dữ liệu cho `current.psgiamdinhykhoa`). Tích hợp lên: `Prescription` và `Treatment`.
 
 :blue_book: Module Admin
-- Tại form hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô [CMND] phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
-- Tại tab [Cấu hình tên chỉ số, mã chỉ số theo Xml (4210)] của form [Danh mục cận lâm sàng], bổ sung thêm ô text cho phép người dùng nhập/cập nhật [Đơn vị đo], cập nhật tương ứng với cột `dmcls.don_vi_do`. Mở rộng chức năng cấu hình mã chỉ số, tên chỉ số cho kho: HA (chẩn đoán hình ảnh) và CN (Thăm dò chức năng).
+- Tại form hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô `[CMND]` phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
 
-![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin-donvido.jpg)
+- Tại tab `[Cấu hình tên chỉ số, mã chỉ số theo Xml (4210)]` của form `[Danh mục cận lâm sàng]`, bổ sung thêm ô text cho phép người dùng nhập/cập nhật `[Đơn vị đo]`, cập nhật tương ứng với cột `dmcls.don_vi_do`. Mở rộng chức năng cấu hình mã chỉ số, tên chỉ số cho kho: `HA (chẩn đoán hình ảnh) và CN (Thăm dò chức năng)`.
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin-donvido.jpg" width="70%"></p>
 
-- Bổ sung Control trên Form danh mục CLS cập nhật giá trị cột dmcls.maicd9 (tương ứng cột [Mã ICD-9] [phụ lục 3 QĐ 4440](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/CONGVAN-YEUCAU/Phu%20luc%203%20-%20Danh%20muc%20ICD-9%20CM%20Vol3%2019-10-2020.xlsx)). Hỗ trợ script update tự động giá trị cho cột [maicd9] dựa vào cột [Mã tương đương] phụ lục 3 (tương ứng với `dmcls.macls_byt`).
-- Mở rộng chức năng của form [Danh mục kết quả điều trị] cho phép người dùng thêm mới. Sửa nhãn “Mã Medisoft” thành “Mã BYT”.
+- Bổ sung Control trên **Form danh mục CLS** cập nhật giá trị cột `dmcls.maicd9` (tương ứng cột [Mã ICD-9] [phụ lục 3 QĐ 4440](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/CONGVAN-YEUCAU/Phu%20luc%203%20-%20Danh%20muc%20ICD-9%20CM%20Vol3%2019-10-2020.xlsx)). Hỗ trợ script update tự động giá trị cho cột `[maicd9]` dựa vào cột `[Mã tương đương]` phụ lục 3 (tương ứng với `dmcls.macls_byt`).
 
-![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin-00.png)
+- Mở rộng chức năng của form `[Danh mục kết quả điều trị]` cho phép người dùng thêm mới. Sửa nhãn `“Mã Medisoft”` thành `“Mã BYT”`.
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin-00.png"></p>
 
-- Form [Danh sách nhân viên], bổ sung Textbox [Số BHXH] cho phép người dùng cập nhật thông tin số BHXH cho nhân viên, dữ liệu tương ứng cột `dmnhanvien.sobhxh`.
+- Form `[Danh sách nhân viên]`, bổ sung Textbox `[Số BHXH]` cho phép người dùng cập nhật thông tin số BHXH cho nhân viên, dữ liệu tương ứng cột `dmnhanvien.sobhxh`.
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_sobhxh.jpg" width="70%"></p>
 
-![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_sobhxh.jpg)
+- Bổ sung thêm menu `[Địa phương (theo QĐ 4750)]`, thiết kế form thể hiện dữ liệu danh mục tương ứng với table `current.dmxa4750`. Thiết kế chức năng cho phép import dữ liệu từ tập tin Excel, cấu trúc và dữ liệu mẫu từ [Danh sách cấp tỉnh kèm theo quận/huyện phường/xã - 11/06/2024.xlsx](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/Danh_sach_cap_tinh_kem_theo_quan_huyen_phuong_xa_11_06_2024.xlsx) (Nguồn: [Tổng Cục Thống Kê](https://danhmuchanhchinh.gso.gov.vn/Default.aspx)). **Lưu ý**: danh mục này chỉ cho phép người dùng cập nhật giá trị cột **[Viết tắt]** (`current.dmxa4750.viettat`), **KHÔNG** được phép thao tác **[Thêm/Xóa]**. [^2024-06-12-02]
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_dmxa_viettat.jpg" width="70%"></p>
 
-- Bổ sung thêm menu [Địa phương (theo QĐ 4750], thiết kế form thể hiện dữ liệu danh mục tương ứng với table `current.dmxa4750`. Thiết kế chức năng cho phép import dữ liệu từ tập tin Excel, cấu trúc và dữ liệu mẫu từ [Danh sách cấp tỉnh kèm theo quận/huyện phường/xã - 11/06/2024.xlsx](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/Danh_sach_cap_tinh_kem_theo_quan_huyen_phuong_xa_11_06_2024.xlsx) (Nguồn: [Tổng Cục Thống Kê](https://danhmuchanhchinh.gso.gov.vn/Default.aspx)). **Lưu ý**: danh mục này chỉ cho phép người dùng cập nhật giá trị cột **[Viết tắt]** (`current.dmxa4750.viettat`), **KHÔNG** được phép thao tác **[Thêm/Xóa]**. [^2024-06-12-02]
+- Tại form `[Hiệu chỉnh thông tin bệnh nhân]`: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
 
-![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/admin_dmxa_viettat.jpg)
-
-- Tại form [Hiệu chỉnh thông tin bệnh nhân]: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
 - Tại form quản lý `[Danh mục mã máy thực hiện CLS]`, bổ sung thêm giá trị cho `[Kho CLS]` là `TT (thủ thuật)` và `PT (phẫu thuật)`. [^2024-07-02-02]
-![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b5e3fcc8-935c-42be-9a04-5f69f60f6a83)
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b5e3fcc8-935c-42be-9a04-5f69f60f6a83" width="70%"></p>
+
 - Tại form quản lý `[Danh mục Cận lâm sàng]`, bổ sung `Texbox` cho phép người dùng nhập/điều chỉnh `[Mã xăng dầu]`, dữ liệu được lưu trữ tương ứng vào cột `dmcls.ma_xang_dau`. [^2024-07-04-03]
+
+- Cập nhật: [^2024-07-01]<br/>
+➡️ Trên form danh mục nhân viên bổ sung chức năng cho phép nhập họ lót nhân viên không có chức danh để thực gửi hồ sơ XML, và kiểm tra thông tuyến.<br/>
+➡️ Ưu tiên lấy họ lót không chức danh => họ lót hiện tại. (`current.dmnhanvien: holot_thuan => holot`) khi lấy họ tên bác sĩ hoặc nhân viên khi xuất XML hoặc tra cứu thông tuyến.
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/image.png" width="70%"></p>
+
+- Tại form **[Danh mục nhân viên]**, bổ sung CheckBox cho phép cập nhật trạng thái `[Được thực hiện cận lâm sàng]`. Giá trị `checkbox = true` tương ứng với cột `dmnhanvien.thuchien = 1`, ngược lại `dmnhanvien.thuchien = 0`.[^2024-07-25-02]
 
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 
-- Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). Lưu ý: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng (bắt buộc phải chọn mới cho đăng ký).
+- Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). **Lưu ý**: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng (bắt buộc phải chọn mới cho đăng ký).
+
 - Bổ sung Control cho phép người dùng xác nhận người bệnh có giấy cư trú (áp dụng cho người bệnh ngoài tỉnh), nếu có xác nhận thì cập nhật tương ứng vào cột `psdangky.giayxacnhancutru = 1` và `psdangky.tuyen = 0`.
+
 - Bổ sung Control cho phép người dùng chọn và lưu tập tin (của giấy chuyển tuyến/giấy hẹn tái khám) khi `psdangky.manoigt` khác rỗng. Dữ liệu lưu trữ tập tin vào cột `psdangky.giayluuchuyentuyen`.
+
 - Bổ sung Control cho phép người dùng chọn và lưu tập tin của giấy lưu trú khi `psdangky.giayxacnhancutru = 1`. Dữ liệu lưu trữ tập tin vào cột `psdangky.giayluu`.
-- Tại form nhập và hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô [CMND] phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
-- Đối với Register: Tại form nhập và hiệu chỉnh thông tin bệnh nhân, bổ sung ComboBox cho phép chọn/cập nhật thông tin [Nhóm máu], dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. Lưu ý: thiết kế ô nhập [Nhóm máu] chung với các thông tin chỉ số sinh hiệu.
-- Đối với Prescription: Tại form nhập và hiệu chỉnh thông tin bệnh nhân, bổ sung ô text cho phép nhập/cập nhật thông tin [Nhóm máu], dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. Lưu ý: thiết kế ô nhập [Nhóm máu] chung với các thông tin chỉ số sinh hiệu.
 
-![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg)
+- Tại form nhập và hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô `[CMND]` phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
 
-- Tại form nhập/cập nhật thông tin bệnh nhân: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
+- Đối với `Register`: Tại form **nhập và hiệu chỉnh thông tin bệnh nhân**, bổ sung ComboBox cho phép chọn/cập nhật thông tin `[Nhóm máu]`, dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. **Lưu ý**: thiết kế ô nhập `[Nhóm máu]` chung với các thông tin chỉ số sinh hiệu.
+
+- Đối với `Prescription`: Tại form **nhập và hiệu chỉnh thông tin bệnh nhân**, bổ sung ô text cho phép nhập/cập nhật thông tin `[Nhóm máu]`, dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. **Lưu ý**: thiết kế ô nhập `[Nhóm máu]` chung với các thông tin chỉ số sinh hiệu.
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg"></p>
+
+- Tại form **nhập/cập nhật thông tin bệnh nhân**: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
 
 :blue_book: Module Prescription:
+|Khám ngoại trú|Bệnh án ngoại trú|
+|-------|-------|
+|➡️ Khi phát sinh chẩn đoán bệnh đầu tiên (có phát sinh 1 công khám đầu tiên trong table `current.chidinhcls`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND  xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(1)`<br/>➡️ Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(2)`<br/>➡️ Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(3)`|➡️ Khi phát sinh chỉ định cận lâm sàng đầu tiên (có phát sinh cận lâm sàng đầu tiên trong table `current.chidinhcls`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(4)`<br/>➡️ Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(5)`<br/>➡️ Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(6)`|
 
-1. Đối với khám ngoại trú:
+**⚠️ Lưu ý:** các trường hợp `(1), (2), (3), (4), (5) và (6)`: sau khi thực hiện xong, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu vào table này.
 
-- Khi phát sinh chẩn đoán bệnh đầu tiên (có phát sinh 1 công khám đầu tiên trong table `current.chidinhcls`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND  xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(1)`
-- Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(2)`
-- Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `psdangky.mabn = xml130.psxml.mabn AND psdangky.makb = xml130.psxml.makb AND xml130.psxml.loaihosokcb = ‘NGOAI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(3)`
-
-2. Đối với bệnh án ngoại trú:
-
-- Khi phát sinh chỉ định cận lâm sàng đầu tiên (có phát sinh cận lâm sàng đầu tiên trong table `current.chidinhcls`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(4)`
-- Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(5)`
-- Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NGOAI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(6)`
-
-**\*. Lưu ý:** các trường hợp `(1), (2), (3), (4), (5) và (6)`: sau khi thực hiện xong, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu vào table này.
-
-- Tại form ra toa thuốc: bổ sung chức năng cập nhật giá trị cho cột `pshdxn.lieu_dung` theo quy tắc như sau:
-
+- Tại form **ra toa thuốc**: bổ sung chức năng cập nhật giá trị cho cột `pshdxn.lieu_dung` theo quy tắc như sau:
   > Ghi liều dùng thuốc cho người bệnh, cụ thể:
-  >
   > - Đối với ngoại trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng _ số lần trong ngày _ số ngày sử dụng [tổng số thuốc/ngày].
   >   Ví dụ: liều dùng của thuốc A: 2 viên/lần, 2 lần/ngày, sử dụng trong 5 ngày thì được ghi như sau: 2 viên/lần _ 2 lần/ngày _ 5 ngày [4 viên/ngày].
   > - Đối với bệnh án ngoại trú, được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng _ số lần trong ngày _ 01 ngày [tổng số thuốc/ngày].
@@ -227,64 +238,72 @@
   > - Trường hợp liều thuốc thay đổi trong ngày theo từng lần sử dụng thì ghi chi tiết.
   >   Ví dụ: liều dùng của thuốc A, sáng: 3 viên, chiều: 2 viên, tối: 1 viên. Như vậy, sẽ ghi như sau: Sáng: 3 viên, Chiều: 2 viên, Tối: 1 viên [6 viên/ngày].
 
-- Bổ sung Control cho phép người dùng xác nhận kết quả điều trị:
-  ![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/prescription-00.png)<br/>Giá trị kết quả điều trị này được lấy từ `current.dmketqua` và được lưu vào `psdangky.ket_qua_dtri` (tương ứng với `dmketqua.ma_medisoft` [^2024-07-10-01]) khi được chọn.
-- Tại form xuất viện đối với BA ngoại trú thanh toán cuối đợt, khi thao tác lưu thông tin người bệnh được xuất viện hoặc tại form in phiếu 01BV theo [QĐ 6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) đối với người bệnh khám ngoại trú => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
+- Bổ sung Control cho phép người dùng xác nhận kết quả điều trị: Giá trị kết quả điều trị này được lấy từ `current.dmketqua` và được lưu vào `psdangky.ket_qua_dtri` (tương ứng với `dmketqua.ma_medisoft` [^2024-07-10-01]) khi được chọn.
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/prescription-00.png"></p>
+ 
+- Tại form **xuất viện đối với BA ngoại trú thanh toán cuối đợt**, khi thao tác lưu thông tin người bệnh được xuất viện hoặc tại form in phiếu 01BV theo [QĐ 6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) đối với người bệnh khám ngoại trú => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ `xml130.bang1` đến `xml130.bang15`).
+
 - Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình, tương ứng cột dmmamay.mamay và dmmamay.tenmay)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng từ `dmmamay.mamay` vào cột `phauthuat.mamay`. **Lưu ý:** *Không bắt buộc phải có giá trị cột này.* [^2024-07-02-03]
-![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8"></p>
+
 - Tại form **[Khám bệnh]**: khi điều chỉnh chẩn đoán bệnh, sử dụng tham số `ma_benh_kt.soluong`. Xét: nếu `ma_benh_kt.soluong` > 0, khi lưu chẩn đoán bệnh kiểm tra **`[Tổng số lượng mã bệnh ICD10 (chính + phụ)]`** *(đếm số lượng các mã ICD từ `khambenh.maicd` và `khambenh.maicdp`)* **`<=`** **`[ma_benh_kt.soluong + 1]`**, ngược lại: **KHÔNG** cho lưu chẩn đoán bệnh. [^2024-07-12-02]
-![image](https://github.com/user-attachments/assets/a3eb2985-538e-461a-80dc-97ee0bbc74d0)
-<br/>Áp dụng tương tự đối với Bệnh án ngoại trú:
-![image](https://github.com/user-attachments/assets/afbd88df-af98-40b4-a2e0-31c7a8b6a474)
+<p align="center"><img src="https://github.com/user-attachments/assets/a3eb2985-538e-461a-80dc-97ee0bbc74d0"  width="70%"><br/>Áp dụng tương tự đối với Bệnh án ngoại trú:<img src="https://github.com/user-attachments/assets/afbd88df-af98-40b4-a2e0-31c7a8b6a474" width="70%"></p>
 
 :blue_book: Module Medicine:
 
-- Bổ sung Control cập nhật “Mã phương pháp chế biến” tương ứng cột `dmthuoc.ma_pp_chebien` trên danh mục chế phẩm YHCT.
-- Bổ sung Control cập nhật “Mã CSKCB thuốc” tương ứng cột `dmthuoc.ma_cskcb_thuoc` trên danh mục thuốc.
+- Bổ sung Control cập nhật `“Mã phương pháp chế biến”` tương ứng cột `dmthuoc.ma_pp_chebien` trên danh mục chế phẩm YHCT.
+
+- Bổ sung Control cập nhật `“Mã CSKCB thuốc”` tương ứng cột `dmthuoc.ma_cskcb_thuoc` trên danh mục thuốc.
 
 :blue_book: Module Treatment:
 
 - Khi phát sinh chỉ định cận lâm sàng đầu tiên (có phát sinh cận lâm sàng đầu tiên trong table `current.chidinhcls`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_cls != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_cls = 1`. `(7)`
+
 - Khi phát sinh toa thuốc đầu tiên (có 1 thuốc đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_thuoc != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_thuoc = 1`. `(8)`
+
 - Khi phát sinh toa VTYT đầu tiên (có 1 VTYT đầu tiên trong table `current.pshdxn`): Nếu `bnnoitru.mabn = xml130.psxml.mabn AND bnnoitru.makb = xml130.psxml.makb AND bnnoitru.maba =  xml130.psxml.maba AND xml130.psxml.loaihosokcb = ‘BA_NOI_TRU’ AND xml130.psxml.checkin_vtyt != 1`, thực hiện xuất dữ liệu vào table `xml130.checkin` đồng thời gọi API gửi dữ liệu check-in lên cổng giám định BHYT (Chuẩn dữ liệu và gọi hàm API tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024), thực hiện gửi check-in xong cập nhật `xml130.psxml.checkin_vtyt = 1`. `(9)`
 
-**\*. Lưu ý**: các trường hợp `(7), (8) và (9)`: sau khi thực hiện xong, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu vào table này.
+**⚠️ Lưu ý**: các trường hợp `(7), (8) và (9)`: sau khi thực hiện xong, kiểm tra table `xml130.psxml` nếu chưa phát sinh dòng dữ liệu cho trường hợp đang thực hiện thì khởi tạo dữ liệu vào table này.
 
 - Tại form ra toa thuốc: bổ sung chức năng cập nhật giá trị cho cột `pshdxn.lieu_dung` theo quy tắc như sau:
-
   > Ghi liều dùng thuốc cho người bệnh, cụ thể:
-  >
   > - Được thể hiện bằng: số lượng thuốc dùng trong một lần sử dụng _ số lần trong ngày _ 01 ngày [tổng số thuốc/ngày]. Lưu ý:
   > - Trường hợp liều thuốc thay đổi trong ngày theo từng lần sử dụng thì ghi chi tiết. Ví dụ: liều dùng của thuốc A, sáng: 3 viên, chiều: 2
   >   viên, tối: 1 viên. Như vậy, sẽ ghi như sau: Sáng: 3 viên, Chiều: 2
   >   viên, Tối: 1 viên [6 viên/ngày].
 
-- Tại form nhập/hiệu chỉnh thông tin bệnh nhân, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô [CMND] phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
-- Tại form theo dõi diễn biến quá trình điều trị (thông tin thêm và thay đổi diễn biến bệnh): bổ sung thêm ô text cho phép nhập/cập nhật [Giai đoạn bệnh], tương ứng với cột dữ liệu `qtdieutri.giai_doan_benh`. Thêm ComboBox cho phép chọn/cập nhật thông tin [Nhóm máu], dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. Lưu ý: thiết kế ô nhập [Nhóm máu] chung với các thông tin chỉ số sinh hiệu.
+- Tại form **nhập/hiệu chỉnh thông tin bệnh nhân**, trước khi lưu dữ liệu thông tin bệnh nhân kiểm tra ô `[CMND]` phải đúng định dạng như sau: Định dạng CCCD phải có 9,12 ký tự số hoặc hộ chiếu 8 ký tự bắt đầu là chữ in hoa và 7 ký tự số ở sau.
 
-![Alt text](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg)
+- Tại form **theo dõi diễn biến quá trình điều trị** (thông tin thêm và thay đổi diễn biến bệnh): bổ sung thêm ô text cho phép nhập/cập nhật `[Giai đoạn bệnh]`, tương ứng với cột dữ liệu `qtdieutri.giai_doan_benh`. Thêm ComboBox cho phép chọn/cập nhật thông tin `[Nhóm máu]`, dữ liệu được cập nhật tương ứng với cột `dmbenhnhan.nhom_mau`. **Lưu ý**: thiết kế ô nhập `[Nhóm máu]` chung với các thông tin chỉ số sinh hiệu.
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg"></p>
 
-- Tại form xuất viện, khi thao tác lưu thông tin người bệnh được xuất viện => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
-- Tại form xuất viện: bổ sung Control cho phép người dùng nhập nội dung `[Tóm tắt kết quả xét nghiệm cận lâm sàng]`, tương ứng với dữ liệu cột `bnnoitru.tomtat_kq`. **Lưu ý: Bắt buộc phải có dữ liệu `tomtat_kq` mới cho xuất viện**. [^2024-06-28-02]
+- Tại form **xuất viện**, khi thao tác lưu thông tin người bệnh được xuất viện => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ `xml130.bang1` đến `xml130.bang15`).
+
+- Tại form **xuất viện**: bổ sung Control cho phép người dùng nhập nội dung `[Tóm tắt kết quả xét nghiệm cận lâm sàng]`, tương ứng với dữ liệu cột `bnnoitru.tomtat_kq`. **Lưu ý: Bắt buộc phải có dữ liệu `tomtat_kq` mới cho xuất viện**. [^2024-06-28-02]
+
 - Tại form lập phiếu `Thủ thuật/Phẫu thuật`: Bổ sung cụm `[Mã máy]` *(như hình, tương ứng cột dmmamay.mamay và dmmamay.tenmay)*, cho phép người dùng chọn mã máy (dữ liệu được load từ `current.dmmamay`, điều kiện theo cột `dmmamay.khocls`). Dữ liệu được lưu trữ tương ứng từ `dmmamay.mamay` vào cột `phauthuat.mamay`. **Lưu ý:** *Không bắt buộc phải có giá trị cột này.* [^2024-07-02-03]
-![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8)
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/b3050e50-f970-40ec-8afd-78b9dcb13fb8"></p>
+
 - Tại form **[Khám và điều trị bệnh]**: khi thay đổi diễn biến bệnh và điều chỉnh chẩn đoán bệnh, sử dụng tham số `ma_benh_kt.soluong`. Xét: nếu `ma_benh_kt.soluong` > 0, khi lưu chẩn đoán bệnh (diễn biến) kiểm tra **`[Tổng số lượng mã bệnh ICD10 (chính + phụ)]`** *(đếm số lượng các mã ICD từ `qtdieutri.maicd` và `qtdieutri.maicdp`)* **`<=`** **`[ma_benh_kt.soluong + 1]`**, ngược lại: **KHÔNG** cho lưu diễn biến bệnh. [^2024-07-12-03]
-![image](https://github.com/user-attachments/assets/47ea188c-64c4-4639-a739-e02381559c79)
-- Tại form **[Thông tin con sản phụ]** [^2024-07-24-05]
-![image](https://github.com/user-attachments/assets/be067256-6525-421d-bdb7-9d08bdc8ba38)
+<p align="center"><img src="https://github.com/user-attachments/assets/47ea188c-64c4-4639-a739-e02381559c79" width="70%"></p>
+
+- Tại form **[Thông tin con sản phụ]** [^2024-07-24-05]<br/>
 ➡️ Sửa nhãn **[Số con/lần sinh]** thành **[Số con]** và giá trị ô text tương ứng với cột `ttcon.socon`.<br/>
 ➡️ Bổ sung Control ứng với nhãn **[Lần sinh]** và giá trị ô text tương ứng với cột `ttcon.lan_sinh`.<br/>
 ➡️ Bổ sung CheckBox **[Sinh con phải phẫu thuật]** và giá trị tương ứng khi giá trị checkbox = true thì `ttcon.sinhcon_phauthuat = 1`, ngược lại `ttcon.sinhcon_phauthuat = 0`.<br/>
-➡️ Bổ sung CheckBox **[Sinh con dưới 32 tuần tuổi]** và giá trị tương ứng khi giá trị checkbox = true thì `ttcon.sinhcon_duoi32tuan = 1`, ngược lại `ttcon.sinhcon_duoi32tuan = 0`.
+➡️ Bổ sung CheckBox **[Sinh con dưới 32 tuần tuổi]** và giá trị tương ứng khi giá trị checkbox = true thì `ttcon.sinhcon_duoi32tuan = 1`, ngược lại `ttcon.sinhcon_duoi32tuan = 0`.<br/>
+<p align="center"><img src="https://github.com/user-attachments/assets/be067256-6525-421d-bdb7-9d08bdc8ba38" width="70%"></p>
 
 :blue_book: Module Printer:
 
-- Tại form in phiếu 01BV theo [QĐ6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ xml130.bang1 đến xml130.bang15).
+- Tại form in **phiếu 01BV** theo [QĐ6556](https://ytehagiang.org.vn/van-ban/6556-qd-byt.doc) => Thực hiện thao tác đẩy (lưu) toàn bộ dữ liệu của người bệnh (từ `xml130.bang1` đến `xml130.bang15`).
 
 :blue_book: Module Reports:
 
 - Thiết kế form cho phép người dùng tra cứu và xuất dữ liệu QĐ130 (bổ sung QĐ 4750) ra định dạng XML ra tập tin XML (Chuẩn dữ liệu XML tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024).
-- Tại form xuất dữ liệu XML4210.XML1, bổ sung các cột số liệu so sánh với dữ liệu XML130. Cụ thể:
+
+- Tại form xuất dữ liệu `xml4210.xml1` của `XML4210`, bổ sung các cột số liệu so sánh với dữ liệu `XML130`. Cụ thể:
+<p align="center">
 <table border="1" cellspacing="0" cellpadding="0" width=100%>
   <tr>
     <td width=12%><p align="center">1</p></td>
@@ -306,6 +325,7 @@
     <td><p align="center">T_BHTT</p></td>
   </tr>
 </table>
+</p>
 
 - Các báo cáo liên quan danh mục địa phương: Kết hợp dữ liệu giữa `current.dmxa` và `current.dmxa4750`.
 
@@ -313,18 +333,28 @@
 
 - Thiết kế form/Cập nhật form đẩy dữ liệu theo QĐ130 lên cổng giám định BHYT thông qua API (Chuẩn dữ liệu tham khảo chi tiết [công văn 1245/BHXH-CNTT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/1245-BHXH-CNTT_c%C3%A1c_t%E1%BB%89nh_N%C3%A2ng_c%E1%BA%A5p_h%E1%BB%87_th%E1%BB%91ng_theo_Quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_s%E1%BB%91_4750_Q%C4%90_BYT_fn.pdf) do BHXH Việt Nam ban hành ngày 03/05/2024).
 
-:blue_book: Module Diagnose: [^2024-06-29]
+:blue_book: Module Diagnose: 
 
-- Tại các form trả kết quả của `Chẩn đoán hình ảnh (HA)/Thăm dò chức năng (CN)`, bổ sung control ghi nhận `[Ngày thực hiện y lệnh]`. Thời gian này được lấy mặc định từ khi mở form thực hiện (cho phép người dùng tùy chỉnh, điều kiện phải nhỏ hơn hoặc bằng thời gian Ngày thực hiện). Dữ liệu được cập nhật tương ứng cột: `chidinhcls.giolaymau`.
-  ![image](https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/9cf79ca2-d2bd-4fb3-9011-094dbe77e0bf)
+- Tại các form trả kết quả của `Chẩn đoán hình ảnh (HA)/Thăm dò chức năng (CN)`, bổ sung control ghi nhận `[Ngày thực hiện y lệnh]`. Thời gian này được lấy mặc định từ khi mở form thực hiện (cho phép người dùng tùy chỉnh, điều kiện phải nhỏ hơn hoặc bằng thời gian Ngày thực hiện). Dữ liệu được cập nhật tương ứng cột: `chidinhcls.giolaymau`.[^2024-06-29]
+<p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/assets/112069710/9cf79ca2-d2bd-4fb3-9011-094dbe77e0bf" width="70%"></p>
 
-:blue_book: Module Admin: [^2024-07-01]
+- Cập nhật: [^2024-07-25-04]<br/>
+➡️ Tại form **[Danh sách bác sĩ trực]**, cho phép cấu hình chọn (không giới hạn) nhân viên `[Được phép thực hiện cận lâm sàng]`.<br/>
+➡️ Tại form **[Danh sách thực hiện]**, **không** cho phép thực hiện nếu chưa cấu hình chọn `[Bác sĩ trực]` và `[Nhân viên thực hiện]`.<br/>
+➡️ Tại các form **trả kết quả (thực hiện)**: Bổ sung ComboBox load danh sách nhân viên thực hiện (đã chọn), dữ liệu khi lưu tương ứng với cột `chidinhcls.nguoi_thuc_hien = dmnhanvien.macc_hanhnghe_cv2348`, tham chiếu từ `dmnhanvien.manv` của nhân viên thực hiện.
 
-- Trên form danh mục nhân viên bổ sung chức năng cho phép nhập họ lót nhân viên không có chức danh để thực gửi hồ sơ XML, và kiểm tra thông tuyến.
+:blue_book: Module Laboratory: 
 
-- Ưu tiên lấy họ lót không chức danh => họ lót hiện tại. (current.dmnhanvien: holot_thuan => holot) khi lấy họ tên bác sĩ hoặc nhân viên khi xuất XML hoặc tra cứu thông tuyến.
-  ![alt text](image.png)
+- Cập nhật: [^2024-07-25-05]<br/>
+➡️ Tại form **[Danh sách bác sĩ trực]**, cho phép cấu hình chọn (không giới hạn) nhân viên `[Được phép thực hiện cận lâm sàng]`.<br/>
+➡️ Tại form **[Danh sách thực hiện]**, **không** cho phép thực hiện nếu chưa cấu hình chọn `[Bác sĩ trực]` và `[Nhân viên thực hiện]`.<br/>
+➡️ Tại các form **trả kết quả (thực hiện)**: Bổ sung ComboBox load danh sách nhân viên thực hiện (đã chọn), dữ liệu khi lưu tương ứng với cột `chidinhcls.nguoi_thuc_hien = dmnhanvien.macc_hanhnghe_cv2348`, tham chiếu từ `dmnhanvien.manv` của nhân viên thực hiện.
 
+[^2024-07-25-05]: Thay đổi ngày 25/07/2024: Module `Laboratory`, cấu hình nhân viên `[Được thực hiện cận lâm sàng]` và ghi nhận giá trị `chidinhcls.nguoi_thuc_hien` khi thực hiện.
+[^2024-07-25-04]: Thay đổi ngày 25/07/2024: Module `Diagnose`, cấu hình nhân viên `[Được thực hiện cận lâm sàng]` và ghi nhận giá trị `chidinhcls.nguoi_thuc_hien` khi thực hiện.
+[^2024-07-25-03]: Thay đổi ngày 25/07/2024: Bổ sung cột `chidinhcls.nguoi_thuc_hien`,  ghi nhận mã Chứng chỉ hành nghề nhân viên thực hiện cận lâm sàng.
+[^2024-07-25-02]: Thay đổi ngày 25/07/2024: Module `Admin`, form `[Danh mục nhân viên]`, bổ sung checkbox `[Được thực hiện cận lâm sàng]`.
+[^2024-07-25-01]: Thay đổi ngày 25/07/2024: Bổ sung cột `dmnhanvien.thuchien`, xác định trạng thái được phép thực hiện cận lâm sàng `kho IN ('HA','CN','XN')`.
 [^2024-07-24-05]: Thay đổi ngày 24/07/2024: Cập nhật form `[Thông tin con sản phụ]` module `Treatment`, bổ sung các control cập nhật giá trị tương ứng cho các cột `ttcon.lan_sinh`, `ttcon.sinhcon_phauthuat`, `ttcon.sinhcon_duoi32tuan`, hỗ trợ dữ liệu [xml130.bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
 [^2024-07-24-04]: Thay đổi ngày 24/07/2024: Bổ sung cột `sinhcon_duoi32tuan` table `ttcon`, hỗ trợ dữ liệu [xml130.bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
 [^2024-07-24-03]: Thay đổi ngày 24/07/2024: Bổ sung cột `sinhcon_phauthuat` table `ttcon`, hỗ trợ dữ liệu [xml130.bang9](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
