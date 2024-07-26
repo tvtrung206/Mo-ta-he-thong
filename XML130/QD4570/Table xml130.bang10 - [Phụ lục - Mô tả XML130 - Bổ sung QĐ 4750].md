@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -37,11 +38,13 @@
 |8|den_ngay|VARCHAR(8)| X|Ghi ngày kết thúc nghỉ dưỡng thai, theo định dạng yyyymmdd||`=nghiduongthai.denngay`|
 |9|ma_ttdv|VARCHAR(10)|  X|Ghi mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được uỷ quyền ký xác nhận giấy chứng nhận nghỉ dưỡng thai.||Được lấy từ `tham số ma_ttdv`<br/><br/>Đổi kiểu dữ liệu từ số thành chuỗi|
 |10|ten_bs|VARCHAR(255)| X|Ghi họ và tên của Trưởng khoa hoặc Phó trưởng khoa hoặc Bác sỹ hành nghề KBCB được uỷ quyền ký tên theo quy định của Thủ trưởng cơ sở KBCB.||`= dmnhanvien.holot + “ ” + dmnhanvien.ten`<br/>Trong đó tham chiếu: `nghiduongthai.madv = dmdonvi.madv AND dmdonvi.manv_truongkhoa = dmnhanvien.manv`|
-|11|ma_bs|VARCHAR(200)| X|Ghi mã số định danh y tế (mã số BHXH) của Trưởng khoa hoặc Trưởng phòng hoặc Phó trưởng khoa hoặc Phó trưởng phòng hoặc Bác sỹ hành nghề KBCB ký tên theo quy định của Thủ trưởng cơ sở KBCB.||`= dmnhanvien.  macc_hanhnghe_cv2348`<br/>Trong đó tham chiếu: `nghiduongthai.madv = dmdonvi.madv AND dmdonvi.manv_truongkhoa = dmnhanvien.manv`|
+|11|ma_bs|VARCHAR(200)| X|Ghi mã số định danh y tế (mã số BHXH) của Trưởng khoa hoặc Trưởng phòng hoặc Phó trưởng khoa hoặc Phó trưởng phòng hoặc Bác sỹ hành nghề KBCB ký tên theo quy định của Thủ trưởng cơ sở KBCB.||`= dmnhanvien.sobhxh`[^2024-07-26]<br/>Trong đó tham chiếu: `nghiduongthai.madv = dmdonvi.madv AND dmdonvi.manv_truongkhoa = dmnhanvien.manv`|
 |12|ngay_ct|VARCHAR(8)||Ghi ngày cấp chứng từ, theo định dạng yyyymmdd||`=nghiduongthai.ngaylap`|
 |13|du_phong|VARCHAR||Bổ sung trường mới: Trường dữ liệu dự phòng khi cần thiết.|||
 ||makb|VARCHAR(20)|X|bnnoitru.makb|X||
 ||mabn|VARCHAR(20)|X|bnnoitru.mabn|X||
+
+[^2024-07-26]: Thay đổi ngày 26/07/2024: Thay đổi điều kiện xuất dữ liệu cột `ma_bs`.
 
 [^2024-06-30-01]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
 [^2024-06-30-02]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu chi tiết cho các cột.
