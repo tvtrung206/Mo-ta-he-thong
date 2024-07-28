@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -179,6 +180,31 @@
 |:-------:|-------|:-------:|-------|
 |1|duockham [^2024-07-25-08]|NUMERIC(1,0)|Ghi nhận trạng thái được đọc kết quả xét nghiệm trong lịch trực.|
 |2|thuchien [^2024-07-25-09]|NUMERIC(1,0)|Ghi nhận trạng thái được thực hiện xét nghiệm trong lịch trực.|
+
+:blue_book: Cập nhật cấu trúc table **current.pskhamxn**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|manv_nguoithuchien [^2024-07-28-01]|VARCHAR(20)|Ghi nhận mã nhân viên của người thực hiện xét nghiệm.|
+
+:blue_book: Cập nhật cấu trúc table **current.pstebaotucung**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|manv_nguoithuchien [^2024-07-28-02]|VARCHAR(20)|Ghi nhận mã nhân viên của người thực hiện xét nghiệm tế bào cổ tử cung.|
+
+:blue_book: Cập nhật cấu trúc table **current.pssinhthiet**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|manv_nguoithuchien [^2024-07-28-03]|VARCHAR(20)|Ghi nhận mã nhân viên của người thực hiện xét nghiệm sinh thiết.|
+
+:blue_book: Cập nhật cấu trúc table **current.psdom**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|manv_nguoithuchien [^2024-07-28-04]|VARCHAR(20)|Ghi nhận mã nhân viên của người thực hiện xét nghiệm đờm.|
+
+:blue_book: Cập nhật cấu trúc table **current.pscovid19**: 
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|manv_nguoithuchien [^2024-07-28-05]|VARCHAR(20)|Ghi nhận mã nhân viên của người thực hiện xét nghiệm Covid-19.|
 
 :white_check_mark: **Quy trình áp dụng:**
 
@@ -362,6 +388,11 @@
 ➡️ Tại form **[Danh sách thực hiện]**, **không** cho phép thực hiện nếu chưa cấu hình chọn `[Bác sĩ trực]` và `[Nhân viên thực hiện]`.<br/>
 ➡️ Tại các form **trả kết quả (thực hiện)**: Bổ sung ComboBox load danh sách nhân viên thực hiện (đã chọn), dữ liệu khi lưu tương ứng với cột `chidinhcls.nguoi_thuc_hien = dmnhanvien.macc_hanhnghe_cv2348`, tham chiếu từ `dmnhanvien.manv` của nhân viên thực hiện.
 
+[^2024-07-28-05]: Thay đổi ngày 28/07/2024: Bổ sung cột `pscovid19.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm Covid-19 module `Laboratory`.
+[^2024-07-28-04]: Thay đổi ngày 28/07/2024: Bổ sung cột `psdom.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm đờm module `Laboratory`.
+[^2024-07-28-03]: Thay đổi ngày 28/07/2024: Bổ sung cột `pssinhthiet.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm sinh thiết module `Laboratory`.
+[^2024-07-28-02]: Thay đổi ngày 28/07/2024: Bổ sung cột `pstebaotucung.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm tế bào cổ tử cung module `Laboratory`.
+[^2024-07-28-01]: Thay đổi ngày 28/07/2024: Bổ sung cột `pskhamxn.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm module `Laboratory`.
 [^2024-07-25-09]: Thay đổi ngày 25/07/2024: Bổ sung cột `lichtruc_laboratory.thuchien`, xác định trạng thái thực hiện xét nghiệm trong lịch trực module `Laboratory`.
 [^2024-07-25-08]: Thay đổi ngày 25/07/2024: Bổ sung cột `lichtruc_laboratory.duockham`, xác định trạng thái đọc kết quả xét nghiệm trong lịch trực module `Laboratory`.
 [^2024-07-25-07]: Thay đổi ngày 25/07/2024: Bổ sung cột `lichtruc_diagnose.thuchien`, xác định trạng thái thực hiện CĐHA/TDCN trong lịch trực module `Diagnose`.
