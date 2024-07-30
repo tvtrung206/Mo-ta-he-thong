@@ -16,9 +16,9 @@
 
 </div>
 
-###### :eight_spoked_asterisk: Người lập: [**Nguyễn Viết Vinh**](https://github.com/vinh-dh)
+###### :eight_spoked_asterisk: Người lập: [**Nguyễn Triều Vương**](https://github.com/vuongdh)
 
-###### :eight_spoked_asterisk: Ngày lập: **27/02/2023**
+###### :eight_spoked_asterisk: Ngày lập: **29/07/2024**
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
@@ -26,10 +26,5 @@
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
-:white_check_mark: **Cấu trúc các bảng theo quy định của QĐ 4750 và theo dõi cập nhật thông tin chi tiết tại:** [Excel 4750](https://docs.google.com/spreadsheets/d/1H8Y8rsTMqs0QIflxjpDAHQ882tNGMTHl/edit#gid=255000288)
-
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
-
-:blue_book: Cập nhật cấu trúc, bổ sung hỗ trợ lưu trữ dữ liệu XML theo [Quyết định 130/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/130Q%20.signed.pdf) (Cập nhật theo [Quyết định 4750/QD-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/4750.pdf)).
-
-- Script tạo schema: `CREATE SCHEMA xml130`
+- Script tạo bổ sung sẽ liệu: `UPDATE CURRENT.TOMTATBA`
