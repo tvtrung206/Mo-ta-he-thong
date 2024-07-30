@@ -55,6 +55,7 @@
 ➡️ Nhãn `[Số phút trả kết quả]`, tương ứng với dữ liệu cột `dmcls.sophuttraketqua`.
  
 :blue_book: Module Diagnose: Tại các form thực hiện trả kết quả, thực hiện kiểm tra `[thời gian thực hiện y lệnh]` và `[thời gian trả kết quả]` (trước khi lưu) tuần tự như sau:<br/>
+![image](https://github.com/user-attachments/assets/507047f8-c30b-4af6-9b96-ad853b21d683)
 1️⃣ Kiểm tra thời gian thực hiện y lệnh:
 - `sophutthuchienylenh` = (ưu tiên lấy tuần tự nếu khác 0 theo trình tự: `dmcls.sophutthuchienylenh ⇒  dmloaicls.sophutthuchienylenh ⇒ [tham số ha.sophuttoithieu]`). 
 - Nếu `sophutthuchienylenh > 0`, kiểm tra **`[chidinhcls.ngaykcb + sophutthuchienylenh] > [Ngày thực hiện y lệnh đã chọn trên form]`** ⇒ 🚫KHÔNG thực hiện lưu kết quả.
