@@ -20,8 +20,6 @@
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
-###### :eight_spoked_asterisk: Yêu cầu phát sinh
-
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
