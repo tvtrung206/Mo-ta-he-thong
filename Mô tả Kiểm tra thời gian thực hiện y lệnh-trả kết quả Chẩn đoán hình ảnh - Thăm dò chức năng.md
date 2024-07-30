@@ -18,7 +18,7 @@
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
 - Thực hiện theo yêu cầu chi tiết tại: [Mô tả - Thêm chức năng cảnh báo, chặn theo thời gian thực hiện CLS (Chỉ định -> Bắt đầu thực hiện -> Kết quả) (#527) ⏳Dự kiến : 2024-07-31  #528](https://github.com/dh-hos/To_Lap_Trinh/issues/528)
-- **Lưu ý: Chỉ áp dụng đối với cận lâm sàng có kho thuộc HA và CN.**
+- **Lưu ý: Chỉ áp dụng đối với người bệnh đối tượng BHYT thực hiện cận lâm sàng có kho thuộc ('HA', 'CN').** [^2024-07-30-01]
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu:
 
@@ -32,7 +32,8 @@
 2️⃣ Thêm mới các tham số:
 | STT | TÊN THAM SỐ | KIỂU |PHÂN HỆ| DIỄN GIẢI |
 |:-------:|-------|:-------:|-------|-------|
-|1|ha.sophuttraketqua|Số|Tham số chung|Số phút tối thiểu kể từ `[thời điểm thực hiện y lệnh]` đến `[thời điểm trả kết quả]`. Lưu ý: giá trị 0 hoặc rỗng là không giới hạn.|
+|1|ha.sophuttraketqua|Số|Diagnose|Số phút tối thiểu kể từ `[thời điểm thực hiện y lệnh]` đến `[thời điểm trả kết quả]`. Lưu ý: giá trị 0 hoặc rỗng là không giới hạn.|
+|2|ha.canhbaovuotthoigian [^2024-07-30-02]|Số|Diagnose|Cảnh báo khi đã vượt quá [Thời gian thực hiện y lệnh]/[Thời gian trả kết quả]. Giá trị:<br/>- 0: Cảnh báo và `KHÔNG` cho phép lưu kết quả.<br/>- 1: Cảnh báo và `CHO PHÉP` lưu kết quả.|
 
 :blue_book: Cập nhật cấu trúc table **`current.dmloaicls`**: 
 | STT | TÊN CỘT | KIỂU DỮ LIỆU |DIỄN GIẢI|
@@ -54,19 +55,25 @@
 ➡️ Nhãn `[Số phút thực hiện y lệnh]`, tương ứng với dữ liệu cột `dmcls.sophutthuchienylenh`.<br/>
 ➡️ Nhãn `[Số phút trả kết quả]`, tương ứng với dữ liệu cột `dmcls.sophuttraketqua`.
  
-:blue_book: Module Diagnose: Tại các form thực hiện trả kết quả, thực hiện kiểm tra `[thời gian thực hiện y lệnh]` và `[thời gian trả kết quả]` (trước khi lưu) tuần tự như sau:<br/>
-![image](https://github.com/user-attachments/assets/507047f8-c30b-4af6-9b96-ad853b21d683)
+:blue_book: Module Diagnose: Tại các form thực hiện trả kết quả, thực hiện kiểm tra `[thời gian thực hiện y lệnh]` và `[thời gian trả kết quả]` (trước khi lưu) tuần tự như sau:
+<p align="center"><img src="https://github.com/user-attachments/assets/507047f8-c30b-4af6-9b96-ad853b21d683" width="70%"></p>
+
 1️⃣ Kiểm tra thời gian thực hiện y lệnh:
 - `sophutthuchienylenh` = (ưu tiên lấy tuần tự nếu khác 0 theo trình tự: `dmcls.sophutthuchienylenh ⇒  dmloaicls.sophutthuchienylenh ⇒ [tham số ha.sophuttoithieu]`). 
-- Nếu `sophutthuchienylenh > 0`, kiểm tra **`[chidinhcls.ngaykcb + sophutthuchienylenh] > [Ngày thực hiện y lệnh đã chọn trên form]`** ⇒ 🚫KHÔNG thực hiện lưu kết quả.
+- Nếu `sophutthuchienylenh > 0`, kiểm tra **`[chidinhcls.ngaykcb + sophutthuchienylenh] > [Ngày thực hiện y lệnh đã chọn trên form]`**, kiểm tra giá trị tham số `ha.canhbaovuotthoigian`: [^2024-07-30-03]<br/>⇒ `= 0`:  ⚠️ Cảnh báo `(có hiển thị số phút được phép thực hiện y lệnh)` và 🚫KHÔNG thực hiện lưu kết quả.<br/>⇒ `= 1`:  ⚠️ Cảnh báo `(có hiển thị số phút được phép thực hiện y lệnh)` và ✅CHO PHÉP thực hiện lưu kết quả.
 
 2️⃣ Kiểm tra thời gian trả kết quả:
 - `sophuttraketqua` = (ưu tiên lấy tuần tự nếu khác 0 theo trình tự: `dmcls.sophuttraketqua ⇒  dmloaicls.sophuttraketqua ⇒ [tham số ha.sophuttraketqua]`).
-- Nếu `sophuttraketqua> 0`, kiểm tra **`[Ngày thực hiện y lệnh đã chọn trên form] + sophuttraketqua > [Ngày kết quả đã chọn trên form]`** ⇒ 🚫KHÔNG thực hiện lưu kết quả.
+- Nếu `sophuttraketqua> 0`, kiểm tra **`[Ngày thực hiện y lệnh đã chọn trên form] + sophuttraketqua > [Ngày kết quả đã chọn trên form]`**, kiểm tra giá trị tham số `ha.canhbaovuotthoigian`: [^2024-07-30-04]<br/>⇒ `= 0`:  ⚠️ Cảnh báo `(có hiển thị số phút được phép trả kết quả)` và 🚫KHÔNG thực hiện lưu kết quả.<br/>⇒ `= 1`:  ⚠️ Cảnh báo `(có hiển thị số phút được phép trả kết quả)` và ✅CHO PHÉP thực hiện lưu kết quả.
 
 ☑️ Bổ sung quy trình kiểm tra `[Số phút tối thiểu để trả kết quả từ lần trả kết quả gần nhất của một tài khoản]` *(đã áp dụng)*:
 - Tham số `ha.sophut_thuchien_toithieu`.
 - Diễn giải: `Số phút tối thiểu để trả kết quả từ lần trả kết quả gần nhất của một tài khoản (giá trị rỗng hoặc 0: không áp dụng).`
 - Quy trình áp dụng *(khi giá trị tham số `ha.sophut_thuchien_toithieu > 0`)*:<br/>
 ⇒ Lấy thông tin thời gian đã trả kết quả mới nhất trước đó của bác sĩ đọc kết quả (lưu trữ tại table `pskhamha.ngaycd` lấy theo điều kiện `pskhamha.manv`, tương ứng với bác sĩ đang đọc kết quả) `(nếu có)` `[1]`.<br/>
-⇒ Nếu `pskhamha.ngaycd` tại `[1]` tồn tại: Kiểm tra  **`pskhamha.ngaycd + ha.sophut_thuchien_toithieu > [Ngày kết quả đã chọn trên form]`** ⇒ 🚫KHÔNG thực hiện lưu kết quả.
+⇒ Nếu `pskhamha.ngaycd` tại `[1]` tồn tại: Kiểm tra  **`pskhamha.ngaycd + ha.sophut_thuchien_toithieu > [Ngày kết quả đã chọn trên form]`** ⇒ ⚠️ Cảnh báo *(có hiển thị thông tin thời gian đã trả kết quả gần nhất)* và 🚫KHÔNG thực hiện lưu kết quả.
+
+[^2024-07-30-04]: Thay đổi ngày 30/07/2024: Thay đổi cảnh báo `[Thời gian trả kết quả]` theo tham số `ha.canhbaovuotthoigian`.
+[^2024-07-30-03]: Thay đổi ngày 30/07/2024: Thay đổi cảnh báo `[Thời gian thực hiện y lệnh]` theo tham số `ha.canhbaovuotthoigian`.
+[^2024-07-30-02]: Thay đổi ngày 30/07/2024: Bổ sung tham số `ha.canhbaovuotthoigian` cảnh báo khi đã vượt quá `[Thời gian thực hiện y lệnh]/[Thời gian trả kết quả]`.
+[^2024-07-30-01]: Thay đổi ngày 30/07/2024: Bổ sung điều kiện áp dụng đối với người bệnh BHYT.
