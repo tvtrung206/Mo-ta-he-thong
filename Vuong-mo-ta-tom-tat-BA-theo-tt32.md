@@ -24,3 +24,14 @@
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 - Script tạo bổ sung sẽ liệu: `UPDATE CURRENT.TOMTATBA`
+  
+:blue_book: Cập nhật cấu trúc table **tomtatba**:
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+| 1 | qtbenhly | VARCHAR | Ghi nhận tóm tắt quá trình bệnh lý và diễn biến lâm sàng.|
+|2|tsbenh|VARCHAR| Ghi nhận tiền sử bệnh của bệnh nhân.|
+|3|dhlamsang|VARCHAR| Ghi nhận những dấu hiệu lâm sàng chính.|
+|4|ppdieutri|NUMERIC(1,0)| Ghi nhận phương pháp điều trị nội khoa. Giá trị:<br/> - 0: Không</br> - 1: Có |
+|5|ppdieutri_ghichu|VARCHAR| Ghi rõ phương pháp điều trị nếu giá trị cột ppdieutri = 1. |
+|6|pttt|NUMERIC(1,0)| Ghi nhận có phẫu thuật, thủ thuật. Giá trị:<br/> - 0: Không</br> - 1: Có |
+|7|pttt_ghichu|VARCHAR| Ghi rõ phương pháp phẫu thuật nếu giá trị cột pttt = 1. |
