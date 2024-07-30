@@ -12,8 +12,6 @@
 
 #### Chủ đề: TÓM TẮT BỆNH ÁN THEO THÔNG TƯ [32/2023/TT-BYT](https://github.com/user-attachments/files/16156783/Thong.t.-32-2023-TT-BYT.docx)
 
-#### Bổ sung theo [Quyết định 4750/QD-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/4750.pdf) của Bộ Y tế ngày 29/12/2023
-
 </div>
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Triều Vương**](https://github.com/vuongdh)
