@@ -9,7 +9,7 @@
 </div>
 <div align="center">
 
-#### CHỦ ĐỀ: MÔ TẢ THỜI GIAN THỰC HIỆN/TRẢ KẾT QUẢ CHẨN ĐOÁN HÌNH ẢNH/THĂM DÒ CHỨC NĂNG
+#### CHỦ ĐỀ: MÔ TẢ KIỂM TRA THỜI GIAN THỰC HIỆN Y LỆNH/TRẢ KẾT QUẢ ĐỐI VỚI CHẨN ĐOÁN HÌNH ẢNH/THĂM DÒ CHỨC NĂNG
 </div>
 
 ###### :eight_spoked_asterisk: Người lập: [**vinh-dh**](https://github.com/vinh-dh)
