@@ -70,3 +70,33 @@ IS 'Ghi rõ phương pháp điều trị nếu giá trị cột pttt_ghichu = 1.
 |5|ppdieutri_ghichu|VARCHAR| Ghi rõ phương pháp điều trị nếu giá trị cột ppdieutri = 1. |
 |6|pttt|NUMERIC(1,0)| Ghi nhận có phẫu thuật, thủ thuật. <br/>Giá trị:<br/> - 0: Không</br> - 1: Có |
 |7|pttt_ghichu|VARCHAR| Ghi rõ phương pháp phẫu thuật nếu giá trị cột pttt = 1. |
+
+:blue_book: **Mô tả thực hiện và diễn giải số liệu**:
+- **Thực hiện**:
+  - Mở form tóm tắt bệnh án:
+    
+    ![image](https://github.com/user-attachments/assets/a28f4400-d924-4117-9b04-96dd35bcc85b)
+
+  - Form tóm tắt bệnh án:
+
+    ![image](https://github.com/user-attachments/assets/e24b2715-802c-4d95-bfe9-5607bd664467)
+
+    (1): Thực hiện thêm/sửa/xóa tóm tắt bệnh án
+    
+    (2): Kết quả xét nghiệm: dữ liệu được lấy từ bnnoitru.tomtat_kq (dữ liệu này được thực hiện khi làm thao tác ra viện)
+    
+    (3): Tình trạng ra viện: dữ liệu được lấy từ dmketqua.ma_medisoft (qua liên kết bnnoitru.makq = dmketqua.makq)
+    
+        Ghi mã kết quả điều trị, trong đó:
+          - Mã “1”: Khỏi;
+          - Mã “2”: Đỡ;
+          - Mã “3”: Không thay đổi;
+          - Mã “4”: Nặng hơn;
+          - Mã “5”: Tử vong;
+          - Mã “6”: Tiên lượng nặng xin về;
+          - Mã “7”: Chưa xác định (không thuộc một trong các mã kết quả điều trị nêu trên).
+          - Mã “8”: Tử vong ngoại viện
+
+    - Kết quả in phiếu:
+   
+      ![image](https://github.com/user-attachments/assets/9c2a3486-7243-4042-a13b-d2d92c761aca)
