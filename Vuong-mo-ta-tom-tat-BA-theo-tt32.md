@@ -71,7 +71,7 @@ IS 'Ghi rõ phương pháp điều trị nếu giá trị cột pttt_ghichu = 1.
 |6|pttt|NUMERIC(1,0)| Ghi nhận có phẫu thuật, thủ thuật. <br/>Giá trị:<br/> - 0: Không</br> - 1: Có |
 |7|pttt_ghichu|VARCHAR| Ghi rõ phương pháp phẫu thuật nếu giá trị cột pttt = 1. |
 
-:blue_book: **Mô tả thực hiện và diễn giải số liệu**:
+:blue_book: **Mô tả thực hiện và diễn giải số liệu**: [^2024-07-31]
 - **Thực hiện**:
   - Mở form tóm tắt bệnh án:
     
@@ -100,3 +100,5 @@ IS 'Ghi rõ phương pháp điều trị nếu giá trị cột pttt_ghichu = 1.
     - Kết quả in phiếu:
    
       ![image](https://github.com/user-attachments/assets/9c2a3486-7243-4042-a13b-d2d92c761aca)
+
+[^2024-07-31]: Thay đổi ngày 2024-07-31: Bổ sung thêm mô tả thực hiện và dữ liệu
