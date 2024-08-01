@@ -131,7 +131,7 @@ Ghi nhận giá trị ưu tiên từ trên xuống: [^2024-06-28-01]
 |03|Bệnh án nội trú.||
 |09|Bệnh án nội trú (dưới 4 giờ).||
 
-[^2024-08-01-01]: Thay đổi ngày 01/08/2024: Thay đổi điều kiện xuất dữ liệu cột `pp_dieutri`.
+[^2024-08-01-01]: Thay đổi ngày 01/08/2024: Thay đổi điều kiện xuất dữ liệu cột `pp_dieu_tri`.
 [^2024-07-26]: Thay đổi ngày 26/07/2024: Thay đổi ghi nhận giá trị ưu tiên cột  `ma_doituong_kcb` đối với giá trị `3.2`.
 [^2024-07-24]:  Thay đổi ngày 24/07/2024: Thay đổi điều kiện cột `ma_loai_kcb` áp dụng bổ sung đối với người bệnh bệnh án ngoại trú quyết toán ngày (theo tham số `ma_loai_kcb.ba_ngoai_ngay`).
 [^2024-07-20]: Thay đổi ngày 20/07/2024: Thay đổi điều kiện cột `ma_noi_di`.
