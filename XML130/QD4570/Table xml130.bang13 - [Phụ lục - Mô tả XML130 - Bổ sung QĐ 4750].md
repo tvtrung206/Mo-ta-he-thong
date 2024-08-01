@@ -50,13 +50,13 @@
 |21|chan_doan_rv|VARCHAR||Sử dụng thông tin tại trường CHAN_DOAN_RV trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.chan_doan_rv`|
 |22|qt_benhly|VARCHAR|X|Ghi quá trình bệnh lý và diễn biến lâm sàng.||`=chuyenvien.tinhtrang`|
 |23|tomtat_kq|VARCHAR||Ghi tóm tắt kết quả xét nghiệm, cận lâm sàng có giá trị chẩn đoán.|||
-|24|pp_dieutri|VARCHAR||Sử dụng thông tin tại trường PP_DIEUTRI trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.pp_dieutri`|
+|24|pp_dieutri|VARCHAR||Sử dụng thông tin tại trường PP_DIEUTRI trong Bảng 1 ban hành kèm theo Quyết định này||1️⃣ Đối với khám bệnh ngoại trú/toa nội trú xuất viện ghi: `pp_dieutri = "Ngoại khoa"`<br/><br/>2️⃣ Đối với người bệnh nội trú/BA ngoại trú quyết toán cuối đợt: `pp_dieutri = dmppdt.diengiai` (tham chiếu thông qua `bnnoitru.mappdt`) [^2024-08-01-01]|
 |25|ma_benh_chinh|VARCHAR(7)||Sử dụng thông tin tại trường MA_BENH_CHINH trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_benh_chinh`|
 |26|ma_benh_kt|VARCHAR(100)||Sử dụng thông tin tại trường MA_BENH_KT trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_benh_kt`|
 |27|ma_benh_yhct|VARCHAR(255)||Sử dụng thông tin tại trường MA_BENH_YHCT trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_benh_yhct`|
 |28|ten_dich_vu|VARCHAR(1024)|X|Ghi tên dịch vụ kỹ thuật đã sử dụng cho người bệnh.<br/>**Lưu ý**:<br/>- Đối với dịch vụ kỹ thuật, trường hợp cần ghi rõ vị trí, phương pháp thực hiện hoặc phân biệt các mức giá khác nhau thì sau tên dịch vụ kỹ thuật ghi phần mô tả chi tiết trong ngoặc vuông [ ];<br/>- Đối với DVKT sử dụng phương pháp vô cảm gây tê, bổ sung cụm từ "[gây tê]" sau tên dịch vụ.||Gom các tên CLS `bang3.ten_dich_vu`|
 |29|ten_thuoc|VARCHAR(1024)||Sử dụng thông tin tại trường TEN_THUOC trong Bảng 2 ban hành kèm theo Quyết định này||Gom các tên thuốc `bang2.ten_thuoc`|
-|30|pp_dieu_tri|VARCHAR||Sử dụng thông tin tại trường PP_DIEU_TRI trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.pp_dieu_tri`|
+|30|pp_dieu_tri|VARCHAR||Sử dụng thông tin tại trường PP_DIEU_TRI trong Bảng 1 ban hành kèm theo Quyết định này||1️⃣ Đối với khám bệnh ngoại trú/toa nội trú xuất viện ghi: `pp_dieu_tri = "Ngoại khoa"`<br/><br/>2️⃣ Đối với người bệnh nội trú/BA ngoại trú quyết toán cuối đợt: `pp_dieu_tri = dmppdt.diengiai` (tham chiếu thông qua `bnnoitru.mappdt`) [^2024-08-01-02]|
 |31|ma_loai_rv|NUMERIC(1,0)||Sử dụng thông tin tại trường MA_LOAI_RV trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_loai_rv`|
 |32|ma_lydo_ct|NUMERIC(1,0)|X|Ghi mã lý do chuyển tuyến. Ghi mã 1 trong trường hợp đủ điều kiện chuyển tuyến phù hợp với quy định chuyển tuyến; Ghi mã 2 trong trường hợp đủ điều kiện chuyển tuyến do không phù hợp với khả năng đáp ứng của cơ sở KBCB; Ghi mã 3 trong trường hợp chuyển tuyến theo yêu cầu của người bệnh hoặc người đại diện hợp pháp của người bệnh.||Xét `chuyenvien.lydoct = 0` thì `ma_lydo_ct = 1`, ngược lại `ma_lydo_ct = 2`|
 |33|huong_dieu_tri|VARCHAR|X|Ghi hướng điều trị sắp tới cho người bệnh.||`=chuyenvien.huongdt`|
@@ -69,5 +69,7 @@
 ||makb|VARCHAR(20)|X||X||
 ||mabn|VARCHAR(20)|X||X||
 
+[^2024-08-01-02]: Thay đổi ngày 01/08/2024: Thay đổi điều kiện xuất dữ liệu cột `pp_dieu_tri`.
+[^2024-08-01-01]: Thay đổi ngày 01/08/2024: Thay đổi điều kiện xuất dữ liệu cột `pp_dieutri`.
 [^2024-06-30-01]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
 [^2024-06-30-02]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu chi tiết cho các cột.
