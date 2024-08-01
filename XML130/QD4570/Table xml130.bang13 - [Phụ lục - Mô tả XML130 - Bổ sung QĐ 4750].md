@@ -49,7 +49,7 @@
 |20|dau_hieu_ls|VARCHAR|X|Ghi các dấu hiệu lâm sàng của người bệnh khi chuyển tuyến||`=chuyenvien.dauhieuls`|
 |21|chan_doan_rv|VARCHAR||Sử dụng thông tin tại trường CHAN_DOAN_RV trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.chan_doan_rv`|
 |22|qt_benhly|VARCHAR|X|Ghi quá trình bệnh lý và diễn biến lâm sàng.||`=chuyenvien.tinhtrang`|
-|23|tomtat_kq|VARCHAR||Ghi tóm tắt kết quả xét nghiệm, cận lâm sàng có giá trị chẩn đoán.|||
+|23|tomtat_kq|VARCHAR||Ghi tóm tắt kết quả xét nghiệm, cận lâm sàng có giá trị chẩn đoán.||1️⃣ Đối với bệnh án ngoại trú (quyết toán cuối đợt): `tomtat_kq = tongketba.kqxetnghiem`.<br/>2️⃣ Đối ới bệnh án nội trú: `tomtat_kq = bnnoitru.tomtat_kq`. [^2024-08-01-03]|
 |24|pp_dieutri|VARCHAR||Sử dụng thông tin tại trường PP_DIEUTRI trong Bảng 1 ban hành kèm theo Quyết định này||1️⃣ Đối với khám bệnh ngoại trú/toa nội trú xuất viện ghi: `pp_dieutri = "Ngoại khoa"`<br/><br/>2️⃣ Đối với người bệnh nội trú/BA ngoại trú quyết toán cuối đợt: `pp_dieutri = dmppdt.diengiai` (tham chiếu thông qua `bnnoitru.mappdt`) [^2024-08-01-01]|
 |25|ma_benh_chinh|VARCHAR(7)||Sử dụng thông tin tại trường MA_BENH_CHINH trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_benh_chinh`|
 |26|ma_benh_kt|VARCHAR(100)||Sử dụng thông tin tại trường MA_BENH_KT trong Bảng 1 ban hành kèm theo Quyết định này||`=bang1.ma_benh_kt`|
@@ -69,6 +69,7 @@
 ||makb|VARCHAR(20)|X||X||
 ||mabn|VARCHAR(20)|X||X||
 
+[^2024-08-01-03]: Thay đổi ngày 01/08/2024: Bổ sung điều kiện xuất dữ liệu cột `tomtat_kq`.
 [^2024-08-01-02]: Thay đổi ngày 01/08/2024: Thay đổi điều kiện xuất dữ liệu cột `pp_dieu_tri`.
 [^2024-08-01-01]: Thay đổi ngày 01/08/2024: Thay đổi điều kiện xuất dữ liệu cột `pp_dieutri`.
 [^2024-06-30-01]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
