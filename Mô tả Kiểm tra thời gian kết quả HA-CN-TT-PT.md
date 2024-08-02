@@ -72,7 +72,7 @@
 2️⃣ Điều chỉnh nhãn `[Số phút trả kết quả]` thành **`[Số phút Trả kết quả/Kết thúc]`**.<br/>
 <p align="center"><img src="https://github.com/user-attachments/assets/8134f793-d5f3-4d26-8621-d7ec457f745f" width="70%"></p>
 
-- Thay đổi các thông tin form **`[Danh mục cận lâm sàng] ⇒ Tab [Cấu hình thơi gian thực hiện CĐHA,CN]`**: Điều chỉnh tiêu đề tab thành **`[Cấu hình thơi gian thực hiện CĐHA,CN,TT,PT]`**<br/>
+- Thay đổi các thông tin form **`[Danh mục cận lâm sàng] ⇒ Tab [Cấu hình thơi gian thực hiện CĐHA,CN]`**: Điều chỉnh tiêu đề tab thành **`[Cấu hình thơi gian thực hiện CĐHA,CN,TT,PT]`** và áp dụng bổ sung thêm `kho TT và PT`<br/>
 1️⃣ Điều chỉnh nhãn `[Số phút thực hiện y lệnh]` thành **`[Số phút Thực hiện y lệnh/Bắt đầu]`**.<br/>
 2️⃣ Điều chỉnh nhãn `[Số phút trả kết quả]` thành **`[Số phút Trả kết quả/Kết thúc]`**.<br/>
 <p align="center"><img src="https://github.com/user-attachments/assets/ecae27f3-a908-4fe3-a9c9-8d26a2e212d5" width="70%"></p>
