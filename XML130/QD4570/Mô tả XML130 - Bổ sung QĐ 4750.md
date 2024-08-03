@@ -1,4 +1,3 @@
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -241,9 +240,21 @@
 
 - Tại form **[Danh mục nhân viên]**, bổ sung CheckBox cho phép cập nhật trạng thái `[Được thực hiện cận lâm sàng]`. Giá trị `checkbox = true` tương ứng với cột `dmnhanvien.thuchien = 1`, ngược lại `dmnhanvien.thuchien = 0`.[^2024-07-25-02]
 
+- Cập nhật: **Form Hiệu chỉnh thông tin bệnh nhân ngoại trú**, Bổ sung Control cập nhật `[Trạng thái chuyển tuyến]` tương ứng với `psdangky.trangthaichuyentuyen`. [^2024-08-03-04]<br/>
+1️⃣ Điều kiện ràng buộc khi tham số `tuyenbv <= 2` *(CSKCB tuyến huyện trở xuống)*: <br/>
+➡️ Nếu `psdangky.mabvdk = psdangky.mabvkb` thì `psdangky.tuyen = 0`.<br/>
+➡️ Nếu `psdangky.mabvdk <> psdangky.mabvkb`, xét người bệnh trong tỉnh hoặc ngoài tỉnh (dựa vào tham số `thetrongtinh`):<br/>
+⇒ Người bệnh trong tỉnh: `psdangky.tuyen = 0`  và `psdangky.tuyenxml = 0`.<br/>
+⇒ Người bệnh ngoài tỉnh: Nếu `psdangky.giayxacnhancutru = 1` thì  `[psdangky.tuyen = 0 và psdangky.tuyenxml = 0]`, ngược lại `[psdangky.tuyen = 0 và psdangky.tuyenxml = 1]` `(theo Công văn 627, người bệnh trái tuyến được hưởng như đúng tuyến)`.<br/><br/>
+2️⃣ Điều kiện ràng buộc khi tham số `tuyenbv = 3` *(CSKCB tuyến tỉnh)*: <br/>
+➡️ Nếu `[psdangky.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `psdangky.tuyen = 0`.<br/>
+➡️ Nếu `[psdangky.manoigt là rỗng]` hoặc [`psdangky.manoigt khác rỗng` và `psdangky.trangthaichuyentuyen = 1`] thì `psdangky.tuyen = 1` *(người bệnh trái tuyến)*.<br/>
+➡️ Nếu `[psdangky.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
+➡️ Nếu `psdangky.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**
+
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 
-- Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). **Lưu ý**: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng (bắt buộc phải chọn mới cho đăng ký).
+- Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). **Lưu ý**: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng **(bắt buộc phải chọn mới cho đăng ký)**.
 
 - Bổ sung Control cho phép người dùng xác nhận người bệnh có giấy cư trú (áp dụng cho người bệnh ngoài tỉnh), nếu có xác nhận thì cập nhật tương ứng vào cột `psdangky.giayxacnhancutru = 1` và `psdangky.tuyen = 0`.
 
@@ -259,6 +270,19 @@
 <p align="center"><img src="https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/File-ho-tro/dmbenhnhan_nhom_mau.jpg"></p>
 
 - Tại form **nhập/cập nhật thông tin bệnh nhân**: thay đổi cách lấy dữ liệu địa phương từ table `current.dmxa` sang table `current.dmxa4750`, cụ thể: cập nhật giá trị cho `dmbenhnhan.maxa = dmxa4750.id` thay cho cột `dmxa.maxa`.
+
+- Cập nhật: **Form tiếp nhận bệnh (`Register`) và Hiệu chỉnh thông tin bệnh nhân (`Presctiption`)**: [^2024-08-03-01]<br/>
+1️⃣ Điều kiện ràng buộc khi tham số `tuyenbv <= 2` *(CSKCB tuyến huyện trở xuống)*: <br/>
+➡️ Nếu `psdangky.mabvdk = psdangky.mabvkb` thì `psdangky.tuyen = 0`.<br/>
+➡️ Nếu `psdangky.mabvdk <> psdangky.mabvkb`, xét người bệnh trong tỉnh hoặc ngoài tỉnh (dựa vào tham số `thetrongtinh`):<br/>
+⇒ Người bệnh trong tỉnh: `psdangky.tuyen = 0`  và `psdangky.tuyenxml = 0`.<br/>
+⇒ Người bệnh ngoài tỉnh: Nếu `psdangky.giayxacnhancutru = 1` thì  `[psdangky.tuyen = 0 và psdangky.tuyenxml = 0]`, ngược lại `[psdangky.tuyen = 0 và psdangky.tuyenxml = 1]` `(theo Công văn 627, người bệnh trái tuyến được hưởng như đúng tuyến)`.<br/><br/>
+2️⃣ Điều kiện ràng buộc khi tham số `tuyenbv = 3` *(CSKCB tuyến tỉnh)*: <br/>
+➡️ Nếu `[psdangky.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `psdangky.tuyen = 0`.<br/>
+➡️ Nếu `[psdangky.manoigt là rỗng]` hoặc [`psdangky.manoigt khác rỗng` và `psdangky.trangthaichuyentuyen = 1`] thì `psdangky.tuyen = 1` *(người bệnh trái tuyến)*.<br/>
+➡️ Nếu `[psdangky.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
+➡️ Nếu `psdangky.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**<br/>
+<p align="center"><img src="https://github.com/user-attachments/assets/1c7afd86-854c-4f43-a425-fce7a06d03d6" width="70%"></p>
 
 :blue_book: Module Prescription:
 |Khám ngoại trú|Bệnh án ngoại trú|
@@ -286,6 +310,18 @@
 
 - Tại form **[Khám bệnh]**: khi điều chỉnh chẩn đoán bệnh, sử dụng tham số `ma_benh_kt.soluong`. Xét: nếu `ma_benh_kt.soluong` > 0, khi lưu chẩn đoán bệnh kiểm tra **`[Tổng số lượng mã bệnh ICD10 (chính + phụ)]`** *(đếm số lượng các mã ICD từ `khambenh.maicd` và `khambenh.maicdp`)* **`<=`** **`[ma_benh_kt.soluong + 1]`**, ngược lại: **KHÔNG** cho lưu chẩn đoán bệnh. [^2024-07-12-02]
 <p align="center"><img src="https://github.com/user-attachments/assets/a3eb2985-538e-461a-80dc-97ee0bbc74d0"  width="70%"><br/>Áp dụng tương tự đối với Bệnh án ngoại trú:<img src="https://github.com/user-attachments/assets/afbd88df-af98-40b4-a2e0-31c7a8b6a474" width="70%"></p>
+
+- Cập nhật: **Tại Form Hiệu chỉnh thông tin bệnh nhân bệnh án ngoại trú (`Presctiption`)**: Bổ sung Control cập nhật `[Trạng thái chuyển tuyến]` tương ứng với `psdangky.trangthaichuyentuyen`. [^2024-08-03-02]<br/>
+1️⃣ Điều kiện ràng buộc khi tham số `tuyenbv <= 2` *(CSKCB tuyến huyện trở xuống)*: <br/>
+➡️ Nếu `bnnoitru.mabvdk = bnnoitru.mabvkb` thì `bnnoitru.tuyen = 0`.<br/>
+➡️ Nếu `bnnoitru.mabvdk <> bnnoitru.mabvkb`, xét người bệnh trong tỉnh hoặc ngoài tỉnh (dựa vào tham số `thetrongtinh`):<br/>
+⇒ Người bệnh trong tỉnh: `bnnoitru.tuyen = 0`  và `bnnoitru.tuyenxml = 0`.<br/>
+⇒ Người bệnh ngoài tỉnh: Nếu `psdangky.giayxacnhancutru = 1` thì  `[bnnoitru.tuyen = 0 và bnnoitru.tuyenxml = 0]`, ngược lại `[bnnoitru.tuyen = 0 và bnnoitru.tuyenxml = 1]` `(theo Công văn 627, người bệnh trái tuyến được hưởng như đúng tuyến)`.<br/><br/>
+2️⃣ Điều kiện ràng buộc khi tham số `tuyenbv = 3` *(CSKCB tuyến tỉnh)*: <br/>
+➡️ Nếu `[bnnoitru.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `bnnoitru.tuyen = 0`.<br/>
+➡️ Nếu `[bnnoitru.manoigt là rỗng]` hoặc [`bnnoitru.manoigt khác rỗng` và `psdangky.trangthaichuyentuyen = 1`] thì `bnnoitru.tuyen = 1` *(người bệnh trái tuyến)*.<br/>
+➡️ Nếu `[bnnoitru.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
+➡️ Nếu `bnnoitru.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**
 
 :blue_book: Module Medicine:
 
@@ -331,6 +367,17 @@
 ➡️ Bổ sung CheckBox **[Sinh con phải phẫu thuật]** và giá trị tương ứng khi giá trị checkbox = true thì `ttcon.sinhcon_phauthuat = 1`, ngược lại `ttcon.sinhcon_phauthuat = 0`.<br/>
 ➡️ Bổ sung CheckBox **[Sinh con dưới 32 tuần tuổi]** và giá trị tương ứng khi giá trị checkbox = true thì `ttcon.sinhcon_duoi32tuan = 1`, ngược lại `ttcon.sinhcon_duoi32tuan = 0`.<br/>
 <p align="center"><img src="https://github.com/user-attachments/assets/be067256-6525-421d-bdb7-9d08bdc8ba38" width="70%"></p>
+
+- Cập nhật: **Tại Form Hiệu chỉnh thông tin bệnh nhân**, Bổ sung Control cập nhật `[Trạng thái chuyển tuyến]` tương ứng với `psdangky.trangthaichuyentuyen`. [^2024-08-03-03]<br/>
+1️⃣ Điều kiện ràng buộc khi tham số `tuyenbv <= 2` *(CSKCB tuyến huyện trở xuống)*: <br/>
+➡️ Nếu `bnnoitru.mabvdk = bnnoitru.mabvkb` thì `bnnoitru.tuyen = 0`.<br/>
+➡️ Nếu `bnnoitru.mabvdk <> bnnoitru.mabvkb`, xét người bệnh trong tỉnh hoặc ngoài tỉnh (dựa vào tham số `thetrongtinh`):<br/>
+⇒ Người bệnh trong tỉnh: `bnnoitru.tuyen = 0`  và `bnnoitru.tuyenxml = 0`.<br/>
+⇒ Người bệnh ngoài tỉnh: Nếu `psdangky.giayxacnhancutru = 1` thì  `[bnnoitru.tuyen = 0 và bnnoitru.tuyenxml = 0]`, ngược lại `[bnnoitru.tuyen = 0 và bnnoitru.tuyenxml = 1]` `(theo Công văn 627, người bệnh trái tuyến được hưởng như đúng tuyến)`.<br/><br/>
+2️⃣ Điều kiện ràng buộc khi tham số `tuyenbv = 3` *(CSKCB tuyến tỉnh)*: <br/>
+➡️ Cập nhật `bnnoitru.tuyen = 0`.<br/>
+➡️ Nếu `[bnnoitru.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
+➡️ Nếu `bnnoitru.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**.
 
 :blue_book: Module Printer:
 
@@ -388,6 +435,10 @@
 ➡️ Tại form **[Danh sách thực hiện]**, **không** cho phép thực hiện nếu chưa cấu hình chọn `[Bác sĩ trực]` và `[Nhân viên thực hiện]`.<br/>
 ➡️ Tại các form **trả kết quả (thực hiện)**: Bổ sung ComboBox load danh sách nhân viên thực hiện (đã chọn), dữ liệu khi lưu tương ứng với cột `chidinhcls.nguoi_thuc_hien = dmnhanvien.macc_hanhnghe_cv2348`, tham chiếu từ `dmnhanvien.manv` của nhân viên thực hiện.
 
+[^2024-08-03-04]: Thay đổi ngày 03/08/2024: Cập nhật: Form Hiệu chỉnh thông tin bệnh nhân ngoại trú (`Admin`) với các ràng buộc xác định tuyến người bệnh.
+[^2024-08-03-03]: Thay đổi ngày 03/08/2024: Cập nhật: Tại Form Hiệu chỉnh thông tin bệnh nhân (`Treatment`) với các ràng buộc xác định tuyến người bệnh.
+[^2024-08-03-02]: Thay đổi ngày 03/08/2024: Cập nhật: Tại Form Hiệu chỉnh thông tin bệnh nhân bệnh án ngoại trú (`Presctiption`) với các ràng buộc xác định tuyến người bệnh.
+[^2024-08-03-01]: Thay đổi ngày 03/08/2024: Cập nhật: Form tiếp nhận bệnh (`Register`) và Hiệu chỉnh thông tin bệnh nhân (`Presctiption`) với các ràng buộc xác định tuyến người bệnh.
 [^2024-07-28-05]: Thay đổi ngày 28/07/2024: Bổ sung cột `pscovid19.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm Covid-19 module `Laboratory`.
 [^2024-07-28-04]: Thay đổi ngày 28/07/2024: Bổ sung cột `psdom.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm đờm module `Laboratory`.
 [^2024-07-28-03]: Thay đổi ngày 28/07/2024: Bổ sung cột `pssinhthiet.manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm sinh thiết module `Laboratory`.
