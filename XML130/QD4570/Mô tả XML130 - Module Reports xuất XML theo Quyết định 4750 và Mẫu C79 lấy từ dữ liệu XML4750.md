@@ -88,6 +88,7 @@
 :blue_book: Tab 2 xuất dữ liệu mẫu `C79-HD`:
 
 <p align="center"><img src="https://github.com/user-attachments/assets/745791e6-f1dc-4105-ba70-34838c0a1bff" width="70%"></p>
+
 - Dữ liệu từ `XML4750`, xuất lên form đầy đủ theo mẫu `C79-HD: TỔNG HỢP CHI PHÍ KHÁM BỆNH, CHỮA BỆNH CỦA NGƯỜI THAM GIA BẢO HIỂM Y TẾ`.
 <p align="center"><img src="https://github.com/user-attachments/assets/4749b265-b83f-4d4f-ba87-854876afc20e" width="70%"><img src="https://github.com/user-attachments/assets/e3a8752e-6ab7-401f-ab33-2bcac1c225a6" width="70%"></p>
 
