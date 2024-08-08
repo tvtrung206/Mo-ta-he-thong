@@ -32,11 +32,12 @@
 :white_check_mark: **Đối với Vật tư y tế**: `XML3.MA_BAC_SI = macc_hanhnghe_cv2348` từ `dmnhanvien` thông qua `chungtu.manv = dmnhanvien.manv` của toa Vật tư y tế.
 
 :white_check_mark: **Đối với Cận lâm sàng**: `XML3.MA_BAC_SI` => ghép các `macc_hanhnghe_cv2348` cách nhau bởi dấu `;` thông qua `dmnhanvien.manv` theo quy tắc: `chidinhcls.manv;pskhamha.manv;psmotaxn.manv;pssinhthiet.manvtraketqua;pstebaotucung.manv_th;psdom.manv_th;ekippt.manv`. Trong đó:
-
 - `chidinhcls.manv`: `macc_hanhnghe_cv2348` của bác sĩ chỉ định.
-- `pskhamha.manv`: `macc_hanhnghe_cv2348` của nhân viên thực hiện trả kết quả Chẩn đoán hình ảnh/Thăm dò chức năng. Được tham chiếu chi tiết: `chidinhcls.mabn = pskhamha.mabn AND chidinhcls.makb = pskhamha.makb AND chidinhcls.macls = pskhamha.macls AND chidinhcls.ngaykcb = pskhamha.ngaykcb`.
+- `pskhamha.manv`: `macc_hanhnghe_cv2348` của nhân viên/bác sĩ đọc kết quả[^2024-08-08] Chẩn đoán hình ảnh/Thăm dò chức năng. Được tham chiếu chi tiết: `chidinhcls.mabn = pskhamha.mabn AND chidinhcls.makb = pskhamha.makb AND chidinhcls.macls = pskhamha.macls AND chidinhcls.ngaykcb = pskhamha.ngaykcb`.
 - `psmotaxn.manv`: `macc_hanhnghe_cv2348` của nhân viên thực hiện trả kết quả Xét nghiệm cơ bản (Huyết học; Sinh hóa; Nước tiểu; Miễn dịch; Vi sinh; ...). Được tham chiếu chi tiết: `chidinhcls.mabn = psmotaxn.mabn AND chidinhcls.makb = psmotaxn.makb AND chidinhcls.macls = psmotaxn.macls AND chidinhcls.ngaykcb = psmotaxn.ngaykcb`.
 - `pssinhthiet.manvtraketqua`: `macc_hanhnghe_cv2348` của nhân viên thực hiện trả kết quả Xét nghiệm Sinh thiết. Được tham chiếu chi tiết: `chidinhcls.mabn = pssinhthiet.mabn AND chidinhcls.makb = pssinhthiet.makb AND chidinhcls.macls = pssinhthiet.macls AND chidinhcls.ngaykcb = pssinhthiet.ngaykcb AND COALESCE(pssinhthiet.manvtraketqua,'') != ''`.
 - `pstebaotucung.manv_th`: `macc_hanhnghe_cv2348` của nhân viên thực hiện trả kết quả Xét nghiệm Tế bào cổ tử cung. Được tham chiếu chi tiết: `chidinhcls.mabn = pstebaotucung.mabn AND chidinhcls.makb = pstebaotucung.makb AND chidinhcls.macls = pstebaotucung.macls AND chidinhcls.ngaykcb = pstebaotucung.ngaykcb`.
 - `psdom.manv_th`: `macc_hanhnghe_cv2348` của nhân viên thực hiện trả kết quả Xét nghiệm Đờm. Được tham chiếu chi tiết: `chidinhcls.mabn = psdom.mabn AND chidinhcls.makb = psdom.makb AND chidinhcls.macls = psdom.macls AND chidinhcls.ngaykcb = psdom.ngaykcb`.
 - `ekippt.manv`: Gom tất cả các `macc_hanhnghe_cv2348` của nhân viên trong ekip thực hiện Thủ thuật/Phẫu thuật. Được tham chiếu chi tiết: `chidinhcls.mabn = ekippt.mabn AND chidinhcls.makb = ekippt.makb AND chidinhcls.id = ekippt.id`.
+
+[^2024-08-08]: Thay đổi ngày 08/08/2024: Điều chỉnh từ `"nhân viên thực hiện trả kết quả"` ⇒ `"nhân viên/bác sĩ đọc kết quả"` đối với `pskhamha.manv`.
