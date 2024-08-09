@@ -42,6 +42,6 @@
 ||macls|VARCHAR(20)|X|chidinhcls.macls|X||
 ||ngaykcb|TIMESTAMP|X|chidinhcls.ngaykcb|X||
 
-[^2024-08-09]: Thay đổi ngày 09/08/2024: Thay đổi điều kiện ghi nhận cột  `ma_bs_doc_kq` theo `macc_hanhnghe_cv2348` và loại bỏ bác sĩ chỉ định.
+[^2024-08-09]: Thay đổi ngày 09/08/2024: Thay đổi điều kiện ghi nhận cột  `ma_bs_doc_kq` theo `macc_hanhnghe_cv2348` và loại bỏ bác sĩ chỉ định. Chi tiết theo y/c tại: [Kiểm tra XML4.ma_bs_doc_kq với mô tả #591](https://github.com/dh-hos/To_Lap_Trinh/issues/591)
 [^2024-07-24]: Thay đổi ngày 24/07/2024: Thay đổi điều kiện cột  `ma_dich_vu`.
 [^2024-07-08]: Thay đổi ngày 08/07/2024: Thay đổi liên kết hướng dẫn ghi nhận cột  `ma_bs_doc_kq`.
