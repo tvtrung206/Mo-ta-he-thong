@@ -78,12 +78,8 @@
 |38|ma_khuvuc|VARCHAR(2)|Ghi mã nơi sinh sống trên thẻ BHYT “K1/K2/K3” (nếu có)|`=bang1.ma_khuvuc`|
 |39|ma_loaikcb|VARCHAR(2)|Mã hóa hình thức KCB: (1: khám bệnh; 2: điều trị ngoại trú; 3: điều trị nội trú)|`=bang1.ma_loai_kcb`|
 |40|ma_cskcb|VARCHAR(5)|Mã cơ sở KCB nơi điều trị: Ghi đúng 5 ký tự mã cơ sở KCB do BHXH VN cung cấp|`=bang1.ma_cskcb`|
-|41|noi_ttoan|VARCHAR(5)|Mã hóa nơi thanh toán: (1: thanh toán tại cơ sở KCB; 2: thanh toán trực tiếp)||
-|42|giam_dinh|NUMERIC(1,0)|Mã hóa kết quả giám định (không thẩm định: 0; thẩm định chấp nhận: 1 điều chỉnh: 2; xuất toán: 3)||
-|43|t_xuattoan|NUMERIC(15,2)|Ghi số tiền cơ sở KCB thống kê thanh toán sai quy định (kể cả phần người bệnh cùng trả và đề nghị BHXH thanh toán)||
-|44|lydo_xt|VARCHAR(50)|Ghi lý do từ chối thanh toán||
-|45|t_datuyen|NUMERIC(15,2)|Số tiến đã thanh toán đa tuyến đến tương ứng với tỷ lệ phân bổ||
-|46|t_vuottran|NUMERIC(15,2)|Số tiền vượt trần chưa thanh toán||
+|41|t_nguonkhac[^2024-08-11]|NUMERIC(15,2)|Ghi tổng số tiền các nguồn khác chi trả ngoài phạm vi chi trả của quỹ BHYT|`=bang1.t_nguonkhac`|
+
 
 :blue_book: Tab 2 xuất dữ liệu mẫu `C79-HD`:
 
@@ -123,3 +119,5 @@
 |25|16|Số tiền từ nguồn khác của chi phí thanh toán từ nguồn tập trung như thuốc kháng HIV.|`= [1] + [2] + [3]`<br/><br/>Trong đó:<br/>1️⃣ Đối với thuốc/máu:<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh = 0` thì `[1] = SUM(bang2.t_bntt)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh <> 0` thì `[1] = SUM(bang2.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` thì `[1] = 0`.<br/><br/>2️⃣ Đối với VTYT (`bang3.ma_nhom = 10`):<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = SUM(bang3.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = 0`.<br/><br/>3️⃣ Đối với cận lâm sàng (`bang3.ma_nhom <> 10`):<br/>⇒ Nếu `dmcls.loainguonkhac = 0` và `chidinhcls.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = SUM(bang3.t_bncct)`<br/>⇒ Nếu `dmcls.loainguonkhac = 1` và `chidinhcls.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = 0`.|
 |26|17|Số tiền từ nguồn ngoài khác thanh toán, như chi phí được thanh toán từ các nguồn tài trợ khác (như thuốc Glivec).|`= [1] + [2] + [3]`<br/><br/>Trong đó:<br/>1️⃣ Đối với thuốc/máu:<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh = 0` thì `[1] = SUM(bang2.t_bntt)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh <> 0` thì `[1] = SUM(bang2.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` thì `[1] = 0`.<br/><br/>2️⃣ Đối với VTYT (`bang3.ma_nhom = 10`):<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = SUM(bang3.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `pshdxn.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = 0`.<br/><br/>3️⃣ Đối với cận lâm sàng (`bang3.ma_nhom <> 10`):<br/>⇒ Nếu `dmcls.loainguonkhac = 1` và `chidinhcls.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = SUM(bang3.t_bncct)`<br/>⇒ Nếu `dmcls.loainguonkhac = 0` và `chidinhcls.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = 0`.|
 |27|18|Số tiền người bệnh tự chi trả ngoài phạm vi được BHYT||
+
+[^2024-08-11]: Thay đổi ngày 11/08/2024: Thay đổi số cột xuất Excel 3360 (Cổng update 27/8/2019) chỉ có 41 cột.
