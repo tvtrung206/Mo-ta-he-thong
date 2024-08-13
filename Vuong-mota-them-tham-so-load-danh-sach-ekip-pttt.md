@@ -22,7 +22,7 @@
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
-'''sql
+```sql
 
 INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
 SELECT (SELECT CAST(MAX(id) AS DECIMAL)+ 1 FROM current.system),
