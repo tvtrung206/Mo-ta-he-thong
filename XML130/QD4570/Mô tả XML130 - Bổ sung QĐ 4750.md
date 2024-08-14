@@ -254,8 +254,10 @@
 
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 
-- Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). **Lưu ý**: Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng **(bắt buộc phải chọn mới cho đăng ký)**.
-
+- Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). **Lưu ý**: <br/>
+⇒ Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng **(bắt buộc phải chọn mới cho đăng ký)**.<br/>
+⇒ Riêng **đối với người bệnh khám lao** (*xem ảnh*): khi check chọn `[Bệnh nhân khám lao]` thì gán giá trị mặc định `psdangky.trangthaichuyentuyen = 5` (Giấy hẹn lãnh thuốc), đồng thời không bắt buộc phải chọn mã bệnh viện nơi giới thiệu (`psdangky.manoigt`).[^2024-08-14-01]
+<p align="center"><img src="https://github.com/user-attachments/assets/df2e7750-6181-4126-8317-a0cfca8e4d94" width="70%"></p>
 - Bổ sung Control cho phép người dùng xác nhận người bệnh có giấy cư trú (áp dụng cho người bệnh ngoài tỉnh), nếu có xác nhận thì cập nhật tương ứng vào cột `psdangky.giayxacnhancutru = 1` và `psdangky.tuyen = 0`.
 
 - Bổ sung Control cho phép người dùng chọn và lưu tập tin (của giấy chuyển tuyến/giấy hẹn tái khám) khi `psdangky.manoigt` khác rỗng. Dữ liệu lưu trữ tập tin vào cột `psdangky.giayluuchuyentuyen`.
@@ -435,6 +437,7 @@
 ➡️ Tại form **[Danh sách thực hiện]**, **không** cho phép thực hiện nếu chưa cấu hình chọn `[Bác sĩ trực]` và `[Nhân viên thực hiện]`.<br/>
 ➡️ Tại các form **trả kết quả (thực hiện)**: Bổ sung ComboBox load danh sách nhân viên thực hiện (đã chọn), dữ liệu khi lưu tương ứng với cột `chidinhcls.nguoi_thuc_hien = dmnhanvien.macc_hanhnghe_cv2348`, tham chiếu từ `dmnhanvien.manv` của nhân viên thực hiện.
 
+[^2024-08-14-01]: Thay đổi ngày 14/08/2024: Bổ sung điều kiện ràng buộc cột `psdangky.trangthaichuyentuyen` đối với người bệnh khám lao khi tiếp nhận bệnh.
 [^2024-08-03-04]: Thay đổi ngày 03/08/2024: Cập nhật: Form Hiệu chỉnh thông tin bệnh nhân ngoại trú (`Admin`) với các ràng buộc xác định tuyến người bệnh.
 [^2024-08-03-03]: Thay đổi ngày 03/08/2024: Cập nhật: Tại Form Hiệu chỉnh thông tin bệnh nhân (`Treatment`) với các ràng buộc xác định tuyến người bệnh.
 [^2024-08-03-02]: Thay đổi ngày 03/08/2024: Cập nhật: Tại Form Hiệu chỉnh thông tin bệnh nhân bệnh án ngoại trú (`Presctiption`) với các ràng buộc xác định tuyến người bệnh.
