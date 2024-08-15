@@ -336,7 +336,7 @@ PLACED : Ðã đặt lịch (dành cho đăng ký khám đặt lịch nhưng ch�
 
 ###### :eight_spoked_asterisk: HƯỚNG DẪN CÀI ĐẶT SERVICE
 1. Đảm bảo server cài đặt service có cài đặt NODE.JS
-2. Tải file cài đặt: [Tại đây]([url](https://gofile.me/78TQg/GwUCZ6DGd))
+2. Tải file cài đặt: [Tại đây](https://gofile.me/78TQg/GwUCZ6DGd)
 3. Giải nén file vừa tải về, mở file app.js
    ![](https://i.imgur.com/y7UCKUK.png)
 4. Tại thư mục vừa giải nén file, mở cmd chạy câu lệnh `myapp.exe install` để cài đặt và `myapp.exe start` để chạy service.
