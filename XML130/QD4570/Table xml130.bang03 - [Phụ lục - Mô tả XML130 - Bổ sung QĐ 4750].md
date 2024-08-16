@@ -77,7 +77,9 @@
 ||macls|VARCHAR(20)||chidinhcls.macls|X||
 ||ngaykcb|TIMESTAMP||chidinhcls.ngaykcb|X||
 ||mahh|VARCHAR(20)||pshdxn.mahh|X||
+||sdnguonkhac[^2024-08-16-01]|NUMERIC(1,0)||||1️⃣ Đối với `ma_nhom = 10` *(VTYT)*: `sdnguonkhac = pshdxn.sdnguonkhac`.<br/><br/>2️⃣ Đối với `ma_nhom != 10` `(Cận lâm sàng)`: `sdnguonkhac = chidinhcls.sdnguonkhac`.|
 
+[^2024-08-16-01]: Thay đổi ngày 14/08/2024: Bổ sung thêm cột  `sdnguonkhac` phục vụ mẫu báo cáo dữ liệu C79-HD. 
 [^2024-08-14-01]: Thay đổi ngày 14/08/2024: Bổ sung điều kiện cho cột `ma_bac_si`. 
 [^2024-08-02-01]: Thay đổi ngày 02/08/2024: Thay đổi điều kiện ràng buộc cho cột `ngay_th_yl` đối với `ma_nhom = 8,18`.
 [^2024-07-27]: Thay đổi ngày 27/07/2024: Thay đổi điều kiện cho cột `nguoi_thuc_hien`.
