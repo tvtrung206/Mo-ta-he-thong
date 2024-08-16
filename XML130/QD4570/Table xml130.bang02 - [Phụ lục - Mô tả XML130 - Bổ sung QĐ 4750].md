@@ -68,5 +68,7 @@
 ||makb|VARCHAR(20)|X|psdangky.makb|X||
 ||mahh|VARCHAR(20)|X|pshdxn.mahh|X||
 ||sohd|VARCHAR(20)|X|pshdxn.sohd|X||
+||sdnguonkhac[^2024-08-16-01]|NUMERIC(1,0)||pshdxn.sdnguonkhac|||
 
+[^2024-08-16-01]: Thay đổi ngày 16/08/2024: Bổ sung thêm cột  `sdnguonkhac` phục vụ mẫu báo cáo dữ liệu C79-HD. 
 [^2024-08-14-01]: Thay đổi ngày 14/08/2024: Bổ sung điều kiện cho cột `ma_bac_si`. 
