@@ -10,7 +10,7 @@
 </div>
 <div align="center">
 
-#### CHỦ ĐỀ: CÀI ĐẶT  WEBSERVICES CHO HỆ THỐNG TÍCH HỢP THANH TOÁN QRCODE
+#### CHỦ ĐỀ: CÀI ĐẶT WEBSERVICES CHO HỆ THỐNG TÍCH HỢP THANH TOÁN QRCODE
 
 </div>
 
@@ -30,14 +30,14 @@
 
 - Mục đích: Lấy code trên github.com về máy hiện tại chạy webservice (Việc tạo repo và upcode sẽ do nhóm code thực hiện)
 - Hướng dẫn dưới đây lấy ví dụ là cho Bệnh viện Quận 12 - kết nối BIDV
-![alt text](File-ho-tro/QRCode/action-runner/b1-chon-repo.png)
-![alt text](File-ho-tro/QRCode/action-runner/b2-actions.png)
-![alt text](File-ho-tro/QRCode/action-runner/b3-new-runner.png)
-![alt text](File-ho-tro/QRCode/action-runner/b4-download-token.png)
-![alt text](File-ho-tro/QRCode/action-runner/b5-giai-nen.png)
-![alt text](File-ho-tro/QRCode/action-runner/b6-phan-quyen-script.png)
+  ![alt text](File-ho-tro/QRCode/action-runner/b1-chon-repo.png)
+  ![alt text](File-ho-tro/QRCode/action-runner/b2-actions.png)
+  ![alt text](File-ho-tro/QRCode/action-runner/b3-new-runner.png)
+  ![alt text](File-ho-tro/QRCode/action-runner/b4-download-token.png)
+  ![alt text](File-ho-tro/QRCode/action-runner/b5-giai-nen.png)
+  ![alt text](File-ho-tro/QRCode/action-runner/b6-phan-quyen-script.png)
 
-```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned```
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
 Tạo tập tin register-action.bat để thực hiện đăng ký, thay các tham số tương ứng
 --url, --token, --labels vào trong thư mục giải nén phía trên.
@@ -67,10 +67,10 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ###### :eight_spoked_asterisk: Bước 2: Cài đặt webservices
 
 - Khởi chạy dịch vụ webservice để nhận dữ liệu phía ngân hàng báo có về HIS
-![alt text](File-ho-tro/QRCode/webservices/b0-cau-hinh-firewall.png)
-![alt text](File-ho-tro/QRCode/webservices/b1-cai-webservice.png)
-![alt text](File-ho-tro/QRCode/webservices/b2-start.png)
-![alt text](File-ho-tro/QRCode/webservices/b3-cau-hinh-csdl.png)
+  ![alt text](File-ho-tro/QRCode/webservices/b0-cau-hinh-firewall.png)
+  ![alt text](File-ho-tro/QRCode/webservices/b1-cai-webservice.png)
+  ![alt text](File-ho-tro/QRCode/webservices/b2-start.png)
+  ![alt text](File-ho-tro/QRCode/webservices/b3-cau-hinh-csdl.png)
 
 ###### :eight_spoked_asterisk: Cập nhật option, các thông số kết nối, genQR
 
@@ -79,7 +79,7 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ###### :eight_spoked_asterisk: Lưu ý
 
 - Khi thay đổi các tập tin trên github.com, muốn thay đổi tới bệnh viện thì phải thực hiện chạy lại các workflow
-![alt text](File-ho-tro/QRCode/action-runner/b13-run-action.png)
+  ![alt text](File-ho-tro/QRCode/action-runner/b13-run-action.png)
 
 ###### :eight_spoked_asterisk: Danh sách Repository hỗ trợ các bệnh viện
 
@@ -90,5 +90,6 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 - [BV Phước Long - Bạc Liêu 95006](https://github.com/dh-hos/95006-qrcode-vietin)
 - [BV Ung Bướu - Cần Thơ 92086](https://github.com/dh-hos/92086-qrcode-sacombank)
 - [BV YHCT - Cần Thơ 92013](https://github.com/dh-hos/92013-qrcode-hdbank)
+- [BV TP Quảng Ngãi 51014](https://github.com/dh-hos/51014-qrcode-vietin)
 
 #### KẾT THÚC CHÚC THÀNH CÔNG
