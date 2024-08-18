@@ -42,5 +42,7 @@
 |14[^2024-07-01]|macls|varchar(20)||Ghi nhận thông tin mã cận lâm sàng check in|||
 |15|mahh_thuoc|varchar(20)||Ghi nhận thông tin mã hàng hóa check in thuốc |||
 |16|mahh_vtyt|varchar(20)||Ghi nhận thông tin mã hàng hóa check vtyt|||
+|17[^2024-08-18]|ngay_checkin|TIMESTAMP WITHOUT TIME ZONE||Ghi nhận ngày thực hiện check in|||
 
 [^2024-07-01]: Thay đổi ngày 01/07/2024: Thêm cấu trúc ghi nhận macls,mahh khi thực hiện checkin.
+[^2024-08-18]: Thay đổi ngày 18/08/2024: Thêm cấu trúc ghi nhận ngày thực hiện checkin.
