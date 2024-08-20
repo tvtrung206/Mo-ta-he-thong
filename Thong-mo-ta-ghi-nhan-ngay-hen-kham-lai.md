@@ -32,10 +32,27 @@ ADD mabshk VARCHAR(20);
 ```
 
 ###### :eight_spoked_asterisk: Cách ghi nhận ngày hẹn
-- Trường hợp chưa có ngày hẹn : khi bác sĩ chọn ngày hẹn tái khám, lưu ngày hẹn kèm với mabshk.
+:white_check_mark: **Trên Form khám bệnh**
+- Trường hợp chưa có ngày hẹn : bác sĩ chọn ngày hẹn và lưu lại.
 - Trường hợp đã có ngày hẹn:
-  + nếu cùng bác sĩ, cho phép cập nhật lại ngày hẹn khám.
-  + nếu khác bác sĩ, cảnh báo đã có giấy hẹn tái khám. Nếu bác sĩ vẫn chọn chỉnh ngày hẹn mới thì lưu nhật ký thay đổi.
-- Xét tham số hentaikham :
-  + hentaikham = 0 : `Ngày hẹn` không phụ thuộc vào toa, việc thay đổi `ngày uống` của toa hay `hạn tái khám` không ảnh hưởng đến `ngày hẹn`.
-  + hentaikham = 1 : Load `ngày hẹn` theo số `ngày uống` trên toa thuốc. Khi chỉnh `hạn tái khám`, tự động điều chỉnh `ngày hẹn` cho phù hợp.
+  + nếu cùng bác sĩ -> bác sĩ có thể chọn ngày hẹn khác và lưu lại.
+  + nếu khác bác sĩ -> khi bác sĩ chọn ngày hẹn khác và lưu lại thì cảnh báo đã có giấy hẹn tái khám. Nếu bác sĩ vẫn chọn chỉnh ngày hẹn mới thì lưu nhật ký thay đổi.
+
+:white_check_mark: **Trên Form ra toa**
+
+XÉT THAM SỐ hentaikham :
+  1. hentaikham = 0 :
+- Trường hợp chưa có ngày hẹn : bác sĩ chọn `ngày hẹn` và lưu lại.
+- Trường hợp đã có ngày hẹn:
+     + nếu cùng bác sĩ -> bác sĩ có thể chọn `ngày hẹn` khác và lưu lại.
+     + nếu khác bác sĩ -> khi bác sĩ chọn `ngày hẹn` khác và lưu lại thì cảnh báo đã có giấy hẹn tái khám. Nếu bác sĩ vẫn chọn chỉnh `ngày hẹn` mới thì lưu nhật ký thay đổi.
+
+=> `Ngày hẹn` không phụ thuộc vào toa, việc thay đổi `ngày uống` của toa hay `hạn tái khám` không ảnh hưởng đến `ngày hẹn`.
+
+2. hentaikham = 1 :
+- Trường hợp chưa có ngày hẹn : bác sĩ nhập số ngày uống, phần mềm tự động tính và điền `hạn tái khám` và `ngày hẹn` và lưu lại.
+- Trường hợp đã có ngày hẹn:
+     + nếu cùng bác sĩ -> bác sĩ nhập số ngày uống, phần mềm tự động tính và điền `hạn tái khám` và `ngày hẹn` và lưu lại.
+     + nếu khác bác sĩ -> bác sĩ nhập số ngày uống, phần mềm tự động tính và điền `hạn tái khám` và `ngày hẹn`. Khi lưu lại thì cảnh báo đã có giấy hẹn tái khám. Nếu bác sĩ vẫn chọn chỉnh `ngày hẹn` mới thì lưu nhật ký thay đổi.
+  
+=> Load `ngày hẹn` theo số `ngày uống` trên toa thuốc. Khi chỉnh `hạn tái khám`, tự động điều chỉnh `ngày hẹn` cho phù hợp.
