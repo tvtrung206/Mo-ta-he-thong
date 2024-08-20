@@ -36,6 +36,6 @@ ADD mabshk VARCHAR(20);
 - Trường hợp đã có ngày hẹn:
   + nếu cùng bác sĩ, cho phép cập nhật lại ngày hẹn khám.
   + nếu khác bác sĩ, cảnh báo đã có giấy hẹn tái khám. Nếu bác sĩ vẫn chọn chỉnh ngày hẹn mới thì lưu nhật ký thay đổi.
-
-###### :eight_spoked_asterisk: Lưu ý.
-- Ngày hẹn không phụ thuộc vào toa, việc thay đổi ngày uống của toa hay hạn tái khám không ảnh hưởng đến ngày hẹn.
+- Xét tham số hentaikham :
+  + hentaikham = 0 : `Ngày hẹn` không phụ thuộc vào toa, việc thay đổi `ngày uống` của toa hay `hạn tái khám` không ảnh hưởng đến `ngày hẹn`.
+  + hentaikham = 1 : Load `ngày hẹn` theo số `ngày uống` trên toa thuốc. Khi chỉnh `hạn tái khám`, tự động điều chỉnh `ngày hẹn` cho phù hợp.
