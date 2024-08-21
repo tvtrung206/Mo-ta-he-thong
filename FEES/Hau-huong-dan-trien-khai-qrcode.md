@@ -92,5 +92,6 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 - [BV YHCT - Cần Thơ 92013](https://github.com/dh-hos/92013-qrcode-hdbank)
 - [BV TP Quảng Ngãi 51014](https://github.com/dh-hos/51014-qrcode-vietin)
 - [BV Sản Nhi Trà Vinh 84133](https://github.com/dh-hos/84133-qrcode-vietin)
+- [BV ĐK THÀNH PHỐ CẦN THƠ 92004](https://github.com/dh-hos/92004-qrcode-vietin)
 
 #### KẾT THÚC CHÚC THÀNH CÔNG
