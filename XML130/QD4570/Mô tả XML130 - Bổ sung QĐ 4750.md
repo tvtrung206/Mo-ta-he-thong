@@ -1,4 +1,3 @@
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -445,11 +444,13 @@
 
 - Gửi tài liệu cập nhật cho các đơn vị đối tác LIS. Chi tiết: [DH - HIS-LIS Connection (Function) - 16-08-2024.pdf](https://github.com/user-attachments/files/16632149/DH.-.HIS-LIS.Connection.Function.-.16-08-2024.pdf)
 
-2. Đối với kết nối API:
-- Đối với hàm `SP_LIS_Order`: chỉ cho phép trả về các xét nghiệm đã được `[Lấy mẫu]` (có trạng thái `chidinhcls.dath = 2`).
+2. Đối với kết nối API:[^2024-08-22-01]
+- Đối với hàm `SP_LIS_Order`: trả về các xét nghiệm chưa có kết quả (có trạng thái `chidinhcls.dath != 1`).
 - Cập nhật hàm `SP_LIS_Result, AddSinhThiet, AddTeBaoCoTuCung`: bổ sung truyền tham số `manv_nguoithuchien`, ghi nhận người thực hiện xét nghiệm khi LIS đổ kết quả về HIS.
-- Gửi tài liệu cập nhật cho các đơn vị đối tác LIS. Chi tiết: [DH - Tai lieu API HIS-LIS - Token - 16-08-2024.pdf](https://github.com/user-attachments/files/16632301/DH.-.Tai.lieu.API.HIS-LIS.-.Token.-.16-08-2024.pdf)
+- Cập nhật hàm `SP_LIS_Result`: Từ chối nhận kết quả đối với các xét nghiệm chưa lấy mẫu hoặc không tồn tại trong dữ liệu chỉ định.
+- Gửi tài liệu cập nhật cho các đơn vị đối tác LIS. Chi tiết: [DH - Tai lieu API HIS-LIS - Token - 22-08-2024.pdf](https://github.com/user-attachments/files/16702957/DH.-.Tai.lieu.API.HIS-LIS.-.Token.-.22-08-2024.pdf)
 
+[^2024-08-22-01]: Thay đổi ngày 22/08/2024: Thay đổi điều kiện kết nối API (HIS-LIS) đối ới các hàm: `SP_LIS_Order`, `SP_LIS_Result`.
 [^2024-08-16-01]: Thay đổi ngày 16/08/2024: Bổ sung mô tả ghi nhận người thực hiện (áp dụng cho `bang3.nguoi_thuc_hien`) đối với kết nối HIS-LIS.
 [^2024-08-14-01]: Thay đổi ngày 14/08/2024: Bổ sung điều kiện ràng buộc cột `psdangky.trangthaichuyentuyen` đối với người bệnh khám lao khi tiếp nhận bệnh.
 [^2024-08-03-04]: Thay đổi ngày 03/08/2024: Cập nhật: Form Hiệu chỉnh thông tin bệnh nhân ngoại trú (`Admin`) với các ràng buộc xác định tuyến người bệnh.
