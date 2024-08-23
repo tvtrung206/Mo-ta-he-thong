@@ -60,15 +60,15 @@
 # 📘Phụ lục 1: Bảng giá trị cho cột `ma_doituong_kcb`
 Chi tiết xem tại Phụ lục 2 (Danh mục mã đối tượng khám bệnh, chữa bệnh), Ban hành kèm theo [Quyết định số 824/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/80dfedaffd557024c054fd720545a11becd0b537/XML130/Q%C4%90%20824-B%E1%BB%95%20sung%20m%C3%A3%20d%C3%B9ng%20chung.pdf) ngày 15 tháng 02 năm 2023 của Bộ trưởng Bộ Y tế.
 
-Ghi nhận giá trị ưu tiên từ trên xuống:
+Ghi nhận giá trị ưu tiên từ trên xuống:[^2024-08-23-01]
 |Giá trị|Diễn giải|
 |:-------:|-------|
 |2|➡️ Bệnh nhân cấp cứu:<br/>- Khám ngoại trú: `khambenh.tinhtrang = 0`<br/>- Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt): `bnnoitru.tinhtrangvv = '1'`|
+|1.9|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `khambenh.maicd` có “B20”.  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:  <br/>- `bnnoitru.tuyen = 0` và  <br/>- `bnnoitru.maicd` có “B20”.|
+|1.10|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `khambenh.maicd` có “U07.1” hoặc “U07.2”.  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:  <br/>- `bnnoitru.tuyen = 0` và  <br/>- `bnnoitru.maicd` có “U07.1” hoặc “U07.2”.|
 |1.1|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `psdangky.mabvdk = psdangky.mabvkb`  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:<br/>- `bnnoitru.tuyen = 0` và<br/>- `bnnoitru.mabvdk = bnnoitru.mabvkb`|
 |1.4|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện: <br/>- `psdangky.tuyen = 0` và  <br/>- `psdangky.giayxacnhancutru = 1`<br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:<br/>- `bnnoitru.tuyen = 0` và  <br/>- `psdangky.giayxacnhancutru = 1`|
 |1.7|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `psdangky.thetam = 1`  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:  <br/>- `bnnoitru.tuyen = 0` và  <br/>- `bnnoitru.thetam = 1` (thẻ 1) hoặc `ttcon.thetam = 1` (đối với thẻ thứ 2).|
-|1.9|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `khambenh.maicd` có “B20”.  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:  <br/>- `bnnoitru.tuyen = 0` và  <br/>- `bnnoitru.maicd` có “B20”.|
-|1.10|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `khambenh.maicd` có “U07.1” hoặc “U07.2”.  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:  <br/>- `bnnoitru.tuyen = 0` và  <br/>- `bnnoitru.maicd` có “U07.1” hoặc “U07.2”.|
 |1.5|➡️ Khám ngoại trú. Thỏa cả 3 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `psdangky.manoigt <> ''` và  <br/>- `psdangky.trangthaichuyentuyen = 3`  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 3 điều kiện:  <br/>- `bnnoitru.tuyen = 0` và  <br/>- `bnnoitru.manoigt <> ''` và  <br/>- `psdangky.trangthaichuyentuyen = 3`|
 |1.8|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- `psdangky.manoigt <> ''` và  <br/>- `psdangky.trangthaichuyentuyen = 4`  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt). Thỏa cả 2 điều kiện:  <br/>- `bnnoitru.tuyen = 0` và  <br/>- `bnnoitru.manoigt <> ''` và  <br/>- `psdangky.trangthaichuyentuyen = 4`|
 |7.1|➡️ Khám ngoại trú. Thỏa cả 2 điều kiện:  <br/>- `psdangky.tuyen = 0` và  <br/>- (`psdangky.manoigt <> ''` hoặc `psdangky.mabv_dieutri_lao <> ''`)[^2024-08-14-01] và  <br/>- `psdangky.trangthaichuyentuyen = 5`  <br/>➡️ Điều trị nội trú/BA ngoại trú (quyết toán cuối đợt): không áp dụng, do người bệnh chỉ đến nhận thuốc ngoại trú.|
@@ -98,6 +98,7 @@ Ghi nhận giá trị ưu tiên từ trên xuống: [^2024-06-28]
 |03|Bệnh án nội trú.||
 |09|Bệnh án nội trú (dưới 4 giờ).||
 
+[^2024-08-23-01]: Thay đổi ngày 23/08/2024: Thay đổi thứ tự `ma_doituong_kcb` của `1.9` và `1.10`.
 [^2024-08-14-01]: Thay đổi ngày 14/08/2024: Bổ sung điều kiện ràng buộc đối với `ma_doituong_kcb = 7.1`
 [^2024-07-26]: Thay đổi ngày 26/07/2024: Thay đổi ghi nhận giá trị ưu tiên cột  `ma_doituong_kcb` đối với giá trị `3.2`.
 [^2024-07-24]: Thay đổi ngày 24/07/2024: Thay đổi điều kiện cột `ma_loai_kcb` áp dụng bổ sung đối với người bệnh bệnh án ngoại trú quyết toán ngày (theo tham số `ma_loai_kcb.ba_ngoai_ngay`).
