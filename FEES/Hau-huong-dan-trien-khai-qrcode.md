@@ -81,6 +81,12 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 - Khi thay đổi các tập tin trên github.com, muốn thay đổi tới bệnh viện thì phải thực hiện chạy lại các workflow
   ![alt text](File-ho-tro/QRCode/action-runner/b13-run-action.png)
 
+###### :eight_spoked_asterisk: Tiện ích: Kiểm tra QRCode đối với Vietin-BIDV
+
+- Tệp hỗ trợ [checkQR-Vietin-BIDV](File-ho-tro/QRCode/checkQR-Vietin-BIDV.xlsm)
+- Decode mã QR từ hình ảnh thành chuỗi. VD: [qrcoderaptor.com](https://qrcoderaptor.com/)
+- Sử dụng Tệp hỗ trợ để check các thông số ![](https://i.imgur.com/XLbrr5L.png)
+
 ###### :eight_spoked_asterisk: Danh sách Repository hỗ trợ các bệnh viện
 
 - [BV Nội Tiết - Quảng Ngãi 51214](https://github.com/dh-hos/51214-qrcode-vietin)
