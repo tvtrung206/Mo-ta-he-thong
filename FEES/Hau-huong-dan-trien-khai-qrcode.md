@@ -87,6 +87,15 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 - Decode mã QR từ hình ảnh thành chuỗi. VD: [qrcoderaptor.com](https://qrcoderaptor.com/)
 - Sử dụng Tệp hỗ trợ để check các thông số ![](https://i.imgur.com/XLbrr5L.png)
 
+###### :eight_spoked_asterisk: Cấu hình tham số tạo QR đối tác
+
+- Tệp mẫu (thay đổi cấu hình khi triển khai các đơn vị khác): [main.js.option.json](File-ho-tro/QRCode/qrListener.js.option.json)
+
+###### :eight_spoked_asterisk: Thiết kế QRCode trên màn hình hoặc trang in
+
+- Fees phiếu thu sẽ có mặc định qrData, ngoài ra sẽ có thêm các thông số đối với từng đối tác trong QRPay (nếu nhiều đối tác theo cấu hình bước [`Cấu hình tham số tạo QR đối tác`] tất cả QR sẽ nằm trong đối tượng này) ![](https://i.imgur.com/CXGD7Sp.png)
+- Fees phiếu tạm ứng tự in sẽ có các Para bắt đầu bằng chữ [`qr`] ![](https://i.imgur.com/CXGD7Sp.png)
+
 ###### :eight_spoked_asterisk: Danh sách Repository hỗ trợ các bệnh viện
 
 - [BV Nội Tiết - Quảng Ngãi 51214](https://github.com/dh-hos/51214-qrcode-vietin)

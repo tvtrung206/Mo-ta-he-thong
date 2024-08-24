@@ -1,0 +1,118 @@
+{
+  "PgConfig": {
+    "host": "localhost",
+    "user": "postgres",
+    "port": "5432",
+    "password": "123456",
+    "database": "ttntqn_052024"
+  },
+  "PgConfigPay": {
+    "host": "localhost",
+    "user": "postgres",
+    "port": "5432",
+    "password": "123456",
+    "database": "ttntqn_052024_pay"
+  },
+  "Ngrok": {
+    "domain": "rare-perch-refined.ngrok-free.app",
+    "authtoken": "2atTGlI8gU5K4mvIl9Nj2gLi8s7_3kmSFRBFEfhHbYLSTUj6t"
+  },
+  "Momo": {
+    "partnerCode": "MOMO8X5X20231002",
+    "partnerName": "partnerName",
+    "storeId": "79035",
+    "requestType": "captureWallet",
+    "ipnUrl": "http://79035.qrcode.dh-his.com/api/qr79035",
+    "redirectUrl": "https://momo.vn",
+    "orderId": "4GV00009",
+    "amount": "100000",
+    "lang": "vi",
+    "autoCapture": "true",
+    "orderInfo": "Test thanh toán momo",
+    "requestId": "4MM154044564752009",
+    "URL": "https://payment.momo.vn/",
+    "resourceCreate": "v2/gateway/api/create",
+    "secretKey": "hJ40MkAiyj3WaSx07lRWlnHi7zzMM306",
+    "accessKey": "9m0TmP4gC5pZT11d",
+    "description": "",
+    "extraData": "",
+    "signature": ""
+  },
+  "MomoNhaThuoc": {
+    "partnerCode": "MOMO8X5X20231002",
+    "partnerName": "partnerName",
+    "storeId": "79035",
+    "requestType": "captureWallet",
+    "ipnUrl": "http://79035.qrcode.dh-his.com/api/qr79035",
+    "redirectUrl": "https://momo.vn",
+    "orderId": "4GV00009",
+    "amount": "100000",
+    "lang": "vi",
+    "autoCapture": "true",
+    "orderInfo": "Test thanh toán momo",
+    "requestId": "4MM154044564752009",
+    "URL": "https://payment.momo.vn/",
+    "resourceCreate": "v2/gateway/api/create",
+    "secretKey": "hJ40MkAiyj3WaSx07lRWlnHi7zzMM306",
+    "accessKey": "9m0TmP4gC5pZT11d",
+    "description": "",
+    "extraData": "",
+    "signature": ""
+  },
+  "Vietin": {
+    "Merchant_ID": "1900345506",
+    "Ten_Merchant": "TRUNG TAM Y TE HUYEN PHUOC LONG",
+    "Terminal_ID": "122000123936",
+    "Ten_Terminal": "TTYTHUYENPHUOCLONG",
+    "Ma_Quoc_Te": "8062",
+    "Ma_Noi_Dia": "ND1000",
+    "So_Tai_Khoan": "108004083034",
+    "MasterMerchantCode": "970489",
+    "Providerid": "600"
+  },
+  "VietinNhaThuoc": {
+    "Merchant_ID": "1900345506",
+    "Ten_Merchant": "TRUNG TAM Y TE HUYEN PHUOC LONG",
+    "Terminal_ID": "122000123936",
+    "Ten_Terminal": "TTYTHUYENPHUOCLONG",
+    "Ma_Quoc_Te": "8062",
+    "Ma_Noi_Dia": "ND1000",
+    "So_Tai_Khoan": "108004083034",
+    "MasterMerchantCode": "970489",
+    "Providerid": "600"
+  },
+  "VietQR": {
+    "00": "01",
+    "01": "BVUB123456",
+    "38": {
+      "00": "A000000727",
+      "01": {
+        "00": "970403",
+        "01": "060773688883"
+      },
+      "02": "QRIBFTTA"
+    },
+    "53": "704",
+    "54": "15000",
+    "58": "VN",
+    "62": "0824CHUYEN TIEN NHANH QUA QR",
+    "63": "52A6"
+  },
+  "VietQRNhaThuoc": {
+    "00": "01",
+    "01": "BVUB123456",
+    "38": {
+      "00": "A000000727",
+      "01": {
+        "00": "970403",
+        "01": "060773688883"
+      },
+      "02": "QRIBFTTA"
+    },
+    "53": "704",
+    "54": "15000",
+    "58": "VN",
+    "62": "0824CHUYEN TIEN NHANH QUA QR",
+    "63": "52A6"
+  }
+}
