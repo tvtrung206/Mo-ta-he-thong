@@ -33,13 +33,13 @@
 |:-------:|-------|:-------:|-------|
 |1|hoten |VARCHAR|Họ và tên người bệnh.|
 |2|diachi|VARCHAR|Địa chỉ |
-|3|vaovien|VARCHAR|Ngày vào viện|
-|4|ravien|VARCHAR|Ngày ra viện|
+|3|vaovien|VARCHAR|Ngày vào viện định dạng (..giờ ..phút..ngày..tháng...năm)|
+|4|ravien|VARCHAR|Ngày ra viện định dạng (..giờ ..phút..ngày..tháng...năm)|
 |5|tenpt|VARCHAR|Tên phẫu thuật|
 |6|sophieu|VARCHAR|Số phiếu (02/BV-02)|
 |7|nhommau|VARCHAR|Nhóm máu (phauthuat.nhommau)|
 |8|rh|VARCHAR|Rh (phauthuat.rh)|
-|9|soluutru|VARCHAR|Số lưu trữ|
+|9|soluutru|VARCHAR|Số lưu trữ (bnnoitru.soluu)|
 |10|trinhtupt|VARCHAR|Trình tự phẫu thuật (phauthuat.trinhtu)|
 |11|vitri|VARCHAR|Vị trí phương thức (đã phẫu thuật) (phauthuat.vitri)|
 |12|bsphauthuat|VARCHAR|Bs phẫu thuật (bs phẫu thuật chính)|
