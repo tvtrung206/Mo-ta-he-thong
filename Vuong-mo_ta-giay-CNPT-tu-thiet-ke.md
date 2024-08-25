@@ -37,11 +37,12 @@
 |4|ravien|VARCHAR|Ngày ra viện|
 |5|tenpt|VARCHAR|Tên phẫu thuật|
 |6|sophieu|VARCHAR|Số phiếu (02/BV-02)|
-|7|nhommau|VARCHAR|Nhóm máu|
-|8|rh|VARCHAR|Rh|
+|7|nhommau|VARCHAR|Nhóm máu (phauthuat.nhommau)|
+|8|rh|VARCHAR|Rh (phauthuat.rh)|
 |9|soluutru|VARCHAR|Số lưu trữ|
-|10|trinhtupt|VARCHAR|Trình tự phẫu thuật|
-|11|bsphauthuat|VARCHAR|Bs phẫu thuật|
-|12|ngayvv_dd|VARCHAR|Ngày vào viện định dạng: dd/MM/yyyy|
-|13|ngayrv_dd|VARCHAR|Ngày ra viện định dạng: dd/MM/yyyy|
+|10|trinhtupt|VARCHAR|Trình tự phẫu thuật (phauthuat.trinhtu)|
+|11|vitri|VARCHAR|Vị trí phương thức (đã phẫu thuật) (phauthuat.vitri)|
+|12|bsphauthuat|VARCHAR|Bs phẫu thuật (bs phẫu thuật chính)|
+|13|ngayvv_dd|VARCHAR|Ngày vào viện định dạng: dd/MM/yyyy|
+|14|ngayrv_dd|VARCHAR|Ngày ra viện định dạng: dd/MM/yyyy|
 
