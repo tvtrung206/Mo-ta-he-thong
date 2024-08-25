@@ -31,7 +31,17 @@
 :white_check_mark: **Mô tả dữ liệu**
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
-|1|lan_sinh [^2024-07-24-02]|NUMERIC(2,0)|Ghi số lần sinh con (tính cả lần sinh này).|
-|2|sinhcon_phauthuat [^2024-07-24-03]|NUMERIC(1,0)|Ghi:<br/>- Mã "1": sinh con phải phẫu thuật;<br/>- Mã "0": sinh con không phải phẫu thuật.|
-|3|sinhcon_duoi32tuan [^2024-07-24-04]|NUMERIC(1,0)|Ghi:<br/>- Mã "1": sinh con dưới 32 tuần tuổi;<br/>- Mã "0" là không sinh con dưới 32 tuần tuổi.|
+|1|hoten |VARCHAR|Họ và tên người bệnh.|
+|2|diachi|VARCHAR|Địa chỉ |
+|3|vaovien|VARCHAR|Ngày vào viện|
+|4|ravien|VARCHAR|Ngày ra viện|
+|5|tenpt|VARCHAR|Tên phẫu thuật|
+|6|sophieu|VARCHAR|Số phiếu|
+|7|nhommau|VARCHAR|Nhóm máu|
+|8|rh|VARCHAR|Rh|
+|9|soluutru|VARCHAR|Số lưu trữ|
+|10|trinhtupt|VARCHAR|Trình tự phẫu thuật|
+|11|bsphauthuat|VARCHAR|Bs phẫu thuật|
+|12|ngayvv_dd|VARCHAR|Ngày vào viện định dạng: dd/MM/yyyy|
+|13|ngayrv_dd|VARCHAR|Ngày ra viện định dạng: dd/MM/yyyy|
 
