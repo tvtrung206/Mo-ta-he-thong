@@ -36,7 +36,7 @@
 |3|vaovien|VARCHAR|Ngày vào viện|
 |4|ravien|VARCHAR|Ngày ra viện|
 |5|tenpt|VARCHAR|Tên phẫu thuật|
-|6|sophieu|VARCHAR|Số phiếu|
+|6|sophieu|VARCHAR|Số phiếu (02/BV-02)|
 |7|nhommau|VARCHAR|Nhóm máu|
 |8|rh|VARCHAR|Rh|
 |9|soluutru|VARCHAR|Số lưu trữ|
