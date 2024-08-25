@@ -27,4 +27,11 @@
 ![image](https://github.com/user-attachments/assets/4e349cba-50aa-44e5-9f1f-c531953aae6f)
 
 ![image](https://github.com/user-attachments/assets/c3f1cd14-e891-47b4-838b-9fb0ca35734b)
-gsdgdfsg
+
+:white_check_mark: **Mô tả dữ liệu**
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
+|:-------:|-------|:-------:|-------|
+|1|lan_sinh [^2024-07-24-02]|NUMERIC(2,0)|Ghi số lần sinh con (tính cả lần sinh này).|
+|2|sinhcon_phauthuat [^2024-07-24-03]|NUMERIC(1,0)|Ghi:<br/>- Mã "1": sinh con phải phẫu thuật;<br/>- Mã "0": sinh con không phải phẫu thuật.|
+|3|sinhcon_duoi32tuan [^2024-07-24-04]|NUMERIC(1,0)|Ghi:<br/>- Mã "1": sinh con dưới 32 tuần tuổi;<br/>- Mã "0" là không sinh con dưới 32 tuần tuổi.|
+
