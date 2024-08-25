@@ -35,14 +35,13 @@
 |2|diachi|VARCHAR|Địa chỉ |
 |3|vaovien|VARCHAR|Ngày vào viện định dạng (..giờ ..phút..ngày..tháng...năm)|
 |4|ravien|VARCHAR|Ngày ra viện định dạng (..giờ ..phút..ngày..tháng...năm)|
-|5|tenpt|VARCHAR|Tên phẫu thuật|
+|5|vitri|VARCHAR|Vị trí phương thức (đã phẫu thuật) (phauthuat.vitri)|
 |6|sophieu|VARCHAR|Số phiếu (02/BV-02)|
 |7|nhommau|VARCHAR|Nhóm máu (phauthuat.nhommau)|
 |8|rh|VARCHAR|Rh (phauthuat.rh)|
 |9|soluutru|VARCHAR|Số lưu trữ (bnnoitru.soluu)|
 |10|trinhtupt|VARCHAR|Trình tự phẫu thuật (phauthuat.trinhtu)|
-|11|vitri|VARCHAR|Vị trí phương thức (đã phẫu thuật) (phauthuat.vitri)|
-|12|bsphauthuat|VARCHAR|Bs phẫu thuật (bs phẫu thuật chính)|
-|13|ngayvv_dd|VARCHAR|Ngày vào viện định dạng: dd/MM/yyyy|
-|14|ngayrv_dd|VARCHAR|Ngày ra viện định dạng: dd/MM/yyyy|
+|11|bsphauthuat|VARCHAR|Bs phẫu thuật (bs phẫu thuật chính)|
+|12|ngayvv_dd|VARCHAR|Ngày vào viện định dạng: dd/MM/yyyy|
+|13|ngayrv_dd|VARCHAR|Ngày ra viện định dạng: dd/MM/yyyy|
 
