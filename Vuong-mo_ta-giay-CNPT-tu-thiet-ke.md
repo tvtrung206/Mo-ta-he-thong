@@ -22,6 +22,17 @@
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
+:white_check_mark: **Mở rộng tham số: nt.giaycnpta5**
+``` sql
+UPDATE CURRENT.system SET diengiai = 'Giấy chứng nhận phẫu thuật A5' 
+        || E'\n' 
+        ||'Giá trị:' || E'\n' 
+        ||'- 0 (hoặc null): Không sử dụng.' || E'\n' 
+        ||'- 1: Sử dụng (mẫu Crystal Report)' || E'\n' 
+        ||'- 2: Sử dụng (mẫu tự thiết kế).'
+WHERE UPPER(tents) = UPPER('nt.giaycnpta5')
+``` 
+
 :white_check_mark: **Mẫu giấy CNPT**
 
 ![image](https://github.com/user-attachments/assets/4e349cba-50aa-44e5-9f1f-c531953aae6f)
