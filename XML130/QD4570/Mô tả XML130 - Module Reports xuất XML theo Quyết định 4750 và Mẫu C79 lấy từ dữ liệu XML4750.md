@@ -1,4 +1,3 @@
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -57,7 +56,7 @@
 |16|ngay_ra|VARCHAR(12)|Ngày giờ ra viện; gồm 12 ký tự; 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày + 2 ký tự giờ (24 giờ) + 2 ký tự phút. Ví dụ: ngày 31/07/2015 16:20 được hiển thị là 201507311620|`=bang1.ngay_ra`|
 |17|so_ngay_dtri|NUMERIC(3,0)|Số ngày điều trị trong đợt KCB ngoại trú hoặc nằm viện nội trú (= ngày ra - ngày vào). Trường hợp điều trị nội trú nhưng có một số ngày không nằm viện thì tính theo ngày nằm viện thực tế|`=bang1.so_ngay_dtri`|
 |18|ket_qua_dtri|NUMERIC(1,0)|Kết quả điều trị: Mã hóa (1: Khỏi; 2: Đỡ; 3: Không thay đổi; 4: Nặng hơn; 5: Tử vong)|`=bang1.ket_qua_dtri`|
-|19|tinh_trang_rv|NUMERIC(1,0)|Tình trạng ra viện: Mã hóa (1: Ra viện; 2: Chuyển viện; 3: Trốn viện; 4: Xin ra viện)|`=bang1.ket_qua_dtri`|
+|19|tinh_trang_rv|NUMERIC(1,0)|Tình trạng ra viện: Mã hóa (1: Ra viện; 2: Chuyển viện; 3: Trốn viện; 4: Xin ra viện)|`=bang1.ma_loai_rv`[^2024-08-30]|
 |20|t_tongchi|NUMERIC(15,2)|Tổng chi phí KCB BHYT trong lần/đợt điều trị|`=bang1.t_tongchi_bh`|
 |21|t_xn|NUMERIC(15,2)|Tiền xét nghiệm|`=SUM(bang3.thanh_tien_bh)` đối với `bang3.ma_nhom = 1`|
 |22|t_cdha|NUMERIC(15,2)|Tiền chẩn đoán hình ảnh và thăm dò chức năng|`=SUM(bang3.thanh_tien_bh)` đối với `bang3.ma_nhom = 2`|
@@ -121,5 +120,6 @@
 |26|17|Số tiền từ nguồn ngoài khác thanh toán, như chi phí được thanh toán từ các nguồn tài trợ khác (như thuốc Glivec).|`= [1] + [2] + [3]`<br/><br/>Trong đó:<br/>1️⃣ Đối với thuốc/máu:<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh = 0` thì `[1] = SUM(bang2.t_bntt)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh <> 0` thì `[1] = SUM(bang2.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` thì `[1] = 0`.<br/><br/>2️⃣ Đối với VTYT (`bang3.ma_nhom = 10`):<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = SUM(bang3.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = 0`.<br/><br/>3️⃣ Đối với cận lâm sàng (`bang3.ma_nhom <> 10`):<br/>⇒ Nếu `dmcls.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = SUM(bang3.t_bncct)`<br/>⇒ Nếu `dmcls.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = 0`.|
 |27|18|Số tiền người bệnh tự chi trả ngoài phạm vi được BHYT||
 
+[^2024-08-30]: Thay đổi ngày 30/08/2024: Điều chỉnh điều kiện cột `tinh_trang_rv` được lấy dữ liệu từ `bang1.ma_loai_rv`.
 [^2024-08-16-01]: Thay đổi ngày 16/08/2024: Thay đổi cách tính cột `[11], [12], [16], [17]` từ `pshdxn.sdnguonkhac` thành `bang2.sdnguonkhac` *(đối với thuốc/máu)* và `bang3.sdnguonkhac` *(đối với VTYT)*, từ `chidinhcls.sdnguonkhac` thành `bang3.sdnguonkhac`.
 [^2024-08-11]: Thay đổi ngày 11/08/2024: Thay đổi số cột xuất Excel 3360 (Cổng update 27/8/2019) chỉ có 41 cột.
