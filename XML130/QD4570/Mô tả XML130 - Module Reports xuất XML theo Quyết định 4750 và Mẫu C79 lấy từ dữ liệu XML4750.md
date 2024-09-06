@@ -41,7 +41,7 @@
 |1|stt|NUMERIC(10,0)|Số thứ tự bệnh nhân từ 1 đến hết||
 |2|ma_bn|VARCHAR(100)|Mã số BN quy định tại CSKCB|`=bang1.ma_bn`|
 |3|ho_ten|VARCHAR(255)|Họ tên người bệnh viết bằng chữ thường.|`=bang1.ho_ten`|
-|4|ngay_sinh|VARCHAR(12)|Ngày sinh ghi trên thẻ gồm 8 ký tự; 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày (nếu không có ngày sinh thì ghi năm sinh: 4 ký tự)|`=bang1.ngay_sinh`|
+|4|ngay_sinh|VARCHAR(12)|Ngày sinh ghi trên thẻ gồm 8 ký tự; 4 ký tự năm + 2 ký tự tháng + 2 ký tự ngày (nếu không có ngày sinh thì ghi năm sinh: 4 ký tự)|`=LEFT(bang1.ngay_sinh,8)`[^2024-09-06-01]|
 |5|gioi_tinh|NUMERIC(1,0)|Giới tính: mã hóa bằng 1 chữ số (Nam = 1 Nữ = 2) |`=bang1.gioi_tinh`|
 |6|dia_chi|VARCHAR(1024)|Địa chỉ trên thẻ BHYT đối với trẻ em không có thẻ ghi đầy đủ địa chỉ trên giấy tờ thay thế (tối thiểu phải có địa chỉ về xã huyện tỉnh của trẻ).|`=bang1.dia_chi`|
 |7|ma_the|VARCHAR(50)|Mã thẻ BHYT do cơ quan BHXH cấp không thay đổi không thêm bớt các ký tự|`=bang1.ma_the_bhyt`|
@@ -120,6 +120,7 @@
 |26|17|Số tiền từ nguồn ngoài khác thanh toán, như chi phí được thanh toán từ các nguồn tài trợ khác (như thuốc Glivec).|`= [1] + [2] + [3]`<br/><br/>Trong đó:<br/>1️⃣ Đối với thuốc/máu:<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh = 0` thì `[1] = SUM(bang2.t_bntt)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh <> 0` thì `[1] = SUM(bang2.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` thì `[1] = 0`.<br/><br/>2️⃣ Đối với VTYT (`bang3.ma_nhom = 10`):<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = SUM(bang3.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = 0`.<br/><br/>3️⃣ Đối với cận lâm sàng (`bang3.ma_nhom <> 10`):<br/>⇒ Nếu `dmcls.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = SUM(bang3.t_bncct)`<br/>⇒ Nếu `dmcls.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = 0`.|
 |27|18|Số tiền người bệnh tự chi trả ngoài phạm vi được BHYT||
 
+[^2024-09-06-01]: Thay đổi ngày 06/09/2024: Điều chỉnh điều kiện cột `ngay_sinh` khi xuất dữ liệu `Excel 3360`, chỉ lấy 8 ký tự bên trái cột `bang1.ngay_sinh`.
 [^2024-08-30]: Thay đổi ngày 30/08/2024: Điều chỉnh điều kiện cột `tinh_trang_rv` được lấy dữ liệu từ `bang1.ma_loai_rv`.
 [^2024-08-16-01]: Thay đổi ngày 16/08/2024: Thay đổi cách tính cột `[11], [12], [16], [17]` từ `pshdxn.sdnguonkhac` thành `bang2.sdnguonkhac` *(đối với thuốc/máu)* và `bang3.sdnguonkhac` *(đối với VTYT)*, từ `chidinhcls.sdnguonkhac` thành `bang3.sdnguonkhac`.
 [^2024-08-11]: Thay đổi ngày 11/08/2024: Thay đổi số cột xuất Excel 3360 (Cổng update 27/8/2019) chỉ có 41 cột.
