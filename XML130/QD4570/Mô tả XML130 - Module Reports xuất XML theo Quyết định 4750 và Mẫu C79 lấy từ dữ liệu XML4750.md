@@ -1,4 +1,3 @@
-
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -122,7 +121,7 @@
 |27|18|Số tiền người bệnh tự chi trả ngoài phạm vi được BHYT||
 
 [^2024-09-09-01]: Thay đổi ngày 09/09/2024: Bổ sung điều kiện ràng buộc khi load dữ liệu: `bang1.t_tongchi_bh > 0`. Chi tiết yêu cầu tại: [💼 Reports - Thêm điều kiện để loại bỏ các hồ sơ không có chi phí ⏳Dự kiến : 2024-09-13 #123](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/123)
-[^2024-09-06-01]: Thay đổi ngày 06/09/2024: Điều chỉnh điều kiện cột `ngay_sinh` khi xuất dữ liệu `Excel 3360`, chỉ lấy 8 ký tự bên trái cột `bang1.ngay_sinh`.
+[^2024-09-06-01]: Thay đổi ngày 06/09/2024: Điều chỉnh điều kiện cột `ngay_sinh` khi xuất dữ liệu `Excel 3360`, chỉ lấy 8 ký tự bên trái cột `bang1.ngay_sinh`. Chi tiết yêu cầu tại: [Lỗi - Report xuất Excel theo 3360 theo Quyết định 4750 gửi cổng BH báo lỗi #126](https://github.com/dh-hos/dhg.hospitalreports/issues/126)
 [^2024-08-30]: Thay đổi ngày 30/08/2024: Điều chỉnh điều kiện cột `tinh_trang_rv` được lấy dữ liệu từ `bang1.ma_loai_rv`.
 [^2024-08-16-01]: Thay đổi ngày 16/08/2024: Thay đổi cách tính cột `[11], [12], [16], [17]` từ `pshdxn.sdnguonkhac` thành `bang2.sdnguonkhac` *(đối với thuốc/máu)* và `bang3.sdnguonkhac` *(đối với VTYT)*, từ `chidinhcls.sdnguonkhac` thành `bang3.sdnguonkhac`.
 [^2024-08-11]: Thay đổi ngày 11/08/2024: Thay đổi số cột xuất Excel 3360 (Cổng update 27/8/2019) chỉ có 41 cột.
