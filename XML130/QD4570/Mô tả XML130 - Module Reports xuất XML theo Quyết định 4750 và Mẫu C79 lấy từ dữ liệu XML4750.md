@@ -30,7 +30,7 @@
 
 - Bổ sung đầy đủ các tab con từ `XML1` đến `XML15`. Mỗi bảng tương ứng 1 tab: bổ sung đầy đủ các cột theo quy định từ QĐ 4750.
 - Dữ liệu được load từ `SCHEMA xml130`.
-- Tiêu chí thời gian thống kê: được chọn từ `xml130.bang1.ngay_ttoan`, `xml130.bang1.thang_qt` và `xml130.bang1.nam_qt`. Các bảng dữ liệu còn lại được load tham chiếu từ cột `ma_lk` của bảng hiện tại tương ứng với `xml1.ma_lk` của bảng 1. Điều kiện ràng buộc khi load dữ liệu: `bang1.thanh_tien_bh > 0`[^2024-09-09-01].
+- Tiêu chí thời gian thống kê: được chọn từ `xml130.bang1.ngay_ttoan`, `xml130.bang1.thang_qt` và `xml130.bang1.nam_qt`. Các bảng dữ liệu còn lại được load tham chiếu từ cột `ma_lk` của bảng hiện tại tương ứng với `xml1.ma_lk` của bảng 1. Điều kiện ràng buộc khi load dữ liệu: `bang1.t_tongchi_bh > 0`[^2024-09-09-01].
 - Tại tab `bảng 1` (XML1): Bổ sung cột `checkbox` cho phép người dùng chọn hồ sơ cần xuất dữ liệu ra file XML. Với các hồ sơ đã chọn, bổ sung các Button xuất: `[XML 1 bệnh nhân 1 file]`, `[XML file tổng hợp]`, `[Excel CV3360 - (Cổng update 27/8/2019)]`.
 <p align="center"><img src="https://github.com/user-attachments/assets/94722470-a31b-4e19-ad2e-c6472c8e05a0" width="70%"></p>
 
@@ -121,7 +121,7 @@
 |26|17|Số tiền từ nguồn ngoài khác thanh toán, như chi phí được thanh toán từ các nguồn tài trợ khác (như thuốc Glivec).|`= [1] + [2] + [3]`<br/><br/>Trong đó:<br/>1️⃣ Đối với thuốc/máu:<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh = 0` thì `[1] = SUM(bang2.t_bntt)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh <> 0` thì `[1] = SUM(bang2.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` thì `[1] = 0`.<br/><br/>2️⃣ Đối với VTYT (`bang3.ma_nhom = 10`):<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = SUM(bang3.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = 0`.<br/><br/>3️⃣ Đối với cận lâm sàng (`bang3.ma_nhom <> 10`):<br/>⇒ Nếu `dmcls.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = SUM(bang3.t_bncct)`<br/>⇒ Nếu `dmcls.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = 0`.|
 |27|18|Số tiền người bệnh tự chi trả ngoài phạm vi được BHYT||
 
-[^2024-09-09-01]: Thay đổi ngày 09/09/2024: Bổ sung điều kiện ràng buộc khi load dữ liệu: `bang1.thanh_tien_bh > 0`.
+[^2024-09-09-01]: Thay đổi ngày 09/09/2024: Bổ sung điều kiện ràng buộc khi load dữ liệu: `bang1.t_tongchi_bh > 0`.
 [^2024-09-06-01]: Thay đổi ngày 06/09/2024: Điều chỉnh điều kiện cột `ngay_sinh` khi xuất dữ liệu `Excel 3360`, chỉ lấy 8 ký tự bên trái cột `bang1.ngay_sinh`.
 [^2024-08-30]: Thay đổi ngày 30/08/2024: Điều chỉnh điều kiện cột `tinh_trang_rv` được lấy dữ liệu từ `bang1.ma_loai_rv`.
 [^2024-08-16-01]: Thay đổi ngày 16/08/2024: Thay đổi cách tính cột `[11], [12], [16], [17]` từ `pshdxn.sdnguonkhac` thành `bang2.sdnguonkhac` *(đối với thuốc/máu)* và `bang3.sdnguonkhac` *(đối với VTYT)*, từ `chidinhcls.sdnguonkhac` thành `bang3.sdnguonkhac`.
