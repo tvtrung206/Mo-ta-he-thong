@@ -1,3 +1,4 @@
+
 <div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
@@ -80,7 +81,7 @@
 |52|t_bhtt_gdv|NUMERIC(15,2)|X |Ghi số tiền quỹ BHYT thanh toán đối với các khoản chi ngoài định suất hoặc ngoài DRG theo quy định của Bộ Y tế (Là số tiền T_BHTT tại bảng XML2 và XML3 đối với các chi phí có MA_PTTT là “1” (Phí dịch vụ)).||Cột này thay cho cột t_ngoaids của xml4210.|
 |53|nam_qt|NUMERIC(4,0)|X|Ghi năm mà cơ sở KBCB đề nghị cơ quan BHXH thanh toán.||Như 4210|
 |54|thang_qt|NUMERIC(2,0)|X|Ghi tháng mà cơ sở KBCB đề nghị cơ quan BHXH thanh toán||Như 4210|
-|55|[ma_loai_kcb](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang01%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md#ph%E1%BB%A5-l%E1%BB%A5c-2-b%E1%BA%A3ng-gi%C3%A1-tr%E1%BB%8B-cho-c%E1%BB%99t-ma_loai_kcb)|VARCHAR(2)|X|Ghi mã hình thức KBCB theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành. Chi tiết xem tại Phụ lục 1 (Danh mục mã loại hình khám bệnh, chữa bệnh) – [Quyết định 824/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/80dfedaffd557024c054fd720545a11becd0b537/XML130/Q%C4%90%20824-B%E1%BB%95%20sung%20m%C3%A3%20d%C3%B9ng%20chung.pdf) ngày 15/02/2023.||Xem chi tiết giá trị tại [Phụ lục 2](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang01%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md#ph%E1%BB%A5-l%E1%BB%A5c-2-b%E1%BA%A3ng-gi%C3%A1-tr%E1%BB%8B-cho-c%E1%BB%99t-ma_loai_kcb) mô tả này.<br/><br/>**Lưu ý:**[^2024-07-24] riêng đối với người bệnh bệnh án ngoại trú quyết toán ngày. Xét giá trị tham số `ma_loai_kcb.ba_ngoai_ngay`:<br/>- 1: `ma_loai_kcb = 01`.<br/>- 2: `ma_loai_kcb = 02`.|
+|55|[ma_loai_kcb](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/ma_loai_kcb.md)|VARCHAR(2)|X|Ghi mã hình thức KBCB theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành. Chi tiết xem tại Phụ lục 1 (Danh mục mã loại hình khám bệnh, chữa bệnh) – [Quyết định 824/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/80dfedaffd557024c054fd720545a11becd0b537/XML130/Q%C4%90%20824-B%E1%BB%95%20sung%20m%C3%A3%20d%C3%B9ng%20chung.pdf) ngày 15/02/2023.||Xem chi tiết giá trị [tại đây](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/ma_loai_kcb.md) mô tả này.<br/><br/>**Lưu ý:**[^2024-07-24] riêng đối với người bệnh bệnh án ngoại trú quyết toán ngày. Xét giá trị tham số `ma_loai_kcb.ba_ngoai_ngay`:<br/>- 1: `ma_loai_kcb = 01`.<br/>- 2: `ma_loai_kcb = 02`.|
 |56|ma_khoa|VARCHAR(50)|X|Ghi mã khoa nơi người bệnh điều trị.<br/>**Lưu ý**:<br/>+ Mã khoa ghi theo Phụ lục số 5 ban hành kèm theo [Quyết định số 5937/QĐ-BYT](https://ttytphumy.com/laws/detail/v-v-bo-sung-danh-muc-ma-dung-chung-lien-quan-bhyt-28/) ngày 30 tháng 12 năm 2021 của Bộ trưởng Bộ Y tế.<br/>+ Trường hợp người bệnh điều trị ở nhiều khoa thì thì ghi lần lượt mã khoa nơi người bệnh đã điều trị, các mã khoa được phân cách bằng dấu chấm phẩy “;”|||
 |57|ma_cskcb|VARCHAR(5)|X|Ghi mã cơ sở KBCB nơi người bệnh đến khám bệnh, điều trị do cơ quan có thẩm quyền cấp.||Như 4210|
 |58|ma_khuvuc|VARCHAR(2)||Ghi mã nơi sinh sống của người bệnh ghi trên thẻ BHYT (K1 hoặc K2 hoặc K3)||Như 4210|
@@ -93,21 +94,6 @@
 |65|du_phong|VARCHAR||Trường dữ liệu dự phòng khi cần thiết.|||
 ||makb|VARCHAR(20)|X|psdangky.makb|X||
 ||version [^2026-06-28-06]|VARCHAR(50)||Ghi nhận phiên bản phân hệ xuất dữ liệu XML130.|||
-
-
-# 📘Phụ lục 2: Bảng giá trị cho cột `ma_loai_kcb`
-Chi tiết xem tại Phụ lục 1 (Danh mục mã loại hình khám bệnh, chữa bệnh) – [Quyết định 824/QĐ-BYT](https://github.com/dh-hos/Mo-ta-he-thong/blob/80dfedaffd557024c054fd720545a11becd0b537/XML130/Q%C4%90%20824-B%E1%BB%95%20sung%20m%C3%A3%20d%C3%B9ng%20chung.pdf) ngày 15/02/2023.
-
-Ghi nhận giá trị ưu tiên từ trên xuống: [^2024-06-28-01]
-|Giá trị [^2024-06-18]|Diễn giải|Điều kiện|
-|:-------:|-------|-------|
-|07|Khám ngoại trú: nhận thuốc theo hẹn (không khám bệnh).|`psdangky.trangthaichuyentuyen = 5`|
-|08 [^2024-06-28-03]|Khám bệnh ngoại trú.|`MAX(khambenh.songaydt) > 0`|
-|05 [^2024-06-28-04]|Bệnh án ngoại trú thanh toán ngày (có khám bệnh và lĩnh thuốc).|[`bnnoitru.namvien = 0` và `bnnoitru.bant = 1`] và [`KHÔNG phát sinh cận lâm sàng, trừ công khám`] và [`CÓ toa thuốc`]|
-|01|Khám bệnh ngoại trú.||
-|02|Bệnh án ngoại trú thanh toán cuối đợt.|[`bnnoitru.namvien = 0` và `bnnoitru.bant = 0`]|
-|03|Bệnh án nội trú.||
-|09|Bệnh án nội trú (dưới 4 giờ).||
 
 [^2024-08-27-01]: Thay đổi ngày 27/08/2024: Thay đổi điều kiện cột `ngay_ra`.
 [^2024-08-26-01]: Thay đổi ngày 26/08/2024: Di chuyển mô tả giá trị cột `ma_doituong_kcb` sang chỗ mới.
