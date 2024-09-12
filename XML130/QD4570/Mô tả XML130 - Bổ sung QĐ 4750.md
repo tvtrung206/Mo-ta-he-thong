@@ -63,7 +63,7 @@
 :blue_book: Cập nhật cấu trúc table **psdangky**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
-| 1 | trangthaichuyentuyen | NUMERIC(1,0) | Ghi nhận trạng thái chuyển tuyến từ tuyến dưới chuyển lên. Giá trị:<br/>- (null): không có thông tin chuyển tuyến.<br/>- 1: Chuyển tuyến theo yêu cầu.<br/>- 2: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>- 3: Hẹn tái khám.<br/>- 4: Chuyển tuyến người bệnh khám và điều trị bệnh lao.<br/>- 5: Giấy hẹn lãnh thuốc.|
+| 1 | trangthaichuyentuyen | NUMERIC(1,0) | Ghi nhận trạng thái chuyển tuyến từ tuyến dưới chuyển lên. Giá trị:<br/>- (null): không có thông tin chuyển tuyến.<br/>- 1: Chuyển tuyến theo yêu cầu.<br/>- 2: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>- 3: Hẹn tái khám.<br/>- 4: Chuyển tuyến người bệnh khám và điều trị bệnh lao.<br/>- 5: Giấy hẹn lãnh thuốc.<br/>- 6: Giấy hẹn lãnh thuốc (lao).[^2024-09-12-01]|
 |2|giayxacnhancutru|NUMERIC(1,0)|Ghi nhận trạng thái người bệnh ngoài tỉnh đến khám chữa bệnh có giấy xác nhận (giấy tờ chứng minh đang ở tại địa phương khác trong thời gian đi công tác, làm việc lưu động, học tập trung theo các hình thức đào tạo, chương trình đào tạo, tạm trú, …). Giá trị:<br/>- (null) hoặc 0: Không có giấy xác nhận.<br/>- 1: Có giấy xác nhận.|
 |3|giayluu|BYTEA|Lưu trữ: Giấy xác nhận cư trú (do người dùng scan hoặc chụp).|
 |4|giayluuchuyentuyen|BYTEA|Lưu trữ: Giấy chuyển tuyến/Giấy hẹn tái khám|
@@ -256,7 +256,9 @@
 
 - Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). **Lưu ý**: <br/>
 ⇒ Cột `psdangky.trangthaichuyentuyen` chỉ có giá trị khi cột `psdangky.manoigt` khác rỗng **(bắt buộc phải chọn mới cho đăng ký)**.<br/>
-⇒ Riêng **đối với người bệnh khám lao** (*xem ảnh*): khi check chọn `[Bệnh nhân khám lao]` thì gán giá trị mặc định `psdangky.trangthaichuyentuyen = 5` (Giấy hẹn lãnh thuốc), đồng thời không bắt buộc phải chọn mã bệnh viện nơi giới thiệu (`psdangky.manoigt`).[^2024-08-14-01]
+⇒ Đối với `psdangky.trangthaichuyentuyen = 5 hoặc 6 (Giấy hẹn lãnh thuốc)`, khi đăng ký khám bệnh chỉ ràng buộc *mã nơi giới thiệu*, các thông tin khác tại `tab chuyển tuyến` là **không bắt buộc**[^2024-09-12-02].<br/>
+~~⇒ Riêng **đối với người bệnh khám lao** (*xem ảnh*): khi check chọn `[Bệnh nhân khám lao]` thì gán giá trị mặc định `psdangky.trangthaichuyentuyen = 5` (Giấy hẹn lãnh thuốc), đồng thời không bắt buộc phải chọn mã bệnh viện nơi giới thiệu (`psdangky.manoigt`).~~ ⇐ BỎ [^2024-08-14-01]<br/>
+⇒ Riêng **đối với người bệnh khám lao** có giấy chuyển tuyến: `psdangky.trangthaichuyentuyen = 4` và `psdangky.manoigt <> ''` *(Chuyển tuyến người bệnh khám và điều trị bệnh lao)* thì hỗ trợ check chọn mặc định `[Bệnh nhân khám lao] = true` tại  `tab  [Khám lao]`.[^2024-09-12-03]
 <p align="center"><img src="https://github.com/user-attachments/assets/df2e7750-6181-4126-8317-a0cfca8e4d94" width="70%"></p>
 - Bổ sung Control cho phép người dùng xác nhận người bệnh có giấy cư trú (áp dụng cho người bệnh ngoài tỉnh), nếu có xác nhận thì cập nhật tương ứng vào cột `psdangky.giayxacnhancutru = 1` và `psdangky.tuyen = 0`.
 
@@ -450,6 +452,9 @@
 - Cập nhật hàm `SP_LIS_Result`: Từ chối nhận kết quả đối với các xét nghiệm chưa lấy mẫu hoặc không tồn tại trong dữ liệu chỉ định.
 - Gửi tài liệu cập nhật cho các đơn vị đối tác LIS. Chi tiết: [DH - Tai lieu API HIS-LIS - Token - 22-08-2024.pdf](https://github.com/user-attachments/files/16702957/DH.-.Tai.lieu.API.HIS-LIS.-.Token.-.22-08-2024.pdf)
 
+[^2024-09-12-03]: Thay đổi ngày 12/09/2024: Bổ sung mô tả thông tin chuyển tuyến người bệnh lao khi tiếp nhận bệnh tại module Register, đối với `psdangky.trangthaichuyentuyen = 4 (Chuyển tuyến người bệnh khám và điều trị bệnh lao)` . Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
+[^2024-09-12-02]: Thay đổi ngày 12/09/2024: Bổ sung mô tả ràng buộc khi tiếp nhận bệnh tại module Register, đối với `psdangky.trangthaichuyentuyen = 5 hoặc 6 (Giấy hẹn lãnh thuốc)` . Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
+[^2024-09-12-01]: Thay đổi ngày 12/09/2024: Bổ sung giá trị cho cột `psdangky.trangthaichuyentuyen = 6`: Giấy hẹn lãnh thuốc. Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
 [^2024-08-22-01]: Thay đổi ngày 22/08/2024: Thay đổi điều kiện kết nối API (HIS-LIS) đối ới các hàm: `SP_LIS_Order`, `SP_LIS_Result`.
 [^2024-08-16-01]: Thay đổi ngày 16/08/2024: Bổ sung mô tả ghi nhận người thực hiện (áp dụng cho `bang3.nguoi_thuc_hien`) đối với kết nối HIS-LIS.
 [^2024-08-14-01]: Thay đổi ngày 14/08/2024: Bổ sung điều kiện ràng buộc cột `psdangky.trangthaichuyentuyen` đối với người bệnh khám lao khi tiếp nhận bệnh.
