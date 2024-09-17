@@ -96,6 +96,33 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 - Fees phiếu thu sẽ có mặc định qrData, ngoài ra sẽ có thêm các thông số đối với từng đối tác trong QRPay (nếu nhiều đối tác theo cấu hình bước [`Cấu hình tham số tạo QR đối tác`] tất cả QR sẽ nằm trong đối tượng này) ![](https://i.imgur.com/CXGD7Sp.png)
 - Fees phiếu tạm ứng tự in sẽ có các Para bắt đầu bằng chữ [`qr`] ![](https://i.imgur.com/CXGD7Sp.png)
 
+###### :eight_spoked_asterisk: Kiểm thử chức năng phản hồi khi nhận dữ liệu báo có từ Bank
+
+- **_Luồng dữ liệu_**:
+- Khi Bank báo có đối với giao dịch thành công, Bank sẽ gửi dữ liệu sang **DH-VPS-QRCODE**, khi nhận dữ liệu báo có thì server sẽ phản hồi đến bank là đã tiếp nhận thành công.
+- Dữ liệu phản hồi Việc tiếp nhận thành công đối với từng đối tác Bank như sau:
+
+- **_Vietin_**
+
+```
+{
+    "requestId": "", //Đây là trường mà Bank gửi sang
+    "paymentStatus": "00",
+    "signature": "" //Ký số dựa vào file public key gửi cho đối tác
+}
+```
+
+- **_Các đối tác bank khác_**
+
+```
+{
+  "code":"", //
+  "checksum": "" //Cấu trúc md5(code+secretKey), code: lấy data từ bank, secretKey: do DH qui định khi kết nối
+}
+```
+
+![](https://i.imgur.com/JC2KEm4.png)
+
 ###### :eight_spoked_asterisk: Danh sách Repository hỗ trợ các bệnh viện
 
 - [BV Nội Tiết - Quảng Ngãi 51214](https://github.com/dh-hos/51214-qrcode-vietin)
