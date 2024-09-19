@@ -24,6 +24,7 @@
 
 ![image](https://github.com/user-attachments/assets/8330c969-ddf4-4639-904d-30e5f14b1801)
 
+
 :white_check_mark: **Qui trình trả thuốc, có 2 giai đoạn: trước và sau khi bổ sung cột pshdxn.sohdx** 
 
 :white_check_mark: **Qui trình xuất thuốc, ghi nhận tại pshdxn** 
@@ -34,7 +35,20 @@
 
 ![image](https://github.com/user-attachments/assets/f8f9bae7-b455-471c-bf44-daed595103ba)
 
-:blue_book: Cập nhật cấu trúc table **tomtatba**:
+:white_check_mark: **Thuốc xuất - trừ trả** 
+- Khi không có cột sohdx trong phiếu trả:
+    - Trên form: cấn trừ theo mahh, ngayhd, madt
+    - Trên 6556:
+          - Cấn trứ theo mahh, madt, phần trăm chi trả ghi nhận theo thông tin trên bnnoitru hoặc ttcon (con hoặc thẻ 2)
+          - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
+          - Trường hợp có ngày miễn giảm:
+                - Cấn trừ theo mã mahh, madt, ngayhd (xuất/trả): phần trăm chi trả trong giai đoạn miễn giảm ghi 100 ngược lại ghi theo thông tin thẻ
+- Khi có cột sohdx phiếu trả:
+    - Trên form: cấn trừ theo số lượng xuất - số lượng trả (theo mahh, madt, sohdx = sohd): phần trăm chi trả ghi theo thông tin thẻ
+    - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
+          - Trường hợp có ngày miễn giảm:
+                - Cấn trừ theo số lượng xuất - số lượng trả (theo mahh, madt, sohdx = sohd): phần trăm chi trả trong giai đoạn miễn giảm ghi 100 ngược lại ghi theo thông tin thẻ
+
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 | 1 | qtbenhly | VARCHAR | Ghi nhận tóm tắt quá trình bệnh lý và diễn biến lâm sàng.|
