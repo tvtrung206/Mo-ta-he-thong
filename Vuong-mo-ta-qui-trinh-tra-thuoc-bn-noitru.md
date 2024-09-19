@@ -20,7 +20,7 @@
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
-###### :eight_spoked_asterisk: Xử lý yêu cầu
+:white_check_mark: **Thông tin bệnh nhân* 
 
 :white_check_mark: **Qui trình trả thuốc, có 2 giai đoạn: trước và sau khi bổ sung cột pshdxn.sohdx** 
 
