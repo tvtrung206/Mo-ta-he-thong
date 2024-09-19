@@ -24,6 +24,8 @@
 
 ![image](https://github.com/user-attachments/assets/8330c969-ddf4-4639-904d-30e5f14b1801)
 
+Thông tin ghi trong bản bnnoitru:
+![image](https://github.com/user-attachments/assets/a577b150-fcd5-48cb-a302-71528f8384d9)
 
 :white_check_mark: **Qui trình trả thuốc, có 2 giai đoạn: trước và sau khi bổ sung cột pshdxn.sohdx** 
 
