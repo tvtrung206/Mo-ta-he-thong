@@ -43,14 +43,20 @@ Thông tin ghi trong bản bnnoitru:
     - Trên form: cấn trừ theo mahh, ngayhd, madt
     - Trên 6556:
           - Cấn trứ theo mahh, madt, phần trăm chi trả ghi nhận theo thông tin trên bnnoitru hoặc ttcon (con hoặc thẻ 2)
+      
           - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
+      
           - Trường hợp có ngày miễn giảm:
+      
                 - Cấn trừ theo mã mahh, madt, ngayhd (xuất/trả): phần trăm chi trả trong giai đoạn miễn giảm ghi 100 ngược lại ghi theo thông tin thẻ
 
 - Khi có cột sohdx phiếu trả:
     - Trên form: cấn trừ theo số lượng xuất - số lượng trả (theo mahh, madt, sohdx = sohd): phần trăm chi trả ghi theo thông tin thẻ
+      
     - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
+      
           - Trường hợp có ngày miễn giảm:
+      
                 - Cấn trừ theo số lượng xuất - số lượng trả (theo mahh, madt, sohdx = sohd): phần trăm chi trả trong giai đoạn miễn giảm ghi 100 ngược lại ghi theo thông tin thẻ
 
 :white_check_mark: **Ví dụ**
