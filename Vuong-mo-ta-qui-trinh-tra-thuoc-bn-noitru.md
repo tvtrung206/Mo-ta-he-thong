@@ -6,11 +6,11 @@
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/dh-hos/dhg.hospitalprinter/main/Deploy_Tools/Logo.ico" alt="Simple Icons" width=70>
-  <h1>PHIẾU MÔ TẢ THAY ĐỔI HỆ THỐNG</h1>  
+  <h1>MÔ TẢ QUI TRÌNH TRẢ THUỐC</h1>  
 </div>
 <div align="center">
 
-#### Chủ đề: TÓM TẮT BỆNH ÁN THEO THÔNG TƯ [32/2023/TT-BYT](https://github.com/user-attachments/files/16156783/Thong.t.-32-2023-TT-BYT.docx)
+#### Chủ đề: QUI TRÌNH TẢ THUỐC BỆNH NHÂN NỘI TRÚ
 
 </div>
 
