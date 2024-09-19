@@ -26,7 +26,13 @@
 
 :white_check_mark: **Qui trình trả thuốc, có 2 giai đoạn: trước và sau khi bổ sung cột pshdxn.sohdx** 
 
-:white_check_mark: **Qui trình trả thuốc**  
+:white_check_mark: **Qui trình xuất thuốc, ghi nhận tại pshdxn** 
+
+![image](https://github.com/user-attachments/assets/d1aa482c-dcdb-47de-acd2-a50dad04ea42)
+
+:white_check_mark: **Qui trình trả thuốc, ghi nhận tại pshdxn**  
+
+![image](https://github.com/user-attachments/assets/f8f9bae7-b455-471c-bf44-daed595103ba)
 
 :blue_book: Cập nhật cấu trúc table **tomtatba**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
