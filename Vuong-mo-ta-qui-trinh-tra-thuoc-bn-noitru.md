@@ -38,6 +38,7 @@ Thông tin ghi trong bản bnnoitru:
 ![image](https://github.com/user-attachments/assets/f8f9bae7-b455-471c-bf44-daed595103ba)
 
 :white_check_mark: **Thuốc xuất - trừ trả** 
+
 - Khi không có cột sohdx trong phiếu trả:
     - Trên form: cấn trừ theo mahh, ngayhd, madt
     - Trên 6556:
@@ -45,51 +46,28 @@ Thông tin ghi trong bản bnnoitru:
           - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
           - Trường hợp có ngày miễn giảm:
                 - Cấn trừ theo mã mahh, madt, ngayhd (xuất/trả): phần trăm chi trả trong giai đoạn miễn giảm ghi 100 ngược lại ghi theo thông tin thẻ
+
 - Khi có cột sohdx phiếu trả:
     - Trên form: cấn trừ theo số lượng xuất - số lượng trả (theo mahh, madt, sohdx = sohd): phần trăm chi trả ghi theo thông tin thẻ
     - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
           - Trường hợp có ngày miễn giảm:
                 - Cấn trừ theo số lượng xuất - số lượng trả (theo mahh, madt, sohdx = sohd): phần trăm chi trả trong giai đoạn miễn giảm ghi 100 ngược lại ghi theo thông tin thẻ
 
-| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
-|:-------:|-------|:-------:|-------|
-| 1 | qtbenhly | VARCHAR | Ghi nhận tóm tắt quá trình bệnh lý và diễn biến lâm sàng.|
-|2|tsbenh|VARCHAR| Ghi nhận tiền sử bệnh của bệnh nhân.|
-|3|dhlamsang|VARCHAR| Ghi nhận những dấu hiệu lâm sàng chính.|
-|4|ppdieutri|NUMERIC(1,0)| Ghi nhận phương pháp điều trị nội khoa. <br/>Giá trị:<br/> - 0: Không</br> - 1: Có |
-|5|ppdieutri_ghichu|VARCHAR| Ghi rõ phương pháp điều trị nếu giá trị cột ppdieutri = 1. |
-|6|pttt|NUMERIC(1,0)| Ghi nhận có phẫu thuật, thủ thuật. <br/>Giá trị:<br/> - 0: Không</br> - 1: Có |
-|7|pttt_ghichu|VARCHAR| Ghi rõ phương pháp phẫu thuật nếu giá trị cột pttt = 1. |
+:white_check_mark: **Ví dụ**
 
-:blue_book: **Mô tả thực hiện và diễn giải số liệu**: [^2024-07-31]
-- **Thực hiện**:
-  - Mở form tóm tắt bệnh án:
-    
-    ![image](https://github.com/user-attachments/assets/a28f4400-d924-4117-9b04-96dd35bcc85b)
+Thông tin bệnh nhân:
 
-  - Form tóm tắt bệnh án:
+![image](https://github.com/user-attachments/assets/8330c969-ddf4-4639-904d-30e5f14b1801)
 
-    ![image](https://github.com/user-attachments/assets/e24b2715-802c-4d95-bfe9-5607bd664467)
+![image](https://github.com/user-attachments/assets/6cca69a8-7466-4594-aa7e-5e1508207faa)
 
-    (1): Thực hiện thêm/sửa/xóa tóm tắt bệnh án
-    
-    (2): Kết quả xét nghiệm: dữ liệu được lấy từ bnnoitru.tomtat_kq (dữ liệu này được thực hiện khi làm thao tác ra viện)
-    
-    (3): Tình trạng ra viện: dữ liệu được lấy từ dmketqua.ma_medisoft (qua liên kết bnnoitru.makq = dmketqua.makq)
-    
-        Ghi mã kết quả điều trị, trong đó:
-          - Mã “1”: Khỏi;
-          - Mã “2”: Đỡ;
-          - Mã “3”: Không thay đổi;
-          - Mã “4”: Nặng hơn;
-          - Mã “5”: Tử vong;
-          - Mã “6”: Tiên lượng nặng xin về;
-          - Mã “7”: Chưa xác định (không thuộc một trong các mã kết quả điều trị nêu trên).
-          - Mã “8”: Tử vong ngoại viện
+Tổng kết:
 
-    - Kết quả in phiếu:
-   
-      ![image](https://github.com/user-attachments/assets/9c2a3486-7243-4042-a13b-d2d92c761aca)
+![image](https://github.com/user-attachments/assets/889f4e93-552c-482b-870e-5512107522a4)
 
-[^2024-07-31]: Thay đổi ngày 2024-07-31: Bổ sung thêm mô tả thực hiện và dữ liệu
+![image](https://github.com/user-attachments/assets/1329d008-6619-49f5-b4d4-c912c3d1bf3f)
+
+![image](https://github.com/user-attachments/assets/3124212b-503b-4f6e-8298-7c0de21f2b4d)
+
+
 
