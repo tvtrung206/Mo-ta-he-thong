@@ -23,7 +23,9 @@
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Qui trình trả thuốc, có 2 giai đoạn: trước và sau khi bổ sung cột pshdxn.sohdx** 
+
 :white_check_mark: **Qui trình trả thuốc**  
+
 :blue_book: Cập nhật cấu trúc table **tomtatba**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
