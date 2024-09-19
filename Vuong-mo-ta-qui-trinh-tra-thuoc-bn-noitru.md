@@ -42,6 +42,7 @@ Thông tin ghi trong bản bnnoitru:
 - Khi không có cột sohdx trong phiếu trả:
     - Trên form: cấn trừ theo mahh, ngayhd, madt
     - Trên 6556:
+      
           - Cấn trứ theo mahh, madt, phần trăm chi trả ghi nhận theo thông tin trên bnnoitru hoặc ttcon (con hoặc thẻ 2)
       
           - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
@@ -52,8 +53,9 @@ Thông tin ghi trong bản bnnoitru:
 
 - Khi có cột sohdx phiếu trả:
     - Trên form: cấn trừ theo số lượng xuất - số lượng trả (theo mahh, madt, sohdx = sohd): phần trăm chi trả ghi theo thông tin thẻ
+    - Trên 6556:
       
-    - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
+          - Thông tin mã thẻ: được lấy từ thông tin thẻ 1 hoặc thẻ 2
       
           - Trường hợp có ngày miễn giảm:
       
