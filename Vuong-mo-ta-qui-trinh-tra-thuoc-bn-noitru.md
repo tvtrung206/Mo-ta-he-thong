@@ -16,50 +16,14 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Triều Vương**](https://github.com/vuongdh)
 
-###### :eight_spoked_asterisk: Ngày lập: **29/07/2024**
+###### :eight_spoked_asterisk: Ngày lập: **19/09/2024**
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
-:white_check_mark: **Thay đổi cấu trúc dữ liệu**
-- Script tạo bổ sung sẽ liệu: `UPDATE CURRENT.TOMTATBA`
-  'ALTER TABLE current.tomtatba
-  ADD COLUMN tsbenh VARCHAR;
-COMMENT ON COLUMN current.tomtatba.tsbenh
-IS 'Ghi nhận tiền sử bệnh của bệnh nhân.';
-
-ALTER TABLE current.tomtatba
-  ADD COLUMN dhlamsang VARCHAR;
-COMMENT ON COLUMN current.tomtatba.dhlamsang
-IS 'Ghi nhận những dấu hiệu lâm sàng chính.';
-
-ALTER TABLE current.tomtatba
-  ADD COLUMN ppdieutri NUMERIC(1,0);
-COMMENT ON COLUMN current.tomtatba.ppdieutri
-IS 'Ghi nhận phương pháp điều trị nội khoa.
-Giá trị:
-- 0: Không
-- 1: Có';
-
-ALTER TABLE current.tomtatba
-  ADD COLUMN ppdieutri_ghichu VARCHAR;
-COMMENT ON COLUMN current.tomtatba.ppdieutri_ghichu
-IS 'Ghi rõ phương pháp điều trị nếu giá trị cột ppdieutri = 1.';
-
-ALTER TABLE current.tomtatba
-  ADD COLUMN pttt NUMERIC(1,0);
-COMMENT ON COLUMN current.tomtatba.pttt
-IS 'Ghi nhận có phẫu thuật, thủ thuật.
-Giá trị:
-- 0: Không
-- 1: Có';
-
-ALTER TABLE current.tomtatba
-  ADD COLUMN pttt_ghichu VARCHAR;
-COMMENT ON COLUMN current.tomtatba.pttt_ghichu
-IS 'Ghi rõ phương pháp điều trị nếu giá trị cột pttt_ghichu = 1.';'
-  
+:white_check_mark: **Qui trình trả thuốc, có 2 giai đoạn: trước và sau khi bổ sung cột pshdxn.sohdx** 
+:white_check_mark: **Qui trình trả thuốc**  
 :blue_book: Cập nhật cấu trúc table **tomtatba**:
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
