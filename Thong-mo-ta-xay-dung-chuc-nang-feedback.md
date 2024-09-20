@@ -64,7 +64,7 @@ ALTER TABLE current.kqfeedback
 COMMENT ON COLUMN current.kqfeedback.nguoighiphieu
 IS '0:nguời bệnh; 1: nguời nhà';
 COMMENT ON COLUMN current.kqfeedback.gioitinh
-IS '0:nam ; 1:nữ';
+IS '0:nữ ; 1:nam';
 COMMENT ON COLUMN current.kqfeedback.bhyt
 IS '0:không ; 1:có';
 COMMENT ON COLUMN current.kqfeedback.ketqua
