@@ -31,7 +31,7 @@ CREATE TABLE current.dmfeedback (
                  mafb VARCHAR(10) NOT NULL,
                  tenfb VARCHAR NOT NULL,
                  trangthai NUMERIC(1,0),
-                 loai NUMERIC(1,0),
+                 maloai NUMERIC(1,0),
                  noitru NUMERIC(1,0),
                  PRIMARY KEY(mafb)
         ) 
