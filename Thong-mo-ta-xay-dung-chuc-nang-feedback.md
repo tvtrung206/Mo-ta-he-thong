@@ -44,7 +44,7 @@ CREATE TABLE current.dmfeedback (
 - tạo table current.kqfeedback lưu kết quả feedback
 ```csharp
   CREATE TABLE current.kqfeedback (
-             stt NUMERIC(10,0) NOT NULL,
+             stt serial NOT NULL,
              nguoighiphieu NUMERIC(1,0),
              gioitinh NUMERIC(1,0),
              ngaydienphieu TIMESTAMP(0) WITHOUT TIME ZONE,
