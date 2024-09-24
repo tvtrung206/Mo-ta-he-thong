@@ -55,6 +55,7 @@ CREATE TABLE current.dmfeedback (
              songaynamvien NUMERIC(10,0),
              bhyt NUMERIC(1,0),
              ketqua VARCHAR,
+             noitru NUMERIC(1,0),
              PRIMARY KEY(stt)
 ) 
 WITH (oids = false);
