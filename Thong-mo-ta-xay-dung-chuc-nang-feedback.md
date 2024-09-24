@@ -51,7 +51,7 @@ CREATE TABLE current.dmfeedback (
              madv VARCHAR(10),
              tendv VARCHAR(255),
              tuoi NUMERIC(3,0),
-             sdt NUMERIC(10,0) NOT NULL,
+             sdt VARCHAR(255) NOT NULL,
              songaynamvien NUMERIC(10,0),
              bhyt NUMERIC(1,0),
              ketqua VARCHAR,
