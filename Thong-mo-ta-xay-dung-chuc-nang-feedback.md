@@ -28,7 +28,7 @@
 - tạo table current.dmfeedback để lưu danh mục feedback:
 ```csharp
 CREATE TABLE current.dmfeedback (
-                 mafb VARCHAR(10) NOT NULL,
+                 mafb serial NOT NULL,
                  tenfb VARCHAR NOT NULL,
                  trangthai NUMERIC(1,0),
                  maloai NUMERIC(1,0),
