@@ -25,6 +25,19 @@
 ###### :eight_spoked_asterisk: Xử lý yêu cầu:
 
 :white_check_mark: **Tạo cấu trúc dữ liệu**
+- tạo balbe current.dmloaifeedback
+```csharp
+CREATE TABLE current.dmloaifeedback (
+  maloai NUMERIC(1,0) DEFAULT nextval('current.dmloaifeedback_maloai_seq'::text::regclass) NOT NULL,
+  tenloai VARCHAR,
+  CONSTRAINT dmloaifeedback_pkey PRIMARY KEY(maloai)
+) 
+WITH (oids = false);
+
+ALTER TABLE current.dmloaifeedback
+  OWNER TO postgres;
+```
+
 - tạo table current.dmfeedback để lưu danh mục feedback:
 ```csharp
 CREATE TABLE current.dmfeedback (
