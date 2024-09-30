@@ -23,16 +23,15 @@
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
-:white_check_mark: **Bổ sung cột dữ liệu vào bản qtdieutri**
+:white_check_mark: **Bổ sung cột ylenh vào bản qtdieutri**
 ``` sql
-
+ALTER TABLE current.qtdieutri
+  ADD COLUMN ylenh VARCHAR;
 ``` 
-
-:white_check_mark: **Mẫu giấy CNPT**
-
 
 :white_check_mark: ****
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
 |1|ylenh |VARCHAR|Y lệnh|
 
+:white_check_mark: **Mẫu giấy CNPT**
