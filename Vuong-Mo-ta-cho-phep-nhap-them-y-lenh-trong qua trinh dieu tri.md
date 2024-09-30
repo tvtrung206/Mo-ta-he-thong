@@ -32,6 +32,6 @@ ALTER TABLE current.qtdieutri
 :white_check_mark: ****
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |
 |:-------:|-------|:-------:|-------|
-|1|ylenh |VARCHAR|Y lệnh|
+|1|ylenh |VARCHAR|Y lệnh: lưu y lệnh đã được tổng hợp và bổ sung|
 
 :white_check_mark: **Mẫu giấy CNPT**
