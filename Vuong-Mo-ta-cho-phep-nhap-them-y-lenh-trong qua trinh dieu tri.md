@@ -45,5 +45,5 @@ ALTER TABLE current.qtdieutri
 
 - Bổ sung nút in: có cấn trừ thuốc trả
   
-Lưu ý: y lệnh có thể được điều khi bệnh nhân đã ra viện
+Lưu ý: Người dùng có thể điều chỉnh y lệnh khi bệnh nhân đã ở trạng thái xuất viện.
 
