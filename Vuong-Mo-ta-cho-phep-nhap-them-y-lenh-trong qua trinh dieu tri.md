@@ -44,5 +44,6 @@ ALTER TABLE current.qtdieutri
 ![image](https://github.com/user-attachments/assets/d95848be-dbb5-4bcb-9d7d-510c38371f0f)
 
 - Bổ sung nút in: có cấn trừ thuốc trâ
+  
 Lưu ý: y lệnh có thể được điều khi bệnh nhân đã ra viện
 
