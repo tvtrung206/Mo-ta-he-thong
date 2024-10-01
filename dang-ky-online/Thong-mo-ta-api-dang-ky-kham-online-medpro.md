@@ -350,9 +350,9 @@
 
 ###### :eight_spoked_asterisk: HƯỚNG DẪN CÀI ĐẶT SERVICE
 1. Đảm bảo server cài đặt service có cài đặt NODE.JS
-2. Tải file cài đặt: [Tại đây](https://i.imgur.com/54Cs8S9.png)
+2. Tải file cài đặt: [Tại đây](https://gofile.me/78TQg/Lbe9dels9)
 3. Giải nén file vừa tải về, mở file .env
-   ![](https://i.imgur.com/nGyMseW.png)
+   ![](https://i.imgur.com/54Cs8S9.png)
 4. Tại thư mục vừa giải nén file, mở cmd chạy câu lệnh `myapp.exe install` để cài đặt và `myapp.exe start` để chạy service.
    ![](https://i.imgur.com/00wqd4A.png)
 5. Mở port: Truy cập vào Windows Defender Firewall -> Advanced settings. Tại cửa sổ Windows Defender Firewall with Advanced security tiến hành mở port.
