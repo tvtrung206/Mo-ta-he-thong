@@ -204,35 +204,49 @@
 -  REQUEST:
 ```cshap
 {
-    "appointments":
- {
-
-         "number":"1"  // chỉ truyền nếu đăng ký khám trước ngày
-         "providerId": "",  //mã bác sĩ
-         "specialityId": "", // mã khoa
-         "roomId": "01", // mã phòng
-         "examType": "", //loại dịch vụ
-         "patientType": "", // loại đối tượng bệnh nhân
-         "date": "24/03/2023", //ngày khám
-         "fee": "100000", //phí khám của lịch khám này
-         "timeslot":"08:30" //thời gian khám dự kiến
-        },
-    "patient":    {
-         "hisId": "2203008991", // mã bệnh nhân
-         "hiQrCode": "string" // mã thẻ BHYT
-         },
-    "orderId": "string",  // mã đơn hàng
-   "feeAmount": "1000000", // tổng kinh phí
-    "serviceFeeAmount": "100000", // phí dịch vụ
-   "status": "CONFIRMED" // trạng thái thanh toán CONFIRMED: Ðã thanh toán (dành cho đăng ký khám đã được bệnh nhân thanh toán trực tuyến);
-PLACED : Ðã đặt lịch (dành cho đăng ký khám đặt lịch nhưng chưa thanh toán)
+  "appointments":
+  {
+    "number":"3",
+    "specialityId":"10",
+    "roomId":"Y03",
+    "examType":"KH129",
+    "patientType":"04",
+    "date":"13/09/2024",
+    "timeslot":"15:00",
+    "fee":"150000"
+  },
+  "patient":
+    {
+      "hisId":"2024001575"
+    },
+  "orderId":"T240913TSN1PX",
+  "feeAmount":"150000",
+  "serviceFeeAmount":"0",
+  "status":"CONFIRMED",
+  "insuranceDetail":
+    {
+        "insuranceNumber":"GDxxxxxxxxxxx", // Mã BHYT
+        "expiredDate":"24/12/2024", // ngày hết hạn BHYT
+        "insuranceStatus":"valid", // Trạng thái hợp lệ của BHYT
+        "hospitalId":"79037", // nơi KCB ban đầu
+        "detailUrl":"aaaaaaaaaaaaaaa" // link chi tiết (hình ảnh/file giấy chuyển tuyến)
+    },
+  "relative":
+    {
+        "fullname": "NGUYỄN VĂN A",//Type:String maxlength:100 Họ tên người quan hệ
+        "phone": "Số ĐT",//Type:String maxlength:100
+        "CMND": "CMND/CCCD",//Type:String maxlength:100
+        "address": "Địa chỉ",//Type:String maxlength:500
+        "relativeType": "2",//Type:String maxlength:100 Mã mối quan hệ
+        "relativeName": "Cha"//Type:String maxlength:100 Tên mối quan hệ
+    }
 }
 ```
 -  RESPONSE:
 ```cshap
 {
-    "mgntHisId": "2303105150", // mã khám bệnh
-    "number": "5", // số thứ tự
+    "mgntHisId": "2024001575", // mã khám bệnh
+    "number": "3", // số thứ tự
     "id":"1"  // id của lịch khám này
 }
 ```
