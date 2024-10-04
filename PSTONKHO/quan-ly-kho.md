@@ -52,3 +52,6 @@
   - `[Thao tác lưu]`: Tiếp tục trừ kho thêm 1 lần nữa khi lưu khi xóa dữ liệu `current.tkdatatemp`
   - `[Thao tác Bỏ qua]`, `[Xử lý xóa dữ liệu bảng tạm]` (trường hợp, hai thao `[Lưu]` và `[Bỏ qua]` trên chưa hoàn thành khi thao tác nhập xuất): Không trừ kho khi xóa dữ liệu `current.tkdatatemp`
   - Lưu ý: Chức năng chỉnh toa khi lưu cũng thực hiện kiểm tra theo luồng nguyên tắc trên nếu có xử lý trên bảng `current.tkdatatemp`
+- Đối với phân hệ `Treatment` và `Prescription` khi thực hiện `[Ra toa tủ trực]`: Bổ sung ghi nhận mã tủ trực vào cột  `current.tkdatatemp.tutruc`.[^2024-10-04-01]
+
+[^2024-10-04-01]: Thay đổi ngày 04/10/2024: Ràng buộc điều kiện phải ghi nhận mã tủ trực vào cột `current.tkdatatemp.tutruc` đối với chức năng  `[Ra toa tủ trực]`. Chi tiết yêu cầu tại [#662](https://github.com/dh-hos/To_Lap_Trinh/issues/662)
