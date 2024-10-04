@@ -21,7 +21,7 @@
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
-:white_check_mark: **Điều kiện xuất dữ liệu XML130:** Dữ liệu bảng này phải phát sinh ở table `current.ttcon`. [^2024-06-30]
+:white_check_mark: **Điều kiện xuất dữ liệu XML130:** Dữ liệu bảng này phải phát sinh ở table `current.ttcon`. [^2024-06-30]. Bổ sung điều kiện là ***`loaitt=0`*** [^2024-10-04]
 
 :white_check_mark: **Mô tả tổng thể từ: [Mô tả XML130 - Bổ sung QĐ 4750](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750.md)**
 
@@ -79,3 +79,4 @@
 [^2024-07-24-12]: Thay đổi ngày 24/07/2024: Bổ sung cách ghi nhận giá trị cho cột `ma_the_nnd`.
 [^2024-06-30]: Thay đổi ngày 30/06/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
 [^2024-06-12]: Thay đổi ngày 12/06/2024: bổ sung cách ghi nhận giá trị cho `matinh_cu_tru`, `mahuyen_cu_tru`, `maxa_cu_tru` theo yêu cầu [#393](https://github.com/dh-hos/To_Lap_Trinh/issues/393)
+[^2024-10-04]: Thay đổi ngày 04/10/2024: Bổ sung điều kiện xuất dữ liệu trong bảng này.
