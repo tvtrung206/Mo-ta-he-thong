@@ -44,7 +44,7 @@ ALTER TABLE current.qtdieutri
 ![image](https://github.com/user-attachments/assets/d95848be-dbb5-4bcb-9d7d-510c38371f0f)
 
 - Bổ sung tham số nt.qtdieutri_trutrathuoc: [^2024-10-04-01]
-    + Cho phép dùng tùy chọn phiếu in quá trình điều trị có trừ thuốc trả hay không.
+    + Cho phép người dùng tùy chọn phiếu in quá trình điều trị có trừ thuốc trả hay không.
 ```
  nt.qtdieutri_trutrathuoc: In quá trình điều trị có cấn trù thuốc trả
   0: Không sử dụng (mặc định)
