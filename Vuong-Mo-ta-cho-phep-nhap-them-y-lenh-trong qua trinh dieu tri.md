@@ -44,7 +44,7 @@ ALTER TABLE current.qtdieutri
 ![image](https://github.com/user-attachments/assets/d95848be-dbb5-4bcb-9d7d-510c38371f0f)
 
 - Bổ sung nút in: có cấn trừ thuốc trả
-- ==> Chuyển thành tham số nt.qtdieutri_trutrathuoc:
+- ==> Chuyển thành tham số nt.qtdieutri_trutrathuoc: [^2024-10-04-01]
 - Do nếu load thuốc chưa trừ trả (mặc định) và điều chỉnh và cập nhật vào cột qtdieutri.ylenh ==> sau đó chọn nút in có cấn trừ trả thuốc dẫn tới lệch với số lượng thuốc đã cập nhật trong qtdieutri.ylenh. Do đó cho người dùng chọn load thuốc chưa hoặc có cấn trừ từ đầu sẽ dễ dàng sử dụng hơn
 ```
  nt.qtdieutri_trutrathuoc: In quá trình điều trị có cấn trù thuốc trả
@@ -54,3 +54,4 @@ ALTER TABLE current.qtdieutri
   
 Lưu ý: Người dùng có thể điều chỉnh y lệnh khi bệnh nhân đã ở trạng thái xuất viện.
 
+[^2024-10-04-01]: Thay đổi ngày 04/10/2024: Bổ sung tham số thay nút in có cấn trừ trả.
