@@ -30,7 +30,36 @@
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 
--
+- Bổ sung tham số `sudung.maicd.chandoanchinh`.
+  
+  `sudung.maicd.chandoanchinh`: Cảnh báo hoặc chặn ICD 10 khi gõ vào chuẩn đoán chính
+  
+  Nội dung :
+  
+        - 0: Không áp dụng
+        - 1: Cảnh báo
+        - 2: Không cho phép
+
+```sql
+   INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
+   SELECT (SELECT CAST(MAX(id) AS DECIMAL)+ 1 FROM current.system),
+  		'sudung.maicd.chandoanchinh',
+          'Cảnh báo hoặc chặn ICD 10 khi gõ vào chẩn đoán chính' 
+          || E'\n' 
+          ||'Giá trị:' || E'\n' 
+          ||'- 0 (hoặc null): Không áp dụng.' || E'\n' 
+          ||'- 1: Cảnh báo.' || E'\n'
+          ||'- 2: Không cho phép.',
+          '0',
+          '1',
+          '0'
+          WHERE NOT EXISTS
+          	(
+              	SELECT tents FROM current.system
+          		WHERE UPPER(tents) = UPPER('sudung.maicd.chandoanchinh')
+          	);
+```
+    
 
 :white_check_mark: **Xử lý nghiệp vụ tại Admin**
 
@@ -38,8 +67,13 @@
 
 :white_check_mark: **Xử lý nghiệp vụ tại Prescription**
 
--
-
+- Trên form `Khám bệnh` và form `Bệnh án ngoại trú` khi người dùng nhập chẩn đoán chính, thực hiện kiểm tra mã icd theo danh mục icd.
+- Trường hợp mã icd được định nghĩa loại trừ:
+   - Kiểm tra tham số `sudung.maicd.chandoanchinh` :
+     + 0: Cho phép lưu.
+     + 1: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - cho phép lưu.
+     + 2: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - Không cho phép lưu.
+       
 :white_check_mark: **Xử lý nghiệp vụ tại Treatment**
 
 -
