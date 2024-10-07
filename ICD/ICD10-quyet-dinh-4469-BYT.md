@@ -27,10 +27,21 @@
 - Hỗ trợ cảnh báo hoặc chặn ICD 10 khi gõ vào chẩn đoán chính theo quyết định 4469-BYT
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
+- Bổ sung cột `cdc_loaitru`.
+  
+   Nội dung : Loại trừ ICD không cho sử dụng làm chẩn đoán chính.
+  
+        - 0: hoặc null : Không sử dụng
+        - 1: Không cho sử dụng làm chẩn đoán chính
+```sql
+    ALTER TABLE current.dmicd
+    ADD COLUMN cdc_loaitru NUMERIC(1);
+```
+
 
 - Bổ sung tham số `sudung.maicd.chandoanchinh`.
   
-  `sudung.maicd.chandoanchinh`: Cảnh báo hoặc chặn ICD 10 khi gõ vào chuẩn đoán chính
+  `sudung.maicd.chandoanchinh`: Cảnh báo hoặc chặn ICD 10 khi gõ vào chuẩn đoán chính.
   
   Nội dung :
   
@@ -61,15 +72,21 @@
 
 :white_check_mark: **Xử lý nghiệp vụ tại Admin**
 
-- Tại `danh mục ICD` Thêm chức năng hổ trợ người dùng tự cấu hình mã ICD 10 không được nhập vào chuẩn đoán chính.
+- Tại `danh mục ICD` Thêm chức năng hổ trợ người dùng tự cấu hình mã ICD 10 không được nhập vào chuẩn đoán chính:
+- Xữ lý :
+    + Thêm checkbox hổ trợ người dùng check chọn loại trừ ICD không cho sử dụng làm chẩn đoán chính
+    + Lưu kết quả vào cột `current.dmicd.cdc_loaitru`:
+      
+        + cdc_loaitru = 0 hoặc null : Cho phép sử dụng làm chẩn đoán chính.      
+        + cdc_loaitru = 1 : Không cho phép sử dụng làm chẩn đoán chính.
 
 :white_check_mark: **Xử lý nghiệp vụ tại Prescription**
 
 - Trên form `Khám bệnh` và form `Bệnh án ngoại trú` khi người dùng nhập chẩn đoán chính, thực hiện kiểm tra mã icd theo danh mục icd.
 - Trường hợp mã icd được định nghĩa loại trừ:
    - Kiểm tra tham số `sudung.maicd.chandoanchinh` :
-     + 0: Cho phép lưu.
-     + 1: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - cho phép lưu.
+     + 0: Cho phép lưu.       
+     + 1: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - cho phép lưu.     
      + 2: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - Không cho phép lưu.
        
 :white_check_mark: **Xử lý nghiệp vụ tại Treatment**
