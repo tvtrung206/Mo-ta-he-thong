@@ -53,7 +53,7 @@
    INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
    SELECT (SELECT CAST(MAX(id) AS DECIMAL)+ 1 FROM current.system),
   		'sudung.maicd.chandoanchinh',
-          'Cảnh báo hoặc chặn ICD 10 khi gõ vào chẩn đoán chính' 
+          'Cảnh báo hoặc chặn ICD 10 khi gõ vào chẩn đoán chính theo Quyết định 4469/QĐ-BYT' 
           || E'\n' 
           ||'Giá trị:' || E'\n' 
           ||'- 0 (hoặc null): Không áp dụng.' || E'\n' 
@@ -80,20 +80,15 @@
         + cdc_loaitru = 0 hoặc null : Cho phép sử dụng làm chẩn đoán chính.      
         + cdc_loaitru = 1 : Không cho phép sử dụng làm chẩn đoán chính.
 
-:white_check_mark: **Xử lý nghiệp vụ tại Prescription**
+:white_check_mark: **Xử lý nghiệp vụ tại Prescription và Treatment**
 
-- Trên form `Khám bệnh` và form `Bệnh án ngoại trú` khi người dùng nhập chẩn đoán chính, thực hiện kiểm tra mã icd theo danh mục icd.
-- Trường hợp mã icd được định nghĩa loại trừ:
-   - Kiểm tra tham số `sudung.maicd.chandoanchinh` :
-     + 0: Cho phép lưu.       
-     + 1: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - cho phép lưu.     
-     + 2: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - Không cho phép lưu.
+- khi người dùng nhập chẩn đoán chính, thực hiện kiểm tra mã icd theo danh mục icd.
+  - Trường hợp `current.dmicd.cdc_loaitru` = 0 :
+     - Cho phép lưu chẩn đoán như bình thường.
+  
+  - Trường hợp current.dmicd.cdc_loaitru = 0 :
+     - Kiểm tra tham số `sudung.maicd.chandoanchinh` :
+       + `sudung.maicd.chandoanchinh` = 0 : Cho phép lưu chẩn đoán như bình thường.       
+       + `sudung.maicd.chandoanchinh` = 1 : Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính -> vẫn cho phép lưu chẩn đoán.     
+       + `sudung.maicd.chandoanchinh` = 2 : Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính -> Không cho phép lưu chẩn đoán.
        
-:white_check_mark: **Xử lý nghiệp vụ tại Treatment**
-
-- Trên form `Khám và điều trị bệnh` khi người dùng nhập chẩn đoán chính, thực hiện kiểm tra mã icd theo danh mục icd.
-- Trường hợp mã icd được định nghĩa loại trừ:
-   - Kiểm tra tham số `sudung.maicd.chandoanchinh` :
-     + 0: Cho phép lưu.
-     + 1: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - cho phép lưu.
-     + 2: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - Không cho phép lưu.
