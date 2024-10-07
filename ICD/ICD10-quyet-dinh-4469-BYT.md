@@ -53,7 +53,7 @@
    INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
    SELECT (SELECT CAST(MAX(id) AS DECIMAL)+ 1 FROM current.system),
   		'sudung.maicd.chandoanchinh',
-          'Cấu hình áp dụng khi chỉ định Mã ICD thuộc ICD Loại trừ theo QĐ.4469.BYT vào chẩn đoán chính' 
+          'Cấu hình áp dụng khi chỉ định Mã ICD thuộc ICD Loại trừ theo QĐ.4469.BYT vào chẩn đoán chính.' 
           || E'\n' 
           ||'Giá trị:' || E'\n' 
           ||'- 0 (hoặc null): Cho phép.' || E'\n' 
