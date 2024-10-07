@@ -14,19 +14,17 @@
 
 </div>
 
-###### :eight_spoked_asterisk: Người lập: []()
+###### :eight_spoked_asterisk: Người lập: [Lê Quốc Thống](https://github.com/lequocthong29)
 
-###### :eight_spoked_asterisk: Ngày lập: \*\*\*\*
+###### :eight_spoked_asterisk: Ngày lập: 07/10/2024
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
--
-
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
--
+- Hỗ trợ cảnh báo hoặc chặn ICD 10 khi gõ vào chẩn đoán chính theo quyết định 4469-BYT
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 
@@ -63,7 +61,7 @@
 
 :white_check_mark: **Xử lý nghiệp vụ tại Admin**
 
--
+- Tại `danh mục ICD` Thêm chức năng hổ trợ người dùng tự cấu hình mã ICD 10 không được nhập vào chuẩn đoán chính.
 
 :white_check_mark: **Xử lý nghiệp vụ tại Prescription**
 
@@ -76,4 +74,9 @@
        
 :white_check_mark: **Xử lý nghiệp vụ tại Treatment**
 
--
+- Trên form `Khám và điều trị bệnh` khi người dùng nhập chẩn đoán chính, thực hiện kiểm tra mã icd theo danh mục icd.
+- Trường hợp mã icd được định nghĩa loại trừ:
+   - Kiểm tra tham số `sudung.maicd.chandoanchinh` :
+     + 0: Cho phép lưu.
+     + 1: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - cho phép lưu.
+     + 2: Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính - Không cho phép lưu.
