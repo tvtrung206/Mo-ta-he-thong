@@ -53,12 +53,12 @@
    INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
    SELECT (SELECT CAST(MAX(id) AS DECIMAL)+ 1 FROM current.system),
   		'sudung.maicd.chandoanchinh',
-          'Cảnh báo hoặc chặn ICD 10 khi gõ vào chẩn đoán chính theo Quyết định 4469/QĐ-BYT' 
+          'Cấu hình áp dụng khi chỉ định Mã ICD thuộc ICD Loại trừ theo QĐ.4469.BYT vào chẩn đoán chính' 
           || E'\n' 
           ||'Giá trị:' || E'\n' 
-          ||'- 0 (hoặc null): Không áp dụng.' || E'\n' 
-          ||'- 1: Cảnh báo.' || E'\n'
-          ||'- 2: Không cho phép.',
+          ||'- 0 (hoặc null): Cho phép.' || E'\n' 
+          ||'- 1: Cảnh báo và cho phép.' || E'\n'
+          ||'- 2: Cảnh báo và chặn.',
           '0',
           '1',
           '0'
