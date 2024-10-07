@@ -86,7 +86,7 @@
   - Trường hợp `current.dmicd.cdc_loaitru` = 0 :
      - Cho phép lưu chẩn đoán như bình thường.
   
-  - Trường hợp current.dmicd.cdc_loaitru = 0 :
+  - Trường hợp `current.dmicd.cdc_loaitru` = 1 :
      - Kiểm tra tham số `sudung.maicd.chandoanchinh` :
        + `sudung.maicd.chandoanchinh` = 0 : Cho phép lưu chẩn đoán như bình thường.       
        + `sudung.maicd.chandoanchinh` = 1 : Cảnh báo mã ICD không được phép chọn làm chẩn đoán chính -> vẫn cho phép lưu chẩn đoán.     
