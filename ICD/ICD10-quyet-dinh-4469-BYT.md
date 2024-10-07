@@ -72,9 +72,9 @@
 
 :white_check_mark: **Xử lý nghiệp vụ tại Admin**
 
-- Tại `danh mục ICD` Thêm chức năng hổ trợ người dùng tự cấu hình mã ICD 10 không được nhập vào chuẩn đoán chính:
-- Xữ lý :
-    + Thêm checkbox hổ trợ người dùng check chọn loại trừ ICD không cho sử dụng làm chẩn đoán chính
+- Tại `danh mục ICD` Thêm chức năng hỗ trợ người dùng tự cấu hình mã ICD 10 không được nhập vào chuẩn đoán chính:
+- Xử lý :
+    + Thêm checkbox hỗ trợ người dùng check chọn loại trừ ICD không cho sử dụng làm chẩn đoán chính
     + Lưu kết quả vào cột `current.dmicd.cdc_loaitru`:
       
         + cdc_loaitru = 0 hoặc null : Cho phép sử dụng làm chẩn đoán chính.      
