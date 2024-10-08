@@ -3,19 +3,83 @@
     "host": "localhost",
     "user": "postgres",
     "port": "5432",
-    "password": "123456",
-    "database": "ttntqn_052024"
+    "password": "",
+    "database": ""
   },
   "PgConfigPay": {
     "host": "localhost",
     "user": "postgres",
     "port": "5432",
-    "password": "123456",
-    "database": "ttntqn_052024_pay"
+    "password": "",
+    "database": ""
   },
   "Ngrok": {
     "domain": "rare-perch-refined.ngrok-free.app",
     "authtoken": "2atTGlI8gU5K4mvIl9Nj2gLi8s7_3kmSFRBFEfhHbYLSTUj6t"
+  },
+  "Momo": {
+    "partnerCode": "MOMO8X5X20231002",
+    "partnerName": "partnerName",
+    "storeId": "GOVAP_VIENPHI",
+    "requestType": "captureWallet",
+    "ipnUrl": "http://79035.qrcode.dh-his.com/api/qr79035",
+    "redirectUrl": "https://momo.vn",
+    "orderId": "",
+    "amount": "",
+    "lang": "vi",
+    "autoCapture": "true",
+    "orderInfo": "Thanh toán momo",
+    "requestId": "",
+    "URL": "https://payment.momo.vn/",
+    "resourceCreate": "v2/gateway/api/create",
+    "secretKey": "hJ40MkAiyj3WaSx07lRWlnHi7zzMM306",
+    "accessKey": "9m0TmP4gC5pZT11d",
+    "description": "",
+    "extraData": "",
+    "signature": ""
+  },
+  "MomoNhaThuoc": {
+    "partnerCode": "MOMO8X5X20231002",
+    "partnerName": "partnerName",
+    "storeId": "GOVAP_NHATHUOC",
+    "requestType": "captureWallet",
+    "ipnUrl": "http://79035.qrcode.dh-his.com/api/qr79035",
+    "redirectUrl": "https://momo.vn",
+    "orderId": "",
+    "amount": "",
+    "lang": "vi",
+    "autoCapture": "true",
+    "orderInfo": "Thanh toán momo",
+    "requestId": "",
+    "URL": "https://payment.momo.vn/",
+    "resourceCreate": "v2/gateway/api/create",
+    "secretKey": "hJ40MkAiyj3WaSx07lRWlnHi7zzMM306",
+    "accessKey": "9m0TmP4gC5pZT11d",
+    "description": "",
+    "extraData": "",
+    "signature": ""
+  },
+  "Vietin": {
+    "Merchant_ID": "1900345506",
+    "Ten_Merchant": "TTYT PHUOC LONG",
+    "Terminal_ID": "TTYTPHUOCLONG",
+    "Ten_Terminal": "TTYTHUYENPHUOCLONG",
+    "Ma_Quoc_Te": "8062",
+    "Ma_Noi_Dia": "806210",
+    "So_Tai_Khoan": "11700291440",
+    "MasterMerchantCode": "970489",
+    "Providerid": "600"
+  },
+  "VietinNhaThuoc": {
+    "Merchant_ID": "1900345506",
+    "Ten_Merchant": "TTYT PHUOC LONG",
+    "Terminal_ID": "TTYTPHUOCLONG",
+    "Ten_Terminal": "TTYTHUYENPHUOCLONG",
+    "Ma_Quoc_Te": "8062",
+    "Ma_Noi_Dia": "806210",
+    "So_Tai_Khoan": "11700291440",
+    "MasterMerchantCode": "970489",
+    "Providerid": "600"
   },
   "VietQR": {
     "00": "01",
