@@ -32,7 +32,7 @@
 
 - Khởi tạo `DH.XML4750.HOSO`:
 
-```     /// <summary>
+```/// <summary>
         /// Khởi tạo HOSO theo đối tượng OTH.Entity.HosBHXH.EGiamDinh.HoSoInfo
         /// </summary>
         /// <param name="hoSoInfo"></param>
@@ -45,12 +45,12 @@
         /// <param name="maba">Mã bệnh án</param>
         /// <param name="mabattconbh2">Mã bệnh án thông tin con, hoặc BHYT thứ 2</param>
         /// <param name="loaiHoSoKCB">Loại hồ sơ KCB:  NGOAI_TRU, NGOAI_TRU_XUAT_VIEN, BA_NGOAI_TRU, BA_NOI_TRU, BA_NOI_TRU_THE_BHYT2, BA_NOI_TRU_TTCON </param>
-        public HOSO(string mabn, string makb, string maba, string mabattconbh2, OTH.Entity.Enum.BHXH.v_LoaiHoSoKCB loaiHoSoKCB) 
+        public HOSO(string mabn, string makb, string maba, string mabattconbh2, OTH.Entity.Enum.BHXH.v_LoaiHoSoKCB loaiHoSoKCB)
 ```
 
 - Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên (Thực hiện tại Prescription, Treatment):
 
-```     /// <summary>
+```/// <summary>
         /// Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên,
         ///     Gọi hàm khi thực hiện mỗi lưu chỉ định cls thành công (hàm này sẽ xử lý nếu chưa checkin sẽ thực hiện, ngược lại bỏ qua)
         /// </summary>
@@ -61,7 +61,7 @@
 
 - Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có thuốc, vtyt đầu tiên (Thực hiện tại Prescription, Treatment):
 
-```     /// <summary>
+```/// <summary>
         /// Thực hiện đánh dấu Thực hiện checkIn khi có thuốc, vtyt đầu tiên
         ///     => Gọi hàm mỗi khi lưu toa thuốc thành công (hàm này sẽ xử lý nếu chưa checkin sẽ thực hiện, ngược lại bỏ qua)
         /// </summary>
@@ -73,10 +73,23 @@
 
 - Chức năng: Thực hiện đánh dấu khi bệnh nhân ra viện đối với bệnh án, bệnh nhân ngoại trú in phiếu (Thực hiện tại Prescription, Treatment, Printer):
 
-```     /// <summary>
+```/// <summary>
         /// Thực hiện đánh dấu khi bệnh nhân ra viện đối với bệnh án, bệnh nhân ngoại trú in phiếu
         ///     => Gọi hàm khi Lưu ra viện đối với bệnh án, hoặc In phiếu đối với ngoại trú, hoặc Lập toa xuất viện ngoại trú đối với bệnh án
         /// </summary>
         /// <returns></returns>
         public bool MarkRavien()
 ```
+
+- [^2024-10-08] Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi thực hiện `Lưu khám bệnh` (Thực hiện tại Prescription), Mã cận lâm sàng sẽ lấy công khám đầu tiên để đánh dấu. **_Xử lý trường hợp không có chỉ định CLS thì không có gửi checkIn được, vd: trường hợp bệnh nhân chuyển viện..._**
+
+```/// <summary>
+        /// Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên,
+        ///     Gọi hàm khi thực hiện mỗi lưu chỉ định cls thành công (hàm này sẽ xử lý nếu chưa checkin sẽ thực hiện, ngược lại bỏ qua)
+        /// </summary>
+        /// <param name="macls">Mã cận lâm sàng đầu tiên trong lần chỉ định</param>
+        /// <returns></returns>
+        public bool MarkCheckInCanlamsang(string macls)
+```
+
+[^2024-10-08]: Bổ sung chức năng ngày 2024-10-08
