@@ -103,7 +103,7 @@
 |1|ma_ttdv|Chuỗi|Tham số chung|Mã số định danh y tế (mã số BHXH) của người đứng đầu cơ sở KBCB hoặc người được người đứng đầu cơ sở KBCB ủy quyền được ký và đóng dấu của cơ sở KBCB|
 |2|ma_xang_dau [^2024-07-04-01]|Chuỗi|Tham số chung|Mã xăng dầu mặc định (sử dụng cho trường hợp mã xăng dầu của cận lâm sàng chuyển viện trong danh mục chưa cấu hình). Ghi mã loại xăng, dầu để tính chi phí vận chuyển người bệnh, ghi theo Bộ mã DMDC do Bộ trưởng Bộ Y tế ban hành.|
 |3|ma_benh_kt.soluong [^2024-07-12-01]|Số|Tham số chung|Số lượng mã bệnh ICD10 phụ tối đa cho 1 lần khám, chữa bệnh.|
-|4|ma_loai_kcb.ba_ngoai_ngay [^2024-07-24-01]|Số|Tham số chung|Hỗ trợ xuất XML130 (QĐ4750) cho cột `ma_loai_kcb` bảng `checkin` và bảng `XML1` đối với người bệnh bệnh án ngoại trú quyết toán ngày. Giá trị:<br/>- `1`: `ma_loai_kcb = 01` (khám ngoại trú).<br/>- `2`: `ma_loai_kcb = 02` (bệnh án ngoại trú).|
+|4|ma_loai_kcb.ba_ngoai_ngay [^2024-07-24-01]|Số|Tham số chung|Hỗ trợ xuất XML130 (QĐ4750) cho cột [ma_loai_kcb](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/ma_loai_kcb.md) bảng `checkin` và bảng `XML1` đối với người bệnh bệnh án ngoại trú quyết toán ngày. Giá trị:<br/>- `1`: `ma_loai_kcb = 05` (Bệnh án ngoại trú thanh toán ngày (có khám bệnh và lĩnh thuốc))[^2024-10-08-01].<br/>- `2`: `ma_loai_kcb = 02` (bệnh án ngoại trú).|
 
 :blue_book: Cập nhật cấu trúc: bổ sung table **current.psgiamdinhykhoa**
 | STT | TÊN CỘT | KIỂU | DIỄN GIẢI | INDEX |
@@ -452,6 +452,7 @@
 - Cập nhật hàm `SP_LIS_Result`: Từ chối nhận kết quả đối với các xét nghiệm chưa lấy mẫu hoặc không tồn tại trong dữ liệu chỉ định.
 - Gửi tài liệu cập nhật cho các đơn vị đối tác LIS. Chi tiết: [DH - Tai lieu API HIS-LIS - Token - 22-08-2024.pdf](https://github.com/user-attachments/files/16702957/DH.-.Tai.lieu.API.HIS-LIS.-.Token.-.22-08-2024.pdf)
 
+[^2024-10-08-01]: Thay đổi ngày 08/10/2024: Thay đổi diễn giải giá trị đối với tham số  `ma_loai_kcb.ba_ngoai_ngay`.
 [^2024-09-12-03]: Thay đổi ngày 12/09/2024: Bổ sung mô tả thông tin chuyển tuyến người bệnh lao khi tiếp nhận bệnh tại module Register, đối với `psdangky.trangthaichuyentuyen = 4 (Chuyển tuyến người bệnh khám và điều trị bệnh lao)` . Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
 [^2024-09-12-02]: Thay đổi ngày 12/09/2024: Bổ sung mô tả ràng buộc khi tiếp nhận bệnh tại module Register, đối với `psdangky.trangthaichuyentuyen = 5 hoặc 6 (Giấy hẹn lãnh thuốc)` . Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
 [^2024-09-12-01]: Thay đổi ngày 12/09/2024: Bổ sung giá trị cho cột `psdangky.trangthaichuyentuyen = 6`: Giấy hẹn lãnh thuốc. Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
