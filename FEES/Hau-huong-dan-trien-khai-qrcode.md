@@ -90,6 +90,9 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ###### :eight_spoked_asterisk: Cấu hình tham số tạo QR đối tác
 
 - Tệp mẫu (thay đổi cấu hình khi triển khai các đơn vị khác): [main.js.option.json](File-ho-tro/QRCode/qrListener.js.option.json)
+- Bổ sung GenQR Vietin, BIDV với cấu hình sử dụng thời gian hết hạn của QR.![](https://i.imgur.com/xjuJOL8.png)
+  - **_`IsUseExpDate`_**: **_`false`_** => Cấu hình sử dụng thêm thời gian hết hạn của mã QR
+  - **_`ExpMinutes`_**: **_5_** => Cấu hình số phút hết hạn của mã QR
 
 ###### :eight_spoked_asterisk: Thiết kế QRCode trên màn hình hoặc trang in
 

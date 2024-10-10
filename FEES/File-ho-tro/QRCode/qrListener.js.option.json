@@ -68,7 +68,9 @@
     "Ma_Noi_Dia": "806210",
     "So_Tai_Khoan": "11700291440",
     "MasterMerchantCode": "970489",
-    "Providerid": "600"
+    "Providerid": "600",
+    "IsUseExpDate": "false",
+    "ExpMinutes": 5
   },
   "VietinNhaThuoc": {
     "Merchant_ID": "1900345506",
@@ -79,7 +81,9 @@
     "Ma_Noi_Dia": "806210",
     "So_Tai_Khoan": "11700291440",
     "MasterMerchantCode": "970489",
-    "Providerid": "600"
+    "Providerid": "600",
+    "IsUseExpDate": "false",
+    "ExpMinutes": 5
   },
   "VietQR": {
     "00": "01",
