@@ -22,13 +22,16 @@
 
 ###### :eight_spoked_asterisk: Tài liệu hỗ trợ
 
-[Tài liệu hướng dẫn cài đặt (md)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth-api.md)
+- [Tài liệu hướng dẫn cài đặt (md)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth-api.md)
 
-[Tích hợp API (md)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth.md)
+- [Tích hợp API (md)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth.md)
 
-[Tài liệu hướng dẫn cài đặt (pdf)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth.pdf)
+- [Tài liệu hướng dẫn cài đặt (pdf)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth.pdf)
 
-[Tích hợp API (pdf)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth-api.pdf)
+- [Tích hợp API (pdf)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth-api.pdf)
+
+- JTHeID.Setup.exe: `NAS: To Code/SOFTS/JTHeID.Setup.exe`
+- [JTHeID.Setup.exe] (https://gofile.me/78TQg/ZnOfo1tdX)
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
