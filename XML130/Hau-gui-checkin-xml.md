@@ -48,7 +48,7 @@
         public HOSO(string mabn, string makb, string maba, string mabattconbh2, OTH.Entity.Enum.BHXH.v_LoaiHoSoKCB loaiHoSoKCB)
 ```
 
-- Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên (Thực hiện tại Prescription, Treatment):
+- Chức năng: Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên (Thực hiện tại Prescription, Treatment). [^2024-10-11] ***Bổ sung thêm chức năng ghi nhận checkIn cận lâm sàng khi thực hiện `Lưu khám bệnh` với điều kiện xử lý khác lập hồ sơ Bệnh án (Nội trú, Ngoại trú), để đảm bảo những hồ sơ chuyển viện, hoặc chỉ có thuốc vẫn checkIn được CLS công khám.*** 
 
 ```/// <summary>
         /// Thực hiện đánh dấu Thực hiện checkIn khi có cận lâm sàng đầu tiên,
@@ -92,4 +92,16 @@
         public bool MarkCheckInCanlamsang(string macls)
 ```
 
+###### :eight_spoked_asterisk: Module Services gửi hồ sơ [^2024-10-11]
+
+- Ngày giờ hệ thống: **_Ngày_** để lấy thông tin hồ sơ dựa vào tham số **_`ngaylv`_**, **_Giờ_** sẽ lấy theo `giờ hệ thống` (máy chủ cài PostgreSQL).
+- Gửi lên cổng BHXH điều kiện hồ sơ phải có thông tin `mã thẻ`
+
+1. Loại gửi CheckIn dựa vào `xml130.psxml.ngay_checkin` lấy theo ngày bằng với Ngày giờ hệ thống, kèm điều kiện trạng thái gửi (`checkin_cls<=0 và macls<>''`, `checkin_thuoc<=0 và mahh_thuoc<>''`, `checkin_vtyt<=0 và mahh_vtyt<>''`), **_các loại mã này phải được cấu hình mã dùng chung theo qui định_**.
+2. Loại gửi Hồ sơ xml4750 dựa vào `xml130.psxml.ngay_ttoan` phải nhỏ hơn ngày giờ hệ thống trừ đi số phút lùi theo tham số `congdulieuBHXH.thoigian` và trạng thái chưa gửi `daguibhxh<=0`
+
+- Xử lý hồ sơ gửi gặp lỗi: nếu xảy ra lỗi trong quá trình gửi hồ sơ, sẽ ghi nhận tại số lần gửi gặp lỗi trong `xml130.psxml.checkin_error`, `xml130.psxml.hoso_error`, đồng thời ghi nhận thông tin lỗi lần cuối tại `xml130.psxml.checkin_error_message`, `xml130.psxml.hoso_error_message`.
+- **_Trường hợp một hồ sơ gặp lỗi khi gửi lớn hơn 20 lần, sẽ bỏ qua, không xử lý gửi hồ sơ này nữa._**
+
 [^2024-10-08]: Bổ sung chức năng ngày 2024-10-08
+[^2024-10-11]: Bổ sung chức năng ngày 2024-10-11
