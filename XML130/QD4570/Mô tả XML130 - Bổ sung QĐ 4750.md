@@ -252,6 +252,9 @@
 ➡️ Nếu `[psdangky.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
 ➡️ Nếu `psdangky.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**
 
+- Cập nhật: [^2024-10-11-01]<br/>
+➡️ Chức năng `hiệu chỉnh thông tin ngoại trú` và `hiệu chỉnh thông tin nội trú`: tại ô `CMND/CCCD/Hộ chiếu` khi lưu phải kiểm tra điều kiện HỢP LỆ tại ô này như sau (điều kiện tuần tự từ trên xuống):<br/>🔹9 hoặc 12 ký tự đều là chữ số (CMND/CCCD).<br/>🔹8 ký tự (Hộ chiếu): với ký tự đầu tiên phải là ký tự chữ cái IN HOA và 7 ký tự còn lại là chữ số.<br/>🔹9 ký tự (Hộ chiếu): với 2 ký tự đầu là chữ cái (IN HOA hoặc thường) và 7 ký tự còn lại là chữ số.<br/>🔹Các trường hợp còn lại là KHÔNG HỢP LỆ.
+
 :blue_book: Module Register/Prescription khi đăng ký tiếp nhận người bệnh: Bổ sung các Control:
 
 - Bổ sung Control để người tiếp nhận cập nhật trạng thái chuyển tuyến của người bệnh hoặc ghi nhận có giấy hẹn tái khám (tương ứng với cột `psdangky.trangthaichuyentuyen`). **Lưu ý**: <br/>
@@ -326,6 +329,8 @@
 ➡️ Nếu `[bnnoitru.manoigt là rỗng]` hoặc [`bnnoitru.manoigt khác rỗng` và `psdangky.trangthaichuyentuyen = 1`] thì `bnnoitru.tuyen = 1` *(người bệnh trái tuyến)*.<br/>
 ➡️ Nếu `[bnnoitru.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
 ➡️ Nếu `bnnoitru.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**
+- Cập nhật: [^2024-10-11-02]<br/>
+➡️ Chức năng `Tiếp nhận bệnh/Đăng ký KSK/Hiệu chỉnh thông tin bệnh nhân/Hiệu chỉnh thông tin bệnh nhân BA ngoại trú`: tại ô `CMND/CCCD/Hộ chiếu` khi lưu phải kiểm tra điều kiện HỢP LỆ tại ô này như sau (điều kiện tuần tự từ trên xuống):<br/>🔹9 hoặc 12 ký tự đều là chữ số (CMND/CCCD).<br/>🔹8 ký tự (Hộ chiếu): với ký tự đầu tiên phải là ký tự chữ cái IN HOA và 7 ký tự còn lại là chữ số.<br/>🔹9 ký tự (Hộ chiếu): với 2 ký tự đầu là chữ cái (IN HOA hoặc thường) và 7 ký tự còn lại là chữ số.<br/>🔹Các trường hợp còn lại là KHÔNG HỢP LỆ.
 
 :blue_book: Module Medicine:
 
@@ -382,6 +387,8 @@
 ➡️ Cập nhật `bnnoitru.tuyen = 0`.<br/>
 ➡️ Nếu `[bnnoitru.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
 ➡️ Nếu `bnnoitru.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**.
+- Cập nhật: [^2024-10-11-03]<br/>
+➡️ Chức năng `Hiệu chỉnh thông tin bệnh nhân nội trú`: tại ô `CMND/CCCD/Hộ chiếu` khi lưu phải kiểm tra điều kiện HỢP LỆ tại ô này như sau (điều kiện tuần tự từ trên xuống):<br/>🔹9 hoặc 12 ký tự đều là chữ số (CMND/CCCD).<br/>🔹8 ký tự (Hộ chiếu): với ký tự đầu tiên phải là ký tự chữ cái IN HOA và 7 ký tự còn lại là chữ số.<br/>🔹9 ký tự (Hộ chiếu): với 2 ký tự đầu là chữ cái (IN HOA hoặc thường) và 7 ký tự còn lại là chữ số.<br/>🔹Các trường hợp còn lại là KHÔNG HỢP LỆ.
 
 :blue_book: Module Printer:
 
@@ -452,6 +459,9 @@
 - Cập nhật hàm `SP_LIS_Result`: Từ chối nhận kết quả đối với các xét nghiệm chưa lấy mẫu hoặc không tồn tại trong dữ liệu chỉ định.
 - Gửi tài liệu cập nhật cho các đơn vị đối tác LIS. Chi tiết: [DH - Tai lieu API HIS-LIS - Token - 22-08-2024.pdf](https://github.com/user-attachments/files/16702957/DH.-.Tai.lieu.API.HIS-LIS.-.Token.-.22-08-2024.pdf)
 
+[^2024-10-11-03]: Thay đổi ngày 11/10/2024: Điều kiện ràng buộc khi hiệu chỉnh thông tin bệnh nhân tại `module Treatment` đối với  `CCCD/CMND/Hộ chiếu`. Chi tiết yêu cầu [#693](https://github.com/dh-hos/To_Lap_Trinh/issues/693)
+[^2024-10-11-02]: Thay đổi ngày 11/10/2024: Điều kiện ràng buộc khi hiệu chỉnh thông tin bệnh nhân tại `module Register/Prescription` đối với  `CCCD/CMND/Hộ chiếu`. Chi tiết yêu cầu [#693](https://github.com/dh-hos/To_Lap_Trinh/issues/693)
+[^2024-10-11-01]: Thay đổi ngày 11/10/2024: Điều kiện ràng buộc khi hiệu chỉnh thông tin bệnh nhân tại `module Admin` đối với  `CCCD/CMND/Hộ chiếu`. Chi tiết yêu cầu [#693](https://github.com/dh-hos/To_Lap_Trinh/issues/693)
 [^2024-10-09-01]: Thay đổi ngày 09/10/2024: Thay đổi diễn giải giá trị đối với tham số  `ma_loai_kcb.ba_ngoai_ngay`.
 [^2024-09-12-03]: Thay đổi ngày 12/09/2024: Bổ sung mô tả thông tin chuyển tuyến người bệnh lao khi tiếp nhận bệnh tại module Register, đối với `psdangky.trangthaichuyentuyen = 4 (Chuyển tuyến người bệnh khám và điều trị bệnh lao)` . Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
 [^2024-09-12-02]: Thay đổi ngày 12/09/2024: Bổ sung mô tả ràng buộc khi tiếp nhận bệnh tại module Register, đối với `psdangky.trangthaichuyentuyen = 5 hoặc 6 (Giấy hẹn lãnh thuốc)` . Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
