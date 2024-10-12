@@ -18,26 +18,22 @@
 
 ###### :eight_spoked_asterisk: Người lập: [**NGHỊ VĂN BI**](https://github.com/ongtrieuhau)
 
-###### :eight_spoked_asterisk: Ngày lập: **01/11/2023**
+###### :eight_spoked_asterisk: Ngày lập: **12/10/2024**
 
-###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
+###### :eight_spoked_asterisk: Khách hàng: **92118 - Bệnh viện phụ sản Cần thơ**
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
-- Ghi nhận thời gian cụ thể (giờ, phút, giây) thời gian đăng ký tại Kios của bệnh nhân.
+- Ghi nhận thêm thống tin bênh có dấu hiệu té ngã, phân loại bệnh nhân té ngã
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 
-Bi cập nhật cấu trúc:
-- Thêm cột ngaygiodk vào bảng current.pstiepnhan (Ghi nhận thời gian bệnh nhân đến lấy số tiếp nhận)
++ Cập nhật cấu trúc:
 
-ALTER TABLE current.pstiepnhan
-  ADD COLUMN ngaygiodk TIMESTAMP(0) WITHOUT TIME ZONE;
   
 :white_check_mark: **Xử lý**
-+ Module Ordinal:
- - Cập nhật thêm giá trị vào cột ngaygiodk.
- - Thêm một parameter ngaygiodk trên report in phiếu thứ tự hỗ trợ người dùng sử dụng khi có nhu cầu.
++ Module Register, Prescription:
+
   
