@@ -24,7 +24,7 @@
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
-- Ghi nhận thêm thống tin bênh có dấu hiệu té ngã, phân loại bệnh nhân té ngã
+- Ghi nhận thêm thông tin bênh có dấu hiệu té ngã, phân loại bệnh nhân té ngã
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
