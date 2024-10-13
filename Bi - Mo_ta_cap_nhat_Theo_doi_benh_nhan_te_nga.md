@@ -24,16 +24,66 @@
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
-- Ghi nhận thêm thông tin bênh có dấu hiệu té ngã, phân loại bệnh nhân té ngã
+- Phân loại bệnh nhân có nguy cơ té ngã, ghi nhận các dấu hiệu.
+- Hiển thị chỉ thỉ màu theo phân loại bệnh nhân có nguy cơ té ngã.
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 
 :white_check_mark: **Thay đổi cấu trúc dữ liệu**
 
 + Cập nhật cấu trúc:
+Thêm bảng dữ liệu "current.pstenga" cụ thể:
 
+CREATE TABLE current.pstenga (
+
+  mabn VARCHAR(20),
+  
+  makb VARCHAR(20),
+  
+  nguycocao NUMERIC(1,0),
+  
+  capcuunang NUMERIC(1,0),
+  
+  chidinhchamsoc NUMERIC(1,0),
+  
+  tsdiung NUMERIC(1,0),
+  
+  nhiem NUMERIC(1,0),
+  
+  khongnguoinha NUMERIC(1,0),
+  
+  khuyentat NUMERIC(1,0),
+  
+  uutienhotro NUMERIC(1,0),
+  
+  ycdichvu NUMERIC(1,0),
+  
+  loai NUMERIC(1,0)
+  
+) 
+
+WITH (oids = false);
+
+
+COMMENT ON COLUMN current.pstenga.loai
+IS 'Phân loại bệnh nhân té ngã';
+
+ALTER TABLE current.pstenga
+  OWNER TO postgres;
   
 :white_check_mark: **Xử lý**
-+ Module Register, Prescription:
+1. Module Register:
+
+- Bổ sung các control ghi nhận phận loại và dấu hiệu bệnh nhân có nguy cơ té ngã.
+- Cập nhật với current.pstenga theo lần khám.
+  
+2. Module Prescription:
+
+- Thể hiện thêm thông tin chỉ thị màu theo phân loại té ngã (nếu có), cụ thể (R,G,B):
+  + current.loai = 1 -->  (255, 0, 0);
+  + current.loai = 2 -->  (255, 255, 0);
+  + current.loai = 3 -->  (128, 0, 128);
+  + current.loai = 4 -->  (192, 192, 192);
+  + current.loai = 5 -->  (0, 176, 240);
 
   
