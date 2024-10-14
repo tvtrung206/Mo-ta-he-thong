@@ -59,6 +59,8 @@
 
 <p align="center"><img src="https://github.com/user-attachments/assets/dbe3603d-7a5c-4599-a8a3-7f5c2c25b26b" width="70%"></p>
 
+- Các biểu mẫu/thông tin có liên quan người nuôi dưỡng: ưu tiên lấy thông tin từ `ttcon.ho_ten_nnd`, nếu `ttcon.ho_ten_nnd` rỗng thì lấy thông tin người nuôi dưỡng là thông tin của sản phụ `(như cũ)`.
+
 :blue_book: Các phân hệ xuất và load dữ liệu **XML4750**:
 
 - Thực hiện xuất và load dữ liệu theo mô tả tại: [xml130.bang9: Chỉ tiêu dữ liệu giấy chứng sinh](https://github.com/dh-hos/Mo-ta-he-thong/blob/main/XML130/QD4570/Table%20xml130.bang09%20-%20%5BPh%E1%BB%A5%20l%E1%BB%A5c%20-%20M%C3%B4%20t%E1%BA%A3%20XML130%20-%20B%E1%BB%95%20sung%20Q%C4%90%204750%5D.md).
