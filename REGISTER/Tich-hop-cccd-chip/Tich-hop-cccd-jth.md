@@ -31,7 +31,10 @@
 - [Tích hợp API (pdf)](Tich-hop-doc-the-cccd-gan-chip-HN212-jth-api.pdf)
 
 - JTHeID.Setup.exe: `NAS: To Code/SOFTS/JTHeID.Setup.exe`
+
 - [JTHeID.Setup.exe] (https://gofile.me/78TQg/ZnOfo1tdX)
+
+- [.NET 6.0 Desktop Runtime (v6.0.35) - Windows x64 Installer](https://download.visualstudio.microsoft.com/download/pr/0bfb4b48-9221-491f-8157-eed2307f13e6/3d7890b36ae32759d141633afd43787e/windowsdesktop-runtime-6.0.35-win-x64.exe)
 
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
