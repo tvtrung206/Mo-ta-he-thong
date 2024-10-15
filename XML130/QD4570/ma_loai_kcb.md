@@ -9,7 +9,9 @@ Ghi nhận giá trị ưu tiên từ trên xuống:
 |05|Bệnh án ngoại trú thanh toán ngày (có khám bệnh và lĩnh thuốc).|[`bnnoitru.namvien = 0` và `bnnoitru.bant = 1`] và [`KHÔNG phát sinh cận lâm sàng, trừ công khám`] và [`CÓ toa thuốc`]|
 |01|Khám bệnh ngoại trú.||
 |02|Bệnh án ngoại trú thanh toán cuối đợt.|[`bnnoitru.namvien = 0` và `bnnoitru.bant = 0`]|
-|03|Bệnh án nội trú.||
+|03|Bệnh án nội trú.|`[bnnoitru.namvien = 1 AND bnnoitru.bangay != 1]`|
+|04|Bệnh án nội trú (ban ngày).[^2024-10-15-01]|`[bnnoitru.namvien = 1 AND bnnoitru.bangay = 1]`|
 |09|Bệnh án nội trú (dưới 4 giờ).||
 
-[^2024-09-12-01]: Thay đổi ngày 12/09/2024: Cập nhật điều kiện  đối với `ma_loai_kcb = '07'`.  Thay đổi theo yêu cầu [tại đây](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
+[^2024-10-15-01]: Thay đổi ngày 15/10/2024: Bổ sung  `ma_loai_kcb = '04'`: Bệnh án nội trú (ban ngày).  Bổ sung theo yêu cầu [#701](https://github.com/dh-hos/To_Lap_Trinh/issues/701).
+[^2024-09-12-01]: Thay đổi ngày 12/09/2024: Cập nhật điều kiện  đối với `ma_loai_kcb = '07'`.  Thay đổi theo yêu cầu [#127](https://github.com/dh-hos/THEO-DOI-THUC-HIEN/issues/127).
