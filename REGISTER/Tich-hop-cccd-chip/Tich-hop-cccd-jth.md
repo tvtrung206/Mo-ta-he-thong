@@ -39,7 +39,42 @@
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
+:white_check_mark: **Cấu hình ứng dụng quét căn cước công cân**
 
-:white_check_mark: **Xử lý nghiệp vụ tại Admin**
+![](https://i.imgur.com/jtSMbGc.png)
 
-:white_check_mark: **Xử lý nghiệp vụ tại Register**
+:white_check_mark: **Xử lý nghiệp vụ tại Admin và Register**
+
+- Sử dụng DLL `DH.GoiBenh.dll`.
+- Khởi tạo `WebhookCCCD` :
+  ```csharp
+    private WebhookCCCD _webhookListener;
+  ```
+
+- Khởi động WebhookListener và lắng nghe trên http://localhost:8050/ đã cấu hình.
+  ```csharp
+    _webhookListener = new WebhookCCCD();
+    _webhookListener.OnDataReceived += WebhookListener_OnDataReceived; //Khi dữ liệu được nhận, sự kiện này sẽ được kích hoạt, xữ lý dữ liệu nhận được trong hàm này.
+    _webhookListener.Start("http://localhost:8050/");
+  ```
+
+- Nhận giá trị từ máy quét và xử lý.
+  ```csharp
+    private void WebhookListener_OnDataReceived(string data)
+    {
+              // Data nhận được là một chuỗi dạng json.
+              // Ví dụ :
+                JObject jsonObject = JObject.Parse(data);
+    
+                // Cập nhật giá trị vào TextBox từ luồng chính (UI thread)
+                this.Invoke((Action)(() =>
+                {
+                    txtQR.Text = jsonObject["id_card"]?.ToString(); // Lấy giá trị "id_card"
+                }));
+    }
+  ```
+- Dừng WebhookListener khi không sử dụng.
+  ```csharp
+    _webhookListener.Stop();
+  ```
+
