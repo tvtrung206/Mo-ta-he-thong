@@ -119,7 +119,7 @@
    + Bước 1: Mở ứng dụng JTH và đăng nhập.
    + Bước 2: Mở giao diện `Đăng ký KCB` trên Register
    + Bước 3: Ấn vào nút đăng ký và đặt thẻ CCCD vào máy HN-212
-     ![](https://i.imgur.com/yuRH81g.gif)
+     ![](https://i.imgur.com/5OzLhmt.gif)
 
 ###### :eight_spoked_asterisk: Triển khai.
 - Cài đặt ứng dụng JTH.
