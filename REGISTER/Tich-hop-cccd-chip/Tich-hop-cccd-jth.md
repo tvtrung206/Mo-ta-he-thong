@@ -113,7 +113,13 @@
 - Mở ứng dụng JTH và đăng nhập bằng tài khoản được cấp.
 - Mở ứng dụng HIS đã tích hợp chức năng quét CCCD bằng thiết bị gắn chip HN-212.
 - Tại ứng dụng HIS, mở form cần lấy thông tin CCCD sau đó đặt thẻ CCCD vào thiết bị gắn chin HN-212.
-  ![](https://i.imgur.com/GriJSHQ.png)
+  ![](https://i.imgur.com/GriJSHQ.png).
+
+ - **Sử dụng chức năng trên Register**
+   + Bước 1: Mở ứng dụng JTH và đăng nhập.
+   + Bước 2: Mở giao diện `Đăng ký KCB` trên Register
+   + Bước 3: Ấn vào nút đăng ký và đặt thẻ CCCD vào máy HN-212
+     ![](https://i.imgur.com/yuRH81g.gif)
 
 ###### :eight_spoked_asterisk: Triển khai.
 - Cài đặt ứng dụng JTH.
