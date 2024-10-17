@@ -85,10 +85,10 @@ ALTER TABLE current.pstenga
 2. Module Prescription:
 
 - Thể hiện thêm thông tin chỉ thị màu theo phân loại té ngã (nếu có) tại danh sách khám, cụ thể (R,G,B):
-  + current.loai = 1 -->  (255, 0, 0);
-  + current.loai = 2 -->  (255, 255, 0);
-  + current.loai = 3 -->  (128, 0, 128);
-  + current.loai = 4 -->  (192, 192, 192);
-  + current.loai = 5 -->  (0, 176, 240);
+  + current.pstenga.loai = 1 -->  (255, 0, 0);
+  + current.pstenga.loai = 2 -->  (255, 255, 0);
+  + current.pstenga.loai = 3 -->  (128, 0, 128);
+  + current.pstenga.loai = 4 -->  (192, 192, 192);
+  + current.pstenga.loai = 5 -->  (0, 176, 240);
 
   
