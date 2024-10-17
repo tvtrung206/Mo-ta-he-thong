@@ -42,6 +42,8 @@ CREATE TABLE current.pstenga (
   
   nguycocao NUMERIC(1,0),
   
+  nguycotrungbinh NUMERIC(1,0),
+  
   capcuunang NUMERIC(1,0),
   
   chidinhchamsoc NUMERIC(1,0),
@@ -57,6 +59,8 @@ CREATE TABLE current.pstenga (
   uutienhotro NUMERIC(1,0),
   
   ycdichvu NUMERIC(1,0),
+  
+  diem NUMERIC(3,0),
   
   loai NUMERIC(1,0)
   
@@ -76,6 +80,7 @@ ALTER TABLE current.pstenga
 
 - Bổ sung các control ghi nhận phận loại và dấu hiệu bệnh nhân có nguy cơ té ngã.
 - Cập nhật với current.pstenga theo lần khám.
+- Cập nhật in tem vòng tay với 4 dấu hiệu từ trên xuống theo thứ tự.
   
 2. Module Prescription:
 
