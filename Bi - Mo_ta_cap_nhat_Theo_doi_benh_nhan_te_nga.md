@@ -78,8 +78,8 @@ ALTER TABLE current.pstenga
 :white_check_mark: **Xử lý**
 1. Module Register:
 
-- Bổ sung các control ghi nhận phận loại và dấu hiệu bệnh nhân có nguy cơ té ngã.
-- Cập nhật với current.pstenga theo lần khám.
+- Bổ sung các control ghi nhận phân loại và dấu hiệu bệnh nhân có nguy cơ té ngã.
+- Cập nhật vào current.pstenga theo lần khám.
 - Cập nhật in tem vòng tay với 4 dấu hiệu từ trên xuống theo thứ tự.
   
 2. Module Prescription:
