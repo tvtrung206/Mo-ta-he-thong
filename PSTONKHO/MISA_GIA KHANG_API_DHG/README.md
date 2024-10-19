@@ -1,6 +1,8 @@
 # TÍCH HỢP MISA
 
-### Thông tin liên hệ ![Nhóm Zalo](tep-ho-tro/zalo-lien-he.png)
+### Thông tin liên hệ
+
+- ![Nhóm Zalo](tep-ho-tro/zalo-lien-he.png)
 
 ### Tài liệu kết nối
 
