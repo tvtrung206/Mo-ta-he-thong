@@ -34,4 +34,16 @@
 
 ###### :eight_spoked_asterisk: Danh mục kết nối
 
-- ![alt text](tep-ho-tro/danh-sach-danh-muc-ket-noi.png)
+1. Doanh thu khám chữa bệnh (chứng từ bán hàng, không kiêm xuất kho, cần chọn mã thống kê)
+
+2. Doanh thu bán thuốc, vật tư y tế (chứng từ bán hàng, không kiêm xuất kho (nếu trên 1 hóa đơn gồm 2 loại doanh thu (5111 và 5113), kiêm phiếu xuất kho (nếu trên 1 hóa đơn chỉ có bán thuốc và vật tư y tế), cần chọn mã thống kê)
+
+3. Phiếu xuất kho tương ứng với doanh thu bán ra (có chọn mã thống kê)
+
+4. Phiếu xuất kho tổng thể vào cuối tháng
+
+5. Chứng từ mua hàng hóa (kiêm phiếu nhập kho trong nước, nhập khẩu)
+
+6. Chứng từ mua dịch vụ
+
+_Mục 5 và 6 có thể chọn mã thống kê_
