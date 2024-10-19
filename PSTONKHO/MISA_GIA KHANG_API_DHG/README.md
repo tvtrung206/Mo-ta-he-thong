@@ -2,6 +2,7 @@
 
 ### Thông tin liên hệ
 
+- [Nhóm Zalo](https://zalo.me/g/rfempi753)
 - ![Nhóm Zalo](tep-ho-tro/zalo-lien-he.png)
 
 ### Tài liệu kết nối
