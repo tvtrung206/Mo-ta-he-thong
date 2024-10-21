@@ -247,7 +247,7 @@
 ⇒ Người bệnh trong tỉnh: `psdangky.tuyen = 0`  và `psdangky.tuyenxml = 0`.<br/>
 ⇒ Người bệnh ngoài tỉnh: Nếu `psdangky.giayxacnhancutru = 1` thì  `[psdangky.tuyen = 0 và psdangky.tuyenxml = 0]`, ngược lại `[psdangky.tuyen = 0 và psdangky.tuyenxml = 1]` `(theo Công văn 627, người bệnh trái tuyến được hưởng như đúng tuyến)`.<br/><br/>
 2️⃣ Điều kiện ràng buộc khi tham số `tuyenbv = 3` *(CSKCB tuyến tỉnh)*: <br/>
-➡️ Nếu `[psdangky.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `psdangky.tuyen = 0`.<br/>
+➡️ Nếu `[psdangky.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `psdangky.tuyen = 0`. *⚠️ Lưu ý:* đối với trường hợp này **KHÔNG** hiển thị message xác nhận có giấy chuyển tuyến.<br/>
 ➡️ Nếu `[psdangky.manoigt là rỗng]` hoặc [`psdangky.manoigt khác rỗng` và `psdangky.trangthaichuyentuyen = 1`] thì `psdangky.tuyen = 1` *(người bệnh trái tuyến)*.<br/>
 ➡️ Nếu `[psdangky.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
 ➡️ Nếu `psdangky.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**
@@ -285,7 +285,7 @@
 ⇒ Người bệnh trong tỉnh: `psdangky.tuyen = 0`  và `psdangky.tuyenxml = 0`.<br/>
 ⇒ Người bệnh ngoài tỉnh: Nếu `psdangky.giayxacnhancutru = 1` thì  `[psdangky.tuyen = 0 và psdangky.tuyenxml = 0]`, ngược lại `[psdangky.tuyen = 0 và psdangky.tuyenxml = 1]` `(theo Công văn 627, người bệnh trái tuyến được hưởng như đúng tuyến)`.<br/><br/>
 2️⃣ Điều kiện ràng buộc khi tham số `tuyenbv = 3` *(CSKCB tuyến tỉnh)*: <br/>
-➡️ Nếu `[psdangky.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `psdangky.tuyen = 0`.<br/>
+➡️ Nếu `[psdangky.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `psdangky.tuyen = 0`.  *⚠️ Lưu ý:* đối với trường hợp này **KHÔNG** hiển thị message xác nhận có giấy chuyển tuyến.[^2024-10-21-01]<br/>
 ➡️ Nếu `[psdangky.manoigt là rỗng]` hoặc [`psdangky.manoigt khác rỗng` và `psdangky.trangthaichuyentuyen = 1`] thì `psdangky.tuyen = 1` *(người bệnh trái tuyến)*.<br/>
 ➡️ Nếu `[psdangky.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
 ➡️ Nếu `psdangky.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**<br/>
@@ -325,7 +325,7 @@
 ⇒ Người bệnh trong tỉnh: `bnnoitru.tuyen = 0`  và `bnnoitru.tuyenxml = 0`.<br/>
 ⇒ Người bệnh ngoài tỉnh: Nếu `psdangky.giayxacnhancutru = 1` thì  `[bnnoitru.tuyen = 0 và bnnoitru.tuyenxml = 0]`, ngược lại `[bnnoitru.tuyen = 0 và bnnoitru.tuyenxml = 1]` `(theo Công văn 627, người bệnh trái tuyến được hưởng như đúng tuyến)`.<br/><br/>
 2️⃣ Điều kiện ràng buộc khi tham số `tuyenbv = 3` *(CSKCB tuyến tỉnh)*: <br/>
-➡️ Nếu `[bnnoitru.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `bnnoitru.tuyen = 0`.<br/>
+➡️ Nếu `[bnnoitru.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `bnnoitru.tuyen = 0`.  *⚠️ Lưu ý:* đối với trường hợp này **KHÔNG** hiển thị message xác nhận có giấy chuyển tuyến.<br/>
 ➡️ Nếu `[bnnoitru.manoigt là rỗng]` hoặc [`bnnoitru.manoigt khác rỗng` và `psdangky.trangthaichuyentuyen = 1`] thì `bnnoitru.tuyen = 1` *(người bệnh trái tuyến)*.<br/>
 ➡️ Nếu `[bnnoitru.manoigt khác rỗng]` *(có giấy chuyển tuyến tuyến dưới)*: cập nhật giá trị mặc định `psdangky.trangthaichuyentuyen = 2`: Chuyển tuyến đúng quy định (vượt khả năng điều trị/ngoài phạm vi chuyên môn của cơ sở KCB).<br/>
 ➡️ Nếu `bnnoitru.manoigt` khác rỗng thì bắt buộc cột `psdangky.trangthaichuyentuyen` phải có giá trị  **(bắt buộc phải chọn mới cho hiệu chỉnh)**
@@ -459,6 +459,7 @@
 - Cập nhật hàm `SP_LIS_Result`: Từ chối nhận kết quả đối với các xét nghiệm chưa lấy mẫu hoặc không tồn tại trong dữ liệu chỉ định.
 - Gửi tài liệu cập nhật cho các đơn vị đối tác LIS. Chi tiết: [DH - Tai lieu API HIS-LIS - Token - 22-08-2024.pdf](https://github.com/user-attachments/files/16702957/DH.-.Tai.lieu.API.HIS-LIS.-.Token.-.22-08-2024.pdf)
 
+[^2024-10-21-01]: Thay đổi ngày 21/10/2024: Bổ sung ràng buộc khi `[psdangky.manoigt khác rỗng]` và `psdangky.trangthaichuyentuyen IN (2,3,4,5)` thì `psdangky.tuyen = 0` (áp dụng khi tiếp nhận bệnh hoặc hiệu chỉnh thông tin bệnh nhân). Chi tiết yêu cầu [#706](https://github.com/dh-hos/To_Lap_Trinh/issues/706)
 [^2024-10-15-01]: Thay đổi ngày 15/10/2024: Sửa câu `Đối với psdangky.trangthaichuyentuyen = 5 hoặc 6 (Giấy hẹn lãnh thuốc)` thành `Đối với psdangky.trangthaichuyentuyen = 5 (Giấy hẹn lãnh thuốc)`. Vì, mô tả cho giấy hẹn lãnh thuốc bệnh nhân lao được mô tả ở dòng phía đó. Chi tiết yêu cầu [#699](https://github.com/dh-hos/To_Lap_Trinh/issues/699)
 [^2024-10-11-03]: Thay đổi ngày 11/10/2024: Điều kiện ràng buộc khi hiệu chỉnh thông tin bệnh nhân tại `module Treatment` đối với  `CCCD/CMND/Hộ chiếu`. Chi tiết yêu cầu [#693](https://github.com/dh-hos/To_Lap_Trinh/issues/693)
 [^2024-10-11-02]: Thay đổi ngày 11/10/2024: Điều kiện ràng buộc khi hiệu chỉnh thông tin bệnh nhân tại `module Register/Prescription` đối với  `CCCD/CMND/Hộ chiếu`. Chi tiết yêu cầu [#693](https://github.com/dh-hos/To_Lap_Trinh/issues/693)
