@@ -70,7 +70,9 @@
     "MasterMerchantCode": "970489",
     "Providerid": "600",
     "IsUseExpDate": "false",
-    "ExpMinutes": 5
+    "ExpMinutes": 5,
+    "IsUsePurpose": "false",
+    "Purpose": "{IdKhambenh}"
   },
   "VietinNhaThuoc": {
     "Merchant_ID": "1900345506",
@@ -83,7 +85,9 @@
     "MasterMerchantCode": "970489",
     "Providerid": "600",
     "IsUseExpDate": "false",
-    "ExpMinutes": 5
+    "ExpMinutes": 5,
+    "IsUsePurpose": "false",
+    "Purpose": "{IdKhambenh}"
   },
   "VietQR": {
     "00": "01",

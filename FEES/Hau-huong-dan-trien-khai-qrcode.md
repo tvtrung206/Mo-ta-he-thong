@@ -90,9 +90,15 @@ config.cmd --unattended --url https://github.com/dh-hos/79029-qrcode-bidv --toke
 ###### :eight_spoked_asterisk: Cấu hình tham số tạo QR đối tác
 
 - Tệp mẫu (thay đổi cấu hình khi triển khai các đơn vị khác): [main.js.option.json](File-ho-tro/QRCode/qrListener.js.option.json)
-- Bổ sung GenQR Vietin, BIDV với cấu hình sử dụng thời gian hết hạn của QR.![](https://i.imgur.com/xjuJOL8.png)
-  - **_`IsUseExpDate`_**: **_`false`_** => Cấu hình sử dụng thêm thời gian hết hạn của mã QR
+- Bổ sung GenQR Vietin, BIDV với cấu hình sử dụng thời gian hết hạn của QR.![](https://i.imgur.com/Xu21IhH.png)
+
+  - **_`IsUseExpDate`_**: **_`false`_** => Cấu hình sử dụng thêm thời gian hết hạn của mã QR. `True`: Có sử dụng, `False`: Không sử dụng
+
   - **_`ExpMinutes`_**: **_5_** => Cấu hình số phút hết hạn của mã QR
+
+  - **_`IsUsePurpose`_**: **_`false`_** => Cấu hình sử dụng thêm các thông tin lên mã QR. `True`: Có sử dụng, `False`: Không sử dụng
+
+  - **_`Purpose`_**: **_"Chuỗi cấu hình các tham số sẽ truyền vào, các giá trị hỗ trợ như sau: "_** => Cấu hình cấu trúc tham số của thông tin thêm: `Mabn` `Makb` `Maba` `Hoten` `Tuoi` `Ngaysinh` `Dienthoai` `Gioitinh` `Diachi` `Doituong` `Donvi` `IdKhambenh` (những thông tin trên tương tự trang in QRCode, hoặc trang in tự thiết kế), các thông tin phải đặt trong dấu `{` `}`, lúc tạo QR sẽ thay thế những thông tin này thực tế theo thông tin của bệnh nhân. VD: `{IdKhambenh} - {Hoten}`, đồng thời xóa các ký tự thừa nếu độ dài hơn 19 theo tài liệu sau: ![](https://i.imgur.com/mP1JZSy.png)
 
 ###### :eight_spoked_asterisk: Thiết kế QRCode trên màn hình hoặc trang in
 
