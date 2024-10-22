@@ -38,13 +38,13 @@
 - `Sử dụng (Chỉ lấy thông tin chẩn đoán khi Ra viện)`
   - Khi xuất XML4750 chỉ lấy các mã ICD, chẩn đoán được ghi nhận trên chức năng xuất viện đối với BA Nội trú, BA Ngoại trú.
   - Trường hợp Khám Ngoại trú vẫn gom hết tất cả ICD, chẩn đoán của cả đợt điều trị.
-  - Kiểm tra số lượng tối đa ICD theo tham số `ma_benh_kt.soluong` chỉ thực hiện trên chức năng Ra viện của hồ sơ BA.
+  - Kiểm tra số lượng tối đa ICD theo tham số `ma_benh_kt.soluong` chỉ thực hiện trên **chức năng Ra viện của hồ sơ BA**.
   - `chan_doan_rv`: `[Ngoại trú]=psdangky.kqcdoan` `[Bệnh án]:bnnoitru.kqcdoan + ‘;’ + bnnoitru.kqcdoanp`
   - `ma_benh_chinh`: `[Ngoại trú]=psdangky.maicd` `[Bệnh án]:bnnoitru.maicd`
   - `ma_benh_kt`: `[Ngoại trú]=psdangky.maicdp` `[Bệnh án]:bnnoitru.maicdp`
-- `Không sử dụng (Lấy tất cả thông tin chẩn đoán trong Đợt điềut trị)`
+- `Không sử dụng (Lấy tất cả thông tin chẩn đoán trong Đợt điều trị)`
   - Khi xuất XML4750 lấy tất cả ICD, chẩn đoán của cả đợt điều trị.
-  - Kiểm tra số lượng tối đa ICD theo tham số `ma_benh_kt.soluong` trên các chức năng có nhập liệu thông tin ICD (Khám bệnh, Thay đổi diễn biến...)
+  - Kiểm tra số lượng tối đa ICD theo tham số `ma_benh_kt.soluong` trên các chức năng có **nhập liệu thông tin ICD (Khám bệnh, Thay đổi diễn biến...)**
   - `chan_doan_rv`: `[Ngoại trú]=psdangky.kqcdoan` `[Bệnh án]:bnnoitru.kqcdoan + ‘;’ + bnnoitru.kqcdoanp`
   - `ma_benh_chinh`: `[Ngoại trú]=psdangky.maicd` `[Bệnh án]:bnnoitru.maicdxml`
   - `ma_benh_kt`: `[Ngoại trú]=psdangky.maicdp` `[Bệnh án]:bnnoitru.maicdpxml`
