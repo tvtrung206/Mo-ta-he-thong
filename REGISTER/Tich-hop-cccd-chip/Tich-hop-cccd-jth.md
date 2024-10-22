@@ -36,18 +36,25 @@
 
 - [.NET 6.0 Desktop Runtime (v6.0.35) - Windows x64 Installer](https://download.visualstudio.microsoft.com/download/pr/0bfb4b48-9221-491f-8157-eed2307f13e6/3d7890b36ae32759d141633afd43787e/windowsdesktop-runtime-6.0.35-win-x64.exe)
 
+- [HN212Plugin.Setup.exe] (https://gofile.me/78TQg/Lusl5C7Qt)
+
+- [HN212Plugin.Setup.exe.mp4] (https://gofile.me/78TQg/R2HYuEQCb)
+
 ###### :eight_spoked_asterisk: Yêu cầu phát sinh
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
+
 :white_check_mark: **Xử lý nghiệp vụ tại Admin và Register**
 
 - Sử dụng DLL `DH.GoiBenh.dll`.
 - Khởi tạo `WebhookCCCD` :
+
   ```csharp
     private WebhookCCCD _webhookListener;
   ```
 
 - Khởi động WebhookListener và lắng nghe trên http://localhost:8050/ đã cấu hình.
+
   ```csharp
     _webhookListener = new WebhookCCCD();
     _webhookListener.OnDataReceived += WebhookListener_OnDataReceived; //Khi dữ liệu được nhận, sự kiện này sẽ được kích hoạt, xữ lý dữ liệu nhận được trong hàm này.
@@ -55,13 +62,14 @@
   ```
 
 - Nhận giá trị từ máy quét và xử lý.
+
   ```csharp
     private void WebhookListener_OnDataReceived(string data)
     {
               // Data nhận được là một chuỗi dạng json.
               // Ví dụ :
                 JObject jsonObject = JObject.Parse(data);
-    
+
                 // Cập nhật giá trị vào TextBox từ luồng chính (UI thread)
                 this.Invoke((Action)(() =>
                 {
@@ -69,73 +77,75 @@
                 }));
     }
   ```
+
 - Dừng WebhookListener khi không sử dụng.
   ```csharp
     _webhookListener.Stop();
   ```
 
 ###### :eight_spoked_asterisk: Thực hiện kết nối
+
 - Kết nối máy quét CCCD gắn chip HN-212 với máy chạy ứng dụng HIS thông qua cổng USB.
 
   ![](https://i.imgur.com/E6HvhBw.png)
-  
+
 - Mở ứng dụng JTH hỗ trợ quét CCCD và đăng nhập bằng tài khoản được cấp.
 
   ![](https://i.imgur.com/ku2tAM0.png)
 
 ###### :eight_spoked_asterisk: Nhận dữ liệu.
+
 - Sau khi quét CCCD bằng máy quét gắn chip HN-212. Thông tin CCCD được hiển thị trên ứng dụng JTH.
 
   ![](https://i.imgur.com/94uv7OS.png)
-  
+
 - Ứng dụng JTH sẽ tự động gửi dữ liệu đến HIS thông qua API đã cấu hình bao gồm các trường như sau:
-  + `id_card` : Số CCCD.
-  + `full_name` : Họ và tên.
-  + `date_of_birth` : Ngày sinh.
-  + `gender` : Giới tính.
-  + `nationality` : Quốc tịch.
-  + `race` : Dân tộc.
-  + `religion` : Tôn giáo.
-  + `place_of_origin` : Quê quán.
-  + `place_of_residence` : Địa chỉ thường trú.
-  + `personal_identification` : Đặc điểm nhận dạng.
-  + `date_of_issue` : Ngày cấp CCCD.
-  + `date_of_expiry` : Ngày hết hạn CCCD.
-  + `father_name` : Họ tên cha.
-  + `mother_name` : Họ tên mẹ.
-  + `wife_name` : Tên Vợ/Chồng.
-  + `old_id_card` : Số CMND.
-  + `id_img` : Hình ảnh.
+
+  - `id_card` : Số CCCD.
+  - `full_name` : Họ và tên.
+  - `date_of_birth` : Ngày sinh.
+  - `gender` : Giới tính.
+  - `nationality` : Quốc tịch.
+  - `race` : Dân tộc.
+  - `religion` : Tôn giáo.
+  - `place_of_origin` : Quê quán.
+  - `place_of_residence` : Địa chỉ thường trú.
+  - `personal_identification` : Đặc điểm nhận dạng.
+  - `date_of_issue` : Ngày cấp CCCD.
+  - `date_of_expiry` : Ngày hết hạn CCCD.
+  - `father_name` : Họ tên cha.
+  - `mother_name` : Họ tên mẹ.
+  - `wife_name` : Tên Vợ/Chồng.
+  - `old_id_card` : Số CMND.
+  - `id_img` : Hình ảnh.
 
 - Phần mềm HIS sẽ phân tích dữ liệu nhận được và điền vào các ô cần thiết.
 
 ###### :eight_spoked_asterisk: Cách sử dụng.
+
 - Mở ứng dụng JTH và đăng nhập bằng tài khoản được cấp.
 - Mở ứng dụng HIS đã tích hợp chức năng quét CCCD bằng thiết bị gắn chip HN-212.
 - Tại ứng dụng HIS, mở form cần lấy thông tin CCCD sau đó đặt thẻ CCCD vào thiết bị gắn chin HN-212.
   ![](https://i.imgur.com/GriJSHQ.png).
 
- - **Sử dụng chức năng trên Register**
-   + Bước 1: Mở ứng dụng JTH và đăng nhập.
-   + Bước 2: Mở giao diện `Đăng ký KCB` trên Register
-   + Bước 3: Ấn vào nút đăng ký và đặt thẻ CCCD vào máy HN-212
-     ![](https://i.imgur.com/5OzLhmt.gif)
+- **Sử dụng chức năng trên Register**
+  - Bước 1: Mở ứng dụng JTH và đăng nhập.
+  - Bước 2: Mở giao diện `Đăng ký KCB` trên Register
+  - Bước 3: Ấn vào nút đăng ký và đặt thẻ CCCD vào máy HN-212
+    ![](https://i.imgur.com/5OzLhmt.gif)
 
 ###### :eight_spoked_asterisk: Triển khai.
+
 - Cài đặt ứng dụng JTH.
 - Cấu hình ứng dụng JTH.
-  
+
   ![](https://i.imgur.com/jtSMbGc.png)
-  
+
 - Cài đặt `.NET 6.0 Desktop Runtime (v6.0.35)`.
 - Cập nhật ứng dụng HIS đã tích hợp chức năng quét CCCD bằng thiết bị gắn chin HN-212.
 
-
 ###### :eight_spoked_asterisk: Các điều kiện cần thiết.
+
 - Có thiết bị xác thực CCCD gắn chip HN-212.
 - Cài đặt đầy đủ các ứng dụng JTH, HIS và `.NET 6.0 Desktop Runtime (v6.0.35)`.
 - Cấu hình đúng WebHook URL để nhận dữ liệu được gửi từ ứng dụng JTH đến HIS.
-
-
-
-
