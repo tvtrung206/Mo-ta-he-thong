@@ -10,13 +10,13 @@
 </div>
 <div align="center">
 
-#### Chủ đề: MÔ TẢ BỔ SUNG THAM SỐ TÙY CHỌN ÁP DỤNG HIỂN THỊ DANH SÁCH Ê KÍP PT-TT
+#### Chủ đề: MÔ TẢ GIẤY CAM KẾT CHUYỂN CƠ SỞ KHÁM BỆNH, CHỮA BỆNH
 
 </div>
 
 ###### :eight_spoked_asterisk: Người lập: [**Nguyễn Triều Vương**](https://github.com/vuongdh)
 
-###### :eight_spoked_asterisk: Ngày lập: **13/08/2024**
+###### :eight_spoked_asterisk: Ngày lập: **23/10/2024**
 
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
