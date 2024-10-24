@@ -23,26 +23,25 @@
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 ###### :eight_spoked_asterisk: Thay đổi cấu trúc dữ liệu
 
-```sql
+```SQL: Cập nhật cấu trúc bảng current.chuyenvien thêm cột la_nguoi_benh
+ALTER TABLE current.chuyenvien
+  ADD COLUMN la_nguoi_benh NUMERIC(1,0);
 
-INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
-SELECT (SELECT CAST(MAX(id) AS DECIMAL)+ 1 FROM current.system),
-		'ekip.pttt',
-        'Ê kíp phẫu thuật thủ thuật chỉ hiển thị nhân viên có chứng chỉ hành nghề.' 
-        || E'\n' 
-        ||'Giá trị:' || E'\n' 
-        ||'- 0 (hoặc null): Không áp dụng (hiển thị tất cả).' || E'\n' 
-        ||'- 1: Áp dụng (chỉ hiển thị nhân viên có chứng chỉ hành nghề).',
-        '0',
-        '1',
-        '0'
-        WHERE NOT EXISTS
-        	(
-            	SELECT tents FROM current.system
-        		WHERE UPPER(tents) = UPPER('ekip.pttt')
-        	);
+COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
+IS '0: Là người bệnh
+1: Là người thân';
 ```
+```SQL: Cập nhật cấu trúc bảng current.psdangky
+ALTER TABLE current.psdangky
+  ADD COLUMN namsinhqh DATE;
+COMMENT ON COLUMN current.psdangky.namsinhqh
+IS 'Ngày tháng năm sinh người thân bệnh nhân';
 
+ALTER TABLE current.psdangky
+  ADD COLUMN tuoiqh NUMERIC(2,0);
+COMMENT ON COLUMN current.psdangky.tuoiqh
+IS 'Tuổi người thân bệnh nhân';
+```
 :white_check_mark: **Treatment**
 - Lập phiếu phẫu thuật:
   ![image](https://github.com/user-attachments/assets/dec40ce8-2177-476e-ab62-270c542a0c22)
