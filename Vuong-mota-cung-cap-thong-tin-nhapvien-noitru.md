@@ -62,11 +62,11 @@ IS 'Giấy tờ khác';
 
 :blue_book: Form danh sách điều trị
 
-    ![image](https://github.com/user-attachments/assets/b8a6ca7e-ea49-469c-b2c4-dbe5369d0325)
+  ![image](https://github.com/user-attachments/assets/b8a6ca7e-ea49-469c-b2c4-dbe5369d0325)
 
-    - Bổ sung chức năng cho người dùng cập nhật và in giấy cung cấp thông tin và cam kết chung về nhập viện nội trú
+  Bổ sung chức năng cho người dùng cập nhật và in giấy cung cấp thông tin và cam kết chung về nhập viện nội trú
 
-    ![image](https://github.com/user-attachments/assets/e3b6869d-540c-4a5b-9316-52d44966f1db)
+  ![image](https://github.com/user-attachments/assets/e3b6869d-540c-4a5b-9316-52d44966f1db)
 
     
 
