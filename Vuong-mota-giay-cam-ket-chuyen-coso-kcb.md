@@ -27,33 +27,17 @@
 
  Câu SQL Insert tham số:
 ```sql
-
-INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
-SELECT (SELECT CAST(MAX(id) AS DECIMAL)+ 1 FROM current.system),
-		'ekip.pttt',
-        'Ê kíp phẫu thuật thủ thuật chỉ hiển thị nhân viên có chứng chỉ hành nghề.' 
-        || E'\n' 
-        ||'Giá trị:' || E'\n' 
-        ||'- 0 (hoặc null): Không áp dụng (hiển thị tất cả).' || E'\n' 
-        ||'- 1: Áp dụng (chỉ hiển thị nhân viên có chứng chỉ hành nghề).',
-        '0',
-        '1',
-        '0'
-        WHERE NOT EXISTS
-        	(
-            	SELECT tents FROM current.system
-        		WHERE UPPER(tents) = UPPER('ekip.pttt')
-        	);
-```
-
-```
-
 ALTER TABLE current.chuyenvien
   ADD COLUMN la_nguoi_benh NUMERIC(1,0);
 
 COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
 IS '0: Là người bệnh
 1: Là người thân';
+```
+
+```
+
+
 ```
 
  SQL: Cập nhật cấu trúc bảng current.psdangky
