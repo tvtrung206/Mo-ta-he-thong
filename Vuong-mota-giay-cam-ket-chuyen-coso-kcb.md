@@ -46,11 +46,20 @@ COMMENT ON COLUMN current.psdangky.tuoiqh
 IS 'Tuổi người thân bệnh nhân';
 ```
 
-:blue_book: Bảng chuyenvien
+:blue_book: Bảng chuyenvien thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
 |1|la_benh_nhan|VNUMERIC(1,0)|Là bệnh nhân||
 
+:blue_book: Bảng psdangky thêm cột
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
+|:-------:|-------|:-------:|-------|:-------:|
+|1|namsinhqh|VNUMERIC(1,0)|Năm sinh người thân bệnh nhân||
+|2|tuoiqh|VNUMERIC(2,0)|Tuổi người thân bệnh nhân||
+
+:white_check_mark: **Prescription: xử lý**
+- Form nhập viện:
+    - 
 :white_check_mark: **Treatment**
 - Lập phiếu phẫu thuật:
   ![image](https://github.com/user-attachments/assets/dec40ce8-2177-476e-ab62-270c542a0c22)
