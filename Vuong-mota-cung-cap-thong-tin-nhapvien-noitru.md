@@ -53,10 +53,10 @@ IS 'Giấy tờ khác';
 :blue_book: Bảng bnnoitru thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
-|1|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-|2|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-|3|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-|4|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
+|1|bansao_cccd|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
+|2|the_bhyt|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
+|3|giay_cv|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
+|4|giay_to_khac|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
 
 :white_check_mark: **Prescription: xử lý**
 
