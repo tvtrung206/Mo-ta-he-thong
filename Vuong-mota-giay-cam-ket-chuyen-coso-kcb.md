@@ -54,8 +54,8 @@ IS 'Tuổi người thân bệnh nhân';
 :blue_book: Bảng psdangky thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
-|1|namsinhqh|VNUMERIC(1,0)|Năm sinh người thân bệnh nhân||
-|2|tuoiqh|VNUMERIC(2,0)|Tuổi người thân bệnh nhân||
+|1|namsinhqh|NUMERIC(1,0)|Năm sinh người thân bệnh nhân||
+|2|tuoiqh|NUMERIC(2,0)|Tuổi người thân bệnh nhân||
 
 :white_check_mark: **Prescription: xử lý**
 
