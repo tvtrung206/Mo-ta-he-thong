@@ -64,6 +64,7 @@ IS 'Tuổi người thân bệnh nhân';
     
 :white_check_mark: **Treatment: xứ lý**
 :blue_book: Thông tin bệnh nhân
+
 ![image](https://github.com/user-attachments/assets/fd3c6162-c893-4140-8470-2807445b0677)
 
     - Cập nhật thêm thông tin người thân: loại quan hệ, họ và tên quan hệ, địa chỉ, điện thoại (nếu chưa cập nhật ở form đăng ký)
