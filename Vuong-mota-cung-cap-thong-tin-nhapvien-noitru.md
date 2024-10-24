@@ -53,34 +53,22 @@ IS 'Giấy tờ khác';
 :blue_book: Bảng bnnoitru thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
-|1|bansao_cccd|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-|2|the_bhyt|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-|3|giay_cv|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-|4|giay_to_khac|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
+|1|bansao_cccd|NUMERIC(1,0)|Bản sao căn cước/hộ chiếu||
+|2|the_bhyt|NUMERIC(1,0)|Nộp thẻ bảo hiểm y tế||
+|3|giay_cv|NUMERIC(1,0)|Nộp giấy chuyển viện||
+|4|giay_to_khac|NUMERIC(1,0)|Nộp giấy tờ khác||
 
-:white_check_mark: **Prescription: xử lý**
+:white_check_mark: **Treatment: xử lý**
 
-:blue_book: Form nhập viện
+:blue_book: Form danh sách điều trị
 
-    - Cập nhật thêm thông tin người thân: loại quan hệ, họ và tên quan hệ, địa chỉ, điện thoại (nếu chưa cập nhật ở form đăng ký)
-    - Bổ sung thêm: ngày tháng năm sinh và tuổi của người thân
+    ![image](https://github.com/user-attachments/assets/b8a6ca7e-ea49-469c-b2c4-dbe5369d0325)
+
+    - Bổ sung chức năng cho người dùng cập nhật và in giấy cung cấp thông tin và cam kết chung về nhập viện nội trú
+
+    ![image](https://github.com/user-attachments/assets/e3b6869d-540c-4a5b-9316-52d44966f1db)
+
     
-:white_check_mark: **Treatment: xứ lý**
-
-:blue_book: Form: Thông tin bệnh nhân
-
-![image](https://github.com/user-attachments/assets/fd3c6162-c893-4140-8470-2807445b0677)
-
-    - Cập nhật thêm thông tin người thân: loại quan hệ, họ và tên quan hệ, địa chỉ, điện thoại (nếu chưa cập nhật ở form đăng ký)
-    - Bổ sung thêm: ngày tháng năm sinh và tuổi của người thân
-
-:blue_book: Form: chuyển viện
-
-![image](https://github.com/user-attachments/assets/7a991950-05d0-4404-8f0d-6ae0bde64eb4)
-
-Thêm nút xử lý và in ra giấy cam kết chuyển viện
-
-![image](https://github.com/user-attachments/assets/312a7c30-244d-443c-b09f-52575fcdc9c5)
 
 
 
