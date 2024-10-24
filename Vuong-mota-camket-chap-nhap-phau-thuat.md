@@ -32,7 +32,7 @@ COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
 IS '0: Là người bệnh
 1: Là người thân';
 ```
-:blue_book: Bảng psdangky thêm cột
+:blue_book: Bảng phauthuat thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
 |1|phauthuat_capcuu|NUMERIC(1,0)|1: Cấp cứu, 2: Bán cấp, 3: Chương trình/phiên||
