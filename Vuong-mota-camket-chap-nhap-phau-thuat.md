@@ -35,32 +35,14 @@ IS '0: Là người bệnh
 :blue_book: Bảng psdangky thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
-|1|manv_bspt|VARCHAR(20)|Mã Bs phẫu thuật. Tương đương với cột `dmnhanvien.manv`.||
-|2|manv_bsgm|VARCHAR(20)|Mã Bs gây mê. Tương đương với cột `dmnhanvien.manv`||
+|1|phauthuat_capcuu|NUMERIC(1,0)|1: Cấp cứu, 2: Bán cấp, 3: Chương trình/phiên||
+|2|manv_bspt|VARCHAR(20)|Mã Bs phẫu thuật. Tương đương với cột `dmnhanvien.manv`.||
+|3|manv_bsgm|VARCHAR(20)|Mã Bs gây mê. Tương đương với cột `dmnhanvien.manv`||
 
-:white_check_mark: **Prescription: xử lý**
-
-:blue_book: Form nhập viện
-
-    - Cập nhật thêm thông tin người thân: loại quan hệ, họ và tên quan hệ, địa chỉ, điện thoại (nếu chưa cập nhật ở form đăng ký)
-    - Bổ sung thêm: ngày tháng năm sinh và tuổi của người thân
-    
 :white_check_mark: **Treatment: xứ lý**
 
-:blue_book: Form: Thông tin bệnh nhân
+:blue_book: Form: Tình hình phẫu thuật
 
-![image](https://github.com/user-attachments/assets/fd3c6162-c893-4140-8470-2807445b0677)
-
-    - Cập nhật thêm thông tin người thân: loại quan hệ, họ và tên quan hệ, địa chỉ, điện thoại (nếu chưa cập nhật ở form đăng ký)
-    - Bổ sung thêm: ngày tháng năm sinh và tuổi của người thân
-
-:blue_book: Form: chuyển viện
-
-![image](https://github.com/user-attachments/assets/7a991950-05d0-4404-8f0d-6ae0bde64eb4)
-
-Thêm nút xử lý và in ra giấy cam kết chuyển viện
-
-![image](https://github.com/user-attachments/assets/312a7c30-244d-443c-b09f-52575fcdc9c5)
 
 
 
