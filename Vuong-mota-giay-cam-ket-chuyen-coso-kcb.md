@@ -49,7 +49,7 @@ IS 'Tuổi người thân bệnh nhân';
 :blue_book: Bảng chuyenvien thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
-|1|la_benh_nhan|VNUMERIC(1,0)|Là bệnh nhân||
+|1|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
 
 :blue_book: Bảng psdangky thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
