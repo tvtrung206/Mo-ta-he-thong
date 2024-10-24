@@ -24,8 +24,6 @@
 ###### :eight_spoked_asterisk: Thay đổi cấu trúc dữ liệu
 
  SQL: Cập nhật cấu trúc bảng current.chuyenvien thêm cột la_nguoi_benh
-
- Câu SQL Insert tham số:
 ```sql
 ALTER TABLE current.chuyenvien
   ADD COLUMN la_nguoi_benh NUMERIC(1,0);
@@ -34,14 +32,8 @@ COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
 IS '0: Là người bệnh
 1: Là người thân';
 ```
-
-```
-
-
-```
-
  SQL: Cập nhật cấu trúc bảng current.psdangky
-```
+```sql
 
 ALTER TABLE current.psdangky
   ADD COLUMN namsinhqh DATE;
