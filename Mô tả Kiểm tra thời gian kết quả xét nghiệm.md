@@ -32,7 +32,7 @@
 |3|xn.canhbaovuotthoigian|Số|Laboratory|Cảnh báo khi đã vượt quá `[Thời gian thực hiện y lệnh (lẫy mẫu)]/[Thời gian trả kết quả]`. Giá trị:<br/>- 0: Cảnh báo và `KHÔNG` cho phép lưu kết quả.<br/>- 1: Cảnh báo và `CHO PHÉP` lưu kết quả.|
 
 :blue_book: Cấu hình `[Số phút tối thiểu]/[Số phút trả kết quả]` theo giá trị tham số `xn.sophuttoithieu/xn.sophuttraketqua` và `[Danh mục loại cận lâm sàng]` trên module Admin:
-<p align="center"><img src="https://github.com/user-attachments/assets/4e18c74e-5cdf-4841-8138-8797175a5ca7" width="70%"></p>
+<p align="center"><img src="https://i.imgur.com/VYwqWhZ.png" width="70%"></p>
 
 :blue_book: Module Laboratory:
 
