@@ -47,6 +47,12 @@ ALTER TABLE current.psdangky
 COMMENT ON COLUMN current.psdangky.tuoiqh
 IS 'Tuổi người thân bệnh nhân';
 ```
+
+:blue_book: Bảng chuyenvien
+| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
+|:-------:|-------|:-------:|-------|:-------:|
+|1|la_benh_nhan|VNUMERIC(1,0)|Là bệnh nhân||
+
 :white_check_mark: **Treatment**
 - Lập phiếu phẫu thuật:
   ![image](https://github.com/user-attachments/assets/dec40ce8-2177-476e-ab62-270c542a0c22)
