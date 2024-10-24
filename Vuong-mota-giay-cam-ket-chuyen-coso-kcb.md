@@ -58,11 +58,13 @@ IS 'Tuổi người thân bệnh nhân';
 |2|tuoiqh|VNUMERIC(2,0)|Tuổi người thân bệnh nhân||
 
 :white_check_mark: **Prescription: xử lý**
+
 :blue_book: Form nhập viện
     - Cập nhật thêm thông tin người thân: loại quan hệ, họ và tên quan hệ, địa chỉ, điện thoại (nếu chưa cập nhật ở form đăng ký)
     - Bổ sung thêm: ngày tháng năm sinh và tuổi của người thân
     
 :white_check_mark: **Treatment: xứ lý**
+
 :blue_book: Thông tin bệnh nhân
 
 ![image](https://github.com/user-attachments/assets/fd3c6162-c893-4140-8470-2807445b0677)
