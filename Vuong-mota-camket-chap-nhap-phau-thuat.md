@@ -32,30 +32,11 @@ COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
 IS '0: Là người bệnh
 1: Là người thân';
 ```
- SQL: Cập nhật cấu trúc bảng current.psdangky
-```sql
-
-ALTER TABLE current.psdangky
-  ADD COLUMN namsinhqh DATE;
-COMMENT ON COLUMN current.psdangky.namsinhqh
-IS 'Ngày tháng năm sinh người thân bệnh nhân';
-
-ALTER TABLE current.psdangky
-  ADD COLUMN tuoiqh NUMERIC(2,0);
-COMMENT ON COLUMN current.psdangky.tuoiqh
-IS 'Tuổi người thân bệnh nhân';
-```
-
-:blue_book: Bảng chuyenvien thêm cột
-| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
-|:-------:|-------|:-------:|-------|:-------:|
-|1|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-
 :blue_book: Bảng psdangky thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
-|1|namsinhqh|VNUMERIC(1,0)|Năm sinh người thân bệnh nhân||
-|2|tuoiqh|VNUMERIC(2,0)|Tuổi người thân bệnh nhân||
+|1|manv_bspt|VARCHAR(20)|Mã Bs phẫu thuật. Tương đương với cột `dmnhanvien.manv`.||
+|2|manv_bsgm|VARCHAR(20)|Mã Bs gây mê. Tương đương với cột `dmnhanvien.manv`||
 
 :white_check_mark: **Prescription: xử lý**
 
