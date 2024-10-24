@@ -60,6 +60,7 @@ IS 'Tuổi người thân bệnh nhân';
 :white_check_mark: **Prescription: xử lý**
 
 :blue_book: Form nhập viện
+
     - Cập nhật thêm thông tin người thân: loại quan hệ, họ và tên quan hệ, địa chỉ, điện thoại (nếu chưa cập nhật ở form đăng ký)
     - Bổ sung thêm: ngày tháng năm sinh và tuổi của người thân
     
