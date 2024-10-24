@@ -23,39 +23,40 @@
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
 ###### :eight_spoked_asterisk: Thay đổi cấu trúc dữ liệu
 
- SQL: Cập nhật cấu trúc bảng current.chuyenvien thêm cột la_nguoi_benh
+ SQL: Cập nhật cấu trúc bảng current.bnnoitru
 ```sql
-ALTER TABLE current.chuyenvien
-  ADD COLUMN la_nguoi_benh NUMERIC(1,0);
+ALTER TABLE current.bnnoitru
+  ADD COLUMN bansao_cccd NUMERIC(1,0);
+COMMENT ON COLUMN current.bnnoitru.bansao_cccd
+IS '0: Không nộp
+1: Có nộp';
 
-COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
-IS '0: Là người bệnh
-1: Là người thân';
+ALTER TABLE current.bnnoitru
+  ADD COLUMN the_bhyt NUMERIC(1,0);
+COMMENT ON COLUMN current.bnnoitru.the_bhyt
+IS '0: Không nộp
+1: Có nộp
+2: Có, không mang theo';
+
+ALTER TABLE current.bnnoitru
+  ADD COLUMN giay_cv NUMERIC(1,0);
+COMMENT ON COLUMN current.bnnoitru.giay_cv
+IS '0: Không nộp
+1: Có nộp';
+
+ALTER TABLE current.bnnoitru
+  ADD COLUMN giay_to_khac NUMERIC(1,0);
+COMMENT ON COLUMN current.bnnoitru.giay_to_khac
+IS 'Giấy tờ khác';
 ```
- SQL: Cập nhật cấu trúc bảng current.psdangky
-```sql
 
-ALTER TABLE current.psdangky
-  ADD COLUMN namsinhqh DATE;
-COMMENT ON COLUMN current.psdangky.namsinhqh
-IS 'Ngày tháng năm sinh người thân bệnh nhân';
-
-ALTER TABLE current.psdangky
-  ADD COLUMN tuoiqh NUMERIC(2,0);
-COMMENT ON COLUMN current.psdangky.tuoiqh
-IS 'Tuổi người thân bệnh nhân';
-```
-
-:blue_book: Bảng chuyenvien thêm cột
+:blue_book: Bảng bnnoitru thêm cột
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
 |1|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
-
-:blue_book: Bảng psdangky thêm cột
-| STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
-|:-------:|-------|:-------:|-------|:-------:|
-|1|namsinhqh|VNUMERIC(1,0)|Năm sinh người thân bệnh nhân||
-|2|tuoiqh|VNUMERIC(2,0)|Tuổi người thân bệnh nhân||
+|2|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
+|3|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
+|4|la_benh_nhan|VNUMERIC(1,0)|0: là bệnh nhân, 1: là người thân||
 
 :white_check_mark: **Prescription: xử lý**
 
