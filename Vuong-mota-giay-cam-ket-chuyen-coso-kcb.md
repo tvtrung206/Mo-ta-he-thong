@@ -21,14 +21,8 @@
 ###### :eight_spoked_asterisk: Khách hàng: **Tất cả khách hàng sử dụng DHG.Hospital**
 
 ###### :eight_spoked_asterisk: Xử lý yêu cầu
-###### :eight_spoked_asterisk: Thêm tham số: ekip.pttt
+###### :eight_spoked_asterisk: Thay đổi cấu trúc dữ liệu
 
-	ekip.pttt: Ê kíp phẫu thuật thủ thuật chỉ hiển thị nhân viên có chứng chỉ hành nghề
- 	Giá trị: 
-  		- 0: Không áp dụng (hiển thị tất cả nhân viên (mặc định))
-    	- 1: Áp dụng (chỉ hiển thị nhân viên có CCHN)
-
-Câu SQL Insert tham số:
 ```sql
 
 INSERT INTO  current.system(id,tents,diengiai,giatri,loai,module)
