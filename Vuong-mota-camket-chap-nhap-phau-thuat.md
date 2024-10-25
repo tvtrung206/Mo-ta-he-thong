@@ -111,6 +111,17 @@ IS 'Nội dung đã nghe bác sĩ giải thích có thể gặp khi phẫu thu�
 
 :blue_book: Form: Tình hình phẫu thuật
 
+![image](https://github.com/user-attachments/assets/653fdcb2-d0c9-4115-93bc-17b9c3bec9a6)
+
+Xử lý thêm chức năng và in phiếu GIẤY CAM KẾT CHẤP THUẬN PHẪU THUẬT, THỦ THUẬT VÀ GÂY MÊ HỒI SỨC
+
+![image](https://github.com/user-attachments/assets/7a3e00d3-48da-44dc-9ced-c2cc9793f192)
+
+![image](https://github.com/user-attachments/assets/19414123-bbd2-41db-8fc3-b677afbc7d20)
+
+
+
+
 
 
 
