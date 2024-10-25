@@ -25,12 +25,70 @@
 
  SQL: Cập nhật cấu trúc bảng current.chuyenvien thêm cột la_nguoi_benh
 ```sql
-ALTER TABLE current.chuyenvien
-  ADD COLUMN la_nguoi_benh NUMERIC(1,0);
+ALTER TABLE current.phauthuat
+  ADD COLUMN phauthuat_capcuu NUMERIC(1,0);
+COMMENT ON COLUMN current.phauthuat.phauthuat_capcuu
+IS '1: Cấp cứu, 2: Bán cấp, 3: Chương trình/phiên';
 
-COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
-IS '0: Là người bệnh
-1: Là người thân';
+ALTER TABLE current.phauthuat
+  ADD COLUMN manv_bspt VARCHAR(20);
+COMMENT ON COLUMN current.phauthuat.manv_bspt
+IS 'Mã Bs phẫu thuật';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN manv_bsgm VARCHAR(20);
+COMMENT ON COLUMN current.phauthuat.manv_bsgm
+IS 'Mã Bs gây mê';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN vande_lienquan VARCHAR(20);
+COMMENT ON COLUMN current.phauthuat.vande_lienquan
+IS 'Vấn đề liên quan: chẩn đoán, lý do phẫu thuật, thủ thuật,...(chọn 1 hoặc nhiều vấn đề)';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN ketqua_sau_phauthuat VARCHAR;
+COMMENT ON COLUMN current.phauthuat.ketqua_sau_phauthuat
+IS 'Kết quả sau phẫu thuật (dự kiến)';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN phuongphap_phauthuat NUMERIC(1,0);
+COMMENT ON COLUMN current.phauthuat.phuongphap_phauthuat
+IS 'Phương pháp phẫu thuật, thủ thuật.
+- 1: Phẫu thuật mở
+- 2: Phẫu thuật nội soi
+- 3: Thủ thuật';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN phuongphap_gayme VARCHAR(20);
+COMMENT ON COLUMN current.phauthuat.phuongphap_gayme
+IS 'Phương pháp gây mê (Chọn 1 hoặc nhiều phương pháp gây mê)';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN dieutri_ngoai_phauthuat NUMERIC(1,0);
+COMMENT ON COLUMN current.phauthuat.dieutri_ngoai_phauthuat
+IS 'Điều trị ngoài phẫu thuật/thủ thuật.
+- 0: Không
+- 1: Có';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN dieutri_ngoaipt_cuthe VARCHAR;
+COMMENT ON COLUMN current.phauthuat.dieutri_ngoaipt_cuthe
+IS 'Phương pháp điều trị ngoài phẫu thuật, bắt buột nhập khi cột dieutri_ngoai_phauthuat = 1';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN taibien_phauthuat VARCHAR;
+COMMENT ON COLUMN current.phauthuat.taibien_phauthuat
+IS 'Nguy cơ, tai biến trong và sau phẫu thuật (Chọn 1 hoặc nhiều nhiều)';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN taibien_khac VARCHAR;
+COMMENT ON COLUMN current.phauthuat.taibien_khac
+IS 'Nguy cơ/rủi ro khác';
+
+ALTER TABLE current.phauthuat
+  ADD COLUMN noidung_danghe VARCHAR;
+COMMENT ON COLUMN current.phauthuat.noidung_danghe
+IS 'Nội dung đã nghe bác sĩ giải thích có thể gặp khi phẫu thuật, thủ thuật';
 ```
 :blue_book: Bảng dữ liệu
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
