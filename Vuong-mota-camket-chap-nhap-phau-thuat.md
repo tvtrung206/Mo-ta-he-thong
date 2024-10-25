@@ -32,12 +32,22 @@ COMMENT ON COLUMN current.chuyenvien.la_nguoi_benh
 IS '0: Là người bệnh
 1: Là người thân';
 ```
-:blue_book: Bảng phauthuat thêm cột
+:blue_book: Bảng dữ liệu
 | STT | TÊN CỘT | KIỂU DỮ LIỆU | GHI CHÚ |INDEX|
 |:-------:|-------|:-------:|-------|:-------:|
 |1|phauthuat_capcuu|NUMERIC(1,0)|1: Cấp cứu, 2: Bán cấp, 3: Chương trình/phiên||
-|2|manv_bspt|VARCHAR(20)|Mã Bs phẫu thuật. Tương đương với cột `dmnhanvien.manv`.||
-|3|manv_bsgm|VARCHAR(20)|Mã Bs gây mê. Tương đương với cột `dmnhanvien.manv`||
+|2|manv_bspt|VARCHAR(20)|Mã Bs phẫu thuật. Tương đương với cột `dmnhanvien.manv`. <br/>**Lưu ý**:<br/>- Họ tên, chức danh: tương đương với các cột `dmnhanvien.holot, holot_thuan, ten`.<br/>- Khoa: tương đương với cột `dmnhanvien.madv --> dmdonvi.tendv`||
+|3|manv_bsgm|VARCHAR(20)|Mã Bs gây mê. Tương đương với cột `dmnhanvien.manv`. <br/>**Lưu ý**:<br/>- Họ tên, chức danh: tương đương với các cột `dmnhanvien.holot, holot_thuan, ten`.<br/>- Khoa: tương đương với cột `dmnhanvien.madv --> dmdonvi.tendv` ||
+|4|chandoan|| Chẩn đoán bệnh. Tương dương với cột `phauthaut.maicdt` , `phauthaut.kqcdoant`, `phauthaut.kqcdoanpt` ||
+|5|vande_lienquan|VARCHAR(20)| Vấn đề liên quan: chẩn đoán, lý do phẫu thuật, thủ thuật,...(chọn 1 hoặc nhiều vấn đề) ||
+|6|ketqua_sau_phauthuat|VARCHAR| Kết quả sau phẫu thuật (dự kiến) ||
+|7|phuongphap_phauthuat|NUMERIC(1,0)| Phương pháp phẫu thuật, thủ thuật.<br/> - 1: Phẫu thuật mở<br/> - 2: Phẫu thuật nội soi<br/> - 3: Thủ thuật||
+|8|phuongphap_gayme|VARCHAR(20)| Phương pháp gây mê (Chọn 1 hoặc nhiều phương pháp gây mê)||
+|9|dieutri_ngoai_phauthuat|NUMIRIC(1,0)| Điều trị ngoài phẫu thuật/thủ thuật.<br/> - 0: Không<br/> - 1: Có||
+|10|dieutri_ngoaipt_cuthe|VARCHAR| Phương pháp điều trị ngoài phẫu thuật, bắt buột nhập khi cột dieutri_ngoai_phauthuat = 1||
+|11|taibien_phauthuat|VARCHAR| Nguy cơ, tai biến trong và sau phẫu thuật (Chọn 1 hoặc nhiều nhiều)||
+|12|taibien_khac|VARCHAR| Nguy cơ/rủi ro khác||
+|13|noidung_danghe|VARCHAR| Nội dung đã nghe bác sĩ giải thích có thể gặp khi phẫu thuật, thủ thuật||
 
 :white_check_mark: **Treatment: xứ lý**
 
