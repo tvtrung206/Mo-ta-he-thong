@@ -86,12 +86,12 @@
 |1|thamso|VARCHAR(50)|Chính|Tên tham số (cấu hình)|X|
 |2|giatri|VARCHAR(255)||Giá trị cấu hình||
 - Tại chức năng `[Excel CV3360 - (Cổng update 27/8/2019)]`, bổ sung menu `[Cấu hình]` và `form cấu hình` tương ứng để người dùng cấu hình và tùy chọn phương thức xuất Excel 3360 cho các cột (Thêm 4 dòng dữ liệu vào table `current.cauhinh3360_4750` tương ứng 4 cấu hình):
-<p align="center"><img src="https://i.imgur.com/wo19agu.png" width="70%"></p>
+<p align="center"><img src="https://github.com/user-attachments/assets/d023f7b0-8f52-4469-ab0d-16e00032bd5d" width="70%"></p>
 
 |STT|Tên cột|Tên cấu hình (dữ liệu cột `cauhinh3360_4750.thamso`)|Giá trị (dữ liệu cột `cauhinh3360_4750.giatri`)|
 |:-------:|-------|-------|-------|
 |1|ngay_sinh|ngay_sinh|'0': Theo QĐ4210<br/>'1': Theo QĐ4750|
-|2|ma_lydo_vvien|ma_lydo_vvien|'0': Theo QĐ4210<br/>'1': Theo QĐ4750|
+|2|ma_lydo_vvien[^2024-10-28-02]|ma_lydo_vvien|'0': Theo QĐ4210<br/>'1': Theo QĐ4750 (Chi tiết theo ma_doituong_kcb)<br/>'2': Theo QĐ4750 (Theo MÃ NHÓM của ma_doituong_kcb)|
 |3|ket_qua_dtri|ket_qua_dtri|'0': Theo QĐ4210<br/>'1': Theo QĐ4750|
 |4|ma_loaikcb|ma_loaikcb|'0': Theo QĐ4210<br/>'1': Theo QĐ4750|
 - Khi xuất dữ liệu `[Excel CV3360 - (Cổng update 27/8/2019)]` tại form XML4750: dựa vào cấu hình trên để lấy dữ liệu theo chuẩn tương ứng đã cấu hình.
@@ -135,7 +135,8 @@
 |26|17|Số tiền từ nguồn ngoài khác thanh toán, như chi phí được thanh toán từ các nguồn tài trợ khác (như thuốc Glivec).|`= [1] + [2] + [3]`<br/><br/>Trong đó:<br/>1️⃣ Đối với thuốc/máu:<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh = 0` thì `[1] = SUM(bang2.t_bntt)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` và `bang2.tyle_tt_bh <> 0` thì `[1] = SUM(bang2.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang2.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]` thì `[1] = 0`.<br/><br/>2️⃣ Đối với VTYT (`bang3.ma_nhom = 10`):<br/>⇒ Nếu `dmthuoc.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = SUM(bang3.t_bncct)`.<br/>⇒ Nếu `dmthuoc.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[2] = 0`.<br/><br/>3️⃣ Đối với cận lâm sàng (`bang3.ma_nhom <> 10`):<br/>⇒ Nếu `dmcls.loainguonkhac = 1` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = SUM(bang3.t_bncct)`<br/>⇒ Nếu `dmcls.loainguonkhac = 0` và `bang3.sdnguonkhac = 1` và `[psdangky.sdnguonkhac = 1 hoặc bnnoitru.sdnguonkhac = 1]`thì `[3] = 0`.|
 |27|18|Số tiền người bệnh tự chi trả ngoài phạm vi được BHYT||
 
-[^2024-10-28-01]: Thay đổi ngày 25/10/2024: Điều chỉnh `Số tiền từ nguồn khác của chi phí thanh toán từ nguồn tập trung như thuốc kháng HIV.` của mẫu `C79-HD` cột 16 (thay đổi từ `t_bncct` sang `t_nguonkhac`). Chi tiết lỗi [#5](https://github.com/dh-his/Ghi_Nhan_Loi/issues/5#event-14860577861)
+[^2024-10-28-02]: Thay đổi ngày 28/10/2024: Bổ sung diễn giải cho cột `ma_lydo_vvien` khi cấu hình để xuất `Excel3360`. Chi tiết yêu cầu [#5](https://github.com/dh-his/Phieu_Yeu_Cau/issues/5)
+[^2024-10-28-01]: Thay đổi ngày 28/10/2024: Điều chỉnh `Số tiền từ nguồn khác của chi phí thanh toán từ nguồn tập trung như thuốc kháng HIV.` của mẫu `C79-HD` cột 16 (thay đổi từ `t_bncct` sang `t_nguonkhac`). Chi tiết lỗi [#5](https://github.com/dh-his/Ghi_Nhan_Loi/issues/5#event-14860577861)
 [^2024-10-16-01]: Thay đổi ngày 16/10/2024: Bổ sung điều kiện xuất `Excel3360` đối với cột `ma_loaikcb` đối với `ma_loai_kcb = '04'`. Chi tiết lỗi [#701](https://github.com/dh-hos/To_Lap_Trinh/issues/701)
 [^2024-10-25-01]: Thay đổi ngày 25/10/2024: Bổ sung chức năng cấu hình xuất `Excel3360` cho các cột: `ngay_sinh`, `ma_lydo_vvien`, `ket_qua_dtri` và `ma_loaikcb`. Chi tiết lỗi [#364](https://github.com/dh-hos/Yeu_cau_ho_tro/issues/364)
 [^2024-10-16-01]: Thay đổi ngày 16/10/2024: Bổ sung điều kiện xuất `Excel3360` đối với cột `ma_loaikcb` đối với `ma_loai_kcb = '04'`. Chi tiết lỗi [#701](https://github.com/dh-hos/To_Lap_Trinh/issues/701)
