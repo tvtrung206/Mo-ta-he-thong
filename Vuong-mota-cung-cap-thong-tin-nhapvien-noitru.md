@@ -45,7 +45,7 @@ IS '0: Không nộp
 1: Có nộp';
 
 ALTER TABLE current.bnnoitru
-  ADD COLUMN giay_to_khac NUMERIC(1,0);
+  ADD COLUMN giay_to_khac VARCHAR;
 COMMENT ON COLUMN current.bnnoitru.giay_to_khac
 IS 'Giấy tờ khác';
 ```
@@ -56,7 +56,7 @@ IS 'Giấy tờ khác';
 |1|bansao_cccd|NUMERIC(1,0)|Bản sao căn cước/hộ chiếu||
 |2|the_bhyt|NUMERIC(1,0)|Nộp thẻ bảo hiểm y tế||
 |3|giay_cv|NUMERIC(1,0)|Nộp giấy chuyển viện||
-|4|giay_to_khac|NUMERIC(1,0)|Nộp giấy tờ khác||
+|4|giay_to_khac|VARCHAR|Nộp giấy tờ khác||
 
 :white_check_mark: **Treatment: xử lý**
 
