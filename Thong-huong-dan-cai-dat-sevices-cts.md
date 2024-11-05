@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/bbc6d1d3-d9f2-465b-a76d-cd0a4bb9a36a)<div align="center">
+<div align="center">
 
 `Công ty TNHH Giải Pháp Kỹ Thuật Số DH - Mẫu: DH-02: Mô tả thay đổi hệ thống DHG.Hospital 3.1`
 
