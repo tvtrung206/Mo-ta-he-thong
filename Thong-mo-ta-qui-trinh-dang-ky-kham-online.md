@@ -50,9 +50,9 @@
     + relativeType VARCHAR(100) : Mã mối quan hệ.
     + relativeName VARCHAR(100) : Tên mối quan hệ.
     
-3. Sau khi dữ liệu được phát sinh vào bảng `datlichkham.dangkykol`, moduel Register sẻ hiển thị danh sách bệnh nhân đăng ký khám theo ngày khám (datlichkham.dangkykol.date) và mã đơn vị (datlichkham.dangkykol.specialityid).
+3. Sau khi dữ liệu được phát sinh vào bảng `datlichkham.dangkykol`, tại moduel `Register - form Đăng ký KCB - tab Danh sách bệnh nhân WEB` sẽ hiển thị danh sách bệnh nhân đăng ký khám theo ngày khám (datlichkham.dangkykol.date) và mã đơn vị (datlichkham.dangkykol.specialityid).
      ![](https://i.imgur.com/rp3kDKS.png)
-3. Để tiếp nhận bệnh nhân, click vào nút đăng ký khám bệnh.
+3. Để tiếp nhận bệnh nhân, click vào nút đăng ký khám bệnh, thông tin bệnh nhân sẽ được chuyển qua form tiếp nhận.
      ![](https://i.imgur.com/Jyy3mO8.gif)
 
  
